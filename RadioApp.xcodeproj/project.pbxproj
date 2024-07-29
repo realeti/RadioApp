@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6C4D04F2C57F9F500F111B1 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4D04E2C57F9F500F111B1 /* PopularViewController.swift */; };
+		C6C4D0542C57FF7400F111B1 /* PopularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4D0532C57FF7400F111B1 /* PopularView.swift */; };
+		C6C4D0562C58039900F111B1 /* PopularViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4D0552C58039900F111B1 /* PopularViewModel.swift */; };
+		C6C4D0592C580A1800F111B1 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4D0582C580A1800F111B1 /* PopularCollectionViewCell.swift */; };
 		CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8C952C5698E400D280FE /* AppDelegate.swift */; };
 		CB2C8C982C5698E400D280FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8C972C5698E400D280FE /* SceneDelegate.swift */; };
 		CB2C8CA02C5698E400D280FE /* RadioApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8C9E2C5698E400D280FE /* RadioApp.xcdatamodeld */; };
@@ -18,11 +22,14 @@
 		CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8CB92C57AB5800D280FE /* Configurable.swift */; };
 		CB2C8CC02C57B1A000D280FE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8CBF2C57B1A000D280FE /* TabBarController.swift */; };
 		CB2C8CC42C57BFE500D280FE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CB2C8CC32C57BFE500D280FE /* SnapKit */; };
-		CB2C8CC62C57BFE500D280FE /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CB2C8CC52C57BFE500D280FE /* SnapKit-Dynamic */; };
 		CB2C8CC82C57C8AB00D280FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB2C8CC72C57C8AB00D280FE /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C6C4D04E2C57F9F500F111B1 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
+		C6C4D0532C57FF7400F111B1 /* PopularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularView.swift; sourceTree = "<group>"; };
+		C6C4D0552C58039900F111B1 /* PopularViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewModel.swift; sourceTree = "<group>"; };
+		C6C4D0582C580A1800F111B1 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB2C8C922C5698E400D280FE /* RadioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2C8C952C5698E400D280FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB2C8C972C5698E400D280FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,13 +51,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB2C8CC42C57BFE500D280FE /* SnapKit in Frameworks */,
-				CB2C8CC62C57BFE500D280FE /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C6C4D04D2C57F99900F111B1 /* PopularModule */ = {
+			isa = PBXGroup;
+			children = (
+				C6C4D0502C57FF0F00F111B1 /* ViewModel */,
+				C6C4D0512C57FF2A00F111B1 /* View */,
+				C6C4D0522C57FF4B00F111B1 /* Presenter */,
+			);
+			path = PopularModule;
+			sourceTree = "<group>";
+		};
+		C6C4D0502C57FF0F00F111B1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C6C4D0552C58039900F111B1 /* PopularViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C6C4D0512C57FF2A00F111B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6C4D0572C580A0200F111B1 /* Cells */,
+				C6C4D0532C57FF7400F111B1 /* PopularView.swift */,
+				C6C4D04E2C57F9F500F111B1 /* PopularViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C6C4D0522C57FF4B00F111B1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C6C4D0572C580A0200F111B1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C6C4D0582C580A1800F111B1 /* PopularCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		CB2C8C892C5698E400D280FE = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +123,7 @@
 				CB2C8C972C5698E400D280FE /* SceneDelegate.swift */,
 				CB2C8CC12C57BC4200D280FE /* TabBar */,
 				CB2C8CB12C5767E500D280FE /* Base */,
+				C6C4D04D2C57F99900F111B1 /* PopularModule */,
 				CB2C8CA32C5698E600D280FE /* LaunchScreen.storyboard */,
 				CB2C8CC72C57C8AB00D280FE /* Assets.xcassets */,
 				CB2C8CA62C5698E600D280FE /* Info.plist */,
@@ -128,7 +178,6 @@
 			name = RadioApp;
 			packageProductDependencies = (
 				CB2C8CC32C57BFE500D280FE /* SnapKit */,
-				CB2C8CC52C57BFE500D280FE /* SnapKit-Dynamic */,
 			);
 			productName = RadioApp;
 			productReference = CB2C8C922C5698E400D280FE /* RadioApp.app */;
@@ -187,14 +236,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6C4D0562C58039900F111B1 /* PopularViewModel.swift in Sources */,
 				CB2C8CB32C5768CB00D280FE /* NavigationController.swift in Sources */,
 				CB2C8CA02C5698E400D280FE /* RadioApp.xcdatamodeld in Sources */,
 				CB2C8CB02C5767DF00D280FE /* Router.swift in Sources */,
 				CB2C8CB52C576A5C00D280FE /* ViewController.swift in Sources */,
+				C6C4D0592C580A1800F111B1 /* PopularCollectionViewCell.swift in Sources */,
 				CB2C8CB72C57AACC00D280FE /* ModuleAssembly.swift in Sources */,
 				CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */,
+				C6C4D04F2C57F9F500F111B1 /* PopularViewController.swift in Sources */,
 				CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */,
 				CB2C8CC02C57B1A000D280FE /* TabBarController.swift in Sources */,
+				C6C4D0542C57FF7400F111B1 /* PopularView.swift in Sources */,
 				CB2C8C982C5698E400D280FE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,11 +486,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CB2C8CC22C57BFE500D280FE /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		CB2C8CC52C57BFE500D280FE /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CB2C8CC22C57BFE500D280FE /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 

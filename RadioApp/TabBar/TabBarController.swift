@@ -18,7 +18,8 @@ final class TabBarController: UITabBarController {
     }
     
     private func configure() {
-        let popularVC = NavigationController(rootViewController: ViewController())
+        //let popularVC = NavigationController(rootViewController: ViewController())
+        let popularVC = NavigationController(rootViewController: PopularViewController())
         popularVC.tabBarItem.title = "Popular"
         popularVC.view.backgroundColor = .darkBlueApp
 
