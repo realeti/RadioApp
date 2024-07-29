@@ -11,6 +11,9 @@
 		C6C4D0542C57FF7400F111B1 /* PopularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4D0532C57FF7400F111B1 /* PopularView.swift */; };
 		C6C4D0562C58039900F111B1 /* PopularViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4D0552C58039900F111B1 /* PopularViewModel.swift */; };
 		C6C4D0592C580A1800F111B1 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4D0582C580A1800F111B1 /* PopularCollectionViewCell.swift */; };
+		C6C4D05C2C58330600F111B1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4D05B2C58330600F111B1 /* Constants.swift */; };
+		C6C4D05F2C5837F800F111B1 /* UIStackView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4D05E2C5837F800F111B1 /* UIStackView + Extensions.swift */; };
+		C6C4D0612C58382000F111B1 /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4D0602C58382000F111B1 /* UIView + Extensions.swift */; };
 		CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8C952C5698E400D280FE /* AppDelegate.swift */; };
 		CB2C8C982C5698E400D280FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8C972C5698E400D280FE /* SceneDelegate.swift */; };
 		CB2C8CA02C5698E400D280FE /* RadioApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8C9E2C5698E400D280FE /* RadioApp.xcdatamodeld */; };
@@ -30,6 +33,9 @@
 		C6C4D0532C57FF7400F111B1 /* PopularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularView.swift; sourceTree = "<group>"; };
 		C6C4D0552C58039900F111B1 /* PopularViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewModel.swift; sourceTree = "<group>"; };
 		C6C4D0582C580A1800F111B1 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
+		C6C4D05B2C58330600F111B1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C6C4D05E2C5837F800F111B1 /* UIStackView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extensions.swift"; sourceTree = "<group>"; };
+		C6C4D0602C58382000F111B1 /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 		CB2C8C922C5698E400D280FE /* RadioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2C8C952C5698E400D280FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB2C8C972C5698E400D280FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +106,24 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		C6C4D05A2C5832ED00F111B1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C6C4D05D2C5837E700F111B1 /* Extensions */,
+				C6C4D05B2C58330600F111B1 /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C6C4D05D2C5837E700F111B1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C6C4D05E2C5837F800F111B1 /* UIStackView + Extensions.swift */,
+				C6C4D0602C58382000F111B1 /* UIView + Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CB2C8C892C5698E400D280FE = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +148,7 @@
 				CB2C8CC12C57BC4200D280FE /* TabBar */,
 				CB2C8CB12C5767E500D280FE /* Base */,
 				C6C4D04D2C57F99900F111B1 /* PopularModule */,
+				C6C4D05A2C5832ED00F111B1 /* Helpers */,
 				CB2C8CA32C5698E600D280FE /* LaunchScreen.storyboard */,
 				CB2C8CC72C57C8AB00D280FE /* Assets.xcassets */,
 				CB2C8CA62C5698E600D280FE /* Info.plist */,
@@ -244,10 +269,13 @@
 				C6C4D0592C580A1800F111B1 /* PopularCollectionViewCell.swift in Sources */,
 				CB2C8CB72C57AACC00D280FE /* ModuleAssembly.swift in Sources */,
 				CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */,
+				C6C4D0612C58382000F111B1 /* UIView + Extensions.swift in Sources */,
 				C6C4D04F2C57F9F500F111B1 /* PopularViewController.swift in Sources */,
 				CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */,
 				CB2C8CC02C57B1A000D280FE /* TabBarController.swift in Sources */,
+				C6C4D05C2C58330600F111B1 /* Constants.swift in Sources */,
 				C6C4D0542C57FF7400F111B1 /* PopularView.swift in Sources */,
+				C6C4D05F2C5837F800F111B1 /* UIStackView + Extensions.swift in Sources */,
 				CB2C8C982C5698E400D280FE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

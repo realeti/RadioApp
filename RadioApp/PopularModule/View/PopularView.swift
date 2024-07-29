@@ -16,7 +16,7 @@ final class PopularView: UIView {
     // MARK: - UI
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Popular"
+        label.text = K.Popular.title.rawValue
         label.textColor = .white
         label.font = .systemFont(ofSize: 30.0, weight: .light)
         return label
@@ -30,6 +30,7 @@ final class PopularView: UIView {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.register(PopularCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         return collectionView
     }()
