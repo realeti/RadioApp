@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6DE4B462C57AAB900F2D183 /* AllStationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DE4B452C57AAB900F2D183 /* AllStationsModel.swift */; };
 		CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8C952C5698E400D280FE /* AppDelegate.swift */; };
 		CB2C8C982C5698E400D280FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8C972C5698E400D280FE /* SceneDelegate.swift */; };
 		CB2C8C9A2C5698E400D280FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8C992C5698E400D280FE /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B6DE4B452C57AAB900F2D183 /* AllStationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStationsModel.swift; sourceTree = "<group>"; };
 		CB2C8C922C5698E400D280FE /* RadioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2C8C952C5698E400D280FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB2C8C972C5698E400D280FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B6DE4B442C57A9BC00F2D183 /* AllStationsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B6DE4B452C57AAB900F2D183 /* AllStationsModel.swift */,
+			);
+			path = AllStationsScreen;
+			sourceTree = "<group>";
+		};
 		CB2C8C892C5698E400D280FE = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +66,7 @@
 		CB2C8C942C5698E400D280FE /* RadioApp */ = {
 			isa = PBXGroup;
 			children = (
+				B6DE4B442C57A9BC00F2D183 /* AllStationsScreen */,
 				CB2C8C952C5698E400D280FE /* AppDelegate.swift */,
 				CB2C8C972C5698E400D280FE /* SceneDelegate.swift */,
 				CB2C8C992C5698E400D280FE /* ViewController.swift */,
@@ -139,6 +150,7 @@
 			files = (
 				CB2C8C9A2C5698E400D280FE /* ViewController.swift in Sources */,
 				CB2C8CA02C5698E400D280FE /* RadioApp.xcdatamodeld in Sources */,
+				B6DE4B462C57AAB900F2D183 /* AllStationsModel.swift in Sources */,
 				CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */,
 				CB2C8C982C5698E400D280FE /* SceneDelegate.swift in Sources */,
 			);
