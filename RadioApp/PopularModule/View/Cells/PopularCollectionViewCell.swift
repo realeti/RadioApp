@@ -42,6 +42,11 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    private lazy var votesSpacerView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
     private lazy var countVotesLabel: UILabel = {
         let label = UILabel()
         label.text = "315" + " "
@@ -88,7 +93,7 @@ final class PopularCollectionViewCell: UICollectionViewCell {
     private lazy var namiImageView: UIImageView = {
         let view = UIImageView()
         view.image = .namiDarkRed
-        view.contentMode = .scaleAspectFill
+        view.contentMode = .scaleAspectFit
         return view
     }()
     
@@ -144,6 +149,7 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         )
         
         voteStackView.addArrangedSubviews(
+            votesSpacerView,
             votesLabel,
             countVotesLabel,
             heartButton
@@ -151,10 +157,10 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         
         radioTitleStackView.addArrangedSubviews(
             radioTitleLabel,
-            radioSubtitleLabel,
-            radioSpacerView,
-            namiImageView
+            radioSubtitleLabel
         )
+        
+        containerView.addSubview(namiImageView)
     }
 }
 
@@ -166,7 +172,7 @@ private extension PopularCollectionViewCell {
         setupVoteStackViewConstraints()
         setupHeartButtonConstraints()
         setupRadioTitleStackViewConstraints()
-        setupRadioSpacerViewConstraints()
+        setupNamiImageViewConstraints()
     }
     
     func setupContainerViewConstraints() {
@@ -186,6 +192,7 @@ private extension PopularCollectionViewCell {
     func setupVoteStackViewConstraints() {
         voteStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(Metrics.votesStackTopIndent)
+            make.leading.equalTo(playImageView.snp.trailing)
             make.trailing.equalToSuperview().inset(Metrics.votesStackTrailingIndent)
         }
     }
@@ -200,16 +207,15 @@ private extension PopularCollectionViewCell {
     func setupRadioTitleStackViewConstraints() {
         radioTitleStackView.snp.makeConstraints { make in
             make.top.equalTo(playImageView.snp.bottom)
-            make.leading.trailing.equalTo(22.0).priority(.low)
-            make.centerX.equalTo(containerView.snp.centerX)
-            make.bottom.equalToSuperview().inset(19)
+            make.leading.trailing.equalToSuperview().inset(Metrics.radioTitleStackIndent)
         }
     }
     
-    func setupRadioSpacerViewConstraints() {
-        radioSpacerView.snp.makeConstraints { make in
-            make.width.equalTo(14.0).priority(.low)
-            make.height.equalTo(14.0)
+    func setupNamiImageViewConstraints() {
+        namiImageView.snp.makeConstraints { make in
+            make.top.equalTo(radioTitleStackView.snp.bottom).offset(Metrics.namiImageTopIndent)
+            make.leading.trailing.equalToSuperview().inset(Metrics.namiImageIndent)
+            make.bottom.equalToSuperview().inset(Metrics.namiImageBottomIndent)
         }
     }
 }
@@ -218,7 +224,7 @@ private extension PopularCollectionViewCell {
 fileprivate struct Metrics {
     /// play image
     static let playImageTopIndent: CGFloat = 13.0
-    static let playImageLeadingIndent: CGFloat = 15.0
+    static let playImageLeadingIndent: CGFloat = 16.0
     
     /// votes stack
     static let votesStackTopIndent: CGFloat = 16.0
@@ -227,6 +233,14 @@ fileprivate struct Metrics {
     /// heart button
     static let heartButtonWidth: CGFloat = 14.66
     static let heartButtonHeight: CGFloat = 12.0
+    
+    /// radio title stack
+    static let radioTitleStackIndent: CGFloat = 16.0
+    
+    /// nami
+    static let namiImageTopIndent: CGFloat = 8.0
+    static let namiImageIndent: CGFloat = 24.0
+    static let namiImageBottomIndent: CGFloat = 10.0
     
     private init() {}
 }

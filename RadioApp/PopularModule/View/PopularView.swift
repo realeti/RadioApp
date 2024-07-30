@@ -35,6 +35,8 @@ final class PopularView: UIView {
         return collectionView
     }()
     
+    private let volumeProgressView = VolumeProgressView()
+    
     // MARK: - Public Properties
     var radioCollectionViewDelegate: UICollectionViewDelegate? {
         get { radioCollectionView.delegate }
@@ -60,8 +62,7 @@ final class PopularView: UIView {
     
     // MARK: - Set Views
     private func setupUI() {
-        addSubview(titleLabel)
-        addSubview(radioCollectionView)
+        addSubviews(titleLabel, radioCollectionView, volumeProgressView)
     }
 }
 
@@ -70,6 +71,7 @@ private extension PopularView {
     func setupConstraints() {
         setupTitleLabelConstraints()
         setupRadioCollectionConstraints()
+        setupVolumeProgressViewConstraints()
     }
     
     func setupTitleLabelConstraints() {
@@ -87,6 +89,13 @@ private extension PopularView {
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
         }
     }
+    
+    func setupVolumeProgressViewConstraints() {
+        volumeProgressView.snp.makeConstraints { make in
+            make.top.equalTo(radioCollectionView.snp.top)
+            make.trailing.equalTo(radioCollectionView.snp.trailing).offset(0)
+        }
+    }
 }
 
 // MARK: - Metrics
@@ -97,8 +106,8 @@ fileprivate struct Metrics {
     
     /// radio collection
     static let radioCollectionTopIndent: CGFloat = 25.8
-    static let radioCollectionLeadingIndent: CGFloat = 61.3
-    static let radioCollectionTrailingIndent: CGFloat = 60.5
+    static let radioCollectionLeadingIndent: CGFloat = 51.3
+    static let radioCollectionTrailingIndent: CGFloat = 50.5
     
     private init() {}
 }
