@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		C658DD5A2C59676600DED8B8 /* VolumeProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C658DD592C59676600DED8B8 /* VolumeProgressView.swift */; };
+		C658DD5C2C59749700DED8B8 /* PopularPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C658DD5B2C59749700DED8B8 /* PopularPresenter.swift */; };
+		C658DD5E2C59782500DED8B8 /* PopularAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C658DD5D2C59782500DED8B8 /* PopularAssembly.swift */; };
+		C658DD602C59788800DED8B8 /* PopularRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C658DD5F2C59788800DED8B8 /* PopularRouter.swift */; };
+		C658DD622C597CAB00DED8B8 /* PopularBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C658DD612C597CAB00DED8B8 /* PopularBuilder.swift */; };
 		C6C4D04F2C57F9F500F111B1 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4D04E2C57F9F500F111B1 /* PopularViewController.swift */; };
 		C6C4D0542C57FF7400F111B1 /* PopularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4D0532C57FF7400F111B1 /* PopularView.swift */; };
 		C6C4D0562C58039900F111B1 /* PopularViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4D0552C58039900F111B1 /* PopularViewModel.swift */; };
@@ -25,7 +29,7 @@
 		CB2C8CB72C57AACC00D280FE /* ModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8CB62C57AACC00D280FE /* ModuleAssembly.swift */; };
 		CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8CB92C57AB5800D280FE /* Configurable.swift */; };
 		CB2C8CC02C57B1A000D280FE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8CBF2C57B1A000D280FE /* TabBarController.swift */; };
-		CB2C8CC42C57BFE500D280FE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CB2C8CC32C57BFE500D280FE /* SnapKit */; };
+		CB2C8CC42C57BFE500D280FE /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		CB2C8CC82C57C8AB00D280FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB2C8CC72C57C8AB00D280FE /* Assets.xcassets */; };
 		CBF57B492C57FA34006237E8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CBF57B482C57FA34006237E8 /* SnapKit */; };
 		CBF57B4B2C57FA53006237E8 /* ExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B4A2C57FA53006237E8 /* ExampleController.swift */; };
@@ -42,6 +46,10 @@
 
 /* Begin PBXFileReference section */
 		C658DD592C59676600DED8B8 /* VolumeProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeProgressView.swift; sourceTree = "<group>"; };
+		C658DD5B2C59749700DED8B8 /* PopularPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularPresenter.swift; sourceTree = "<group>"; };
+		C658DD5D2C59782500DED8B8 /* PopularAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularAssembly.swift; sourceTree = "<group>"; };
+		C658DD5F2C59788800DED8B8 /* PopularRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularRouter.swift; sourceTree = "<group>"; };
+		C658DD612C597CAB00DED8B8 /* PopularBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularBuilder.swift; sourceTree = "<group>"; };
 		C6C4D04E2C57F9F500F111B1 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
 		C6C4D0532C57FF7400F111B1 /* PopularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularView.swift; sourceTree = "<group>"; };
 		C6C4D0552C58039900F111B1 /* PopularViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewModel.swift; sourceTree = "<group>"; };
@@ -79,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB2C8CC42C57BFE500D280FE /* SnapKit in Frameworks */,
+				CB2C8CC42C57BFE500D280FE /* (null) in Frameworks */,
 				CBF57B492C57FA34006237E8 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,19 +106,22 @@
 		C6C4D04D2C57F99900F111B1 /* PopularModule */ = {
 			isa = PBXGroup;
 			children = (
-				C6C4D0502C57FF0F00F111B1 /* ViewModel */,
+				C658DD5D2C59782500DED8B8 /* PopularAssembly.swift */,
+				C658DD5F2C59788800DED8B8 /* PopularRouter.swift */,
+				C658DD612C597CAB00DED8B8 /* PopularBuilder.swift */,
+				C6C4D0502C57FF0F00F111B1 /* Model */,
 				C6C4D0512C57FF2A00F111B1 /* View */,
 				C6C4D0522C57FF4B00F111B1 /* Presenter */,
 			);
 			path = PopularModule;
 			sourceTree = "<group>";
 		};
-		C6C4D0502C57FF0F00F111B1 /* ViewModel */ = {
+		C6C4D0502C57FF0F00F111B1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				C6C4D0552C58039900F111B1 /* PopularViewModel.swift */,
 			);
-			path = ViewModel;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C6C4D0512C57FF2A00F111B1 /* View */ = {
@@ -127,6 +138,7 @@
 		C6C4D0522C57FF4B00F111B1 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				C658DD5B2C59749700DED8B8 /* PopularPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -350,6 +362,7 @@
 				CB2C8CB32C5768CB00D280FE /* NavigationController.swift in Sources */,
 				CBF57B5D2C583B12006237E8 /* ExampleCellView.swift in Sources */,
 				CB2C8CA02C5698E400D280FE /* RadioApp.xcdatamodeld in Sources */,
+				C658DD602C59788800DED8B8 /* PopularRouter.swift in Sources */,
 				CBF57B5B2C5839EA006237E8 /* ExampleProtocols.swift in Sources */,
 				CB2C8CB02C5767DF00D280FE /* Router.swift in Sources */,
 				CB2C8CB52C576A5C00D280FE /* ViewController.swift in Sources */,
@@ -357,13 +370,16 @@
 				CBF57B542C582540006237E8 /* ExampleBuilder.swift in Sources */,
 				CB2C8CB72C57AACC00D280FE /* ModuleAssembly.swift in Sources */,
 				CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */,
+				C658DD5E2C59782500DED8B8 /* PopularAssembly.swift in Sources */,
 				C6C4D0612C58382000F111B1 /* UIView + Extensions.swift in Sources */,
 				C6C4D04F2C57F9F500F111B1 /* PopularViewController.swift in Sources */,
 				CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */,
 				CB2C8CC02C57B1A000D280FE /* TabBarController.swift in Sources */,
+				C658DD622C597CAB00DED8B8 /* PopularBuilder.swift in Sources */,
 				C6C4D05C2C58330600F111B1 /* Constants.swift in Sources */,
 				C6C4D0542C57FF7400F111B1 /* PopularView.swift in Sources */,
 				C6C4D05F2C5837F800F111B1 /* UIStackView + Extensions.swift in Sources */,
+				C658DD5C2C59749700DED8B8 /* PopularPresenter.swift in Sources */,
 				CBF57B612C583F67006237E8 /* ExamplePresenter.swift in Sources */,
 				CBF57B562C58319D006237E8 /* Builder.swift in Sources */,
 				CB2C8C982C5698E400D280FE /* SceneDelegate.swift in Sources */,

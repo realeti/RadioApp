@@ -7,7 +7,14 @@
 
 import UIKit
 
-final class PopularViewController: ViewController {
+protocol PopularViewProtocol: AnyObject {
+    
+}
+
+final class PopularViewController: ViewController, PopularViewProtocol {
+    // MARK: - Public Properties
+    var presenter: PopularPresenterProtocol!
+    
     // MARK: - Private Properties
     private var popularView: PopularView!
     

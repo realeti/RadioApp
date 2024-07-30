@@ -8,10 +8,6 @@
 import UIKit
 import SnapKit
 
-protocol PopularViewProtocol {
-    func setCollectionDelegates(delegate: ViewController, dataSource: ViewController)
-}
-
 final class PopularView: UIView {
     // MARK: - UI
     private lazy var titleLabel: UILabel = {
