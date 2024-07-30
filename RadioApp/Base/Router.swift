@@ -15,11 +15,7 @@ class Router {
         if let navController = controller.navigationController {
             navController.pushViewController(vc, animated: true)
         } else {
-            presentScreen(vc)
+            controller.present(vc, animated: true)
         }
-    }
-    
-    func presentScreen(_ vc: UIViewController) {
-        controller?.present(vc, animated: true)
     }
 }

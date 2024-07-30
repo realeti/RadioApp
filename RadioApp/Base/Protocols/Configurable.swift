@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol Configurable: UIView {
+protocol CellConfigurable: UIView {
     associatedtype Model
     
     func update(with model: Model?)
