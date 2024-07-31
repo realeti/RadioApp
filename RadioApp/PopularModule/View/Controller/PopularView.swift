@@ -62,6 +62,12 @@ final class PopularView: UIView {
     }
 }
 
+extension PopularView {
+    func updateVolumeProgress(_ progress: Float) {
+        volumeProgressView.update(progress)
+    }
+}
+
 // MARK: - Setup Constraints
 private extension PopularView {
     func setupConstraints() {
@@ -89,7 +95,7 @@ private extension PopularView {
     func setupVolumeProgressViewConstraints() {
         volumeProgressView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(25.0)
+            make.leading.equalToSuperview().offset(Metrics.volumeProgressLeadingOffset)
         }
     }
 }
@@ -104,6 +110,9 @@ fileprivate struct Metrics {
     static let radioCollectionTopIndent: CGFloat = 25.8
     static let radioCollectionLeadingIndent: CGFloat = 50.0
     static let radioCollectionTrailingIndent: CGFloat = 50.0
+    
+    /// volume progress
+    static let volumeProgressLeadingOffset: CGFloat = 25.0
     
     private init() {}
 }

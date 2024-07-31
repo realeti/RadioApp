@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import MediaPlayer
+import AVFoundation
 
 protocol PopularViewProtocol: AnyObject {
     
@@ -28,16 +30,59 @@ final class PopularViewController: ViewController, PopularViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setDelegates()
+        setupVolumeProgress()
+        //observeVolumeChanges()
     }
-}
-
-// MARK: - Set Delegates
-private extension PopularViewController {
-    func setDelegates() {
+    
+    // MARK: - Set Delegates
+    private func setDelegates() {
         popularView.radioCollectionViewDataSource = self
         popularView.radioCollectionViewDelegate = self
     }
+}
+
+// MARK: - Setup VolumeProgress
+private extension PopularViewController {
+    func setupVolumeProgress() {
+        let volume = getSystemVolume()
+        popularView.updateVolumeProgress(volume)
+    }
+    
+    private func getSystemVolume() -> Float {
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setActive(true)
+            return audioSession.outputVolume
+        } catch {
+            print("Error activating audio session: \(error)")
+            return 0
+        }
+    }
+}
+
+// MARK: - Observe VolumeChanges
+/*private extension PopularViewController {
+    func observeVolumeChanges() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(volumeChanged),
+            name: NSNotification.Name(rawValue: "SystemVolumeDidChange"),
+            object: nil
+        )
+    }
+}*/
+
+// MARK: - Actions
+private extension PopularViewController {
+    /*@objc private func volumeChanged(notification: Notification) {
+        print("jereqq")
+        if let volume = notification.userInfo?["AVSystemController_AudioVolumeNotificationParameter"] as? Float {
+            popularView.updateVolumeProgress(volume)
+            print("jere")
+        }
+    }*/
 }
 
 // MARK: - RadioCollectionView DataSource methods
@@ -70,53 +115,5 @@ extension PopularViewController: UICollectionViewDelegateFlowLayout {
         let totalSpacing = (numberOfItemsPerRow - 1) * interItemSpacing
         let itemSize = (collectionView.bounds.width - totalSpacing) / numberOfItemsPerRow
         return CGSize(width: itemSize, height: itemSize)
-    }
-}
-
-final class TestController: UIViewController {
-    private lazy var progressView: UIProgressView = {
-        let view = UIProgressView()
-        view.trackTintColor = .martimeBlue
-        view.progressTintColor = .neonBlueApp
-        view.progress = 0.5
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private lazy var containerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.backgroundColor = .darkBlueApp
-        view.addSubview(containerView)
-        containerView.addSubview(progressView)
-        
-        NSLayoutConstraint.activate([
-            containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25.0),
-            containerView.widthAnchor.constraint(equalToConstant: 5.0),
-            containerView.heightAnchor.constraint(equalToConstant: 200.0),
-            
-            /*progressView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            progressView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            progressView.widthAnchor.constraint(equalTo: containerView.heightAnchor),
-            progressView.heightAnchor.constraint(equalTo: containerView.widthAnchor)*/
-            
-            progressView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            progressView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            progressView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            progressView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
-        ])
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-        progressView.transform = CGAffineTransform(rotationAngle: .pi / -2)
     }
 }

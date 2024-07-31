@@ -11,7 +11,6 @@ final class VolumeProgressView: UIView {
     // MARK: - UI
     private lazy var volumeLabel: UILabel = {
         let label = UILabel()
-        label.text = "50%"
         label.textColor = .white
         label.font = .systemFont(ofSize: 10.0, weight: .regular)
         label.textAlignment = .center
@@ -27,7 +26,6 @@ final class VolumeProgressView: UIView {
         let view = UIProgressView()
         view.trackTintColor = .martimeBlue
         view.progressTintColor = .neonBlueApp
-        view.progress = 0.5
         return view
     }()
     
@@ -47,8 +45,6 @@ final class VolumeProgressView: UIView {
         setupUI()
         setupConstraints()
         setupProgressCircleLayer()
-        
-        updateProgressCirclePosition()
     }
     
     required init?(coder: NSCoder) {
@@ -58,7 +54,6 @@ final class VolumeProgressView: UIView {
     // MARK: - VolumeProgress Life Cycle
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         volumeProgressBar.transform = CGAffineTransform(rotationAngle: .pi / -2)
     }
     
@@ -67,10 +62,12 @@ final class VolumeProgressView: UIView {
         addSubviews(progressBarContainer, volumeLabel, volumeImageView)
         progressBarContainer.addSubview(volumeProgressBar)
     }
-    
-    private func setupProgressCircleLayer() {
+}
+
+// MARK: - Setup ProgressCircle
+private extension VolumeProgressView {
+    func setupProgressCircleLayer() {
         let circleRadius: CGFloat = Metrics.circleRadius
-        let circleSize: CGSize = CGSize(width: circleRadius * 2, height: circleRadius * 2)
         
         /// draw circle path
         let circlePath = UIBezierPath(
@@ -89,12 +86,16 @@ final class VolumeProgressView: UIView {
         /// add layer to progress bar container
         progressBarContainer.layer.addSublayer(progressCircleLayer)
     }
+}
 
-    private func setVolumeProgress(_ progress: Float) {
-        UIView.animate(withDuration: 0.1) {
-            self.volumeProgressBar.progress = progress
-        }
-        updateProgressCirclePosition()
+// MARK: - Update Progress
+extension VolumeProgressView {
+    func update(_ progress: Float) {
+        self.volumeProgressBar.progress = progress
+        self.updateProgressCirclePosition()
+        
+        let progressValue = String(format: "%.0f", progress * 100.0)
+        volumeLabel.text = progressValue + "%"
     }
     
     private func updateProgressCirclePosition() {
@@ -102,8 +103,7 @@ final class VolumeProgressView: UIView {
         let trackHeight = Metrics.progressBarHeight
         let trackCenter = Metrics.progressBarWidth / 2
         let xOffset = (Metrics.circleRadius / 2) - trackCenter
-        let yOffset = trackHeight * CGFloat(progress)
-        
+        let yOffset = trackHeight - (trackHeight * CGFloat(progress))
         progressCircleLayer.position = CGPoint(x: xOffset, y: yOffset)
     }
 }
@@ -120,8 +120,8 @@ private extension VolumeProgressView {
     func setupVolumeLabelConstraints() {
         volumeLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(progressBarContainer.snp.top).offset(-9.5)
-            make.width.equalTo(30.0)
+            make.bottom.equalTo(progressBarContainer.snp.top).offset(-Metrics.volumeLabelBottomOffset)
+            make.width.equalTo(Metrics.volumeLabelWidth)
         }
     }
     
@@ -144,9 +144,9 @@ private extension VolumeProgressView {
     func setupVolumeImageViewConstraints() {
         volumeImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(progressBarContainer.snp.bottom).offset(20.0)
-            make.width.equalTo(18.0)
-            make.height.equalTo(16.0)
+            make.top.equalTo(progressBarContainer.snp.bottom).offset(Metrics.volumeImageTopOffset)
+            make.width.equalTo(Metrics.volumeImageWidth)
+            make.height.equalTo(Metrics.volumeImageHeight)
         }
     }
 }
@@ -159,4 +159,13 @@ fileprivate struct Metrics {
     
     /// progress bar circle
     static let circleRadius: CGFloat = 5.0
+    
+    /// volume  label
+    static let volumeLabelWidth: CGFloat = 30.0
+    static let volumeLabelBottomOffset: CGFloat = 9.5
+    
+    /// volume image
+    static let volumeImageTopOffset: CGFloat = 20.0
+    static let volumeImageWidth: CGFloat = 18.0
+    static let volumeImageHeight: CGFloat = 16.0
 }
