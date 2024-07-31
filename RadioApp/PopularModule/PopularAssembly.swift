@@ -12,7 +12,7 @@ final class PopularAssembly: ModuleAssembly {
         let viewController = PopularViewController()
         let router = PopularRouter()
         let presenter = PopularPresenter(view: viewController, router: router)
-        
+
         viewController.presenter = presenter
         router.controller = viewController
         

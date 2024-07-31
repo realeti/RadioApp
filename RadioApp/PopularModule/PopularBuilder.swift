@@ -9,8 +9,8 @@ import UIKit
 
 extension Builder {
     static func createDetails() -> UIViewController {
-        let view = UIViewController()
-        //let presenter = Example2Presenter(view: view)
+        let view = UIViewController() // DetailViewController
+        //let presenter = DetailPresenter(view: view)
         //view.presenter = presenter
         return view
     }

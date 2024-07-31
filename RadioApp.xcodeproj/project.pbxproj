@@ -103,6 +103,15 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
+		C658DD632C5980F300DED8B8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C6C4D0532C57FF7400F111B1 /* PopularView.swift */,
+				C6C4D04E2C57F9F500F111B1 /* PopularViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		C6C4D04D2C57F99900F111B1 /* PopularModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,8 +136,7 @@
 		C6C4D0512C57FF2A00F111B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C6C4D0532C57FF7400F111B1 /* PopularView.swift */,
-				C6C4D04E2C57F9F500F111B1 /* PopularViewController.swift */,
+				C658DD632C5980F300DED8B8 /* Controller */,
 				C6C4D0572C580A0200F111B1 /* Cells */,
 				C658DD582C59673800DED8B8 /* Subviews */,
 			);

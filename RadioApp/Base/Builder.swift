@@ -14,7 +14,7 @@ final class Builder {
     }
     
     static func createPopular() -> UIViewController {
-        return UIViewController()
+        PopularAssembly().build()
     }
     
     static func createFavorite() -> UIViewController {

@@ -27,7 +27,7 @@ final class PopularView: UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.register(PopularCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(PopularCollectionViewCell.self, forCellWithReuseIdentifier: K.popularRadioCell)
         return collectionView
     }()
     
@@ -88,8 +88,8 @@ private extension PopularView {
     
     func setupVolumeProgressViewConstraints() {
         volumeProgressView.snp.makeConstraints { make in
-            make.top.equalTo(radioCollectionView.snp.top)
-            make.trailing.equalTo(radioCollectionView.snp.trailing).offset(0)
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().offset(25.0)
         }
     }
 }
@@ -102,8 +102,8 @@ fileprivate struct Metrics {
     
     /// radio collection
     static let radioCollectionTopIndent: CGFloat = 25.8
-    static let radioCollectionLeadingIndent: CGFloat = 51.3
-    static let radioCollectionTrailingIndent: CGFloat = 50.5
+    static let radioCollectionLeadingIndent: CGFloat = 50.0
+    static let radioCollectionTrailingIndent: CGFloat = 50.0
     
     private init() {}
 }

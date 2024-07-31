@@ -127,7 +127,10 @@ final class PopularCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        playImageView.image = nil
+        /*playImageView.image = nil
+        countVotesLabel.text = nil
+        radioTitleLabel.text = nil
+        radioSubtitleLabel.text = nil*/
     }
     
     override func layoutSubviews() {
@@ -161,6 +164,15 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         )
         
         containerView.addSubview(namiImageView)
+    }
+}
+
+// MARK: - Configure Cell
+extension PopularCollectionViewCell {
+    func configure(with model: PopularViewModel) {
+        countVotesLabel.text = "\(model.countVotes)"
+        radioTitleLabel.text = model.radioTitle
+        radioSubtitleLabel.text = model.radioSubtitle
     }
 }
 

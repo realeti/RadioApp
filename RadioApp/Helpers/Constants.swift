@@ -14,5 +14,8 @@ struct K {
         case votes = "votes"
     }
     
+    // MARK: - Reusable Cells
+    static let popularRadioCell = "popularCell"
+    
     private init() {}
 }
