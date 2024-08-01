@@ -57,9 +57,9 @@ extension PopularViewController {
         guard let indexPath else { return }
         
         let stationId = indexPath.row
-        presenter.toggleVoteState(at: stationId)
+        presenter.toggleVoteState(for: stationId)
         
-        let isStationVoted = presenter.isStationVoted(at: stationId)
+        let isStationVoted = presenter.isStationVoted(stationId)
         updateStationVotes(at: indexPath, isStationVoted)
     }
     
@@ -105,7 +105,7 @@ extension PopularViewController: UICollectionViewDataSource {
         }
         
         let stationData = presenter.getStations[indexPath.row]
-        let isStationVoted = presenter.isStationVoted(at: indexPath.row)
+        let isStationVoted = presenter.isStationVoted(indexPath.row)
         
         cell.delegate = self
         cell.configure(with: stationData, isStationVoted, and: indexPath)

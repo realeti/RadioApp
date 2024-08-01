@@ -34,7 +34,7 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         return stackView
     }()
     
-    private lazy var votesLabel: UILabel = {
+    private lazy var voteLabel: UILabel = {
         let label = UILabel()
         label.text = K.Popular.votes.rawValue + " "
         label.textColor = .white
@@ -42,14 +42,8 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var votesSpacerView: UIView = {
-        let view = UIView()
-        return view
-    }()
-    
-    private lazy var countVotesLabel: UILabel = {
+    private lazy var voteCountLabel: UILabel = {
         let label = UILabel()
-        label.text = "315" + " "
         label.textColor = .white
         label.font = .systemFont(ofSize: 10.0, weight: .bold)
         return label
@@ -57,7 +51,7 @@ final class PopularCollectionViewCell: UICollectionViewCell {
     
     private lazy var voteButton: UIButton = {
         let button = UIButton(type: .system)
-        button.addTarget(self, action: #selector(heartButtonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(voteButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -95,6 +89,16 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
+    // MARK: - Private Properties
+    private var votes: Int = 0 {
+        didSet {
+            let votesText = "\(votes) "
+            UIView.transition(with: voteCountLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                self.voteCountLabel.text = votesText
+            }, completion: nil)
+        }
+    }
+    
     // MARK: - Public Properties
     weak var delegate: PopularViewProtocol?
     var indexPath: IndexPath?
@@ -129,7 +133,7 @@ final class PopularCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        countVotesLabel.text = nil
+        voteCountLabel.text = nil
         radioTitleLabel.text = nil
         radioSubtitleLabel.text = nil
     }
@@ -153,9 +157,8 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         )
         
         voteStackView.addArrangedSubviews(
-            votesSpacerView,
-            votesLabel,
-            countVotesLabel,
+            voteLabel,
+            voteCountLabel,
             voteButton
         )
         
@@ -173,7 +176,7 @@ extension PopularCollectionViewCell {
     func configure(with station: PopularViewModel, _ isStationVoted: Bool, and indexPath: IndexPath) {
         radioTitleLabel.text = station.title
         radioSubtitleLabel.text = station.subtitle
-        countVotesLabel.text = "\(station.countVotes) "
+        votes = station.countVotes
         
         setupVoteButtonImage(isStationVoted)
         self.indexPath = indexPath
@@ -185,20 +188,27 @@ extension PopularCollectionViewCell {
     }
     
     func updateStationVotes(_ isStationVoted: Bool) {
+        votes += isStationVoted ? 1 : -1
+        
         let newImage: UIImage = isStationVoted ? .voteOn : .voteOff
         UIView.transition(with: voteButton, duration: 0.3, options: .transitionFlipFromLeft, animations: {
             self.voteButton.setBackgroundImage(newImage, for: .normal)
-        }, completion: nil)
+        }) { _ in
+            self.voteButton.isUserInteractionEnabled = true
+        }
         
         /*UIView.transition(with: voteButton, duration: 0.3, options: .transitionCrossDissolve, animations: {
             self.voteButton.setBackgroundImage(newImage, for: .normal)
-        }, completion: nil)*/
+        }) { _ in
+            self.voteButton.isUserInteractionEnabled = true
+        }*/
     }
 }
 
 // MARK: - Actions
 private extension PopularCollectionViewCell {
-    @objc func heartButtonPressed(_ sender: UIButton) {
+    @objc func voteButtonPressed(_ sender: UIButton) {
+        voteButton.isUserInteractionEnabled = false
         delegate?.voteForStation(at: indexPath) /// and station id if exists
     }
 }
@@ -231,7 +241,7 @@ private extension PopularCollectionViewCell {
     func setupVoteStackViewConstraints() {
         voteStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(Metrics.votesStackTopIndent)
-            make.leading.equalTo(playImageView.snp.trailing)
+            //make.leading.equalTo(playImageView.snp.trailing)
             make.trailing.equalToSuperview().inset(Metrics.votesStackTrailingIndent)
         }
     }

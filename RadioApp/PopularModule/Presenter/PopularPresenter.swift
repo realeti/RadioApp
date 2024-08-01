@@ -17,8 +17,8 @@ protocol PopularPresenterProtocol {
     var getStations: [PopularViewModel] { get }
     
     func loadStations()
-    func toggleVoteState(at stationId: Int)
-    func isStationVoted(at stationId: Int) -> Bool
+    func toggleVoteState(for stationId: Int)
+    func isStationVoted(_ stationId: Int) -> Bool
 }
 
 final class PopularPresenter: PopularPresenterProtocol {
@@ -56,13 +56,22 @@ extension PopularPresenter {
 
 // MARK: - Votes for Station
 extension PopularPresenter {
-    func toggleVoteState(at stationId: Int) {
+    func toggleVoteState(for stationId: Int) {
         votedStations[stationId].toggle()
         
-        // if votedStation -> +vote else -vote
+        var selectedStation = stations[stationId]
+        let voteChange = isStationVoted(stationId) ? 1 : -1
+        
+        selectedStation = PopularViewModel(
+            title: selectedStation.title,
+            subtitle: selectedStation.subtitle,
+            countVotes: selectedStation.countVotes + voteChange
+        )
+        
+        stations[stationId] = selectedStation
     }
     
-    func isStationVoted(at stationId: Int) -> Bool {
+    func isStationVoted(_ stationId: Int) -> Bool {
         return votedStations[stationId]
     }
 }
