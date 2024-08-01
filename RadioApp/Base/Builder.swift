@@ -9,27 +9,31 @@ import UIKit
 
 final class Builder {
     
-    static func createTabBar() -> UIViewController {
-        
+//    static func createTabBar() -> UIViewController {
+//        
+//    }
+    
+    static func createAuthorization() -> UIViewController {
+        AuthorizationAssembly().build()
     }
     
-    static func createPopular() -> UIViewController {
-       
-    }
-    
-    static func createFavorite() -> UIViewController {
-       
-    }
-    
-    static func createSearch() -> UIViewController {
-        
-    }
-    
-    static func createProfile() -> UIViewController {
-        
-    }
-    
-    static func createOnboarding() -> UIViewController {
-        
-    }
+//    static func createPopular() -> UIViewController {
+//       
+//    }
+//    
+//    static func createFavorite() -> UIViewController {
+//       
+//    }
+//    
+//    static func createSearch() -> UIViewController {
+//        
+//    }
+//    
+//    static func createProfile() -> UIViewController {
+//        
+//    }
+//    
+//    static func createOnboarding() -> UIViewController {
+//        
+//    }
 }
