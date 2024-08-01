@@ -84,10 +84,17 @@ final class PopularCollectionViewCell: UICollectionViewCell {
     
     private lazy var namiImageView: UIImageView = {
         let view = UIImageView()
-        view.image = .namiDarkRed
+        view.image = .namiInactive //.namiDarkRed
         view.contentMode = .scaleAspectFit
         return view
     }()
+    
+    /*private lazy var leftNamiCircle: UIImageView = {
+        let view = UIImageView()
+        view.image = .namiCircle
+        view.contentMode = .scaleAspectFit
+        return view
+    }()*/
     
     // MARK: - Private Properties
     private var votes: Int = 0 {
@@ -121,10 +128,12 @@ final class PopularCollectionViewCell: UICollectionViewCell {
                 containerView.backgroundColor = .pinkApp
                 containerView.layer.borderColor = nil
                 playImageView.isHidden = false
+                namiImageView.image = .namiActive
             } else {
                 containerView.backgroundColor = nil
                 containerView.layer.borderColor = UIColor.stormyBlue.cgColor
                 playImageView.isHidden = true
+                namiImageView.image = .namiInactive
             }
         }
     }
@@ -136,6 +145,7 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         voteCountLabel.text = nil
         radioTitleLabel.text = nil
         radioSubtitleLabel.text = nil
+        //namiImageView.image = nil
     }
     
     override func layoutSubviews() {
@@ -168,18 +178,20 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         )
         
         containerView.addSubview(namiImageView)
+        //namiImageView.addSubview(leftNamiCircle)
     }
 }
 
 // MARK: - Configure Cell
 extension PopularCollectionViewCell {
-    func configure(with station: PopularViewModel, _ isStationVoted: Bool, and indexPath: IndexPath) {
-        radioTitleLabel.text = station.title
-        radioSubtitleLabel.text = station.subtitle
-        votes = station.countVotes
+    func configure(with model: PopularViewModel, _ isStationVoted: Bool, and indexPath: IndexPath) {
+        radioTitleLabel.text = model.title
+        radioSubtitleLabel.text = model.subtitle
+        
+        votes = model.countVotes
+        self.indexPath = indexPath
         
         setupVoteButtonImage(isStationVoted)
-        self.indexPath = indexPath
     }
     
     private func setupVoteButtonImage(_ isStationVoted: Bool) {
@@ -196,12 +208,6 @@ extension PopularCollectionViewCell {
         }) { _ in
             self.voteButton.isUserInteractionEnabled = true
         }
-        
-        /*UIView.transition(with: voteButton, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.voteButton.setBackgroundImage(newImage, for: .normal)
-        }) { _ in
-            self.voteButton.isUserInteractionEnabled = true
-        }*/
     }
 }
 
@@ -266,6 +272,12 @@ private extension PopularCollectionViewCell {
             make.leading.trailing.equalToSuperview().inset(Metrics.namiImageIndent)
             make.bottom.equalToSuperview().inset(Metrics.namiImageBottomIndent)
         }
+        
+        /*leftNamiCircle.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.width.height.equalTo(namiImageView.snp.height).multipliedBy(0.36)
+        }*/
     }
 }
 
