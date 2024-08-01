@@ -6,12 +6,8 @@
 //
 
 import UIKit
-import MediaPlayer
+//import MediaPlayer
 import AVFoundation
-
-protocol PopularViewProtocol: AnyObject {
-    
-}
 
 final class PopularViewController: ViewController, PopularViewProtocol {
     // MARK: - Public Properties
@@ -31,15 +27,47 @@ final class PopularViewController: ViewController, PopularViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadStations()
         setDelegates()
         setupVolumeProgress()
         //observeVolumeChanges()
     }
     
+    // MARK: - Load Stations
+    private func loadStations() {
+        presenter.loadStations()
+    }
+    
     // MARK: - Set Delegates
     private func setDelegates() {
-        popularView.radioCollectionViewDataSource = self
-        popularView.radioCollectionViewDelegate = self
+        popularView.radioCollection.dataSource = self
+        popularView.radioCollection.delegate = self
+    }
+}
+
+// MARK: - Popular Delegate methods
+extension PopularViewController {
+    func didUpdateStations() {
+        DispatchQueue.main.async {
+            self.popularView.radioCollection.reloadData()
+        }
+    }
+    
+    func voteForStation(at indexPath: IndexPath?) {
+        guard let indexPath else { return }
+        
+        let stationId = indexPath.row
+        presenter.toggleVoteState(at: stationId)
+        
+        let isStationVoted = presenter.isStationVoted(at: stationId)
+        updateStationVotes(at: indexPath, isStationVoted)
+    }
+    
+    private func updateStationVotes(at indexPath: IndexPath, _ isStationVoted: Bool) {
+        guard let cell = popularView.radioCollection.cellForItem(at: indexPath) as? PopularCollectionViewCell else {
+            return
+        }
+        cell.updateStationVotes(isStationVoted)
     }
 }
 
@@ -62,40 +90,25 @@ private extension PopularViewController {
     }
 }
 
-// MARK: - Observe VolumeChanges
-/*private extension PopularViewController {
-    func observeVolumeChanges() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(volumeChanged),
-            name: NSNotification.Name(rawValue: "SystemVolumeDidChange"),
-            object: nil
-        )
-    }
-}*/
-
-// MARK: - Actions
-private extension PopularViewController {
-    /*@objc private func volumeChanged(notification: Notification) {
-        print("jereqq")
-        if let volume = notification.userInfo?["AVSystemController_AudioVolumeNotificationParameter"] as? Float {
-            popularView.updateVolumeProgress(volume)
-            print("jere")
-        }
-    }*/
-}
-
 // MARK: - RadioCollectionView DataSource methods
 extension PopularViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        let stationsCount = presenter.getStations.count
+        return stationsCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.popularRadioCell, for: indexPath) as? PopularCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: K.popularRadioCell,
+            for: indexPath) as? PopularCollectionViewCell else {
             return UICollectionViewCell()
         }
-        //cell.configure(with: )
+        
+        let stationData = presenter.getStations[indexPath.row]
+        let isStationVoted = presenter.isStationVoted(at: indexPath.row)
+        
+        cell.delegate = self
+        cell.configure(with: stationData, isStationVoted, and: indexPath)
         return cell
     }
 }
@@ -116,4 +129,25 @@ extension PopularViewController: UICollectionViewDelegateFlowLayout {
         let itemSize = (collectionView.bounds.width - totalSpacing) / numberOfItemsPerRow
         return CGSize(width: itemSize, height: itemSize)
     }
+}
+
+// MARK: - Observe VolumeChanges
+/*private extension PopularViewController {
+    func observeVolumeChanges() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(volumeChanged),
+            name: NSNotification.Name(rawValue: "SystemVolumeDidChange"),
+            object: nil
+        )
+    }
+}*/
+
+// MARK: - Actions
+private extension PopularViewController {
+    /*@objc private func volumeChanged(notification: Notification) {
+        if let volume = notification.userInfo?["AVSystemController_AudioVolumeNotificationParameter"] as? Float {
+            popularView.updateVolumeProgress(volume)
+        }
+    }*/
 }

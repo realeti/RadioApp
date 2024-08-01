@@ -8,7 +8,7 @@
 import Foundation
 
 struct PopularViewModel {
+    let title: String
+    let subtitle: String
     let countVotes: Int
-    let radioTitle: String
-    let radioSubtitle: String
 }

@@ -32,4 +32,11 @@ final class Builder {
     static func createOnboarding() -> UIViewController {
         return UIViewController()
     }
+    
+    static func createDetails() -> UIViewController {
+        //let viewController = UIViewController() // DetailViewController()
+        //let presenter = DetailPresenter(view: view)
+        //viewController.presenter = presenter
+        return UIViewController()
+    }
 }

@@ -11,7 +11,6 @@
 		C658DD5C2C59749700DED8B8 /* PopularPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C658DD5B2C59749700DED8B8 /* PopularPresenter.swift */; };
 		C658DD5E2C59782500DED8B8 /* PopularAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C658DD5D2C59782500DED8B8 /* PopularAssembly.swift */; };
 		C658DD602C59788800DED8B8 /* PopularRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C658DD5F2C59788800DED8B8 /* PopularRouter.swift */; };
-		C658DD622C597CAB00DED8B8 /* PopularBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C658DD612C597CAB00DED8B8 /* PopularBuilder.swift */; };
 		C6C4D04F2C57F9F500F111B1 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4D04E2C57F9F500F111B1 /* PopularViewController.swift */; };
 		C6C4D0542C57FF7400F111B1 /* PopularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4D0532C57FF7400F111B1 /* PopularView.swift */; };
 		C6C4D0562C58039900F111B1 /* PopularViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4D0552C58039900F111B1 /* PopularViewModel.swift */; };
@@ -49,7 +48,6 @@
 		C658DD5B2C59749700DED8B8 /* PopularPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularPresenter.swift; sourceTree = "<group>"; };
 		C658DD5D2C59782500DED8B8 /* PopularAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularAssembly.swift; sourceTree = "<group>"; };
 		C658DD5F2C59788800DED8B8 /* PopularRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularRouter.swift; sourceTree = "<group>"; };
-		C658DD612C597CAB00DED8B8 /* PopularBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularBuilder.swift; sourceTree = "<group>"; };
 		C6C4D04E2C57F9F500F111B1 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
 		C6C4D0532C57FF7400F111B1 /* PopularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularView.swift; sourceTree = "<group>"; };
 		C6C4D0552C58039900F111B1 /* PopularViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewModel.swift; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 			children = (
 				C658DD5D2C59782500DED8B8 /* PopularAssembly.swift */,
 				C658DD5F2C59788800DED8B8 /* PopularRouter.swift */,
-				C658DD612C597CAB00DED8B8 /* PopularBuilder.swift */,
 				C6C4D0502C57FF0F00F111B1 /* Model */,
 				C6C4D0512C57FF2A00F111B1 /* View */,
 				C6C4D0522C57FF4B00F111B1 /* Presenter */,
@@ -383,7 +380,6 @@
 				C6C4D04F2C57F9F500F111B1 /* PopularViewController.swift in Sources */,
 				CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */,
 				CB2C8CC02C57B1A000D280FE /* TabBarController.swift in Sources */,
-				C658DD622C597CAB00DED8B8 /* PopularBuilder.swift in Sources */,
 				C6C4D05C2C58330600F111B1 /* Constants.swift in Sources */,
 				C6C4D0542C57FF7400F111B1 /* PopularView.swift in Sources */,
 				C6C4D05F2C5837F800F111B1 /* UIStackView + Extensions.swift in Sources */,
@@ -538,7 +534,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y5B46GH7KM;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RadioApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -569,7 +565,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y5B46GH7KM;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RadioApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

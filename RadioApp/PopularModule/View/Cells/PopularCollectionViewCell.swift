@@ -55,9 +55,9 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var heartButton: UIButton = {
+    private lazy var voteButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setBackgroundImage(.voteOn, for: .normal)
+        button.addTarget(self, action: #selector(heartButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -71,7 +71,6 @@ final class PopularCollectionViewCell: UICollectionViewCell {
     
     private lazy var radioTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "POP"
         label.textColor = .white
         label.font = .systemFont(ofSize: 30.0, weight: .bold)
         return label
@@ -79,7 +78,6 @@ final class PopularCollectionViewCell: UICollectionViewCell {
     
     private lazy var radioSubtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Radio Record"
         label.textColor = .white
         label.font = .systemFont(ofSize: 15.0, weight: .regular)
         return label
@@ -96,6 +94,10 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         view.contentMode = .scaleAspectFit
         return view
     }()
+    
+    // MARK: - Public Properties
+    weak var delegate: PopularViewProtocol?
+    var indexPath: IndexPath?
     
     // MARK: - Init
     override init(frame: CGRect) {
@@ -127,10 +129,9 @@ final class PopularCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        /*playImageView.image = nil
         countVotesLabel.text = nil
         radioTitleLabel.text = nil
-        radioSubtitleLabel.text = nil*/
+        radioSubtitleLabel.text = nil
     }
     
     override func layoutSubviews() {
@@ -155,7 +156,7 @@ final class PopularCollectionViewCell: UICollectionViewCell {
             votesSpacerView,
             votesLabel,
             countVotesLabel,
-            heartButton
+            voteButton
         )
         
         radioTitleStackView.addArrangedSubviews(
@@ -169,10 +170,36 @@ final class PopularCollectionViewCell: UICollectionViewCell {
 
 // MARK: - Configure Cell
 extension PopularCollectionViewCell {
-    func configure(with model: PopularViewModel) {
-        countVotesLabel.text = "\(model.countVotes)"
-        radioTitleLabel.text = model.radioTitle
-        radioSubtitleLabel.text = model.radioSubtitle
+    func configure(with station: PopularViewModel, _ isStationVoted: Bool, and indexPath: IndexPath) {
+        radioTitleLabel.text = station.title
+        radioSubtitleLabel.text = station.subtitle
+        countVotesLabel.text = "\(station.countVotes) "
+        
+        setupVoteButtonImage(isStationVoted)
+        self.indexPath = indexPath
+    }
+    
+    private func setupVoteButtonImage(_ isStationVoted: Bool) {
+        let image: UIImage = isStationVoted ? .voteOn : .voteOff
+        voteButton.setBackgroundImage(image, for: .normal)
+    }
+    
+    func updateStationVotes(_ isStationVoted: Bool) {
+        let newImage: UIImage = isStationVoted ? .voteOn : .voteOff
+        UIView.transition(with: voteButton, duration: 0.3, options: .transitionFlipFromLeft, animations: {
+            self.voteButton.setBackgroundImage(newImage, for: .normal)
+        }, completion: nil)
+        
+        /*UIView.transition(with: voteButton, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            self.voteButton.setBackgroundImage(newImage, for: .normal)
+        }, completion: nil)*/
+    }
+}
+
+// MARK: - Actions
+private extension PopularCollectionViewCell {
+    @objc func heartButtonPressed(_ sender: UIButton) {
+        delegate?.voteForStation(at: indexPath) /// and station id if exists
     }
 }
 
@@ -210,7 +237,7 @@ private extension PopularCollectionViewCell {
     }
     
     func setupHeartButtonConstraints() {
-        heartButton.snp.makeConstraints { make in
+        voteButton.snp.makeConstraints { make in
             make.width.equalTo(Metrics.heartButtonWidth)
             make.height.equalTo(Metrics.heartButtonHeight)
         }

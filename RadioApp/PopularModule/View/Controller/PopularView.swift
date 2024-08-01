@@ -34,14 +34,8 @@ final class PopularView: UIView {
     private let volumeProgressView = VolumeProgressView()
     
     // MARK: - Public Properties
-    var radioCollectionViewDelegate: UICollectionViewDelegate? {
-        get { radioCollectionView.delegate }
-        set { radioCollectionView.delegate = newValue }
-    }
-    
-    var radioCollectionViewDataSource: UICollectionViewDataSource? {
-        get { radioCollectionView.dataSource }
-        set { radioCollectionView.dataSource = newValue }
+    var radioCollection: UICollectionView {
+        get { radioCollectionView }
     }
     
     // MARK: - Init
@@ -62,6 +56,7 @@ final class PopularView: UIView {
     }
 }
 
+// MARK: - External methods
 extension PopularView {
     func updateVolumeProgress(_ progress: Float) {
         volumeProgressView.update(progress)
