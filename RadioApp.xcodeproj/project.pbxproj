@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6B4527D2C5CE9BC00594354 /* AllStationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B4527C2C5CE9BC00594354 /* AllStationsPresenter.swift */; };
 		B6D5E7902C5A51FB00E83FC0 /* AllStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5E78E2C5A51FB00E83FC0 /* AllStations.swift */; };
 		B6D5E7932C5A52CB00E83FC0 /* AllStationsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5E7922C5A52CB00E83FC0 /* AllStationsProtocols.swift */; };
 		CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8C952C5698E400D280FE /* AppDelegate.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B6B4527C2C5CE9BC00594354 /* AllStationsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStationsPresenter.swift; sourceTree = "<group>"; };
 		B6D5E78E2C5A51FB00E83FC0 /* AllStations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStations.swift; sourceTree = "<group>"; };
 		B6D5E7922C5A52CB00E83FC0 /* AllStationsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStationsProtocols.swift; sourceTree = "<group>"; };
 		CB2C8C922C5698E400D280FE /* RadioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				B6D5E7922C5A52CB00E83FC0 /* AllStationsProtocols.swift */,
+				B6B4527C2C5CE9BC00594354 /* AllStationsPresenter.swift */,
 				B6D5E7912C5A529900E83FC0 /* Model */,
 			);
 			path = AllStations;
@@ -285,6 +288,7 @@
 				CB2C8CB52C576A5C00D280FE /* ViewController.swift in Sources */,
 				CBF57B542C582540006237E8 /* ExampleBuilder.swift in Sources */,
 				CB2C8CB72C57AACC00D280FE /* ModuleAssembly.swift in Sources */,
+				B6B4527D2C5CE9BC00594354 /* AllStationsPresenter.swift in Sources */,
 				CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */,
 				CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */,
 				CB2C8CC02C57B1A000D280FE /* TabBarController.swift in Sources */,

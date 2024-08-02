@@ -15,10 +15,6 @@ enum AllStations {
 
 		/// Содержит в себе список всех радиостанций.
 		let stations: [Station]
-		/// Данные аватарки пользователя.
-		let avatar: Data
-		/// Уровень громкости.
-		let volume: Double
 
 		/// Структура, описывающая радиостанцию
 		struct Station {

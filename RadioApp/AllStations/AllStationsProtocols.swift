@@ -9,7 +9,7 @@ import Foundation
 
 /// Протокол экрана для отображения всех радиостанций.
 protocol AllStationsControllerProtocol: AnyObject {
-	
+
 	/// Обновление информации на экране.
 	/// - Parameter model: модель с информацией для обновления на экране.
 	func update(with model: AllStations.Model)
@@ -17,10 +17,10 @@ protocol AllStationsControllerProtocol: AnyObject {
 
 /// Протокол презентера для отображения всех радиостанций.
 protocol AllStationsPresenterProtocol: AnyObject {
-	
+
 	/// Активация презентера для обновления информации на экране.
 	func activate()
-	
+
 	/// Выбрана радиостанция.
 	/// - Parameter indexPath: индекс радиостанции.
 	func didStationSelected(at indexPath: IndexPath)
@@ -28,7 +28,8 @@ protocol AllStationsPresenterProtocol: AnyObject {
 
 /// Протокол роутера для перехода с экрана, отображающего все радиостанции, на другие экраны.
 protocol AllStationsRouterProtocol {
-	
+
 	/// Переход на экран с детальной информацией о радиостанции.
-	func showStationDetails()
+	/// - Parameter data: даные о радиостанции.
+	func showStationDetails(with data: AllStations.Model.Station)
 }
