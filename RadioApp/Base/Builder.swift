@@ -9,9 +9,9 @@ import UIKit
 
 final class Builder {
     
-//    static func createTabBar() -> UIViewController {
-//        
-//    }
+    static func createTabBar() -> UIViewController {
+        TabBarController()
+    }
     
     static func createAuthorization() -> UIViewController {
         AuthorizationAssembly().build()

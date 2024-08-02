@@ -30,6 +30,10 @@
 		CBEA68942C5941B200200AF7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = CBEA68932C5941B200200AF7 /* FirebaseStorage */; };
 		CBEA68962C595B1300200AF7 /* AuthorizationField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68952C595B1300200AF7 /* AuthorizationField.swift */; };
 		CBEA68982C596A2900200AF7 /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68972C596A2800200AF7 /* UITextField+Padding.swift */; };
+		CBEA68A12C5BB65500200AF7 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68A02C5BB65500200AF7 /* ForgotPasswordController.swift */; };
+		CBEA68A52C5BB68F00200AF7 /* ForgotPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68A42C5BB68F00200AF7 /* ForgotPasswordPresenter.swift */; };
+		CBEA68A72C5CDEA700200AF7 /* UpdatePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68A62C5CDEA700200AF7 /* UpdatePasswordController.swift */; };
+		CBEA68A92C5CDF6B00200AF7 /* UpdatePasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68A82C5CDF6B00200AF7 /* UpdatePasswordPresenter.swift */; };
 		CBF57B492C57FA34006237E8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CBF57B482C57FA34006237E8 /* SnapKit */; };
 		CBF57B4B2C57FA53006237E8 /* ExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B4A2C57FA53006237E8 /* ExampleController.swift */; };
 		CBF57B4E2C57FA83006237E8 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B4D2C57FA83006237E8 /* Example.swift */; };
@@ -66,6 +70,10 @@
 		CBEA688C2C593FA400200AF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CBEA68952C595B1300200AF7 /* AuthorizationField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationField.swift; sourceTree = "<group>"; };
 		CBEA68972C596A2800200AF7 /* UITextField+Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
+		CBEA68A02C5BB65500200AF7 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
+		CBEA68A42C5BB68F00200AF7 /* ForgotPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresenter.swift; sourceTree = "<group>"; };
+		CBEA68A62C5CDEA700200AF7 /* UpdatePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordController.swift; sourceTree = "<group>"; };
+		CBEA68A82C5CDF6B00200AF7 /* UpdatePasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordPresenter.swift; sourceTree = "<group>"; };
 		CBF57B4A2C57FA53006237E8 /* ExampleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleController.swift; sourceTree = "<group>"; };
 		CBF57B4D2C57FA83006237E8 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		CBF57B512C57FD2B006237E8 /* ExampleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleRouter.swift; sourceTree = "<group>"; };
@@ -168,6 +176,7 @@
 				CBEA687F2C5927CD00200AF7 /* AuthorizationAssembly.swift */,
 				CBEA68852C592ECF00200AF7 /* View */,
 				CBEA68882C59306800200AF7 /* Presenter */,
+				CBEA68A22C5BB65A00200AF7 /* SubVC */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -195,6 +204,33 @@
 				CBEA68972C596A2800200AF7 /* UITextField+Padding.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CBEA68A22C5BB65A00200AF7 /* SubVC */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA68A32C5BB66D00200AF7 /* ForgotPassword */,
+				CBEA68AA2C5CE22A00200AF7 /* UpdatePassword */,
+			);
+			path = SubVC;
+			sourceTree = "<group>";
+		};
+		CBEA68A32C5BB66D00200AF7 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA68A02C5BB65500200AF7 /* ForgotPasswordController.swift */,
+				CBEA68A42C5BB68F00200AF7 /* ForgotPasswordPresenter.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		CBEA68AA2C5CE22A00200AF7 /* UpdatePassword */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA68A62C5CDEA700200AF7 /* UpdatePasswordController.swift */,
+				CBEA68A82C5CDF6B00200AF7 /* UpdatePasswordPresenter.swift */,
+			);
+			path = UpdatePassword;
 			sourceTree = "<group>";
 		};
 		CBF57B4C2C57FA59006237E8 /* Example */ = {
@@ -330,9 +366,11 @@
 				CB2C8CB32C5768CB00D280FE /* NavigationController.swift in Sources */,
 				CBEA68982C596A2900200AF7 /* UITextField+Padding.swift in Sources */,
 				CBF57B5D2C583B12006237E8 /* ExampleCellView.swift in Sources */,
+				CBEA68A92C5CDF6B00200AF7 /* UpdatePasswordPresenter.swift in Sources */,
 				CB2C8CA02C5698E400D280FE /* RadioApp.xcdatamodeld in Sources */,
 				CBF57B5B2C5839EA006237E8 /* ExampleProtocols.swift in Sources */,
 				CB2C8CB02C5767DF00D280FE /* Router.swift in Sources */,
+				CBEA68A52C5BB68F00200AF7 /* ForgotPasswordPresenter.swift in Sources */,
 				CBEA68872C59306500200AF7 /* AuthorizationPresenter.swift in Sources */,
 				CB2C8CB52C576A5C00D280FE /* ViewController.swift in Sources */,
 				CBF57B542C582540006237E8 /* ExampleBuilder.swift in Sources */,
@@ -340,7 +378,9 @@
 				CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */,
 				CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */,
 				CB2C8CC02C57B1A000D280FE /* TabBarController.swift in Sources */,
+				CBEA68A72C5CDEA700200AF7 /* UpdatePasswordController.swift in Sources */,
 				CBF57B612C583F67006237E8 /* ExamplePresenter.swift in Sources */,
+				CBEA68A12C5BB65500200AF7 /* ForgotPasswordController.swift in Sources */,
 				CBF57B562C58319D006237E8 /* Builder.swift in Sources */,
 				CBEA687C2C5926EC00200AF7 /* AuthorizationRouter.swift in Sources */,
 				CB2C8C982C5698E400D280FE /* SceneDelegate.swift in Sources */,

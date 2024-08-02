@@ -20,13 +20,14 @@ protocol AuthorizationPresenterProtocol: AnyObject {
     var mode: AuthorizationMode { get set }
     func activate()
     func switchMode()
-    func goToPopular()
+    func finishAuthorization()
     func didTapGoogleButton()
     func didTapForgotPasswordButton()
 }
 
 protocol AuthorizationRouterProtocol: AnyObject {
-    func showAuthorizationVC()
+    func goHome()
     func showForgotPasswordVC()
     func showUpdatePasswordVC()
+    func proceedToSignIn()
 }

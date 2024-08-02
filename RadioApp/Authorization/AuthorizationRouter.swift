@@ -8,18 +8,27 @@
 import UIKit
 
 final class AuthorizationRouter: Router, AuthorizationRouterProtocol {
-    func showAuthorizationVC() {
-        let vc = Builder.createAuthorization()
+    func goHome() {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let windowDelegate = windowScene.delegate as? SceneDelegate {
+            let vc = Builder.createTabBar()
+            let window = windowDelegate.window
+            window?.rootViewController = vc
+        }
+    }
+    func showForgotPasswordVC() {
+        let vc = Builder.createForgotPasswordVC(router: self)
+        vc.hidesBottomBarWhenPushed = true
         pushScreen(vc)
     }
     
-    func showForgotPasswordVC() {
-//        let vc = Builder.createForgotPassword()
-//        pushScreen(vc)
+    func showUpdatePasswordVC() {
+        let vc = Builder.createUpdatePasswordVC(router: self)
+        vc.hidesBottomBarWhenPushed = true
+        pushScreen(vc)
     }
     
-    func showUpdatePasswordVC() {
-//        let vc = Builder.createUpdatePassword()
-//        pushScreen(vc)
+    func proceedToSignIn() {
+        controller?.navigationController?.popToRootViewController(animated: true)
     }
 }

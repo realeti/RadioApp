@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class AuthorizationController: ViewController {
+class AuthorizationController: UIViewController {
     var presenter: (any AuthorizationPresenterProtocol)?
     private var mode: AuthorizationMode?
 
@@ -40,7 +40,7 @@ private extension AuthorizationController {
     func setupCommonUI(with stack: UIView) {
         guard let mode else { return }
         
-        let bg = UIImageView(image: .bgLogin)
+        let bg = UIImageView(image: .bgNontransparent)
         bg.contentMode = .scaleAspectFill
         
         let icon = UIImageView(image: .iconNoBg)
@@ -75,7 +75,7 @@ private extension AuthorizationController {
             mainLabel.text = "Sign Up"
             switchModeButton.setTitle("Or Sign In", for: .normal)
         }
-        
+
         view.addSubview(bg)
         view.addSubview(icon)
         view.addSubview(mainLabel)
@@ -83,6 +83,7 @@ private extension AuthorizationController {
         view.addSubview(stack)
         view.addSubview(doneButton)
         view.addSubview(switchModeButton)
+        
  
         bg.snp.makeConstraints { make in
             make.leading.top.trailing.bottom.equalToSuperview()
@@ -122,9 +123,9 @@ private extension AuthorizationController {
         }
     }
     
-    
     @objc func doneTapped() {
         print("done tapped")
+        presenter?.finishAuthorization()
     }
     
     @objc func switchModeTapped() {
@@ -212,10 +213,12 @@ private extension AuthorizationController {
     
     @objc func forgotPasswordTapped() {
         print("forgot password tapped")
+        presenter?.didTapForgotPasswordButton()
     }
     
     @objc func googleTapped() {
         print("google tapped")
+        presenter?.didTapGoogleButton()
     }
 }
 

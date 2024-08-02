@@ -20,6 +20,9 @@ final class AuthorizationAssembly: ModuleAssembly {
         
         controller.hidesBottomBarWhenPushed = true
         
-        return controller
+        let navVC = UINavigationController(rootViewController: controller)
+        navVC.isNavigationBarHidden = true
+    
+        return navVC
     }
 }
