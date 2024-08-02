@@ -6,10 +6,9 @@
 //
 
 import UIKit
-//import MediaPlayer
 import AVFoundation
 
-final class PopularViewController: ViewController, PopularViewProtocol {
+final class PopularViewController: ViewController {
     // MARK: - Public Properties
     var presenter: PopularPresenterProtocol!
     
@@ -30,7 +29,6 @@ final class PopularViewController: ViewController, PopularViewProtocol {
         loadStations()
         setDelegates()
         setupVolumeProgress()
-        //observeVolumeChanges()
     }
     
     // MARK: - Load Stations
@@ -45,8 +43,27 @@ final class PopularViewController: ViewController, PopularViewProtocol {
     }
 }
 
-// MARK: - Popular Delegate methods
-extension PopularViewController {
+// MARK: - Set VolumeProgress
+private extension PopularViewController {
+    func setupVolumeProgress() {
+        let volume = getSystemVolume()
+        popularView.updateVolumeProgress(volume)
+    }
+    
+    private func getSystemVolume() -> Float {
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setActive(true)
+            return audioSession.outputVolume
+        } catch {
+            print("Error activating audio session: \(error)")
+            return 0
+        }
+    }
+}
+
+// MARK: - PopularView Delegate methods
+extension PopularViewController: PopularViewProtocol {
     func didUpdateStations() {
         DispatchQueue.main.async {
             self.popularView.radioCollection.reloadData()
@@ -68,25 +85,6 @@ extension PopularViewController {
             return
         }
         cell.updateStationVotes(isStationVoted)
-    }
-}
-
-// MARK: - Setup VolumeProgress
-private extension PopularViewController {
-    func setupVolumeProgress() {
-        let volume = getSystemVolume()
-        popularView.updateVolumeProgress(volume)
-    }
-    
-    private func getSystemVolume() -> Float {
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setActive(true)
-            return audioSession.outputVolume
-        } catch {
-            print("Error activating audio session: \(error)")
-            return 0
-        }
     }
 }
 
@@ -116,7 +114,8 @@ extension PopularViewController: UICollectionViewDataSource {
 // MARK: - RadioCollectionView Delegate methods
 extension PopularViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("row #\(indexPath.row)")
+        let stationId = indexPath.row
+        presenter.changeStation(stationId)
     }
 }
 
@@ -129,25 +128,4 @@ extension PopularViewController: UICollectionViewDelegateFlowLayout {
         let itemSize = (collectionView.bounds.width - totalSpacing) / numberOfItemsPerRow
         return CGSize(width: itemSize, height: itemSize)
     }
-}
-
-// MARK: - Observe VolumeChanges
-/*private extension PopularViewController {
-    func observeVolumeChanges() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(volumeChanged),
-            name: NSNotification.Name(rawValue: "SystemVolumeDidChange"),
-            object: nil
-        )
-    }
-}*/
-
-// MARK: - Actions
-private extension PopularViewController {
-    /*@objc private func volumeChanged(notification: Notification) {
-        if let volume = notification.userInfo?["AVSystemController_AudioVolumeNotificationParameter"] as? Float {
-            popularView.updateVolumeProgress(volume)
-        }
-    }*/
 }

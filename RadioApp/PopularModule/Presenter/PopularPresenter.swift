@@ -17,6 +17,7 @@ protocol PopularPresenterProtocol {
     var getStations: [PopularViewModel] { get }
     
     func loadStations()
+    func changeStation(_ stationId: Int)
     func toggleVoteState(for stationId: Int)
     func isStationVoted(_ stationId: Int) -> Bool
 }
@@ -51,6 +52,14 @@ extension PopularPresenter {
         votedStations = Array(repeating: false, count: stations.count)
         
         view?.didUpdateStations()
+    }
+}
+
+// MARK: - Change Station
+extension PopularPresenter {
+    func changeStation(_ stationId: Int) {
+        /// set new station for auido player
+        print("change station (item id #\(stationId))")
     }
 }
 

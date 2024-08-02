@@ -13,7 +13,6 @@ final class PopularCollectionViewCell: UICollectionViewCell {
     private lazy var containerView: UIView = {
         let view = UIView()
         view.layer.masksToBounds = true
-        /// убрать отсюда установку цвета
         view.layer.borderColor = UIColor.stormyBlue.cgColor
         view.layer.borderWidth = 2
         return view
@@ -58,7 +57,7 @@ final class PopularCollectionViewCell: UICollectionViewCell {
     private lazy var radioTitleStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.distribution = .fill
+        stackView.distribution = .fillProportionally
         stackView.alignment = .center
         return stackView
     }()
@@ -84,7 +83,7 @@ final class PopularCollectionViewCell: UICollectionViewCell {
     
     private lazy var waveImageView: UIImageView = {
         let view = UIImageView()
-        view.image = .waveInactive
+        view.image = .wave.withTintColor(.white.withAlphaComponent(0.3))
         view.contentMode = .scaleAspectFit
         return view
     }()
@@ -132,15 +131,15 @@ final class PopularCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                containerView.backgroundColor = .pinkApp
-                containerView.layer.borderColor = nil
                 playImageView.isHidden = false
-                waveImageView.image = .waveActive
+                containerView.layer.borderColor = nil
+                containerView.backgroundColor = .pinkApp
+                waveImageView.image = .wave.withTintColor(.white)
             } else {
+                playImageView.isHidden = true
                 containerView.backgroundColor = nil
                 containerView.layer.borderColor = UIColor.stormyBlue.cgColor
-                playImageView.isHidden = true
-                waveImageView.image = .waveInactive
+                waveImageView.image = .wave.withTintColor(.white.withAlphaComponent(0.3))
             }
         }
     }
@@ -152,7 +151,8 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         voteCountLabel.text = nil
         radioTitleLabel.text = nil
         radioSubtitleLabel.text = nil
-        //waveImageView.image = nil
+        leftWaveCircle.image = nil
+        rightWaveCircle.image = nil
     }
     
     override func layoutSubviews() {
@@ -198,14 +198,37 @@ extension PopularCollectionViewCell {
         votes = model.countVotes
         self.indexPath = indexPath
         
-        setupVoteButtonImage(isStationVoted)
+        setupVoteButton(isStationVoted)
+        setupWaveCircles(with: indexPath)
     }
     
-    private func setupVoteButtonImage(_ isStationVoted: Bool) {
+    // MARK: - Set VoteButton image
+    private func setupVoteButton(_ isStationVoted: Bool) {
         let image: UIImage = isStationVoted ? .voteOn : .voteOff
         voteButton.setBackgroundImage(image, for: .normal)
     }
     
+    // MARK: - Set WaveCircles image
+    private func setupWaveCircles(with indexPath: IndexPath) {
+        let colors: [UIColor] = [
+            .darkPinkCircle,
+            .blueCircle,
+            .magentaCircle,
+            .greenCircle,
+            .yellowCircle,
+            .orangeCircle
+        ]
+        
+        let colorIndex = indexPath.row % colors.count
+        let color = colors[colorIndex]
+        
+        leftWaveCircle.image = .waveCircle.withTintColor(color)
+        rightWaveCircle.image = .waveCircle.withTintColor(color)
+    }
+}
+
+// MARK: - Update Station Votes
+extension PopularCollectionViewCell {
     func updateStationVotes(_ isStationVoted: Bool) {
         votes += isStationVoted ? 1 : -1
         
@@ -222,7 +245,7 @@ extension PopularCollectionViewCell {
 private extension PopularCollectionViewCell {
     @objc func voteButtonPressed(_ sender: UIButton) {
         voteButton.isUserInteractionEnabled = false
-        delegate?.voteForStation(at: indexPath) /// and station id if exists
+        delegate?.voteForStation(at: indexPath)
     }
 }
 
@@ -274,23 +297,23 @@ private extension PopularCollectionViewCell {
     
     func setupWaveImageViewConstraints() {
         waveImageView.snp.makeConstraints { make in
-            make.top.equalTo(radioTitleStackView.snp.bottom).offset(Metrics.namiImageTopIndent)
+            make.top.equalTo(radioTitleStackView.snp.bottom).offset(Metrics.waveImageTopIndent)
             make.centerX.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.16)
             make.width.equalToSuperview().multipliedBy(0.67)
-            make.bottom.equalToSuperview().inset(Metrics.namiImageBottomIndent)
+            make.bottom.equalToSuperview().inset(Metrics.waveImageBottomIndent)
         }
     }
     
     func setupWaveCirclesContraints() {
         leftWaveCircle.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(2)
-            make.leading.equalToSuperview()
-            make.width.height.equalTo(waveImageView.snp.height).multipliedBy(0.36)
+            make.top.equalToSuperview().inset(Metrics.circleIndent)
+            make.leading.equalToSuperview().inset(Metrics.circleIndent)
+            make.width.height.equalTo(waveImageView.snp.height).multipliedBy(0.37)
         }
         
         rightWaveCircle.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(2)
+            make.top.equalToSuperview().inset(Metrics.circleIndent)
             make.trailing.equalToSuperview()
             make.width.height.equalTo(leftWaveCircle)
         }
@@ -314,10 +337,12 @@ fileprivate struct Metrics {
     /// radio title stack
     static let radioTitleStackIndent: CGFloat = 16.0
     
-    /// nami
-    static let namiImageTopIndent: CGFloat = 10.0
-    static let namiImageIndent: CGFloat = 24.0
-    static let namiImageBottomIndent: CGFloat = 15.0
+    /// wave image view
+    static let waveImageTopIndent: CGFloat = 10.0
+    static let waveImageBottomIndent: CGFloat = 15.0
+    
+    /// wave circle image view
+    static let circleIndent: CGFloat = 2.0
     
     private init() {}
 }
