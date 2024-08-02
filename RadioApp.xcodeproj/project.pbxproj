@@ -27,6 +27,26 @@
 		CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8CB92C57AB5800D280FE /* Configurable.swift */; };
 		CB2C8CC02C57B1A000D280FE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8CBF2C57B1A000D280FE /* TabBarController.swift */; };
 		CB2C8CC82C57C8AB00D280FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB2C8CC72C57C8AB00D280FE /* Assets.xcassets */; };
+		CBEA68762C5921C600200AF7 /* AuthorizationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68752C5921C600200AF7 /* AuthorizationProtocols.swift */; };
+		CBEA687C2C5926EC00200AF7 /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA687B2C5926EC00200AF7 /* AuthorizationRouter.swift */; };
+		CBEA687E2C59272300200AF7 /* AuthorizationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA687D2C59272300200AF7 /* AuthorizationBuilder.swift */; };
+		CBEA68802C5927CD00200AF7 /* AuthorizationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA687F2C5927CD00200AF7 /* AuthorizationAssembly.swift */; };
+		CBEA68822C592E3800200AF7 /* AuthorizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68812C592E3800200AF7 /* AuthorizationController.swift */; };
+		CBEA68872C59306500200AF7 /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68862C59306500200AF7 /* AuthorizationPresenter.swift */; };
+		CBEA688D2C593FA400200AF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBEA688C2C593FA400200AF7 /* GoogleService-Info.plist */; };
+		CBEA68902C5941B200200AF7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CBEA688F2C5941B200200AF7 /* FirebaseAuth */; };
+		CBEA68922C5941B200200AF7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CBEA68912C5941B200200AF7 /* FirebaseFirestore */; };
+		CBEA68942C5941B200200AF7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = CBEA68932C5941B200200AF7 /* FirebaseStorage */; };
+		CBEA68962C595B1300200AF7 /* AuthorizationField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68952C595B1300200AF7 /* AuthorizationField.swift */; };
+		CBEA68982C596A2900200AF7 /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68972C596A2800200AF7 /* UITextField+Padding.swift */; };
+		CBEA68A12C5BB65500200AF7 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68A02C5BB65500200AF7 /* ForgotPasswordController.swift */; };
+		CBEA68A52C5BB68F00200AF7 /* ForgotPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68A42C5BB68F00200AF7 /* ForgotPasswordPresenter.swift */; };
+		CBEA68A72C5CDEA700200AF7 /* UpdatePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68A62C5CDEA700200AF7 /* UpdatePasswordController.swift */; };
+		CBEA68A92C5CDF6B00200AF7 /* UpdatePasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68A82C5CDF6B00200AF7 /* UpdatePasswordPresenter.swift */; };
+		CBEA68AC2C5D046100200AF7 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68AB2C5D046100200AF7 /* OnboardingController.swift */; };
+		CBEA68AF2C5D052300200AF7 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68AE2C5D052300200AF7 /* OnboardingPresenter.swift */; };
+		CBEA68B12C5D070700200AF7 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68B02C5D070700200AF7 /* OnboardingRouter.swift */; };
+		CBEA68B32C5D078000200AF7 /* OnboardingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA68B22C5D078000200AF7 /* OnboardingAssembly.swift */; };
 		CBF57B492C57FA34006237E8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CBF57B482C57FA34006237E8 /* SnapKit */; };
 		CBF57B4B2C57FA53006237E8 /* ExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B4A2C57FA53006237E8 /* ExampleController.swift */; };
 		CBF57B4E2C57FA83006237E8 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B4D2C57FA83006237E8 /* Example.swift */; };
@@ -63,6 +83,23 @@
 		CB2C8CB92C57AB5800D280FE /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		CB2C8CBF2C57B1A000D280FE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CB2C8CC72C57C8AB00D280FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CBEA68752C5921C600200AF7 /* AuthorizationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationProtocols.swift; sourceTree = "<group>"; };
+		CBEA687B2C5926EC00200AF7 /* AuthorizationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
+		CBEA687D2C59272300200AF7 /* AuthorizationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationBuilder.swift; sourceTree = "<group>"; };
+		CBEA687F2C5927CD00200AF7 /* AuthorizationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationAssembly.swift; sourceTree = "<group>"; };
+		CBEA68812C592E3800200AF7 /* AuthorizationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationController.swift; sourceTree = "<group>"; };
+		CBEA68862C59306500200AF7 /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
+		CBEA688C2C593FA400200AF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CBEA68952C595B1300200AF7 /* AuthorizationField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationField.swift; sourceTree = "<group>"; };
+		CBEA68972C596A2800200AF7 /* UITextField+Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
+		CBEA68A02C5BB65500200AF7 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
+		CBEA68A42C5BB68F00200AF7 /* ForgotPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresenter.swift; sourceTree = "<group>"; };
+		CBEA68A62C5CDEA700200AF7 /* UpdatePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordController.swift; sourceTree = "<group>"; };
+		CBEA68A82C5CDF6B00200AF7 /* UpdatePasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordPresenter.swift; sourceTree = "<group>"; };
+		CBEA68AB2C5D046100200AF7 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
+		CBEA68AE2C5D052300200AF7 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
+		CBEA68B02C5D070700200AF7 /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
+		CBEA68B22C5D078000200AF7 /* OnboardingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAssembly.swift; sourceTree = "<group>"; };
 		CBF57B4A2C57FA53006237E8 /* ExampleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleController.swift; sourceTree = "<group>"; };
 		CBF57B4D2C57FA83006237E8 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		CBF57B512C57FD2B006237E8 /* ExampleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleRouter.swift; sourceTree = "<group>"; };
@@ -81,6 +118,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBF57B492C57FA34006237E8 /* SnapKit in Frameworks */,
+				CBEA68942C5941B200200AF7 /* FirebaseStorage in Frameworks */,
+				CBEA68902C5941B200200AF7 /* FirebaseAuth in Frameworks */,
+				CBEA68922C5941B200200AF7 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,12 +189,15 @@
 				CB2C8C952C5698E400D280FE /* AppDelegate.swift */,
 				CB2C8C972C5698E400D280FE /* SceneDelegate.swift */,
 				CB2C8CC12C57BC4200D280FE /* TabBar */,
+				CBEA68AD2C5D04FB00200AF7 /* Onboarding */,
+				CBEA68772C5921CA00200AF7 /* Authorization */,
 				CBF57B4C2C57FA59006237E8 /* Example */,
 				CBF57B622C584CC4006237E8 /* Presenter */,
 				CB2C8CB12C5767E500D280FE /* Base */,
 				CB2C8CA32C5698E600D280FE /* LaunchScreen.storyboard */,
 				CB2C8CC72C57C8AB00D280FE /* Assets.xcassets */,
 				CB2C8CA62C5698E600D280FE /* Info.plist */,
+				CBEA688C2C593FA400200AF7 /* GoogleService-Info.plist */,
 				CB2C8C9E2C5698E400D280FE /* RadioApp.xcdatamodeld */,
 			);
 			path = RadioApp;
@@ -163,12 +206,13 @@
 		CB2C8CB12C5767E500D280FE /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				CBF57B552C58319D006237E8 /* Builder.swift */,
 				CB2C8CAF2C5767DF00D280FE /* Router.swift */,
 				CB2C8CB22C5768CB00D280FE /* NavigationController.swift */,
 				CB2C8CB42C576A5C00D280FE /* ViewController.swift */,
-				CBF57B552C58319D006237E8 /* Builder.swift */,
 				CB2C8CB82C57AAEA00D280FE /* Protocols */,
 				CBF57B572C58359D006237E8 /* Views */,
+				CBEA68992C596A2C00200AF7 /* Extensions */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -188,6 +232,83 @@
 				CB2C8CBF2C57B1A000D280FE /* TabBarController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		CBEA68772C5921CA00200AF7 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA68752C5921C600200AF7 /* AuthorizationProtocols.swift */,
+				CBEA687B2C5926EC00200AF7 /* AuthorizationRouter.swift */,
+				CBEA687D2C59272300200AF7 /* AuthorizationBuilder.swift */,
+				CBEA687F2C5927CD00200AF7 /* AuthorizationAssembly.swift */,
+				CBEA68852C592ECF00200AF7 /* View */,
+				CBEA68882C59306800200AF7 /* Presenter */,
+				CBEA68A22C5BB65A00200AF7 /* SubVC */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		CBEA68852C592ECF00200AF7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA68812C592E3800200AF7 /* AuthorizationController.swift */,
+				CBEA68952C595B1300200AF7 /* AuthorizationField.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CBEA68882C59306800200AF7 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA68862C59306500200AF7 /* AuthorizationPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		CBEA68992C596A2C00200AF7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA68972C596A2800200AF7 /* UITextField+Padding.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CBEA68A22C5BB65A00200AF7 /* SubVC */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA68A32C5BB66D00200AF7 /* ForgotPassword */,
+				CBEA68AA2C5CE22A00200AF7 /* UpdatePassword */,
+			);
+			path = SubVC;
+			sourceTree = "<group>";
+		};
+		CBEA68A32C5BB66D00200AF7 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA68A02C5BB65500200AF7 /* ForgotPasswordController.swift */,
+				CBEA68A42C5BB68F00200AF7 /* ForgotPasswordPresenter.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		CBEA68AA2C5CE22A00200AF7 /* UpdatePassword */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA68A62C5CDEA700200AF7 /* UpdatePasswordController.swift */,
+				CBEA68A82C5CDF6B00200AF7 /* UpdatePasswordPresenter.swift */,
+			);
+			path = UpdatePassword;
+			sourceTree = "<group>";
+		};
+		CBEA68AD2C5D04FB00200AF7 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA68AB2C5D046100200AF7 /* OnboardingController.swift */,
+				CBEA68AE2C5D052300200AF7 /* OnboardingPresenter.swift */,
+				CBEA68B02C5D070700200AF7 /* OnboardingRouter.swift */,
+				CBEA68B22C5D078000200AF7 /* OnboardingAssembly.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		CBF57B4C2C57FA59006237E8 /* Example */ = {
@@ -255,6 +376,9 @@
 			name = RadioApp;
 			packageProductDependencies = (
 				CBF57B482C57FA34006237E8 /* SnapKit */,
+				CBEA688F2C5941B200200AF7 /* FirebaseAuth */,
+				CBEA68912C5941B200200AF7 /* FirebaseFirestore */,
+				CBEA68932C5941B200200AF7 /* FirebaseStorage */,
 			);
 			productName = RadioApp;
 			productReference = CB2C8C922C5698E400D280FE /* RadioApp.app */;
@@ -286,6 +410,7 @@
 			mainGroup = CB2C8C892C5698E400D280FE;
 			packageReferences = (
 				CBF57B472C57FA34006237E8 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				CBEA688E2C5941B200200AF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = CB2C8C932C5698E400D280FE /* Products */;
 			projectDirPath = "";
@@ -303,6 +428,7 @@
 			files = (
 				CB2C8CC82C57C8AB00D280FE /* Assets.xcassets in Resources */,
 				CB2C8CA52C5698E600D280FE /* LaunchScreen.storyboard in Resources */,
+				CBEA688D2C593FA400200AF7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,29 +440,45 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBF57B5F2C583EA9006237E8 /* ExampleAssembly.swift in Sources */,
+				CBEA68962C595B1300200AF7 /* AuthorizationField.swift in Sources */,
+				CBEA68802C5927CD00200AF7 /* AuthorizationAssembly.swift in Sources */,
 				CB2C8CB32C5768CB00D280FE /* NavigationController.swift in Sources */,
-				B9CAA28F2C5CC7AA00B85F47 /* FavoritesPresenter.swift in Sources */,
+				CBEA68982C596A2900200AF7 /* UITextField+Padding.swift in Sources */,
 				CBF57B5D2C583B12006237E8 /* ExampleCellView.swift in Sources */,
-				B9CAA28D2C5CC41800B85F47 /* FavoritesModel.swift in Sources */,
-				B9F3B8DB2C593AC500DC97B0 /* TableCell.swift in Sources */,
-				B9CAA2912C5CCBEE00B85F47 /* FavoritesBuilder.swift in Sources */,
+				CBEA68A92C5CDF6B00200AF7 /* UpdatePasswordPresenter.swift in Sources */,
 				CB2C8CA02C5698E400D280FE /* RadioApp.xcdatamodeld in Sources */,
 				CBF57B5B2C5839EA006237E8 /* ExampleProtocols.swift in Sources */,
 				CB2C8CB02C5767DF00D280FE /* Router.swift in Sources */,
+				CBEA68A52C5BB68F00200AF7 /* ForgotPasswordPresenter.swift in Sources */,
+				CBEA68B12C5D070700200AF7 /* OnboardingRouter.swift in Sources */,
+				CBEA68872C59306500200AF7 /* AuthorizationPresenter.swift in Sources */,
+				B9CAA28F2C5CC7AA00B85F47 /* FavoritesPresenter.swift in Sources */,
+				B9CAA28D2C5CC41800B85F47 /* FavoritesModel.swift in Sources */,
+				B9F3B8DB2C593AC500DC97B0 /* TableCell.swift in Sources */,
+				B9CAA2912C5CCBEE00B85F47 /* FavoritesBuilder.swift in Sources */,
 				B9CAA28B2C5CC26300B85F47 /* FavoritesProtocol.swift in Sources */,
 				CB2C8CB52C576A5C00D280FE /* ViewController.swift in Sources */,
 				B9CAA2932C5CCC0000B85F47 /* FavoritesAssembly.swift in Sources */,
 				CBF57B542C582540006237E8 /* ExampleBuilder.swift in Sources */,
 				CB2C8CB72C57AACC00D280FE /* ModuleAssembly.swift in Sources */,
+				CBEA68AF2C5D052300200AF7 /* OnboardingPresenter.swift in Sources */,
 				CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */,
 				CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */,
 				B9F3B8DD2C593C3200DC97B0 /* FavoriteRadioView.swift in Sources */,
 				CB2C8CC02C57B1A000D280FE /* TabBarController.swift in Sources */,
+				CBEA68A72C5CDEA700200AF7 /* UpdatePasswordController.swift in Sources */,
+				CBEA68B32C5D078000200AF7 /* OnboardingAssembly.swift in Sources */,
 				CBF57B612C583F67006237E8 /* ExamplePresenter.swift in Sources */,
+				CBEA68A12C5BB65500200AF7 /* ForgotPasswordController.swift in Sources */,
 				CBF57B562C58319D006237E8 /* Builder.swift in Sources */,
+				CBEA687C2C5926EC00200AF7 /* AuthorizationRouter.swift in Sources */,
 				CB2C8C982C5698E400D280FE /* SceneDelegate.swift in Sources */,
 				CBF57B4B2C57FA53006237E8 /* ExampleController.swift in Sources */,
 				CBF57B4E2C57FA83006237E8 /* Example.swift in Sources */,
+				CBEA68762C5921C600200AF7 /* AuthorizationProtocols.swift in Sources */,
+				CBEA687E2C59272300200AF7 /* AuthorizationBuilder.swift in Sources */,
+				CBEA68AC2C5D046100200AF7 /* OnboardingController.swift in Sources */,
+				CBEA68822C592E3800200AF7 /* AuthorizationController.swift in Sources */,
 				CBF57B522C57FD2B006237E8 /* ExampleRouter.swift in Sources */,
 				B9F3B8D92C59353C00DC97B0 /* FavoritesController.swift in Sources */,
 				CBF57B592C5835AC006237E8 /* CollectionCell.swift in Sources */,
@@ -563,6 +705,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CBEA688E2C5941B200200AF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
 		CBF57B472C57FA34006237E8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -574,6 +724,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CBEA688F2C5941B200200AF7 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CBEA688E2C5941B200200AF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		CBEA68912C5941B200200AF7 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CBEA688E2C5941B200200AF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		CBEA68932C5941B200200AF7 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CBEA688E2C5941B200200AF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		CBF57B482C57FA34006237E8 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CBF57B472C57FA34006237E8 /* XCRemoteSwiftPackageReference "SnapKit" */;
