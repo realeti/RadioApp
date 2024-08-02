@@ -10,7 +10,11 @@ import Foundation
 class FavoritesPresenter: FavoritesPresenterProtocol {
     
     weak var view: FavoritesControllerProtocol?
-    var router: FavoritesRouterProtocol?
+    private let router: FavoritesRouterProtocol
+    
+    init(router: FavoritesRouterProtocol) {
+        self.router = router
+    }
     
     func activate() {
        // fetch items

@@ -11,7 +11,7 @@ private typealias RadioCell = TableCell<FavoriteRadioView>
 
 class FavoritesController: ViewController {
 
-    var presenter: FavoritesPresenterProtocol?
+    private let presenter: FavoritesPresenterProtocol
     
     private var items = [FavoriteRadioView.Model]()
     
@@ -34,11 +34,20 @@ class FavoritesController: ViewController {
         return tableView
     }()
     
+    init(presenter: FavoritesPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
-        presenter?.activate()
+        presenter.activate()
         
     }
     
