@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+final class FavoritesRouter: Router, FavoritesRouterProtocol {
+    func showDetails() {
+        
+    }
+}

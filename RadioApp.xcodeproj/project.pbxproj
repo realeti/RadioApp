@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B9CAA28B2C5CC26300B85F47 /* FavoritesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA28A2C5CC26300B85F47 /* FavoritesProtocol.swift */; };
+		B9CAA28D2C5CC41800B85F47 /* FavoritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA28C2C5CC41800B85F47 /* FavoritesModel.swift */; };
+		B9CAA28F2C5CC7AA00B85F47 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA28E2C5CC7AA00B85F47 /* FavoritesPresenter.swift */; };
+		B9CAA2912C5CCBEE00B85F47 /* FavoritesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA2902C5CCBEE00B85F47 /* FavoritesBuilder.swift */; };
+		B9CAA2932C5CCC0000B85F47 /* FavoritesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA2922C5CCC0000B85F47 /* FavoritesAssembly.swift */; };
+		B9CAA2952C5CCC9D00B85F47 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA2942C5CCC9D00B85F47 /* FavoritesRouter.swift */; };
+		B9F3B8D92C59353C00DC97B0 /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F3B8D82C59353C00DC97B0 /* FavoritesController.swift */; };
+		B9F3B8DB2C593AC500DC97B0 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F3B8DA2C593AC500DC97B0 /* TableCell.swift */; };
+		B9F3B8DD2C593C3200DC97B0 /* FavoriteRadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F3B8DC2C593C3200DC97B0 /* FavoriteRadioView.swift */; };
 		CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8C952C5698E400D280FE /* AppDelegate.swift */; };
 		CB2C8C982C5698E400D280FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8C972C5698E400D280FE /* SceneDelegate.swift */; };
 		CB2C8CA02C5698E400D280FE /* RadioApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8C9E2C5698E400D280FE /* RadioApp.xcdatamodeld */; };
@@ -32,6 +41,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B9CAA28A2C5CC26300B85F47 /* FavoritesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesProtocol.swift; sourceTree = "<group>"; };
+		B9CAA28C2C5CC41800B85F47 /* FavoritesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesModel.swift; sourceTree = "<group>"; };
+		B9CAA28E2C5CC7AA00B85F47 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		B9CAA2902C5CCBEE00B85F47 /* FavoritesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesBuilder.swift; sourceTree = "<group>"; };
+		B9CAA2922C5CCC0000B85F47 /* FavoritesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAssembly.swift; sourceTree = "<group>"; };
+		B9CAA2942C5CCC9D00B85F47 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
+		B9F3B8D82C59353C00DC97B0 /* FavoritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
+		B9F3B8DA2C593AC500DC97B0 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		B9F3B8DC2C593C3200DC97B0 /* FavoriteRadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRadioView.swift; sourceTree = "<group>"; };
 		CB2C8C922C5698E400D280FE /* RadioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2C8C952C5698E400D280FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB2C8C972C5698E400D280FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +87,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B9CAA2962C5CD48300B85F47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B9CAA28C2C5CC41800B85F47 /* FavoritesModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B9CAA2972C5CD48E00B85F47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B9F3B8D82C59353C00DC97B0 /* FavoritesController.swift */,
+				B9F3B8DC2C593C3200DC97B0 /* FavoriteRadioView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B9CAA2982C5CD49A00B85F47 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B9CAA28E2C5CC7AA00B85F47 /* FavoritesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B9F3B8D72C59350C00DC97B0 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				B9CAA2972C5CD48E00B85F47 /* View */,
+				B9CAA2902C5CCBEE00B85F47 /* FavoritesBuilder.swift */,
+				B9CAA2922C5CCC0000B85F47 /* FavoritesAssembly.swift */,
+				B9CAA2942C5CCC9D00B85F47 /* FavoritesRouter.swift */,
+				B9CAA2982C5CD49A00B85F47 /* Presenter */,
+				B9CAA28A2C5CC26300B85F47 /* FavoritesProtocol.swift */,
+				B9CAA2962C5CD48300B85F47 /* Model */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		CB2C8C892C5698E400D280FE = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +145,7 @@
 		CB2C8C942C5698E400D280FE /* RadioApp */ = {
 			isa = PBXGroup;
 			children = (
+				B9F3B8D72C59350C00DC97B0 /* Favorites */,
 				CB2C8C952C5698E400D280FE /* AppDelegate.swift */,
 				CB2C8C972C5698E400D280FE /* SceneDelegate.swift */,
 				CB2C8CC12C57BC4200D280FE /* TabBar */,
@@ -166,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				CBF57B582C5835AC006237E8 /* CollectionCell.swift */,
+				B9F3B8DA2C593AC500DC97B0 /* TableCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -256,15 +315,22 @@
 			files = (
 				CBF57B5F2C583EA9006237E8 /* ExampleAssembly.swift in Sources */,
 				CB2C8CB32C5768CB00D280FE /* NavigationController.swift in Sources */,
+				B9CAA28F2C5CC7AA00B85F47 /* FavoritesPresenter.swift in Sources */,
 				CBF57B5D2C583B12006237E8 /* ExampleCellView.swift in Sources */,
+				B9CAA28D2C5CC41800B85F47 /* FavoritesModel.swift in Sources */,
+				B9F3B8DB2C593AC500DC97B0 /* TableCell.swift in Sources */,
+				B9CAA2912C5CCBEE00B85F47 /* FavoritesBuilder.swift in Sources */,
 				CB2C8CA02C5698E400D280FE /* RadioApp.xcdatamodeld in Sources */,
 				CBF57B5B2C5839EA006237E8 /* ExampleProtocols.swift in Sources */,
 				CB2C8CB02C5767DF00D280FE /* Router.swift in Sources */,
+				B9CAA28B2C5CC26300B85F47 /* FavoritesProtocol.swift in Sources */,
 				CB2C8CB52C576A5C00D280FE /* ViewController.swift in Sources */,
+				B9CAA2932C5CCC0000B85F47 /* FavoritesAssembly.swift in Sources */,
 				CBF57B542C582540006237E8 /* ExampleBuilder.swift in Sources */,
 				CB2C8CB72C57AACC00D280FE /* ModuleAssembly.swift in Sources */,
 				CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */,
 				CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */,
+				B9F3B8DD2C593C3200DC97B0 /* FavoriteRadioView.swift in Sources */,
 				CB2C8CC02C57B1A000D280FE /* TabBarController.swift in Sources */,
 				CBF57B612C583F67006237E8 /* ExamplePresenter.swift in Sources */,
 				CBF57B562C58319D006237E8 /* Builder.swift in Sources */,
@@ -272,7 +338,9 @@
 				CBF57B4B2C57FA53006237E8 /* ExampleController.swift in Sources */,
 				CBF57B4E2C57FA83006237E8 /* Example.swift in Sources */,
 				CBF57B522C57FD2B006237E8 /* ExampleRouter.swift in Sources */,
+				B9F3B8D92C59353C00DC97B0 /* FavoritesController.swift in Sources */,
 				CBF57B592C5835AC006237E8 /* CollectionCell.swift in Sources */,
+				B9CAA2952C5CCC9D00B85F47 /* FavoritesRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
