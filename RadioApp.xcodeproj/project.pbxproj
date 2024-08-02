@@ -48,6 +48,24 @@
 		CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8CB92C57AB5800D280FE /* Configurable.swift */; };
 		CB2C8CC02C57B1A000D280FE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8CBF2C57B1A000D280FE /* TabBarController.swift */; };
 		CB2C8CC82C57C8AB00D280FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB2C8CC72C57C8AB00D280FE /* Assets.xcassets */; };
+		CBCA8D7A2C5D38AB003B01B9 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D762C5D38AB003B01B9 /* OnboardingController.swift */; };
+		CBCA8D7B2C5D38AB003B01B9 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D772C5D38AB003B01B9 /* OnboardingRouter.swift */; };
+		CBCA8D7C2C5D38AB003B01B9 /* OnboardingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D782C5D38AB003B01B9 /* OnboardingAssembly.swift */; };
+		CBCA8D7D2C5D38AB003B01B9 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D792C5D38AB003B01B9 /* OnboardingPresenter.swift */; };
+		CBCA8D952C5D3965003B01B9 /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D852C5D3965003B01B9 /* AuthorizationRouter.swift */; };
+		CBCA8D962C5D3965003B01B9 /* AuthorizationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D862C5D3965003B01B9 /* AuthorizationProtocols.swift */; };
+		CBCA8D972C5D3965003B01B9 /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D882C5D3965003B01B9 /* AuthorizationPresenter.swift */; };
+		CBCA8D982C5D3965003B01B9 /* AuthorizationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D892C5D3965003B01B9 /* AuthorizationAssembly.swift */; };
+		CBCA8D992C5D3965003B01B9 /* AuthorizationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D8A2C5D3965003B01B9 /* AuthorizationBuilder.swift */; };
+		CBCA8D9A2C5D3965003B01B9 /* AuthorizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D8C2C5D3965003B01B9 /* AuthorizationController.swift */; };
+		CBCA8D9B2C5D3965003B01B9 /* AuthorizationField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D8D2C5D3965003B01B9 /* AuthorizationField.swift */; };
+		CBCA8D9C2C5D3965003B01B9 /* UpdatePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D902C5D3965003B01B9 /* UpdatePasswordController.swift */; };
+		CBCA8D9D2C5D3965003B01B9 /* UpdatePasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D912C5D3965003B01B9 /* UpdatePasswordPresenter.swift */; };
+		CBCA8D9E2C5D3965003B01B9 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D932C5D3965003B01B9 /* ForgotPasswordController.swift */; };
+		CBCA8D9F2C5D3965003B01B9 /* ForgotPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D942C5D3965003B01B9 /* ForgotPasswordPresenter.swift */; };
+		CBCA8DA12C5D39AD003B01B9 /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8DA02C5D39AD003B01B9 /* UITextField+Padding.swift */; };
+		CBE2B2BF2C5D385D004BC467 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CBE2B2BE2C5D385D004BC467 /* FirebaseAuth */; };
+		CBE2B2C12C5D385D004BC467 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CBE2B2C02C5D385D004BC467 /* FirebaseFirestore */; };
 		CBF57B492C57FA34006237E8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CBF57B482C57FA34006237E8 /* SnapKit */; };
 		CBF57B4B2C57FA53006237E8 /* ExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B4A2C57FA53006237E8 /* ExampleController.swift */; };
 		CBF57B4E2C57FA83006237E8 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B4D2C57FA83006237E8 /* Example.swift */; };
@@ -107,6 +125,22 @@
 		CB2C8CB92C57AB5800D280FE /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		CB2C8CBF2C57B1A000D280FE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CB2C8CC72C57C8AB00D280FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CBCA8D762C5D38AB003B01B9 /* OnboardingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
+		CBCA8D772C5D38AB003B01B9 /* OnboardingRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
+		CBCA8D782C5D38AB003B01B9 /* OnboardingAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingAssembly.swift; sourceTree = "<group>"; };
+		CBCA8D792C5D38AB003B01B9 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
+		CBCA8D852C5D3965003B01B9 /* AuthorizationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
+		CBCA8D862C5D3965003B01B9 /* AuthorizationProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationProtocols.swift; sourceTree = "<group>"; };
+		CBCA8D882C5D3965003B01B9 /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
+		CBCA8D892C5D3965003B01B9 /* AuthorizationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationAssembly.swift; sourceTree = "<group>"; };
+		CBCA8D8A2C5D3965003B01B9 /* AuthorizationBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationBuilder.swift; sourceTree = "<group>"; };
+		CBCA8D8C2C5D3965003B01B9 /* AuthorizationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationController.swift; sourceTree = "<group>"; };
+		CBCA8D8D2C5D3965003B01B9 /* AuthorizationField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationField.swift; sourceTree = "<group>"; };
+		CBCA8D902C5D3965003B01B9 /* UpdatePasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePasswordController.swift; sourceTree = "<group>"; };
+		CBCA8D912C5D3965003B01B9 /* UpdatePasswordPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePasswordPresenter.swift; sourceTree = "<group>"; };
+		CBCA8D932C5D3965003B01B9 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
+		CBCA8D942C5D3965003B01B9 /* ForgotPasswordPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresenter.swift; sourceTree = "<group>"; };
+		CBCA8DA02C5D39AD003B01B9 /* UITextField+Padding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
 		CBF57B4A2C57FA53006237E8 /* ExampleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleController.swift; sourceTree = "<group>"; };
 		CBF57B4D2C57FA83006237E8 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		CBF57B512C57FD2B006237E8 /* ExampleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleRouter.swift; sourceTree = "<group>"; };
@@ -125,6 +159,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBF57B492C57FA34006237E8 /* SnapKit in Frameworks */,
+				CBE2B2BF2C5D385D004BC467 /* FirebaseAuth in Frameworks */,
+				CBE2B2C12C5D385D004BC467 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +247,7 @@
 				BECF66342C5A10AA0068160D /* UIView+.swift */,
 				BECF66432C5A1FBF0068160D /* UILabel+.swift */,
 				BECF663E2C5A1D750068160D /* String+.swift */,
+				CBCA8DA02C5D39AD003B01B9 /* UITextField+Padding.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -275,6 +312,8 @@
 				CB2C8C952C5698E400D280FE /* AppDelegate.swift */,
 				CB2C8C972C5698E400D280FE /* SceneDelegate.swift */,
 				CB2C8CC12C57BC4200D280FE /* TabBar */,
+				CBCA8DA22C5D3A36003B01B9 /* Onboarding */,
+				CBCA8D842C5D3965003B01B9 /* Authorization */,
 				BECF660C2C58D3930068160D /* Profile */,
 				CBF57B4C2C57FA59006237E8 /* Example */,
 				CBF57B622C584CC4006237E8 /* Presenter */,
@@ -318,6 +357,75 @@
 				CB2C8CBF2C57B1A000D280FE /* TabBarController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		CBCA8D842C5D3965003B01B9 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				CBCA8D852C5D3965003B01B9 /* AuthorizationRouter.swift */,
+				CBCA8D862C5D3965003B01B9 /* AuthorizationProtocols.swift */,
+				CBCA8D872C5D3965003B01B9 /* Presenter */,
+				CBCA8D892C5D3965003B01B9 /* AuthorizationAssembly.swift */,
+				CBCA8D8A2C5D3965003B01B9 /* AuthorizationBuilder.swift */,
+				CBCA8D8B2C5D3965003B01B9 /* View */,
+				CBCA8D8E2C5D3965003B01B9 /* SubVC */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		CBCA8D872C5D3965003B01B9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				CBCA8D882C5D3965003B01B9 /* AuthorizationPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		CBCA8D8B2C5D3965003B01B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CBCA8D8C2C5D3965003B01B9 /* AuthorizationController.swift */,
+				CBCA8D8D2C5D3965003B01B9 /* AuthorizationField.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CBCA8D8E2C5D3965003B01B9 /* SubVC */ = {
+			isa = PBXGroup;
+			children = (
+				CBCA8D8F2C5D3965003B01B9 /* UpdatePassword */,
+				CBCA8D922C5D3965003B01B9 /* ForgotPassword */,
+			);
+			path = SubVC;
+			sourceTree = "<group>";
+		};
+		CBCA8D8F2C5D3965003B01B9 /* UpdatePassword */ = {
+			isa = PBXGroup;
+			children = (
+				CBCA8D902C5D3965003B01B9 /* UpdatePasswordController.swift */,
+				CBCA8D912C5D3965003B01B9 /* UpdatePasswordPresenter.swift */,
+			);
+			path = UpdatePassword;
+			sourceTree = "<group>";
+		};
+		CBCA8D922C5D3965003B01B9 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				CBCA8D932C5D3965003B01B9 /* ForgotPasswordController.swift */,
+				CBCA8D942C5D3965003B01B9 /* ForgotPasswordPresenter.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		CBCA8DA22C5D3A36003B01B9 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				CBCA8D782C5D38AB003B01B9 /* OnboardingAssembly.swift */,
+				CBCA8D762C5D38AB003B01B9 /* OnboardingController.swift */,
+				CBCA8D792C5D38AB003B01B9 /* OnboardingPresenter.swift */,
+				CBCA8D772C5D38AB003B01B9 /* OnboardingRouter.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		CBF57B4C2C57FA59006237E8 /* Example */ = {
@@ -384,6 +492,8 @@
 			name = RadioApp;
 			packageProductDependencies = (
 				CBF57B482C57FA34006237E8 /* SnapKit */,
+				CBE2B2BE2C5D385D004BC467 /* FirebaseAuth */,
+				CBE2B2C02C5D385D004BC467 /* FirebaseFirestore */,
 			);
 			productName = RadioApp;
 			productReference = CB2C8C922C5698E400D280FE /* RadioApp.app */;
@@ -416,6 +526,7 @@
 			mainGroup = CB2C8C892C5698E400D280FE;
 			packageReferences = (
 				CBF57B472C57FA34006237E8 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				CBE2B2BD2C5D385D004BC467 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = CB2C8C932C5698E400D280FE /* Products */;
 			projectDirPath = "";
@@ -445,11 +556,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBF57B5F2C583EA9006237E8 /* ExampleAssembly.swift in Sources */,
+				CBCA8D992C5D3965003B01B9 /* AuthorizationBuilder.swift in Sources */,
 				CB2C8CB32C5768CB00D280FE /* NavigationController.swift in Sources */,
 				CBF57B5D2C583B12006237E8 /* ExampleCellView.swift in Sources */,
+				CBCA8D7A2C5D38AB003B01B9 /* OnboardingController.swift in Sources */,
 				BECF66442C5A1FBF0068160D /* UILabel+.swift in Sources */,
 				BECF66152C58D6FA0068160D /* ProfileBuilder.swift in Sources */,
+				CBCA8D7C2C5D38AB003B01B9 /* OnboardingAssembly.swift in Sources */,
+				CBCA8D7D2C5D38AB003B01B9 /* OnboardingPresenter.swift in Sources */,
 				CB2C8CA02C5698E400D280FE /* RadioApp.xcdatamodeld in Sources */,
+				CBCA8D9F2C5D3965003B01B9 /* ForgotPasswordPresenter.swift in Sources */,
 				BECF663F2C5A1D750068160D /* String+.swift in Sources */,
 				BECF66422C5A1E300068160D /* UDService.swift in Sources */,
 				BECF66482C5A22A70068160D /* EditProfileViewController.swift in Sources */,
@@ -458,11 +574,15 @@
 				BECF661D2C5A05750068160D /* CustomSettingsView.swift in Sources */,
 				CB2C8CB02C5767DF00D280FE /* Router.swift in Sources */,
 				BECF66132C58D6C30068160D /* ProfileRouter.swift in Sources */,
+				CBCA8D7B2C5D38AB003B01B9 /* OnboardingRouter.swift in Sources */,
 				CB2C8CB52C576A5C00D280FE /* ViewController.swift in Sources */,
 				BECF66292C5A06810068160D /* PrivacyInfoModel.swift in Sources */,
 				CBF57B542C582540006237E8 /* ExampleBuilder.swift in Sources */,
+				CBCA8D962C5D3965003B01B9 /* AuthorizationProtocols.swift in Sources */,
 				BECF66112C58D5D90068160D /* User.swift in Sources */,
+				CBCA8D952C5D3965003B01B9 /* AuthorizationRouter.swift in Sources */,
 				CB2C8CB72C57AACC00D280FE /* ModuleAssembly.swift in Sources */,
+				CBCA8D9B2C5D3965003B01B9 /* AuthorizationField.swift in Sources */,
 				BECF664C2C5A22EA0068160D /* ImageSelectionViewController.swift in Sources */,
 				BECF66542C5A36030068160D /* LanguageViewController.swift in Sources */,
 				CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */,
@@ -475,6 +595,7 @@
 				BECF665A2C5A4F740068160D /* NotificationService.swift in Sources */,
 				BECF661B2C5A055C0068160D /* GeneralView.swift in Sources */,
 				BECF662E2C5A0D7E0068160D /* AboutUsPresenter.swift in Sources */,
+				CBCA8D972C5D3965003B01B9 /* AuthorizationPresenter.swift in Sources */,
 				BECF66322C5A0DB70068160D /* Team.swift in Sources */,
 				BECF66352C5A10AA0068160D /* UIView+.swift in Sources */,
 				BECF66582C5A36340068160D /* LanguageCell.swift in Sources */,
@@ -482,14 +603,20 @@
 				BECF66272C5A06670068160D /* PrivacyInfo.swift in Sources */,
 				BECF662C2C5A0D570068160D /* AboutUsViewController.swift in Sources */,
 				BECF664F2C5A35AE0068160D /* NotificationsViewController.swift in Sources */,
+				CBCA8D9C2C5D3965003B01B9 /* UpdatePasswordController.swift in Sources */,
 				BECF66192C5A05360068160D /* UserView.swift in Sources */,
 				CBF57B4B2C57FA53006237E8 /* ExampleController.swift in Sources */,
+				CBCA8D982C5D3965003B01B9 /* AuthorizationAssembly.swift in Sources */,
 				BECF66232C5A06240068160D /* PrivacyPresenter.swift in Sources */,
 				BECF661F2C5A059A0068160D /* ProfilePresenter.swift in Sources */,
 				CBF57B4E2C57FA83006237E8 /* Example.swift in Sources */,
 				BECF66302C5A0D9A0068160D /* TeamViewCell.swift in Sources */,
+				CBCA8D9D2C5D3965003B01B9 /* UpdatePasswordPresenter.swift in Sources */,
+				CBCA8D9A2C5D3965003B01B9 /* AuthorizationController.swift in Sources */,
+				CBCA8D9E2C5D3965003B01B9 /* ForgotPasswordController.swift in Sources */,
 				BECF66562C5A361B0068160D /* LanguagePresenter.swift in Sources */,
 				CBF57B522C57FD2B006237E8 /* ExampleRouter.swift in Sources */,
+				CBCA8DA12C5D39AD003B01B9 /* UITextField+Padding.swift in Sources */,
 				CBF57B592C5835AC006237E8 /* CollectionCell.swift in Sources */,
 				BECF664A2C5A22C90068160D /* EditProfilePresenter.swift in Sources */,
 			);
@@ -726,6 +853,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CBE2B2BD2C5D385D004BC467 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
 		CBF57B472C57FA34006237E8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -737,6 +872,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CBE2B2BE2C5D385D004BC467 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CBE2B2BD2C5D385D004BC467 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		CBE2B2C02C5D385D004BC467 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CBE2B2BD2C5D385D004BC467 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		CBF57B482C57FA34006237E8 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CBF57B472C57FA34006237E8 /* XCRemoteSwiftPackageReference "SnapKit" */;

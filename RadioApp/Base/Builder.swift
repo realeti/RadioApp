@@ -38,8 +38,8 @@ final class Builder {
         view.presenter = presenter
         return view
     }
-//
-//    static func createOnboarding() -> UIViewController {
-//        
-//    }
+
+    static func createOnboarding() -> UIViewController {
+        OnboardingAssembly().build()
+    }
 }
