@@ -57,10 +57,10 @@ private extension UpdatePasswordController {
         
         let sendButton = UIButton()
         sendButton.setTitle("Change password", for: .normal)
-        sendButton.titleLabel?.font = .systemFont(ofSize: 28, weight: .light)
+        sendButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
         sendButton.backgroundColor = .neonBlueApp
         sendButton.tintColor = .white
-        sendButton.layer.cornerRadius = 8
+        sendButton.layer.cornerRadius = 10
         sendButton.addTarget(self, action: #selector(changePasswordTapped), for: .touchUpInside)
         
         view.addSubview(bg)
@@ -99,7 +99,7 @@ private extension UpdatePasswordController {
         sendButton.snp.makeConstraints { make in
             make.leading.trailing.equalTo(confirmPasswordField)
             make.top.equalTo(confirmPasswordField.snp.bottom).inset(-44)
-            make.height.equalTo(62)
+            make.height.equalTo(58)
         }
     }
     

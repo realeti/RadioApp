@@ -13,7 +13,7 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     var router: (any AuthorizationRouterProtocol)?
     var mode: AuthorizationMode
     
-    init(view: (any AuthorizationControllerProtocol)?, mode: AuthorizationMode) {
+    init(mode: AuthorizationMode) {
         self.mode = mode
     }
 

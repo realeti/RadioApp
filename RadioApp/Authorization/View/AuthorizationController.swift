@@ -59,7 +59,7 @@ private extension AuthorizationController {
         doneButton.setImage(UIImage(systemName: "arrow.forward"), for: .normal)
         doneButton.backgroundColor = .neonBlueApp
         doneButton.tintColor = .white
-        doneButton.layer.cornerRadius = 8
+        doneButton.layer.cornerRadius = 10
         doneButton.addTarget(self, action: #selector(doneTapped), for: .touchUpInside)
         
         let switchModeButton = UIButton()
@@ -114,7 +114,7 @@ private extension AuthorizationController {
             make.leading.equalTo(stack)
             make.top.equalTo(stack.snp.bottom).inset(-43)
             make.width.equalTo(152)
-            make.height.equalTo(62)
+            make.height.equalTo(58)
         }
         
         switchModeButton.snp.makeConstraints { make in

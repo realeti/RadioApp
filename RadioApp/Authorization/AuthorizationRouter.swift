@@ -16,15 +16,14 @@ final class AuthorizationRouter: Router, AuthorizationRouterProtocol {
             window?.rootViewController = vc
         }
     }
+    
     func showForgotPasswordVC() {
         let vc = Builder.createForgotPasswordVC(router: self)
-        vc.hidesBottomBarWhenPushed = true
         pushScreen(vc)
     }
     
     func showUpdatePasswordVC() {
         let vc = Builder.createUpdatePasswordVC(router: self)
-        vc.hidesBottomBarWhenPushed = true
         pushScreen(vc)
     }
     

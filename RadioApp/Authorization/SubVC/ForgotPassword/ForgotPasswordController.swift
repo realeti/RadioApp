@@ -55,10 +55,10 @@ private extension ForgotPasswordController {
         
         let sendButton = UIButton()
         sendButton.setTitle("Send", for: .normal)
-        sendButton.titleLabel?.font = .systemFont(ofSize: 28, weight: .light)
+        sendButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
         sendButton.backgroundColor = .neonBlueApp
         sendButton.tintColor = .white
-        sendButton.layer.cornerRadius = 8
+        sendButton.layer.cornerRadius = 10
         sendButton.addTarget(self, action: #selector(sendTapped), for: .touchUpInside)
         
         view.addSubview(bg)
@@ -91,7 +91,7 @@ private extension ForgotPasswordController {
         sendButton.snp.makeConstraints { make in
             make.leading.trailing.equalTo(emailField)
             make.top.equalTo(emailField.snp.bottom).inset(-70)
-            make.height.equalTo(62)
+            make.height.equalTo(58)
         }
     }
     
