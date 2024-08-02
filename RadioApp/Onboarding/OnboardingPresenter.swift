@@ -12,10 +12,16 @@ protocol OnboardingPresenterProtocol {
 }
 
 final class OnboardingPresenter: OnboardingPresenterProtocol {
-    var view: OnboardingController?
-    var router: (any OnboardingRouterProtocol)?
+    private let router: OnboardingRouterProtocol
+    
+    weak var view: OnboardingController?
+
+    init(router: OnboardingRouterProtocol) {
+        self.router = router
+        
+    }
     
     func goToAutorization() {
-        router?.goToAutorization()
+        router.goToAutorization()
     }
 }

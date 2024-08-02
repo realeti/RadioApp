@@ -38,18 +38,16 @@ final class NotificationsPresenter: NotificationsPresenterProtocol {
     func didSwitchNotifications() {
         if notificationService.isWatchNotificationEnabled {
             notificationService.removeWatchNotification()
-        } else {
-            notificationService.requestAuthorization {
-                [weak self] service, access in
-                
-                guard access else {
-                    DispatchQueue.main.async {
-                        self?.view?.update(isNotificationEnabled: false)
-                        self?.view?.showNotificationsAlert()
-                    }
-                    return
-                }
+            return
+        }
+        notificationService.requestAuthorization { [weak self] service, access in
+            if access {
                 service.makeWatchNotification()
+                return
+            }
+            DispatchQueue.main.async {
+                self?.view?.update(isNotificationEnabled: false)
+                self?.view?.showNotificationsAlert()
             }
         }
     }

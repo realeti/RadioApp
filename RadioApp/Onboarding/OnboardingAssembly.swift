@@ -7,17 +7,11 @@
 
 import UIKit
 
-final class OnboardingAssembly: ModuleAssembly {
-    func build() -> UIViewController {
-        let controller = OnboardingController()
-        let presenter = OnboardingPresenter()
-        let router = OnboardingRouter()
-        
+final class OnboardingAssembly {
+    func build(router: OnboardingRouterProtocol) -> UIViewController {
+        let presenter = OnboardingPresenter(router: router)
+        let controller = OnboardingController(presenter: presenter)
         presenter.view = controller
-        presenter.router = router
-        controller.presenter = presenter
-        router.controller = controller
-
         return controller
     }
 }

@@ -122,7 +122,7 @@ extension UpdatePasswordController: UITextFieldDelegate {
     }
 }
 
-@available(iOS 17.0, *)
-#Preview {
-    Builder.createUpdatePasswordVC()
-}
+//@available(iOS 17.0, *)
+//#Preview {
+//    Builder.createUpdatePasswordVC()
+//}

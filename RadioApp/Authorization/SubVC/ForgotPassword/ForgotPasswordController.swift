@@ -114,7 +114,7 @@ extension ForgotPasswordController: UITextFieldDelegate {
     }
 }
 
-@available(iOS 17.0, *)
-#Preview {
-    Builder.createForgotPasswordVC()
-}
+//@available(iOS 17.0, *)
+//#Preview {
+//    Builder.createForgotPasswordVC(router: <#any AuthorizationRouterProtocol#>)
+//}

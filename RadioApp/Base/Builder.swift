@@ -9,13 +9,13 @@ import UIKit
 
 final class Builder {
     
-    static func createTabBar() -> UIViewController {
-        TabBarController()
-    }
+//    static func createTabBar() -> UIViewController {
+//        TabBarController()
+//    }
     
-    static func createAuthorization() -> UIViewController {
-        AuthorizationAssembly().build()
-    }
+//    static func createAuthorization() -> UIViewController {
+//        AuthorizationAssembly().build()
+//    }
     
 //    static func createPopular() -> UIViewController {
 //       
@@ -39,7 +39,7 @@ final class Builder {
         return view
     }
 
-    static func createOnboarding() -> UIViewController {
-        OnboardingAssembly().build()
-    }
+//    static func createOnboarding() -> UIViewController {
+//        OnboardingAssembly().build()
+//    }
 }

@@ -8,16 +8,16 @@
 import UIKit
 
 extension Builder {
-    static func createForgotPasswordVC(router: AuthorizationRouterProtocol? = nil) -> UIViewController  {
+    static func createForgotPasswordVC(router: AuthorizationRouterProtocol) -> UIViewController  {
         let view = ForgotPasswordController()
-        let presenter = ForgotPasswordPresenter(view: view, router: router ?? AuthorizationRouter())
+        let presenter = ForgotPasswordPresenter(view: view, router: router)
         view.presenter = presenter
         return view
     }
     
-    static func createUpdatePasswordVC(router: AuthorizationRouterProtocol? = nil) -> UIViewController  {
+    static func createUpdatePasswordVC(router: AuthorizationRouterProtocol) -> UIViewController  {
         let view = UpdatePasswordController()
-        let presenter = UpdatePasswordPresenter(view: view, router: router ?? AuthorizationRouter())
+        let presenter = UpdatePasswordPresenter(view: view, router: router)
         view.presenter = presenter
         return view
     }

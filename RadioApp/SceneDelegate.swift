@@ -7,17 +7,68 @@
 
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+final class RootRouter {
+    private let window: UIWindow
+    private let builder: RootBuilder
     
-    var window: UIWindow?
+    init(_ window: UIWindow, builder: RootBuilder) {
+        self.window = window
+        self.builder = builder
+    }
     
+    deinit {
+        print("im dead!")
+    }
+    
+    func startFlow() {
+        let onboarding = builder.buildOnboarding()
+        onboarding.root = self
+        onboarding.showOnboarding(on: window)
+        window.makeKeyAndVisible()
+    }
+    
+    func startAuthorization() {
+        let authorization = builder.buildAuthorization()
+        authorization.root = self
+        authorization.showAuthorization(on: window)
+    }
+    
+    func startHome() {
+        window.rootViewController = TabBarController()
+    }
+}
+
+final class RootBuilder {
+    
+    static func makeRootRouter(_ scene: UIWindowScene) -> RootRouter {
+        RootRouter(UIWindow(windowScene: scene), builder: RootBuilder())
+    }
+    
+    func buildOnboarding() -> OnboardingRouter {
+        let builder = OnboardingAssembly()
+        return OnboardingRouter(builder: builder)
+    }
+    
+    func buildAuthorization() -> AuthorizationRouter {
+        let builder = AuthorizationAssembly()
+        return AuthorizationRouter(builder: builder)
+    }
+    
+    
+}
+
+final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    
+    var router: RootRouter?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
-        window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = Builder.createOnboarding()
-        window?.makeKeyAndVisible()
+
+        router = RootBuilder.makeRootRouter(windowScene)
+        router?.startFlow()
+//        window = UIWindow(windowScene: windowScene)
+//        window?.rootViewController = Builder.createOnboarding()
+//        window?.makeKeyAndVisible()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
