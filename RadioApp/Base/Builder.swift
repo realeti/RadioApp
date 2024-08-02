@@ -29,11 +29,17 @@ final class Builder {
 //        
 //    }
 //    
-//    static func createProfile() -> UIViewController {
+    static func createProfile() -> UIViewController {
+        let view = ProfileViewController()
+        let router = ProfileRouter()
+        router.controller = view
+//        let realmService = RealmService()
+        let presenter = ProfilePresenter(view: view, router: router)
+        view.presenter = presenter
+        return view
+    }
+//
+//    static func createOnboarding() -> UIViewController {
 //        
 //    }
-//    
-    static func createOnboarding() -> UIViewController {
-        OnboardingAssembly().build()
-    }
 }
