@@ -82,19 +82,26 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    private lazy var namiImageView: UIImageView = {
+    private lazy var waveImageView: UIImageView = {
         let view = UIImageView()
-        view.image = .namiInactive //.namiDarkRed
+        view.image = .waveInactive
         view.contentMode = .scaleAspectFit
         return view
     }()
     
-    /*private lazy var leftNamiCircle: UIImageView = {
+    private lazy var leftWaveCircle: UIImageView = {
         let view = UIImageView()
-        view.image = .namiCircle
+        view.image = .waveCircle
         view.contentMode = .scaleAspectFit
         return view
-    }()*/
+    }()
+    
+    private lazy var rightWaveCircle: UIImageView = {
+        let view = UIImageView()
+        view.image = .waveCircle
+        view.contentMode = .scaleAspectFit
+        return view
+    }()
     
     // MARK: - Private Properties
     private var votes: Int = 0 {
@@ -128,12 +135,12 @@ final class PopularCollectionViewCell: UICollectionViewCell {
                 containerView.backgroundColor = .pinkApp
                 containerView.layer.borderColor = nil
                 playImageView.isHidden = false
-                namiImageView.image = .namiActive
+                waveImageView.image = .waveActive
             } else {
                 containerView.backgroundColor = nil
                 containerView.layer.borderColor = UIColor.stormyBlue.cgColor
                 playImageView.isHidden = true
-                namiImageView.image = .namiInactive
+                waveImageView.image = .waveInactive
             }
         }
     }
@@ -145,7 +152,7 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         voteCountLabel.text = nil
         radioTitleLabel.text = nil
         radioSubtitleLabel.text = nil
-        //namiImageView.image = nil
+        //waveImageView.image = nil
     }
     
     override func layoutSubviews() {
@@ -163,7 +170,8 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         containerView.addSubviews(
             playImageView,
             voteStackView,
-            radioTitleStackView
+            radioTitleStackView,
+            waveImageView
         )
         
         voteStackView.addArrangedSubviews(
@@ -177,8 +185,7 @@ final class PopularCollectionViewCell: UICollectionViewCell {
             radioSubtitleLabel
         )
         
-        containerView.addSubview(namiImageView)
-        //namiImageView.addSubview(leftNamiCircle)
+        waveImageView.addSubviews(leftWaveCircle, rightWaveCircle)
     }
 }
 
@@ -227,7 +234,8 @@ private extension PopularCollectionViewCell {
         setupVoteStackViewConstraints()
         setupHeartButtonConstraints()
         setupRadioTitleStackViewConstraints()
-        setupNamiImageViewConstraints()
+        setupWaveImageViewConstraints()
+        setupWaveCirclesContraints()
     }
     
     func setupContainerViewConstraints() {
@@ -247,15 +255,13 @@ private extension PopularCollectionViewCell {
     func setupVoteStackViewConstraints() {
         voteStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(Metrics.votesStackTopIndent)
-            //make.leading.equalTo(playImageView.snp.trailing)
             make.trailing.equalToSuperview().inset(Metrics.votesStackTrailingIndent)
         }
     }
     
     func setupHeartButtonConstraints() {
         voteButton.snp.makeConstraints { make in
-            make.width.equalTo(Metrics.heartButtonWidth)
-            make.height.equalTo(Metrics.heartButtonHeight)
+            make.width.height.equalTo(Metrics.heartButtonWidth)
         }
     }
     
@@ -266,18 +272,28 @@ private extension PopularCollectionViewCell {
         }
     }
     
-    func setupNamiImageViewConstraints() {
-        namiImageView.snp.makeConstraints { make in
+    func setupWaveImageViewConstraints() {
+        waveImageView.snp.makeConstraints { make in
             make.top.equalTo(radioTitleStackView.snp.bottom).offset(Metrics.namiImageTopIndent)
-            make.leading.trailing.equalToSuperview().inset(Metrics.namiImageIndent)
+            make.centerX.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.16)
+            make.width.equalToSuperview().multipliedBy(0.67)
             make.bottom.equalToSuperview().inset(Metrics.namiImageBottomIndent)
         }
-        
-        /*leftNamiCircle.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+    }
+    
+    func setupWaveCirclesContraints() {
+        leftWaveCircle.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(2)
             make.leading.equalToSuperview()
-            make.width.height.equalTo(namiImageView.snp.height).multipliedBy(0.36)
-        }*/
+            make.width.height.equalTo(waveImageView.snp.height).multipliedBy(0.36)
+        }
+        
+        rightWaveCircle.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(2)
+            make.trailing.equalToSuperview()
+            make.width.height.equalTo(leftWaveCircle)
+        }
     }
 }
 
@@ -299,9 +315,9 @@ fileprivate struct Metrics {
     static let radioTitleStackIndent: CGFloat = 16.0
     
     /// nami
-    static let namiImageTopIndent: CGFloat = 8.0
+    static let namiImageTopIndent: CGFloat = 10.0
     static let namiImageIndent: CGFloat = 24.0
-    static let namiImageBottomIndent: CGFloat = 10.0
+    static let namiImageBottomIndent: CGFloat = 15.0
     
     private init() {}
 }
