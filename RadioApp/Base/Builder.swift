@@ -21,9 +21,9 @@ final class Builder {
 //       
 //    }
 //    
-//    static func createFavorite() -> UIViewController {
-//       
-//    }
+    static func createFavorite() -> UIViewController {
+        FavoritesAssembly().build(router: FavoritesRouter())
+    }
 //    
 //    static func createSearch() -> UIViewController {
 //        

@@ -31,10 +31,11 @@ class FavoriteRadioView: UIView, CellConfigurable {
         return imageView
     }()
     
-    private let favImage: UIImageView = {
-        let image = UIImage(named: "favOn")
-        let imageView = UIImageView(image: image)
-        return imageView
+    private lazy var favButton: UIButton = {
+       let button = UIButton()
+        button.setImage(UIImage(named: "favOn"), for: .normal)
+        button.addTarget(self, action: #selector(favButtonTapped), for: .touchUpInside)
+        return button
     }()
     
     private let stackView: UIStackView = {
@@ -61,7 +62,7 @@ class FavoriteRadioView: UIView, CellConfigurable {
     
     private func addSubviews() {
         addSubview(stackView)
-        addSubview(favImage)
+        addSubview(favButton)
         stackView.addArrangedSubview(genreLabel)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(image)
@@ -75,13 +76,18 @@ class FavoriteRadioView: UIView, CellConfigurable {
             $0.bottom.equalToSuperview().inset(15)
         }
         
-        favImage.snp.makeConstraints {
+        favButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(31)
             $0.trailing.equalToSuperview().inset(16)
         }
     }
     
-    func update(with model: FavoritesModel?) {
+    @objc private func favButtonTapped() {
+        favoriteHandler?()
+        print("favButtonTapped")
+    }
+    
+    func update(with model: FavStationModel?) {
         titleLabel.text = model?.radioTitle
         genreLabel.text = model?.genre
         favoriteHandler = model?.favoriteHandler

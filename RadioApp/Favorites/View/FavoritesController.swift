@@ -13,7 +13,7 @@ class FavoritesController: ViewController {
 
     private let presenter: FavoritesPresenterProtocol
     
-    private var items = [FavoriteRadioView.Model]()
+    private var items = [FavStationModel]()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -65,22 +65,17 @@ class FavoritesController: ViewController {
             $0.leading.trailing.bottom.equalToSuperview().inset(61)
         }
     }
-
 }
 
 extension FavoritesController: FavoritesControllerProtocol {
     struct Model {
-        let items: [FavoritesModel]
+        let items: [FavStationModel]
     }
     
     func update(with model: Model) {
         items = model.items
-//        emptyView.isHidden = !items.isEmpty
-//        tableView.isHidden = items.isEmpty
         tableView.reloadData()
     }
-    
-    
 }
 
 extension FavoritesController: UITableViewDelegate {
@@ -106,7 +101,14 @@ extension FavoritesController: UITableViewDataSource {
             with: .init(
                 radioTitle: model.radioTitle,
                 genre: model.genre,
-                favoriteHandler: model.favoriteHandler,
+                favoriteHandler: { [weak self] in
+                    model.favoriteHandler()
+                    self?.items.remove(at: indexPath.row)
+                    self?.tableView.reloadData()
+                    
+//                    self?.items.remove(at: indexPath.row)
+//                    self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+                },
                 didSelectHandler: model.didSelectHandler
             ),
             insets: .init(top: 0, left: 0, bottom: 20, right: 0)
