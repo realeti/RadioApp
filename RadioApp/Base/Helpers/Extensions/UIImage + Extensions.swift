@@ -5,4 +5,10 @@
 //  Created by realeti on 03.08.2024.
 //
 
-import Foundation
+import UIKit
+
+extension UIImage {
+    func tinted(with color: UIColor) -> UIImage? {
+        return withRenderingMode(.alwaysOriginal).withTintColor(color)
+    }
+}
