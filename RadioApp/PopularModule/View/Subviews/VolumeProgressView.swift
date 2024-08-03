@@ -9,13 +9,10 @@ import UIKit
 
 final class VolumeProgressView: UIView {
     // MARK: - UI
-    private lazy var volumeLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 10.0, weight: .regular)
-        label.textAlignment = .center
-        return label
-    }()
+    private let volumeLabel = UILabel(
+        font: .systemFont(ofSize: 10.0, weight: .regular),
+        alignment: .center
+    )
     
     private lazy var progressBarContainer: UIView = {
         let view = UIView()
@@ -29,12 +26,10 @@ final class VolumeProgressView: UIView {
         return view
     }()
     
-    private lazy var volumeImageView: UIImageView = {
-        let view = UIImageView()
-        view.image = .volume
-        view.contentMode = .scaleAspectFit
-        return view
-    }()
+    private let volumeImageView = UIImageView(
+        image: .volume,
+        contentMode: .scaleAspectFit
+    )
     
     private let progressCircleLayer = CAShapeLayer()
     

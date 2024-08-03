@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C61DD5DC2C5E2D400045E40B /* UIImageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD5DB2C5E2D400045E40B /* UIImageView + Extensions.swift */; };
+		C61DD5DE2C5E324A0045E40B /* UILabel + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD5DD2C5E324A0045E40B /* UILabel + Extensions.swift */; };
+		C61DD5E02C5E37E50045E40B /* UIImage + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD5DF2C5E37E50045E40B /* UIImage + Extensions.swift */; };
+		C61DD5E22C5E3A4C0045E40B /* ColorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD5E12C5E3A4C0045E40B /* ColorFactory.swift */; };
 		C658DD5A2C59676600DED8B8 /* VolumeProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C658DD592C59676600DED8B8 /* VolumeProgressView.swift */; };
 		C658DD5C2C59749700DED8B8 /* PopularPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C658DD5B2C59749700DED8B8 /* PopularPresenter.swift */; };
 		C658DD5E2C59782500DED8B8 /* PopularAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C658DD5D2C59782500DED8B8 /* PopularAssembly.swift */; };
@@ -44,6 +48,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C61DD5DB2C5E2D400045E40B /* UIImageView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extensions.swift"; sourceTree = "<group>"; };
+		C61DD5DD2C5E324A0045E40B /* UILabel + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extensions.swift"; sourceTree = "<group>"; };
+		C61DD5DF2C5E37E50045E40B /* UIImage + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extensions.swift"; sourceTree = "<group>"; };
+		C61DD5E12C5E3A4C0045E40B /* ColorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFactory.swift; sourceTree = "<group>"; };
 		C658DD592C59676600DED8B8 /* VolumeProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeProgressView.swift; sourceTree = "<group>"; };
 		C658DD5B2C59749700DED8B8 /* PopularPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularPresenter.swift; sourceTree = "<group>"; };
 		C658DD5D2C59782500DED8B8 /* PopularAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularAssembly.swift; sourceTree = "<group>"; };
@@ -161,6 +169,7 @@
 			children = (
 				C6C4D05D2C5837E700F111B1 /* Extensions */,
 				C6C4D05B2C58330600F111B1 /* Constants.swift */,
+				C61DD5E12C5E3A4C0045E40B /* ColorFactory.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -170,6 +179,9 @@
 			children = (
 				C6C4D05E2C5837F800F111B1 /* UIStackView + Extensions.swift */,
 				C6C4D0602C58382000F111B1 /* UIView + Extensions.swift */,
+				C61DD5DB2C5E2D400045E40B /* UIImageView + Extensions.swift */,
+				C61DD5DD2C5E324A0045E40B /* UILabel + Extensions.swift */,
+				C61DD5DF2C5E37E50045E40B /* UIImage + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -367,6 +379,7 @@
 				CB2C8CB32C5768CB00D280FE /* NavigationController.swift in Sources */,
 				CBF57B5D2C583B12006237E8 /* ExampleCellView.swift in Sources */,
 				CB2C8CA02C5698E400D280FE /* RadioApp.xcdatamodeld in Sources */,
+				C61DD5DC2C5E2D400045E40B /* UIImageView + Extensions.swift in Sources */,
 				C658DD602C59788800DED8B8 /* PopularRouter.swift in Sources */,
 				CBF57B5B2C5839EA006237E8 /* ExampleProtocols.swift in Sources */,
 				CB2C8CB02C5767DF00D280FE /* Router.swift in Sources */,
@@ -374,6 +387,7 @@
 				C6C4D0592C580A1800F111B1 /* PopularCollectionViewCell.swift in Sources */,
 				CBF57B542C582540006237E8 /* ExampleBuilder.swift in Sources */,
 				CB2C8CB72C57AACC00D280FE /* ModuleAssembly.swift in Sources */,
+				C61DD5DE2C5E324A0045E40B /* UILabel + Extensions.swift in Sources */,
 				CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */,
 				C658DD5E2C59782500DED8B8 /* PopularAssembly.swift in Sources */,
 				C6C4D0612C58382000F111B1 /* UIView + Extensions.swift in Sources */,
@@ -388,7 +402,9 @@
 				CBF57B562C58319D006237E8 /* Builder.swift in Sources */,
 				CB2C8C982C5698E400D280FE /* SceneDelegate.swift in Sources */,
 				CBF57B4B2C57FA53006237E8 /* ExampleController.swift in Sources */,
+				C61DD5E22C5E3A4C0045E40B /* ColorFactory.swift in Sources */,
 				CBF57B4E2C57FA83006237E8 /* Example.swift in Sources */,
+				C61DD5E02C5E37E50045E40B /* UIImage + Extensions.swift in Sources */,
 				CBF57B522C57FD2B006237E8 /* ExampleRouter.swift in Sources */,
 				CBF57B592C5835AC006237E8 /* CollectionCell.swift in Sources */,
 			);

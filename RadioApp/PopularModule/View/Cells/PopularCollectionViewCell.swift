@@ -18,35 +18,25 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    private lazy var playImageView: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage(resource: .play)
-        view.contentMode = .scaleAspectFit
-        view.isHidden = true
-        return view
-    }()
+    private let playImageView = UIImageView(
+        image: .play,
+        contentMode: .scaleAspectFit,
+        isHidden: true
+    )
     
-    private lazy var voteStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .fill
-        return stackView
-    }()
+    private let voteStackView = UIStackView(
+        axis: .horizontal,
+        distribution: .fill
+    )
     
-    private lazy var voteLabel: UILabel = {
-        let label = UILabel()
-        label.text = K.Popular.votes.rawValue + " "
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 10.0, weight: .bold)
-        return label
-    }()
+    private let voteLabel = UILabel(
+        text: K.Popular.votes.rawValue + " ",
+        font: .systemFont(ofSize: 10.0, weight: .bold)
+    )
     
-    private lazy var voteCountLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 10.0, weight: .bold)
-        return label
-    }()
+    private let voteCountLabel = UILabel(
+        font: .systemFont(ofSize: 10.0, weight: .bold)
+    )
     
     private lazy var voteButton: UIButton = {
         let button = UIButton(type: .system)
@@ -54,63 +44,35 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
-    private lazy var radioTitleStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
-        stackView.alignment = .center
-        return stackView
-    }()
+    private let radioTitleStackView = UIStackView(
+        axis: .vertical,
+        distribution: .fillProportionally,
+        alignment: .center
+    )
     
-    private lazy var radioTitleLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 30.0, weight: .bold)
-        return label
-    }()
+    private let radioTitleLabel = UILabel(
+        font: .systemFont(ofSize: 30.0, weight: .bold)
+    )
     
-    private lazy var radioSubtitleLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 15.0, weight: .regular)
-        return label
-    }()
+    private let radioSubtitleLabel = UILabel(
+        font: .systemFont(ofSize: 15.0, weight: .regular)
+    )
     
     private lazy var radioSpacerView: UIView = {
         let view = UIView()
         return view
     }()
     
-    private lazy var waveImageView: UIImageView = {
-        let view = UIImageView()
-        view.image = .wave.withTintColor(.white.withAlphaComponent(0.3))
-        view.contentMode = .scaleAspectFit
-        return view
-    }()
+    private let waveImageView = UIImageView(
+        image: .wave.withTintColor(.white.withAlphaComponent(0.3)),
+        contentMode: .scaleAspectFit
+    )
     
-    private lazy var leftWaveCircle: UIImageView = {
-        let view = UIImageView()
-        view.image = .waveCircle
-        view.contentMode = .scaleAspectFit
-        return view
-    }()
-    
-    private lazy var rightWaveCircle: UIImageView = {
-        let view = UIImageView()
-        view.image = .waveCircle
-        view.contentMode = .scaleAspectFit
-        return view
-    }()
+    private let leftWaveCircle = UIImageView(contentMode: .scaleAspectFit)
+    private let rightWaveCircle = UIImageView(contentMode: .scaleAspectFit)
     
     // MARK: - Private Properties
-    private var votes: Int = 0 {
-        didSet {
-            let votesText = "\(votes) "
-            UIView.transition(with: voteCountLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
-                self.voteCountLabel.text = votesText
-            }, completion: nil)
-        }
-    }
+    private var votes: Int = 0
     
     // MARK: - Public Properties
     weak var delegate: PopularViewProtocol?
@@ -134,12 +96,12 @@ final class PopularCollectionViewCell: UICollectionViewCell {
                 playImageView.isHidden = false
                 containerView.layer.borderColor = nil
                 containerView.backgroundColor = .pinkApp
-                waveImageView.image = .wave.withTintColor(.white)
+                waveImageView.image = .wave.tinted(with: .white)
             } else {
                 playImageView.isHidden = true
                 containerView.backgroundColor = nil
                 containerView.layer.borderColor = UIColor.stormyBlue.cgColor
-                waveImageView.image = .wave.withTintColor(.white.withAlphaComponent(0.3))
+                waveImageView.image = .wave.tinted(with: .white.withAlphaComponent(0.3))
             }
         }
     }
@@ -194,9 +156,10 @@ extension PopularCollectionViewCell {
     func configure(with model: PopularViewModel, _ isStationVoted: Bool, and indexPath: IndexPath) {
         radioTitleLabel.text = model.title
         radioSubtitleLabel.text = model.subtitle
+        voteCountLabel.text = "\(model.voteCount) "
         
-        votes = model.countVotes
         self.indexPath = indexPath
+        self.votes = model.voteCount
         
         setupVoteButton(isStationVoted)
         setupWaveCircles(with: indexPath)
@@ -210,29 +173,31 @@ extension PopularCollectionViewCell {
     
     // MARK: - Set WaveCircles image
     private func setupWaveCircles(with indexPath: IndexPath) {
-        let colors: [UIColor] = [
-            .darkPinkCircle,
-            .blueCircle,
-            .magentaCircle,
-            .greenCircle,
-            .yellowCircle,
-            .orangeCircle
-        ]
-        
-        let colorIndex = indexPath.row % colors.count
-        let color = colors[colorIndex]
-        
-        leftWaveCircle.image = .waveCircle.withTintColor(color)
-        rightWaveCircle.image = .waveCircle.withTintColor(color)
+        let color = ColorFactory.getCircleColor(for: indexPath.row)
+        leftWaveCircle.image = .waveCircle.tinted(with: color)
+        rightWaveCircle.image = .waveCircle.tinted(with: color)
     }
 }
 
 // MARK: - Update Station Votes
 extension PopularCollectionViewCell {
     func updateStationVotes(_ isStationVoted: Bool) {
+        updateVoteCount(isStationVoted)
+        updateVoteImage(isStationVoted)
+    }
+    
+    private func updateVoteCount(_ isStationVoted: Bool) {
         votes += isStationVoted ? 1 : -1
+        let votesText = "\(votes) "
         
+        UIView.transition(with: voteCountLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            self.voteCountLabel.text = votesText
+        }, completion: nil)
+    }
+    
+    private func updateVoteImage(_ isStationVoted: Bool) {
         let newImage: UIImage = isStationVoted ? .voteOn : .voteOff
+        
         UIView.transition(with: voteButton, duration: 0.3, options: .transitionFlipFromLeft, animations: {
             self.voteButton.setBackgroundImage(newImage, for: .normal)
         }) { _ in

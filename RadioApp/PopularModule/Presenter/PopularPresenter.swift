@@ -74,7 +74,7 @@ extension PopularPresenter {
         selectedStation = PopularViewModel(
             title: selectedStation.title,
             subtitle: selectedStation.subtitle,
-            countVotes: selectedStation.countVotes + voteChange
+            voteCount: selectedStation.voteCount + voteChange
         )
         
         stations[stationId] = selectedStation
@@ -125,7 +125,7 @@ private extension PopularPresenter {
             let newStation = PopularViewModel(
                 title: stationTitles[index],
                 subtitle: stationSubtitles[index],
-                countVotes: stationVotes[index]
+                voteCount: stationVotes[index]
             )
             stations.append(newStation)
         }
