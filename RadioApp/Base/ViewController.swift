@@ -86,5 +86,9 @@ class ViewController: UIViewController {
     
     @objc private func didTapProfilePic() {
         //go to ProfileVC
+        let profileVC = Builder.createProfile()
+        profileVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(profileVC, animated: true)
     }
 }
+

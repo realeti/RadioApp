@@ -10,33 +10,36 @@ import UIKit
 final class Builder {
     
     static func createTabBar() -> UIViewController {
-        return UIViewController()
+        TabBarController()
+    }
+    
+    static func createAuthorization() -> UIViewController {
+        AuthorizationAssembly().build()
     }
     
     static func createPopular() -> UIViewController {
         PopularAssembly().build()
     }
-    
-    static func createFavorite() -> UIViewController {
-        return UIViewController()
-    }
-    
-    static func createSearch() -> UIViewController {
-        return UIViewController()
-    }
-    
+//
+//    static func createFavorite() -> UIViewController {
+//
+//    }
+//
+//    static func createSearch() -> UIViewController {
+//
+//    }
+//
     static func createProfile() -> UIViewController {
-        return UIViewController()
+        let view = ProfileViewController()
+        let router = ProfileRouter()
+        router.controller = view
+//        let realmService = RealmService()
+        let presenter = ProfilePresenter(view: view, router: router)
+        view.presenter = presenter
+        return view
     }
-    
+
     static func createOnboarding() -> UIViewController {
-        return UIViewController()
-    }
-    
-    static func createDetails() -> UIViewController {
-        //let viewController = UIViewController() // DetailViewController()
-        //let presenter = DetailPresenter(view: view)
-        //viewController.presenter = presenter
-        return UIViewController()
+        OnboardingAssembly().build()
     }
 }
