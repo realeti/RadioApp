@@ -58,7 +58,7 @@ extension PopularPresenter {
 // MARK: - Change Station
 extension PopularPresenter {
     func changeStation(_ stationId: Int) {
-        /// set new station for auido player
+        /// set new station for audio player
         print("change station (item id #\(stationId))")
     }
 }

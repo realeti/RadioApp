@@ -66,7 +66,7 @@ final class PopularCollectionViewCell: UICollectionViewCell {
     }()
     
     private let waveImageView = UIImageView(
-        image: .wave.withTintColor(.white.withAlphaComponent(0.3)),
+        image: .wave.tinted(with: .white.withAlphaComponent(0.3)),
         contentMode: .scaleAspectFit
     )
     
@@ -305,8 +305,8 @@ fileprivate struct Metrics {
     static let radioTitleStackIndent: CGFloat = 16.0
     
     /// wave image view
-    static let waveImageTopIndent: CGFloat = 10.0
-    static let waveImageBottomIndent: CGFloat = 15.0
+    static let waveImageTopIndent: CGFloat = 12.0
+    static let waveImageBottomIndent: CGFloat = 20.0
     
     /// wave circle image view
     static let circleIndent: CGFloat = 2.0
