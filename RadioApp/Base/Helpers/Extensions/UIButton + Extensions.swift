@@ -9,9 +9,10 @@ import UIKit
 
 extension UIButton {
     convenience init(backgroundImage: UIImage) {
-        self.init(type: .system)
-        
+        self.init(type: .custom)
+
         self.setBackgroundImage(backgroundImage, for: .normal)
+        self.setBackgroundImage(backgroundImage, for: .highlighted)
         self.translatesAutoresizingMaskIntoConstraints = false
     }
 }

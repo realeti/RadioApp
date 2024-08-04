@@ -8,6 +8,12 @@
 import UIKit
 import SnapKit
 
+protocol AudioPlayerViewDelegate: AnyObject {
+    func didTapPlayPauseButton()
+    func didTapBackButton()
+    func didTapNextButton()
+}
+
 final class AudioPlayerView: UIView {
     // MARK: - UI
     private let playerStackView = UIStackView(
@@ -21,11 +27,15 @@ final class AudioPlayerView: UIView {
     private let backButton = UIButton(backgroundImage: .playerBack)
     private let nextButton = UIButton(backgroundImage: .playerNext)
     
+    // MARK: - Delegate
+    weak var delegate: AudioPlayerViewDelegate?
+    
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         setupUI()
+        setupActions()
         setupConstraints()
     }
     
@@ -42,6 +52,36 @@ final class AudioPlayerView: UIView {
             playerButton,
             nextButton
         )
+    }
+}
+
+// MARK: - External methods
+extension AudioPlayerView {
+    func updatePlayerButtonImage(_ isPlaying: Bool) {
+        let playerImage: UIImage = isPlaying ? .playerPause : .playerPlay
+        playerButton.setBackgroundImage(playerImage, for: .normal)
+    }
+}
+
+// MARK: - Setup Actions
+private extension AudioPlayerView {
+    func setupActions() {
+        playerButton.addTarget(self, action: #selector(playerButtonTapped), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+    }
+    
+    // Actions
+    @objc private func playerButtonTapped(_ sender: UIButton) {
+        delegate?.didTapPlayPauseButton()
+    }
+    
+    @objc private func backButtonTapped(_ sender: UIButton) {
+        delegate?.didTapBackButton()
+    }
+    
+    @objc private func nextButtonTapped(_ sender: UIButton) {
+        delegate?.didTapNextButton()
     }
 }
 

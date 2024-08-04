@@ -10,11 +10,18 @@ import UIKit
 final class TabBarController: UITabBarController {
     init() {
         super.init(nibName: nil, bundle: nil)
+        setupCustomTabBar()
         configure()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupCustomTabBar() {
+        let customTabBar = CustomTabBar()
+        customTabBar.tabBarController = self
+        self.setValue(customTabBar, forKey: "tabBar")
     }
     
     private func configure() {

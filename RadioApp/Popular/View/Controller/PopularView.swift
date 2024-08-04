@@ -32,7 +32,6 @@ final class PopularView: UIView {
     }()
     
     private let volumeProgressView = VolumeProgressView()
-    private let audioPlayerView = AudioPlayerView()
     
     // MARK: - Public Properties
     var radioCollection: UICollectionView {
@@ -53,7 +52,7 @@ final class PopularView: UIView {
     
     // MARK: - Set Views
     private func setupUI() {
-        addSubviews(titleLabel, radioCollectionView, volumeProgressView, audioPlayerView)
+        addSubviews(titleLabel, radioCollectionView, volumeProgressView)
     }
 }
 
@@ -70,7 +69,6 @@ private extension PopularView {
         setupTitleLabelConstraints()
         setupRadioCollectionConstraints()
         setupVolumeProgressViewConstraints()
-        setupAudioPlayerViewConstraints()
     }
     
     func setupTitleLabelConstraints() {
@@ -85,7 +83,8 @@ private extension PopularView {
             make.top.equalTo(titleLabel.snp.bottom).offset(Metrics.radioCollectionTopIndent)
             make.leading.equalToSuperview().inset(Metrics.radioCollectionLeadingIndent)
             make.trailing.equalToSuperview().inset(Metrics.radioCollectionTrailingIndent)
-            make.bottom.equalTo(audioPlayerView.snp.top)//.offset(-12.0) // make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
+            //make.bottom.equalTo(audioPlayerView.snp.top)//.offset(-12.0)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).inset(122.0 - 11.5) // audio player height & indent
         }
     }
     
@@ -93,13 +92,6 @@ private extension PopularView {
         volumeProgressView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(Metrics.volumeProgressLeadingOffset)
-        }
-    }
-    
-    func setupAudioPlayerViewConstraints() {
-        audioPlayerView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(11.5)
         }
     }
 }

@@ -50,6 +50,8 @@
 		C62348632C5E8B2100F536E7 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348622C5E8B2100F536E7 /* PopularViewController.swift */; };
 		C62348652C5E8B2D00F536E7 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348642C5E8B2D00F536E7 /* PopularCollectionViewCell.swift */; };
 		C62348672C5E8B3900F536E7 /* VolumeProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348662C5E8B3900F536E7 /* VolumeProgressView.swift */; };
+		C66106D32C601AF100E6196C /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66106D22C601AF100E6196C /* CustomTabBar.swift */; };
+		C66106D72C60224E00E6196C /* AudioPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66106D62C60224E00E6196C /* AudioPlayerController.swift */; };
 		C6DF00C62C5FA62E0011EA5D /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DF00C52C5FA62E0011EA5D /* AudioPlayerView.swift */; };
 		C6DF00C82C5FAA4B0011EA5D /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DF00C72C5FAA4B0011EA5D /* UIButton + Extensions.swift */; };
 		CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8C952C5698E400D280FE /* AppDelegate.swift */; };
@@ -140,6 +142,8 @@
 		C62348622C5E8B2100F536E7 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
 		C62348642C5E8B2D00F536E7 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
 		C62348662C5E8B3900F536E7 /* VolumeProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeProgressView.swift; sourceTree = "<group>"; };
+		C66106D22C601AF100E6196C /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		C66106D62C60224E00E6196C /* AudioPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerController.swift; sourceTree = "<group>"; };
 		C6DF00C52C5FA62E0011EA5D /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		C6DF00C72C5FAA4B0011EA5D /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
 		CB2C8C922C5698E400D280FE /* RadioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -368,7 +372,6 @@
 			children = (
 				C623485D2C5E8AF400F536E7 /* Controller */,
 				C623485E2C5E8AF900F536E7 /* Cells */,
-				C623485F2C5E8AFE00F536E7 /* Subviews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -390,13 +393,22 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		C623485F2C5E8AFE00F536E7 /* Subviews */ = {
+		C66106D42C6021FB00E6196C /* AudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				C62348662C5E8B3900F536E7 /* VolumeProgressView.swift */,
-				C6DF00C52C5FA62E0011EA5D /* AudioPlayerView.swift */,
+				C66106D62C60224E00E6196C /* AudioPlayerController.swift */,
+				C66106D82C6022D200E6196C /* Views */,
 			);
-			path = Subviews;
+			path = AudioPlayer;
+			sourceTree = "<group>";
+		};
+		C66106D82C6022D200E6196C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C6DF00C52C5FA62E0011EA5D /* AudioPlayerView.swift */,
+				C62348662C5E8B3900F536E7 /* VolumeProgressView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CB2C8C892C5698E400D280FE = {
@@ -430,6 +442,7 @@
 				CB2C8CB12C5767E500D280FE /* Base */,
 				C62348462C5E883700F536E7 /* Helpers */,
 				BECF66402C5A1E0E0068160D /* Services */,
+				C66106D42C6021FB00E6196C /* AudioPlayer */,
 				CB2C8CA32C5698E600D280FE /* LaunchScreen.storyboard */,
 				BECF66672C5D22240068160D /* Localizable.strings */,
 				CB2C8CC72C57C8AB00D280FE /* Assets.xcassets */,
@@ -465,6 +478,7 @@
 			isa = PBXGroup;
 			children = (
 				CB2C8CBF2C57B1A000D280FE /* TabBarController.swift */,
+				C66106D22C601AF100E6196C /* CustomTabBar.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -667,6 +681,7 @@
 			files = (
 				C623485A2C5E8AD300F536E7 /* PopularViewModel.swift in Sources */,
 				C623484A2C5E88D100F536E7 /* ColorFactory.swift in Sources */,
+				C66106D72C60224E00E6196C /* AudioPlayerController.swift in Sources */,
 				CBF57B5F2C583EA9006237E8 /* ExampleAssembly.swift in Sources */,
 				CBCA8D992C5D3965003B01B9 /* AuthorizationBuilder.swift in Sources */,
 				C6DF00C82C5FAA4B0011EA5D /* UIButton + Extensions.swift in Sources */,
@@ -701,6 +716,7 @@
 				BECF664C2C5A22EA0068160D /* ImageSelectionViewController.swift in Sources */,
 				BECF66542C5A36030068160D /* LanguageViewController.swift in Sources */,
 				CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */,
+				C66106D32C601AF100E6196C /* CustomTabBar.swift in Sources */,
 				BECF66512C5A35C50068160D /* NotificationsPresenter.swift in Sources */,
 				C62348632C5E8B2100F536E7 /* PopularViewController.swift in Sources */,
 				CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */,
