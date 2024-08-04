@@ -1,0 +1,18 @@
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SnapKit/Sources/LayoutConstraintItem.swift":
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/LayoutConstraintItem.swiftconstvalues"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/LayoutConstraintItem.d"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/LayoutConstraintItem.dia"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/LayoutConstraintItem.swiftdeps"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/LayoutConstraintItem.o"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SnapKit/Sources/Typealiases.swift":
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/Typealiases.swiftdeps"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/Typealiases.o"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/Typealiases.d"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/Typealiases.dia"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/Typealiases.swiftconstvalues"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SnapKit/Sources/UILayoutSupport+Extensions.swift":
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/UILayoutSupport+Extensions.swiftconstvalues"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/UILayoutSupport+Extensions.dia"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/UILayoutSupport+Extensions.o"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/UILayoutSupport+Extensions.d"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/UILayoutSupport+Extensions.swiftdeps"

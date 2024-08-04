@@ -82,6 +82,9 @@ extension ImageResource {
     /// The "bgOnboarding" asset catalog image resource.
     static let bgOnboarding = ImageResource(name: "bgOnboarding", bundle: resourceBundle)
 
+    /// The "bg_nontransparent" asset catalog image resource.
+    static let bgNontransparent = ImageResource(name: "bg_nontransparent", bundle: resourceBundle)
+
     /// The "calendar" asset catalog image resource.
     static let calendar = ImageResource(name: "calendar", bundle: resourceBundle)
 
@@ -154,8 +157,8 @@ extension ImageResource {
     /// The "notification" asset catalog image resource.
     static let notification = ImageResource(name: "notification", bundle: resourceBundle)
 
-    /// The "onboardingPic" asset catalog image resource.
-    static let onboardingPic = ImageResource(name: "onboardingPic", bundle: resourceBundle)
+    /// The "onboarding" asset catalog image resource.
+    static let onboarding = ImageResource(name: "onboarding", bundle: resourceBundle)
 
     /// The "padlock" asset catalog image resource.
     static let padlock = ImageResource(name: "padlock", bundle: resourceBundle)
@@ -499,6 +502,15 @@ extension AppKit.NSImage {
 #endif
     }
 
+    /// The "bg_nontransparent" asset catalog image.
+    static var bgNontransparent: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .bgNontransparent)
+#else
+        .init()
+#endif
+    }
+
     /// The "calendar" asset catalog image.
     static var calendar: AppKit.NSImage {
 #if !targetEnvironment(macCatalyst)
@@ -715,10 +727,10 @@ extension AppKit.NSImage {
 #endif
     }
 
-    /// The "onboardingPic" asset catalog image.
-    static var onboardingPic: AppKit.NSImage {
+    /// The "onboarding" asset catalog image.
+    static var onboarding: AppKit.NSImage {
 #if !targetEnvironment(macCatalyst)
-        .init(resource: .onboardingPic)
+        .init(resource: .onboarding)
 #else
         .init()
 #endif
@@ -1065,6 +1077,15 @@ extension UIKit.UIImage {
 #endif
     }
 
+    /// The "bg_nontransparent" asset catalog image.
+    static var bgNontransparent: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .bgNontransparent)
+#else
+        .init()
+#endif
+    }
+
     /// The "calendar" asset catalog image.
     static var calendar: UIKit.UIImage {
 #if !os(watchOS)
@@ -1281,10 +1302,10 @@ extension UIKit.UIImage {
 #endif
     }
 
-    /// The "onboardingPic" asset catalog image.
-    static var onboardingPic: UIKit.UIImage {
+    /// The "onboarding" asset catalog image.
+    static var onboarding: UIKit.UIImage {
 #if !os(watchOS)
-        .init(resource: .onboardingPic)
+        .init(resource: .onboarding)
 #else
         .init()
 #endif

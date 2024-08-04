@@ -181,6 +181,16 @@
 			<key>catalogPath</key>
 			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
 			<key>objcSymbol</key>
+			<string>ACImageNameBgNontransparent</string>
+			<key>relativePath</key>
+			<string>./Common/bg_nontransparent.imageset</string>
+			<key>swiftSymbol</key>
+			<string>bgNontransparent</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
 			<string>ACImageNameCalendar</string>
 			<key>relativePath</key>
 			<string>./Icons/calendar.imageset</string>
@@ -421,11 +431,11 @@
 			<key>catalogPath</key>
 			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
 			<key>objcSymbol</key>
-			<string>ACImageNameOnboardingPic</string>
+			<string>ACImageNameOnboarding</string>
 			<key>relativePath</key>
-			<string>./Onboarding/onboardingPic.imageset</string>
+			<string>./Onboarding/onboarding.imageset</string>
 			<key>swiftSymbol</key>
-			<string>onboardingPic</string>
+			<string>onboarding</string>
 		</dict>
 		<dict>
 			<key>catalogPath</key>

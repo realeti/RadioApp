@@ -1,0 +1,18 @@
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SnapKit/Sources/ConstraintDirectionalInsets.swift":
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintDirectionalInsets.swiftdeps"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintDirectionalInsets.d"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintDirectionalInsets.o"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintDirectionalInsets.swiftconstvalues"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintDirectionalInsets.dia"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SnapKit/Sources/ConstraintInsetTarget.swift":
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintInsetTarget.swiftconstvalues"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintInsetTarget.d"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintInsetTarget.swiftdeps"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintInsetTarget.dia"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintInsetTarget.o"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SnapKit/Sources/ConstraintInsets.swift":
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintInsets.o"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintInsets.swiftconstvalues"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintInsets.swiftdeps"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintInsets.dia"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintInsets.d"

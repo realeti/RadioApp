@@ -1,0 +1,36 @@
+"/Users/ivansemenov/RadioApp/RadioApp/Authorization/AuthorizationBuilder.swift":
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AuthorizationBuilder.swiftdeps"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AuthorizationBuilder.o"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AuthorizationBuilder.dia"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AuthorizationBuilder.swiftconstvalues"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AuthorizationBuilder.d"
+"/Users/ivansemenov/RadioApp/RadioApp/Example/View/ExampleCellView.swift":
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ExampleCellView.swiftconstvalues"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ExampleCellView.d"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ExampleCellView.swiftdeps"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ExampleCellView.o"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ExampleCellView.dia"
+"/Users/ivansemenov/RadioApp/RadioApp/Onboarding/OnboardingController.swift":
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/OnboardingController.d"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/OnboardingController.swiftconstvalues"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/OnboardingController.swiftdeps"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/OnboardingController.o"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/OnboardingController.dia"
+"/Users/ivansemenov/RadioApp/RadioApp/Base/NavigationController.swift":
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/NavigationController.swiftdeps"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/NavigationController.dia"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/NavigationController.o"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/NavigationController.swiftconstvalues"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/NavigationController.d"
+"/Users/ivansemenov/RadioApp/RadioApp/Example/ExampleAssembly.swift":
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ExampleAssembly.o"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ExampleAssembly.d"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ExampleAssembly.swiftdeps"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ExampleAssembly.dia"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ExampleAssembly.swiftconstvalues"
+"/Users/ivansemenov/RadioApp/RadioApp/Extensions/UILabel+.swift":
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/UILabel+.d"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/UILabel+.swiftconstvalues"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/UILabel+.swiftdeps"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/UILabel+.o"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/UILabel+.dia"

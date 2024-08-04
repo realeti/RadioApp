@@ -1,0 +1,24 @@
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SnapKit/Sources/ConstraintConfig.swift":
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintConfig.o"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintConfig.d"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintConfig.swiftdeps"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintConfig.dia"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintConfig.swiftconstvalues"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SnapKit/Sources/ConstraintAttributes.swift":
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintAttributes.swiftdeps"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintAttributes.swiftconstvalues"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintAttributes.dia"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintAttributes.o"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintAttributes.d"
+"/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/DerivedSources/resource_bundle_accessor.swift":
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/resource_bundle_accessor.dia"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/resource_bundle_accessor.swiftconstvalues"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/resource_bundle_accessor.o"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/resource_bundle_accessor.swiftdeps"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/resource_bundle_accessor.d"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SnapKit/Sources/Constraint.swift":
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/Constraint.swiftdeps"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/Constraint.swiftconstvalues"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/Constraint.o"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/Constraint.dia"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/Constraint.d"

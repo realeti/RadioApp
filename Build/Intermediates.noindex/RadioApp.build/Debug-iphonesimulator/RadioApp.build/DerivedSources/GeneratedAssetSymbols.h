@@ -60,6 +60,9 @@ static NSString * const ACImageNameBgLogin AC_SWIFT_PRIVATE = @"bgLogin";
 /// The "bgOnboarding" asset catalog image resource.
 static NSString * const ACImageNameBgOnboarding AC_SWIFT_PRIVATE = @"bgOnboarding";
 
+/// The "bg_nontransparent" asset catalog image resource.
+static NSString * const ACImageNameBgNontransparent AC_SWIFT_PRIVATE = @"bg_nontransparent";
+
 /// The "calendar" asset catalog image resource.
 static NSString * const ACImageNameCalendar AC_SWIFT_PRIVATE = @"calendar";
 
@@ -132,8 +135,8 @@ static NSString * const ACImageNameMockPic AC_SWIFT_PRIVATE = @"mockPic";
 /// The "notification" asset catalog image resource.
 static NSString * const ACImageNameNotification AC_SWIFT_PRIVATE = @"notification";
 
-/// The "onboardingPic" asset catalog image resource.
-static NSString * const ACImageNameOnboardingPic AC_SWIFT_PRIVATE = @"onboardingPic";
+/// The "onboarding" asset catalog image resource.
+static NSString * const ACImageNameOnboarding AC_SWIFT_PRIVATE = @"onboarding";
 
 /// The "padlock" asset catalog image resource.
 static NSString * const ACImageNamePadlock AC_SWIFT_PRIVATE = @"padlock";

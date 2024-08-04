@@ -1,0 +1,30 @@
+"/Users/ivansemenov/RadioApp/RadioApp/Example/ExampleRouter.swift":
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ExampleRouter.dia"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ExampleRouter.swiftdeps"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ExampleRouter.d"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ExampleRouter.swiftconstvalues"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ExampleRouter.o"
+"/Users/ivansemenov/RadioApp/RadioApp/Profile/SubVC/EditProfile/EditProfilePresenter.swift":
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/EditProfilePresenter.swiftconstvalues"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/EditProfilePresenter.d"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/EditProfilePresenter.o"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/EditProfilePresenter.swiftdeps"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/EditProfilePresenter.dia"
+"/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/DerivedSources/GeneratedAssetSymbols.swift":
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/GeneratedAssetSymbols.swiftconstvalues"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/GeneratedAssetSymbols.d"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/GeneratedAssetSymbols.swiftdeps"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/GeneratedAssetSymbols.dia"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/GeneratedAssetSymbols.o"
+"/Users/ivansemenov/RadioApp/RadioApp/Base/Views/CollectionCell.swift":
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/CollectionCell.dia"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/CollectionCell.o"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/CollectionCell.swiftconstvalues"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/CollectionCell.swiftdeps"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/CollectionCell.d"
+"/Users/ivansemenov/RadioApp/RadioApp/Extensions/UITextField+Padding.swift":
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/UITextField+Padding.dia"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/UITextField+Padding.swiftdeps"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/UITextField+Padding.d"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/UITextField+Padding.swiftconstvalues"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/UITextField+Padding.o"

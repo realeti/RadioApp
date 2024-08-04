@@ -1,0 +1,30 @@
+"/Users/ivansemenov/RadioApp/RadioApp/Authorization/SubVC/UpdatePassword/UpdatePasswordPresenter.swift":
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/UpdatePasswordPresenter.o"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/UpdatePasswordPresenter.d"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/UpdatePasswordPresenter.dia"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/UpdatePasswordPresenter.swiftconstvalues"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/UpdatePasswordPresenter.swiftdeps"
+"/Users/ivansemenov/RadioApp/RadioApp/Authorization/View/AuthorizationController.swift":
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AuthorizationController.swiftconstvalues"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AuthorizationController.swiftdeps"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AuthorizationController.dia"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AuthorizationController.o"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AuthorizationController.d"
+"/Users/ivansemenov/RadioApp/RadioApp/Authorization/SubVC/ForgotPassword/ForgotPasswordController.swift":
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ForgotPasswordController.swiftdeps"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ForgotPasswordController.swiftconstvalues"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ForgotPasswordController.dia"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ForgotPasswordController.d"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ForgotPasswordController.o"
+"/Users/ivansemenov/RadioApp/RadioApp/Profile/SubVC/Language/LanguagePresenter.swift":
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/LanguagePresenter.swiftdeps"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/LanguagePresenter.swiftconstvalues"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/LanguagePresenter.o"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/LanguagePresenter.d"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/LanguagePresenter.dia"
+"/Users/ivansemenov/RadioApp/RadioApp/Profile/SubVC/About/TeamViewCell.swift":
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/TeamViewCell.o"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/TeamViewCell.swiftconstvalues"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/TeamViewCell.d"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/TeamViewCell.swiftdeps"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/TeamViewCell.dia"

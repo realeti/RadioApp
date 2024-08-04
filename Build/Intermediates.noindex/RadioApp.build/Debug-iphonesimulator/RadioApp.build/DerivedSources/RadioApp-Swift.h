@@ -345,6 +345,29 @@ SWIFT_CLASS("_TtC8RadioApp11AppDelegate")
 @end
 
 
+SWIFT_CLASS("_TtC8RadioApp23AuthorizationController")
+@interface AuthorizationController : UIViewController
+- (void)viewWillAppear:(BOOL)animated;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface AuthorizationController (SWIFT_EXTENSION(RadioApp)) <UITextFieldDelegate>
+@end
+
+
+
+
+
+
+SWIFT_CLASS("_TtC8RadioApp18AuthorizationField")
+@interface AuthorizationField : UIView
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
 SWIFT_CLASS("_TtC8RadioApp18CustomSettingsView")
 @interface CustomSettingsView : UIView
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -392,6 +415,21 @@ SWIFT_CLASS("_TtC8RadioApp17ExampleController")
 - (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @end
 
+
+
+
+
+SWIFT_CLASS("_TtC8RadioApp24ForgotPasswordController")
+@interface ForgotPasswordController : UIViewController
+- (void)viewWillAppear:(BOOL)animated;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface ForgotPasswordController (SWIFT_EXTENSION(RadioApp)) <UITextFieldDelegate>
+- (BOOL)textFieldShouldEndEditing:(UITextField * _Nonnull)textField SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
 
@@ -470,6 +508,15 @@ SWIFT_CLASS("_TtC8RadioApp27NotificationsViewController")
 @end
 
 
+SWIFT_CLASS("_TtC8RadioApp20OnboardingController")
+@interface OnboardingController : UIViewController
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
 SWIFT_CLASS("_TtC8RadioApp21PrivacyViewController")
 @interface PrivacyViewController : ViewController
 - (void)viewDidLoad;
@@ -523,6 +570,22 @@ SWIFT_CLASS("_TtC8RadioApp12TeamViewCell")
 
 
 
+
+
+
+
+
+SWIFT_CLASS("_TtC8RadioApp24UpdatePasswordController")
+@interface UpdatePasswordController : UIViewController
+- (void)viewWillAppear:(BOOL)animated;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface UpdatePasswordController (SWIFT_EXTENSION(RadioApp)) <UITextFieldDelegate>
+- (BOOL)textFieldShouldEndEditing:(UITextField * _Nonnull)textField SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
 

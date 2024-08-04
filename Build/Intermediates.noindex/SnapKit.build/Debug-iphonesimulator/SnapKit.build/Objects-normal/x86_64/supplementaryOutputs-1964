@@ -1,0 +1,18 @@
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SnapKit/Sources/ConstraintItem.swift":
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintItem.swiftdeps"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintItem.o"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintItem.dia"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintItem.swiftconstvalues"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintItem.d"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SnapKit/Sources/ConstraintLayoutGuide.swift":
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintLayoutGuide.o"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintLayoutGuide.swiftdeps"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintLayoutGuide.swiftconstvalues"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintLayoutGuide.d"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintLayoutGuide.dia"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SnapKit/Sources/ConstraintLayoutGuide+Extensions.swift":
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintLayoutGuide+Extensions.d"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintLayoutGuide+Extensions.o"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintLayoutGuide+Extensions.dia"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintLayoutGuide+Extensions.swiftconstvalues"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SnapKit.build/Debug-iphonesimulator/SnapKit.build/Objects-normal/x86_64/ConstraintLayoutGuide+Extensions.swiftdeps"
