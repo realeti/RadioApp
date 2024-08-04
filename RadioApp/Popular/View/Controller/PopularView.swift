@@ -85,7 +85,7 @@ private extension PopularView {
             make.top.equalTo(titleLabel.snp.bottom).offset(Metrics.radioCollectionTopIndent)
             make.leading.equalToSuperview().inset(Metrics.radioCollectionLeadingIndent)
             make.trailing.equalToSuperview().inset(Metrics.radioCollectionTrailingIndent)
-            make.bottom.equalTo(audioPlayerView.snp.top).offset(-12.0) // make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
+            make.bottom.equalTo(audioPlayerView.snp.top)//.offset(-12.0) // make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
         }
     }
     

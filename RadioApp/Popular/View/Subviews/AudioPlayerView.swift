@@ -62,32 +62,38 @@ private extension AudioPlayerView {
     
     func setupPlayerButtonConstraints() {
         playerButton.snp.makeConstraints { make in
-            make.width.height.equalTo(Metrics.playerButtonSize)
+            make.width.equalTo(Metrics.playerButtonWidth)
+            make.height.equalTo(Metrics.playerButtonHeight)
         }
     }
     
     func setupBackButtonConstraints() {
         backButton.snp.makeConstraints { make in
-            make.width.height.equalTo(Metrics.backButtonSize)
+            make.width.equalTo(Metrics.backButtonWidth)
+            make.height.equalTo(Metrics.backButtonHeight)
         }
     }
     
     func setupNextButtonConstraints() {
         nextButton.snp.makeConstraints { make in
-            make.width.height.equalTo(Metrics.nextButtonSize)
+            make.width.equalTo(Metrics.nextButtonWidth)
+            make.height.equalTo(Metrics.nextButtonHeight)
         }
     }
 }
 
 fileprivate struct Metrics {
     /// player button
-    static let playerButtonSize: CGFloat = 127.0
+    static let playerButtonWidth: CGFloat = 111.0
+    static let playerButtonHeight: CGFloat = 122.0
     
     /// back button
-    static let backButtonSize: CGFloat = 48.0
+    static let backButtonWidth: CGFloat = 42.0
+    static let backButtonHeight: CGFloat = 46.0
     
     /// next button
-    static let nextButtonSize: CGFloat = 48.0
+    static let nextButtonWidth: CGFloat = 42.0
+    static let nextButtonHeight: CGFloat = 46.0
     
     private init() {}
 }
