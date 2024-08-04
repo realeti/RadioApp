@@ -17,18 +17,18 @@ final class Builder {
         AuthorizationAssembly().build()
     }
     
-//    static func createPopular() -> UIViewController {
-//       
-//    }
-//    
+    static func createPopular() -> UIViewController {
+        PopularAssembly().build()
+    }
+//
 //    static func createFavorite() -> UIViewController {
-//       
+//
 //    }
-//    
+//
 //    static func createSearch() -> UIViewController {
-//        
+//
 //    }
-//    
+//
     static func createProfile() -> UIViewController {
         let view = ProfileViewController()
         let router = ProfileRouter()
