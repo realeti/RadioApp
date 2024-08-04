@@ -26,7 +26,7 @@ class FavoriteRadioView: UIView, CellConfigurable {
     }()
     
     private let image: UIImageView = {
-        let image = UIImage(named: "vawe")
+        let image = UIImage(named: "wave")
         let imageView = UIImageView(image: image)
         return imageView
     }()
@@ -49,7 +49,7 @@ class FavoriteRadioView: UIView, CellConfigurable {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
-        self.layer.borderColor = UIColor.border.cgColor
+        self.layer.borderColor = UIColor.stormyBlue.cgColor
         self.layer.cornerRadius = 15
         self.layer.borderWidth = 2
         addSubviews()
