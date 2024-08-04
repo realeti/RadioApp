@@ -37,17 +37,16 @@ final class StorageManager {
         }
     }
     
-    func deleteStation(_ station: StationEntity) {
-        viewContext.delete(station)
-        saveContext()
+    func toggleFavorite(id: UUID, title: String, genre: String) {
+        if let station = fetchStation(with: id) {
+            deleteStation(station)
+        } else {
+            saveStation(id: id, title: title, genre: genre)
+        }
     }
     
-    func saveStation(id: UUID, title: String, genre: String) {
-        let station = StationEntity(context: viewContext)
-        station.id = id
-        station.title = title
-        station.genre = genre
-        
+    func deleteStation(_ station: StationEntity) {
+        viewContext.delete(station)
         saveContext()
     }
     
@@ -60,5 +59,21 @@ final class StorageManager {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    private func fetchStation(with id: UUID) -> StationEntity? {
+        let fetchRequest: NSFetchRequest<StationEntity> = StationEntity.fetchRequest()
+        let stations = try? viewContext.fetch(fetchRequest)
+        let station = stations?.first(where: { $0.id == id })
+        return station
+    }
+    
+    private func saveStation(id: UUID, title: String, genre: String) {
+        let station = StationEntity(context: viewContext)
+        station.id = id
+        station.title = title
+        station.genre = genre
+        
+        saveContext()
     }
 }

@@ -45,7 +45,7 @@ class FavoritesController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupView()
         presenter.activate()
         

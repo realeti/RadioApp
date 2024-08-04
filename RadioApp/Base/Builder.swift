@@ -20,10 +20,10 @@ final class Builder {
     static func createPopular() -> UIViewController {
         PopularAssembly().build()
     }
-//
-//    static func createFavorite() -> UIViewController {
-//
-//    }
+
+    static func createFavorite() -> UIViewController {
+        FavoritesAssembly().build(router: FavoritesRouter())
+    }
 //
 //    static func createSearch() -> UIViewController {
 //

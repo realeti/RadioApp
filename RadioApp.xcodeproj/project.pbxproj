@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B949AE442C5F804100E2A338 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE432C5F804100E2A338 /* StorageManager.swift */; };
+		B949AE512C5F805600E2A338 /* FavStationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE452C5F805600E2A338 /* FavStationModel.swift */; };
+		B949AE522C5F805600E2A338 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE472C5F805600E2A338 /* FavoritesPresenter.swift */; };
+		B949AE532C5F805600E2A338 /* FavoriteRadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE492C5F805600E2A338 /* FavoriteRadioView.swift */; };
+		B949AE542C5F805600E2A338 /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE4A2C5F805600E2A338 /* FavoritesController.swift */; };
+		B949AE552C5F805600E2A338 /* FavoritesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE4C2C5F805600E2A338 /* FavoritesAssembly.swift */; };
+		B949AE562C5F805600E2A338 /* FavoritesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE4D2C5F805600E2A338 /* FavoritesBuilder.swift */; };
+		B949AE572C5F805600E2A338 /* FavoritesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE4E2C5F805600E2A338 /* FavoritesProtocol.swift */; };
+		B949AE582C5F805600E2A338 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE4F2C5F805600E2A338 /* FavoritesRouter.swift */; };
+		B949AE5A2C5F808600E2A338 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE592C5F808600E2A338 /* TableCell.swift */; };
 		BECF66112C58D5D90068160D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66102C58D5D90068160D /* User.swift */; };
 		BECF66132C58D6C30068160D /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66122C58D6C30068160D /* ProfileRouter.swift */; };
 		BECF66152C58D6FA0068160D /* ProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66142C58D6FA0068160D /* ProfileBuilder.swift */; };
@@ -93,6 +103,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B949AE432C5F804100E2A338 /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		B949AE452C5F805600E2A338 /* FavStationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavStationModel.swift; sourceTree = "<group>"; };
+		B949AE472C5F805600E2A338 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		B949AE492C5F805600E2A338 /* FavoriteRadioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteRadioView.swift; sourceTree = "<group>"; };
+		B949AE4A2C5F805600E2A338 /* FavoritesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
+		B949AE4C2C5F805600E2A338 /* FavoritesAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesAssembly.swift; sourceTree = "<group>"; };
+		B949AE4D2C5F805600E2A338 /* FavoritesBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesBuilder.swift; sourceTree = "<group>"; };
+		B949AE4E2C5F805600E2A338 /* FavoritesProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesProtocol.swift; sourceTree = "<group>"; };
+		B949AE4F2C5F805600E2A338 /* FavoritesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
+		B949AE592C5F808600E2A338 /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		BECF66102C58D5D90068160D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BECF66122C58D6C30068160D /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		BECF66142C58D6FA0068160D /* ProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBuilder.swift; sourceTree = "<group>"; };
@@ -193,6 +213,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B949AE462C5F805600E2A338 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B949AE452C5F805600E2A338 /* FavStationModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B949AE482C5F805600E2A338 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B949AE472C5F805600E2A338 /* FavoritesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B949AE4B2C5F805600E2A338 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B949AE492C5F805600E2A338 /* FavoriteRadioView.swift */,
+				B949AE4A2C5F805600E2A338 /* FavoritesController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B949AE502C5F805600E2A338 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				B949AE462C5F805600E2A338 /* Model */,
+				B949AE482C5F805600E2A338 /* Presenter */,
+				B949AE4B2C5F805600E2A338 /* View */,
+				B949AE4C2C5F805600E2A338 /* FavoritesAssembly.swift */,
+				B949AE4D2C5F805600E2A338 /* FavoritesBuilder.swift */,
+				B949AE4E2C5F805600E2A338 /* FavoritesProtocol.swift */,
+				B949AE4F2C5F805600E2A338 /* FavoritesRouter.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		BECF660C2C58D3930068160D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				BECF66412C5A1E300068160D /* UDService.swift */,
+				B949AE432C5F804100E2A338 /* StorageManager.swift */,
 				BECF66592C5A4F740068160D /* NotificationService.swift */,
 			);
 			path = Services;
@@ -414,6 +474,7 @@
 			children = (
 				CB2C8C952C5698E400D280FE /* AppDelegate.swift */,
 				CB2C8C972C5698E400D280FE /* SceneDelegate.swift */,
+				B949AE502C5F805600E2A338 /* Favorites */,
 				CB2C8CC12C57BC4200D280FE /* TabBar */,
 				CBCA8DA22C5D3A36003B01B9 /* Onboarding */,
 				CBCA8D842C5D3965003B01B9 /* Authorization */,
@@ -565,6 +626,7 @@
 		CBF57B572C58359D006237E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B949AE592C5F808600E2A338 /* TableCell.swift */,
 				CBF57B582C5835AC006237E8 /* CollectionCell.swift */,
 			);
 			path = Views;
@@ -669,12 +731,15 @@
 				BECF66442C5A1FBF0068160D /* UILabel+.swift in Sources */,
 				BECF66152C58D6FA0068160D /* ProfileBuilder.swift in Sources */,
 				CBCA8D7C2C5D38AB003B01B9 /* OnboardingAssembly.swift in Sources */,
+				B949AE552C5F805600E2A338 /* FavoritesAssembly.swift in Sources */,
 				CBCA8D7D2C5D38AB003B01B9 /* OnboardingPresenter.swift in Sources */,
 				CB2C8CA02C5698E400D280FE /* RadioApp.xcdatamodeld in Sources */,
 				CBCA8D9F2C5D3965003B01B9 /* ForgotPasswordPresenter.swift in Sources */,
 				BECF663F2C5A1D750068160D /* String+.swift in Sources */,
+				B949AE562C5F805600E2A338 /* FavoritesBuilder.swift in Sources */,
 				BECF66422C5A1E300068160D /* UDService.swift in Sources */,
 				BECF66482C5A22A70068160D /* EditProfileViewController.swift in Sources */,
+				B949AE582C5F805600E2A338 /* FavoritesRouter.swift in Sources */,
 				CBF57B5B2C5839EA006237E8 /* ExampleProtocols.swift in Sources */,
 				BECF66252C5A06470068160D /* PrivacyViewController.swift in Sources */,
 				BECF661D2C5A05750068160D /* CustomSettingsView.swift in Sources */,
@@ -683,15 +748,20 @@
 				CBCA8D7B2C5D38AB003B01B9 /* OnboardingRouter.swift in Sources */,
 				C62348482C5E88BD00F536E7 /* Constants.swift in Sources */,
 				CB2C8CB52C576A5C00D280FE /* ViewController.swift in Sources */,
+				B949AE532C5F805600E2A338 /* FavoriteRadioView.swift in Sources */,
 				BECF66292C5A06810068160D /* PrivacyInfoModel.swift in Sources */,
 				CBF57B542C582540006237E8 /* ExampleBuilder.swift in Sources */,
+				B949AE572C5F805600E2A338 /* FavoritesProtocol.swift in Sources */,
 				C623485C2C5E8AE000F536E7 /* PopularPresenter.swift in Sources */,
 				CBCA8D962C5D3965003B01B9 /* AuthorizationProtocols.swift in Sources */,
+				B949AE5A2C5F808600E2A338 /* TableCell.swift in Sources */,
 				BECF66112C58D5D90068160D /* User.swift in Sources */,
 				CBCA8D952C5D3965003B01B9 /* AuthorizationRouter.swift in Sources */,
+				B949AE522C5F805600E2A338 /* FavoritesPresenter.swift in Sources */,
 				CB2C8CB72C57AACC00D280FE /* ModuleAssembly.swift in Sources */,
 				CBCA8D9B2C5D3965003B01B9 /* AuthorizationField.swift in Sources */,
 				BECF664C2C5A22EA0068160D /* ImageSelectionViewController.swift in Sources */,
+				B949AE542C5F805600E2A338 /* FavoritesController.swift in Sources */,
 				BECF66542C5A36030068160D /* LanguageViewController.swift in Sources */,
 				CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */,
 				BECF66512C5A35C50068160D /* NotificationsPresenter.swift in Sources */,
@@ -710,6 +780,7 @@
 				BECF66322C5A0DB70068160D /* Team.swift in Sources */,
 				BECF66352C5A10AA0068160D /* UIView+.swift in Sources */,
 				BECF66582C5A36340068160D /* LanguageCell.swift in Sources */,
+				B949AE442C5F804100E2A338 /* StorageManager.swift in Sources */,
 				CB2C8C982C5698E400D280FE /* SceneDelegate.swift in Sources */,
 				BECF66272C5A06670068160D /* PrivacyInfo.swift in Sources */,
 				C623484E2C5E899800F536E7 /* UIImageView + Extensions.swift in Sources */,
@@ -727,6 +798,7 @@
 				BECF66302C5A0D9A0068160D /* TeamViewCell.swift in Sources */,
 				CBCA8D9D2C5D3965003B01B9 /* UpdatePasswordPresenter.swift in Sources */,
 				CBCA8D9A2C5D3965003B01B9 /* AuthorizationController.swift in Sources */,
+				B949AE512C5F805600E2A338 /* FavStationModel.swift in Sources */,
 				CBCA8D9E2C5D3965003B01B9 /* ForgotPasswordController.swift in Sources */,
 				C62348652C5E8B2D00F536E7 /* PopularCollectionViewCell.swift in Sources */,
 				BECF66562C5A361B0068160D /* LanguagePresenter.swift in Sources */,

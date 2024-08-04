@@ -22,7 +22,7 @@ final class TabBarController: UITabBarController {
         popularVC.tabBarItem.title = "Popular"
         popularVC.view.backgroundColor = .darkBlueApp
 
-        let favoriteVC = NavigationController(rootViewController: ViewController())
+        let favoriteVC = NavigationController(rootViewController: Builder.createFavorite())
         favoriteVC.tabBarItem.title = "Favorites"
         favoriteVC.view.backgroundColor = .darkBlueApp
         
