@@ -17,22 +17,28 @@ final class Builder {
         AuthorizationAssembly().build()
     }
     
-//    static func createPopular() -> UIViewController {
-//       
-//    }
-//    
-    static func createFavorite() -> UIViewController {
-        FavoritesAssembly().build(router: FavoritesRouter())
+    static func createPopular() -> UIViewController {
+        PopularAssembly().build()
     }
-//    
+//
+//    static func createFavorite() -> UIViewController {
+//
+//    }
+//
 //    static func createSearch() -> UIViewController {
-//        
+//
 //    }
-//    
-//    static func createProfile() -> UIViewController {
-//        
-//    }
-//    
+//
+    static func createProfile() -> UIViewController {
+        let view = ProfileViewController()
+        let router = ProfileRouter()
+        router.controller = view
+//        let realmService = RealmService()
+        let presenter = ProfilePresenter(view: view, router: router)
+        view.presenter = presenter
+        return view
+    }
+
     static func createOnboarding() -> UIViewController {
         OnboardingAssembly().build()
     }
