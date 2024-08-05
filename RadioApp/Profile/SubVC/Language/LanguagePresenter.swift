@@ -11,13 +11,13 @@ struct Language {
     let language: String
     var isSelected: Bool
     let id: AppLanguage
-   
 }
 
 // MARK: - LanguagePresenterProtocol
 protocol LanguagePresenterProtocol {
     init(view: LanguageVCProtocol)
     var languages:  [Language] { get }
+    var isShouldReloadRootController: Bool { get }
     func whatLanguageSelected()
     func selectALanguage(index: Int)
 }
@@ -31,6 +31,8 @@ final class LanguagePresenter: LanguagePresenterProtocol {
         Language(language: "English", isSelected: false, id: .english),
         Language(language: "Русский", isSelected: false, id: .russian)
     ]
+    /// Флаг для рут
+    private(set) var isShouldReloadRootController = false
     
     init(view: LanguageVCProtocol) {
         self.view = view
@@ -45,9 +47,16 @@ final class LanguagePresenter: LanguagePresenterProtocol {
     }
     
     func selectALanguage(index: Int) {
+        /// проверка изменился ли язык
+        if UDService.getLanguage() != languages[index].id.rawValue {
+            isShouldReloadRootController = true
+        }
+
         languages.indices.forEach { languages[$0].isSelected = false }
         languages[index].isSelected = true
-        UDService.switchLanguage(to: languages[index].id )
+        UDService.switchLanguage(to: languages[index].id)
     }
+
     
 }
+

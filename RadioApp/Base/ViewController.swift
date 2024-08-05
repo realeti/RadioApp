@@ -40,12 +40,12 @@ class ViewController: UIViewController {
         icon.contentMode = .scaleAspectFit
         
         let greetingTitle = UILabel()
-        greetingTitle.text = "Hello"
+        greetingTitle.text = "Hello".localized
         greetingTitle.textColor = .white
         greetingTitle.font = .systemFont(ofSize: 25, weight: .medium)
         
         let nameTitle = UILabel()
-        nameTitle.text = "Mark"
+        nameTitle.text = "Mark".localized
         nameTitle.textColor = .pinkApp
         nameTitle.font = .systemFont(ofSize: 30, weight: .medium)
         

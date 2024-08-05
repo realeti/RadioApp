@@ -24,20 +24,44 @@ private let resourceBundle = Foundation.Bundle(for: ResourceBundleClass.self)
 @available(iOS 11.0, macOS 10.13, tvOS 11.0, *)
 extension ColorResource {
 
+    /// The "blueCircle" asset catalog color resource.
+    static let blueCircle = ColorResource(name: "blueCircle", bundle: resourceBundle)
+
     /// The "darkBlueApp" asset catalog color resource.
     static let darkBlueApp = ColorResource(name: "darkBlueApp", bundle: resourceBundle)
+
+    /// The "darkPinkCircle" asset catalog color resource.
+    static let darkPinkCircle = ColorResource(name: "darkPinkCircle", bundle: resourceBundle)
+
+    /// The "greenCircle" asset catalog color resource.
+    static let greenCircle = ColorResource(name: "greenCircle", bundle: resourceBundle)
 
     /// The "lightBlueApp" asset catalog color resource.
     static let lightBlueApp = ColorResource(name: "lightBlueApp", bundle: resourceBundle)
 
+    /// The "magentaCircle" asset catalog color resource.
+    static let magentaCircle = ColorResource(name: "magentaCircle", bundle: resourceBundle)
+
+    /// The "martimeBlue" asset catalog color resource.
+    static let martimeBlue = ColorResource(name: "martimeBlue", bundle: resourceBundle)
+
     /// The "neonBlueApp" asset catalog color resource.
     static let neonBlueApp = ColorResource(name: "neonBlueApp", bundle: resourceBundle)
+
+    /// The "orangeCircle" asset catalog color resource.
+    static let orangeCircle = ColorResource(name: "orangeCircle", bundle: resourceBundle)
 
     /// The "pinkApp" asset catalog color resource.
     static let pinkApp = ColorResource(name: "pinkApp", bundle: resourceBundle)
 
+    /// The "stormyBlue" asset catalog color resource.
+    static let stormyBlue = ColorResource(name: "stormyBlue", bundle: resourceBundle)
+
     /// The "tealApp" asset catalog color resource.
     static let tealApp = ColorResource(name: "tealApp", bundle: resourceBundle)
+
+    /// The "yellowCircle" asset catalog color resource.
+    static let yellowCircle = ColorResource(name: "yellowCircle", bundle: resourceBundle)
 
 }
 
@@ -172,6 +196,9 @@ extension ImageResource {
     /// The "play" asset catalog image resource.
     static let play = ImageResource(name: "play", bundle: resourceBundle)
 
+    /// The "playS" asset catalog image resource.
+    static let playS = ImageResource(name: "playS", bundle: resourceBundle)
+
     /// The "playerBack" asset catalog image resource.
     static let playerBack = ImageResource(name: "playerBack", bundle: resourceBundle)
 
@@ -223,11 +250,20 @@ extension ImageResource {
     /// The "trash-bin" asset catalog image resource.
     static let trashBin = ImageResource(name: "trash-bin", bundle: resourceBundle)
 
+    /// The "volume" asset catalog image resource.
+    static let volume = ImageResource(name: "volume", bundle: resourceBundle)
+
     /// The "voteOff" asset catalog image resource.
     static let voteOff = ImageResource(name: "voteOff", bundle: resourceBundle)
 
     /// The "voteOn" asset catalog image resource.
     static let voteOn = ImageResource(name: "voteOn", bundle: resourceBundle)
+
+    /// The "wave" asset catalog image resource.
+    static let wave = ImageResource(name: "wave", bundle: resourceBundle)
+
+    /// The "waveCircle" asset catalog image resource.
+    static let waveCircle = ImageResource(name: "waveCircle", bundle: resourceBundle)
 
     /// The "wishlist" asset catalog image resource.
     static let wishlist = ImageResource(name: "wishlist", bundle: resourceBundle)
@@ -244,10 +280,37 @@ extension ImageResource {
 @available(macCatalyst, unavailable)
 extension AppKit.NSColor {
 
+    /// The "blueCircle" asset catalog color.
+    static var blueCircle: AppKit.NSColor {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .blueCircle)
+#else
+        .init()
+#endif
+    }
+
     /// The "darkBlueApp" asset catalog color.
     static var darkBlueApp: AppKit.NSColor {
 #if !targetEnvironment(macCatalyst)
         .init(resource: .darkBlueApp)
+#else
+        .init()
+#endif
+    }
+
+    /// The "darkPinkCircle" asset catalog color.
+    static var darkPinkCircle: AppKit.NSColor {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .darkPinkCircle)
+#else
+        .init()
+#endif
+    }
+
+    /// The "greenCircle" asset catalog color.
+    static var greenCircle: AppKit.NSColor {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .greenCircle)
 #else
         .init()
 #endif
@@ -262,10 +325,37 @@ extension AppKit.NSColor {
 #endif
     }
 
+    /// The "magentaCircle" asset catalog color.
+    static var magentaCircle: AppKit.NSColor {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .magentaCircle)
+#else
+        .init()
+#endif
+    }
+
+    /// The "martimeBlue" asset catalog color.
+    static var martimeBlue: AppKit.NSColor {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .martimeBlue)
+#else
+        .init()
+#endif
+    }
+
     /// The "neonBlueApp" asset catalog color.
     static var neonBlueApp: AppKit.NSColor {
 #if !targetEnvironment(macCatalyst)
         .init(resource: .neonBlueApp)
+#else
+        .init()
+#endif
+    }
+
+    /// The "orangeCircle" asset catalog color.
+    static var orangeCircle: AppKit.NSColor {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .orangeCircle)
 #else
         .init()
 #endif
@@ -280,10 +370,28 @@ extension AppKit.NSColor {
 #endif
     }
 
+    /// The "stormyBlue" asset catalog color.
+    static var stormyBlue: AppKit.NSColor {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .stormyBlue)
+#else
+        .init()
+#endif
+    }
+
     /// The "tealApp" asset catalog color.
     static var tealApp: AppKit.NSColor {
 #if !targetEnvironment(macCatalyst)
         .init(resource: .tealApp)
+#else
+        .init()
+#endif
+    }
+
+    /// The "yellowCircle" asset catalog color.
+    static var yellowCircle: AppKit.NSColor {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .yellowCircle)
 #else
         .init()
 #endif
@@ -297,10 +405,37 @@ extension AppKit.NSColor {
 @available(watchOS, unavailable)
 extension UIKit.UIColor {
 
+    /// The "blueCircle" asset catalog color.
+    static var blueCircle: UIKit.UIColor {
+#if !os(watchOS)
+        .init(resource: .blueCircle)
+#else
+        .init()
+#endif
+    }
+
     /// The "darkBlueApp" asset catalog color.
     static var darkBlueApp: UIKit.UIColor {
 #if !os(watchOS)
         .init(resource: .darkBlueApp)
+#else
+        .init()
+#endif
+    }
+
+    /// The "darkPinkCircle" asset catalog color.
+    static var darkPinkCircle: UIKit.UIColor {
+#if !os(watchOS)
+        .init(resource: .darkPinkCircle)
+#else
+        .init()
+#endif
+    }
+
+    /// The "greenCircle" asset catalog color.
+    static var greenCircle: UIKit.UIColor {
+#if !os(watchOS)
+        .init(resource: .greenCircle)
 #else
         .init()
 #endif
@@ -315,10 +450,37 @@ extension UIKit.UIColor {
 #endif
     }
 
+    /// The "magentaCircle" asset catalog color.
+    static var magentaCircle: UIKit.UIColor {
+#if !os(watchOS)
+        .init(resource: .magentaCircle)
+#else
+        .init()
+#endif
+    }
+
+    /// The "martimeBlue" asset catalog color.
+    static var martimeBlue: UIKit.UIColor {
+#if !os(watchOS)
+        .init(resource: .martimeBlue)
+#else
+        .init()
+#endif
+    }
+
     /// The "neonBlueApp" asset catalog color.
     static var neonBlueApp: UIKit.UIColor {
 #if !os(watchOS)
         .init(resource: .neonBlueApp)
+#else
+        .init()
+#endif
+    }
+
+    /// The "orangeCircle" asset catalog color.
+    static var orangeCircle: UIKit.UIColor {
+#if !os(watchOS)
+        .init(resource: .orangeCircle)
 #else
         .init()
 #endif
@@ -333,10 +495,28 @@ extension UIKit.UIColor {
 #endif
     }
 
+    /// The "stormyBlue" asset catalog color.
+    static var stormyBlue: UIKit.UIColor {
+#if !os(watchOS)
+        .init(resource: .stormyBlue)
+#else
+        .init()
+#endif
+    }
+
     /// The "tealApp" asset catalog color.
     static var tealApp: UIKit.UIColor {
 #if !os(watchOS)
         .init(resource: .tealApp)
+#else
+        .init()
+#endif
+    }
+
+    /// The "yellowCircle" asset catalog color.
+    static var yellowCircle: UIKit.UIColor {
+#if !os(watchOS)
+        .init(resource: .yellowCircle)
 #else
         .init()
 #endif
@@ -349,40 +529,88 @@ extension UIKit.UIColor {
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension SwiftUI.Color {
 
+    /// The "blueCircle" asset catalog color.
+    static var blueCircle: SwiftUI.Color { .init(.blueCircle) }
+
     /// The "darkBlueApp" asset catalog color.
     static var darkBlueApp: SwiftUI.Color { .init(.darkBlueApp) }
+
+    /// The "darkPinkCircle" asset catalog color.
+    static var darkPinkCircle: SwiftUI.Color { .init(.darkPinkCircle) }
+
+    /// The "greenCircle" asset catalog color.
+    static var greenCircle: SwiftUI.Color { .init(.greenCircle) }
 
     /// The "lightBlueApp" asset catalog color.
     static var lightBlueApp: SwiftUI.Color { .init(.lightBlueApp) }
 
+    /// The "magentaCircle" asset catalog color.
+    static var magentaCircle: SwiftUI.Color { .init(.magentaCircle) }
+
+    /// The "martimeBlue" asset catalog color.
+    static var martimeBlue: SwiftUI.Color { .init(.martimeBlue) }
+
     /// The "neonBlueApp" asset catalog color.
     static var neonBlueApp: SwiftUI.Color { .init(.neonBlueApp) }
+
+    /// The "orangeCircle" asset catalog color.
+    static var orangeCircle: SwiftUI.Color { .init(.orangeCircle) }
 
     /// The "pinkApp" asset catalog color.
     static var pinkApp: SwiftUI.Color { .init(.pinkApp) }
 
+    /// The "stormyBlue" asset catalog color.
+    static var stormyBlue: SwiftUI.Color { .init(.stormyBlue) }
+
     /// The "tealApp" asset catalog color.
     static var tealApp: SwiftUI.Color { .init(.tealApp) }
+
+    /// The "yellowCircle" asset catalog color.
+    static var yellowCircle: SwiftUI.Color { .init(.yellowCircle) }
 
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension SwiftUI.ShapeStyle where Self == SwiftUI.Color {
 
+    /// The "blueCircle" asset catalog color.
+    static var blueCircle: SwiftUI.Color { .init(.blueCircle) }
+
     /// The "darkBlueApp" asset catalog color.
     static var darkBlueApp: SwiftUI.Color { .init(.darkBlueApp) }
+
+    /// The "darkPinkCircle" asset catalog color.
+    static var darkPinkCircle: SwiftUI.Color { .init(.darkPinkCircle) }
+
+    /// The "greenCircle" asset catalog color.
+    static var greenCircle: SwiftUI.Color { .init(.greenCircle) }
 
     /// The "lightBlueApp" asset catalog color.
     static var lightBlueApp: SwiftUI.Color { .init(.lightBlueApp) }
 
+    /// The "magentaCircle" asset catalog color.
+    static var magentaCircle: SwiftUI.Color { .init(.magentaCircle) }
+
+    /// The "martimeBlue" asset catalog color.
+    static var martimeBlue: SwiftUI.Color { .init(.martimeBlue) }
+
     /// The "neonBlueApp" asset catalog color.
     static var neonBlueApp: SwiftUI.Color { .init(.neonBlueApp) }
+
+    /// The "orangeCircle" asset catalog color.
+    static var orangeCircle: SwiftUI.Color { .init(.orangeCircle) }
 
     /// The "pinkApp" asset catalog color.
     static var pinkApp: SwiftUI.Color { .init(.pinkApp) }
 
+    /// The "stormyBlue" asset catalog color.
+    static var stormyBlue: SwiftUI.Color { .init(.stormyBlue) }
+
     /// The "tealApp" asset catalog color.
     static var tealApp: SwiftUI.Color { .init(.tealApp) }
+
+    /// The "yellowCircle" asset catalog color.
+    static var yellowCircle: SwiftUI.Color { .init(.yellowCircle) }
 
 }
 #endif
@@ -772,6 +1000,15 @@ extension AppKit.NSImage {
 #endif
     }
 
+    /// The "playS" asset catalog image.
+    static var playS: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .playS)
+#else
+        .init()
+#endif
+    }
+
     /// The "playerBack" asset catalog image.
     static var playerBack: AppKit.NSImage {
 #if !targetEnvironment(macCatalyst)
@@ -925,6 +1162,15 @@ extension AppKit.NSImage {
 #endif
     }
 
+    /// The "volume" asset catalog image.
+    static var volume: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .volume)
+#else
+        .init()
+#endif
+    }
+
     /// The "voteOff" asset catalog image.
     static var voteOff: AppKit.NSImage {
 #if !targetEnvironment(macCatalyst)
@@ -938,6 +1184,24 @@ extension AppKit.NSImage {
     static var voteOn: AppKit.NSImage {
 #if !targetEnvironment(macCatalyst)
         .init(resource: .voteOn)
+#else
+        .init()
+#endif
+    }
+
+    /// The "wave" asset catalog image.
+    static var wave: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .wave)
+#else
+        .init()
+#endif
+    }
+
+    /// The "waveCircle" asset catalog image.
+    static var waveCircle: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .waveCircle)
 #else
         .init()
 #endif
@@ -1347,6 +1611,15 @@ extension UIKit.UIImage {
 #endif
     }
 
+    /// The "playS" asset catalog image.
+    static var playS: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .playS)
+#else
+        .init()
+#endif
+    }
+
     /// The "playerBack" asset catalog image.
     static var playerBack: UIKit.UIImage {
 #if !os(watchOS)
@@ -1500,6 +1773,15 @@ extension UIKit.UIImage {
 #endif
     }
 
+    /// The "volume" asset catalog image.
+    static var volume: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .volume)
+#else
+        .init()
+#endif
+    }
+
     /// The "voteOff" asset catalog image.
     static var voteOff: UIKit.UIImage {
 #if !os(watchOS)
@@ -1513,6 +1795,24 @@ extension UIKit.UIImage {
     static var voteOn: UIKit.UIImage {
 #if !os(watchOS)
         .init(resource: .voteOn)
+#else
+        .init()
+#endif
+    }
+
+    /// The "wave" asset catalog image.
+    static var wave: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .wave)
+#else
+        .init()
+#endif
+    }
+
+    /// The "waveCircle" asset catalog image.
+    static var waveCircle: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .waveCircle)
 #else
         .init()
 #endif

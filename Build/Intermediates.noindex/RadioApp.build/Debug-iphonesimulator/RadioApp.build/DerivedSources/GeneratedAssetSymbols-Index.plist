@@ -8,11 +8,41 @@
 			<key>catalogPath</key>
 			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
 			<key>objcSymbol</key>
+			<string>ACColorNameBlueCircle</string>
+			<key>relativePath</key>
+			<string>./waveCircleColors/blueCircle.colorset</string>
+			<key>swiftSymbol</key>
+			<string>blueCircle</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
 			<string>ACColorNameDarkBlueApp</string>
 			<key>relativePath</key>
 			<string>./AppColors/darkBlueApp.colorset</string>
 			<key>swiftSymbol</key>
 			<string>darkBlueApp</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACColorNameDarkPinkCircle</string>
+			<key>relativePath</key>
+			<string>./waveCircleColors/darkPinkCircle.colorset</string>
+			<key>swiftSymbol</key>
+			<string>darkPinkCircle</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACColorNameGreenCircle</string>
+			<key>relativePath</key>
+			<string>./waveCircleColors/greenCircle.colorset</string>
+			<key>swiftSymbol</key>
+			<string>greenCircle</string>
 		</dict>
 		<dict>
 			<key>catalogPath</key>
@@ -28,11 +58,41 @@
 			<key>catalogPath</key>
 			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
 			<key>objcSymbol</key>
+			<string>ACColorNameMagentaCircle</string>
+			<key>relativePath</key>
+			<string>./waveCircleColors/magentaCircle.colorset</string>
+			<key>swiftSymbol</key>
+			<string>magentaCircle</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACColorNameMartimeBlue</string>
+			<key>relativePath</key>
+			<string>./AppColors/martimeBlue.colorset</string>
+			<key>swiftSymbol</key>
+			<string>martimeBlue</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
 			<string>ACColorNameNeonBlueApp</string>
 			<key>relativePath</key>
 			<string>./AppColors/neonBlueApp.colorset</string>
 			<key>swiftSymbol</key>
 			<string>neonBlueApp</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACColorNameOrangeCircle</string>
+			<key>relativePath</key>
+			<string>./waveCircleColors/orangeCircle.colorset</string>
+			<key>swiftSymbol</key>
+			<string>orangeCircle</string>
 		</dict>
 		<dict>
 			<key>catalogPath</key>
@@ -48,11 +108,31 @@
 			<key>catalogPath</key>
 			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
 			<key>objcSymbol</key>
+			<string>ACColorNameStormyBlue</string>
+			<key>relativePath</key>
+			<string>./AppColors/stormyBlue.colorset</string>
+			<key>swiftSymbol</key>
+			<string>stormyBlue</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
 			<string>ACColorNameTealApp</string>
 			<key>relativePath</key>
 			<string>./AppColors/tealApp.colorset</string>
 			<key>swiftSymbol</key>
 			<string>tealApp</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACColorNameYellowCircle</string>
+			<key>relativePath</key>
+			<string>./waveCircleColors/yellowCircle.colorset</string>
+			<key>swiftSymbol</key>
+			<string>yellowCircle</string>
 		</dict>
 	</array>
 	<key>images</key>
@@ -481,6 +561,16 @@
 			<key>catalogPath</key>
 			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
 			<key>objcSymbol</key>
+			<string>ACImageNamePlayS</string>
+			<key>relativePath</key>
+			<string>./Common/playS.imageset</string>
+			<key>swiftSymbol</key>
+			<string>playS</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
 			<string>ACImageNamePlayerBack</string>
 			<key>relativePath</key>
 			<string>./PlayerButtons/playerBack.imageset</string>
@@ -651,6 +741,16 @@
 			<key>catalogPath</key>
 			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
 			<key>objcSymbol</key>
+			<string>ACImageNameVolume</string>
+			<key>relativePath</key>
+			<string>./Common/volume.imageset</string>
+			<key>swiftSymbol</key>
+			<string>volume</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
 			<string>ACImageNameVoteOff</string>
 			<key>relativePath</key>
 			<string>./Common/voteOff.imageset</string>
@@ -666,6 +766,26 @@
 			<string>./Common/voteOn.imageset</string>
 			<key>swiftSymbol</key>
 			<string>voteOn</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameWave</string>
+			<key>relativePath</key>
+			<string>./Common/wave.imageset</string>
+			<key>swiftSymbol</key>
+			<string>wave</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameWaveCircle</string>
+			<key>relativePath</key>
+			<string>./Common/waveCircle.imageset</string>
+			<key>swiftSymbol</key>
+			<string>waveCircle</string>
 		</dict>
 		<dict>
 			<key>catalogPath</key>

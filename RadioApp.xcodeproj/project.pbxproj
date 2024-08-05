@@ -37,6 +37,7 @@
 		BECF66582C5A36340068160D /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66572C5A36340068160D /* LanguageCell.swift */; };
 		BECF665A2C5A4F740068160D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66592C5A4F740068160D /* NotificationService.swift */; };
 		BECF66652C5D22240068160D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BECF66672C5D22240068160D /* Localizable.strings */; };
+		BECF666D2C60D1FE0068160D /* CustomSwitchSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF666C2C60D1FE0068160D /* CustomSwitchSettingsView.swift */; };
 		C62348482C5E88BD00F536E7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348472C5E88BD00F536E7 /* Constants.swift */; };
 		C623484A2C5E88D100F536E7 /* ColorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348492C5E88D100F536E7 /* ColorFactory.swift */; };
 		C623484C2C5E88E700F536E7 /* UIStackView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C623484B2C5E88E700F536E7 /* UIStackView + Extensions.swift */; };
@@ -125,6 +126,7 @@
 		BECF66662C5D22240068160D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BECF666A2C5D22DC0068160D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		BECF666B2C5D22F20068160D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BECF666C2C60D1FE0068160D /* CustomSwitchSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitchSettingsView.swift; sourceTree = "<group>"; };
 		C62348472C5E88BD00F536E7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C62348492C5E88D100F536E7 /* ColorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFactory.swift; sourceTree = "<group>"; };
 		C623484B2C5E88E700F536E7 /* UIStackView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extensions.swift"; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				BECF66182C5A05360068160D /* UserView.swift */,
 				BECF661A2C5A055C0068160D /* GeneralView.swift */,
 				BECF661C2C5A05750068160D /* CustomSettingsView.swift */,
+				BECF666C2C60D1FE0068160D /* CustomSwitchSettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 				CBF57B5D2C583B12006237E8 /* ExampleCellView.swift in Sources */,
 				CBCA8D7A2C5D38AB003B01B9 /* OnboardingController.swift in Sources */,
 				BECF66442C5A1FBF0068160D /* UILabel+.swift in Sources */,
+				BECF666D2C60D1FE0068160D /* CustomSwitchSettingsView.swift in Sources */,
 				BECF66152C58D6FA0068160D /* ProfileBuilder.swift in Sources */,
 				CBCA8D7C2C5D38AB003B01B9 /* OnboardingAssembly.swift in Sources */,
 				CBCA8D7D2C5D38AB003B01B9 /* OnboardingPresenter.swift in Sources */,

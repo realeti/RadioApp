@@ -36,16 +36,16 @@ private extension OnboardingController {
         mainLabel.font = .systemFont(ofSize: 60, weight: .bold)
         mainLabel.textColor = .white
         mainLabel.numberOfLines = 2
-        mainLabel.text = "Let's Get Started"
+        mainLabel.text = "Let's Get Started".localized
         
         let textLabel = UILabel()
         textLabel.font = .systemFont(ofSize: 16, weight: .regular)
         textLabel.textColor = .white
         textLabel.numberOfLines = 0
-        textLabel.text = "Enjoy the best radio stations \nfrom your home, don't miss \nout on anything"
+        textLabel.text = "Enjoy the best radio stations \nfrom your home, don't miss \nout on anything".localized
         
         let startButton = UIButton()
-        startButton.setTitle("Get Started", for: .normal)
+        startButton.setTitle("Get Started".localized, for: .normal)
         startButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
         startButton.backgroundColor = .pinkApp
         startButton.tintColor = .white

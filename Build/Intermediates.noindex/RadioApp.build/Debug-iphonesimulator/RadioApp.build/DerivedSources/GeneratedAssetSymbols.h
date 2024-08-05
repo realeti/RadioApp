@@ -9,20 +9,44 @@
 /// The resource bundle ID.
 static NSString * const ACBundleID AC_SWIFT_PRIVATE = @"com.MariaNesterova.RadioApp";
 
+/// The "blueCircle" asset catalog color resource.
+static NSString * const ACColorNameBlueCircle AC_SWIFT_PRIVATE = @"blueCircle";
+
 /// The "darkBlueApp" asset catalog color resource.
 static NSString * const ACColorNameDarkBlueApp AC_SWIFT_PRIVATE = @"darkBlueApp";
+
+/// The "darkPinkCircle" asset catalog color resource.
+static NSString * const ACColorNameDarkPinkCircle AC_SWIFT_PRIVATE = @"darkPinkCircle";
+
+/// The "greenCircle" asset catalog color resource.
+static NSString * const ACColorNameGreenCircle AC_SWIFT_PRIVATE = @"greenCircle";
 
 /// The "lightBlueApp" asset catalog color resource.
 static NSString * const ACColorNameLightBlueApp AC_SWIFT_PRIVATE = @"lightBlueApp";
 
+/// The "magentaCircle" asset catalog color resource.
+static NSString * const ACColorNameMagentaCircle AC_SWIFT_PRIVATE = @"magentaCircle";
+
+/// The "martimeBlue" asset catalog color resource.
+static NSString * const ACColorNameMartimeBlue AC_SWIFT_PRIVATE = @"martimeBlue";
+
 /// The "neonBlueApp" asset catalog color resource.
 static NSString * const ACColorNameNeonBlueApp AC_SWIFT_PRIVATE = @"neonBlueApp";
+
+/// The "orangeCircle" asset catalog color resource.
+static NSString * const ACColorNameOrangeCircle AC_SWIFT_PRIVATE = @"orangeCircle";
 
 /// The "pinkApp" asset catalog color resource.
 static NSString * const ACColorNamePinkApp AC_SWIFT_PRIVATE = @"pinkApp";
 
+/// The "stormyBlue" asset catalog color resource.
+static NSString * const ACColorNameStormyBlue AC_SWIFT_PRIVATE = @"stormyBlue";
+
 /// The "tealApp" asset catalog color resource.
 static NSString * const ACColorNameTealApp AC_SWIFT_PRIVATE = @"tealApp";
+
+/// The "yellowCircle" asset catalog color resource.
+static NSString * const ACColorNameYellowCircle AC_SWIFT_PRIVATE = @"yellowCircle";
 
 /// The "AML1708" asset catalog image resource.
 static NSString * const ACImageName_AML_1708 AC_SWIFT_PRIVATE = @"AML1708";
@@ -150,6 +174,9 @@ static NSString * const ACImageNamePerson AC_SWIFT_PRIVATE = @"person";
 /// The "play" asset catalog image resource.
 static NSString * const ACImageNamePlay AC_SWIFT_PRIVATE = @"play";
 
+/// The "playS" asset catalog image resource.
+static NSString * const ACImageNamePlayS AC_SWIFT_PRIVATE = @"playS";
+
 /// The "playerBack" asset catalog image resource.
 static NSString * const ACImageNamePlayerBack AC_SWIFT_PRIVATE = @"playerBack";
 
@@ -201,11 +228,20 @@ static NSString * const ACImageNameStar AC_SWIFT_PRIVATE = @"star";
 /// The "trash-bin" asset catalog image resource.
 static NSString * const ACImageNameTrashBin AC_SWIFT_PRIVATE = @"trash-bin";
 
+/// The "volume" asset catalog image resource.
+static NSString * const ACImageNameVolume AC_SWIFT_PRIVATE = @"volume";
+
 /// The "voteOff" asset catalog image resource.
 static NSString * const ACImageNameVoteOff AC_SWIFT_PRIVATE = @"voteOff";
 
 /// The "voteOn" asset catalog image resource.
 static NSString * const ACImageNameVoteOn AC_SWIFT_PRIVATE = @"voteOn";
+
+/// The "wave" asset catalog image resource.
+static NSString * const ACImageNameWave AC_SWIFT_PRIVATE = @"wave";
+
+/// The "waveCircle" asset catalog image resource.
+static NSString * const ACImageNameWaveCircle AC_SWIFT_PRIVATE = @"waveCircle";
 
 /// The "wishlist" asset catalog image resource.
 static NSString * const ACImageNameWishlist AC_SWIFT_PRIVATE = @"wishlist";
