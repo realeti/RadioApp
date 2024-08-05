@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		113FE4FA2C61370100B2AC8B /* StationDetails in Resources */ = {isa = PBXBuildFile; fileRef = 113FE4F92C61370100B2AC8B /* StationDetails */; };
 		B949AE442C5F804100E2A338 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE432C5F804100E2A338 /* StorageManager.swift */; };
 		B949AE512C5F805600E2A338 /* FavStationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE452C5F805600E2A338 /* FavStationModel.swift */; };
 		B949AE522C5F805600E2A338 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE472C5F805600E2A338 /* FavoritesPresenter.swift */; };
@@ -103,6 +104,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		113FE4F92C61370100B2AC8B /* StationDetails */ = {isa = PBXFileReference; lastKnownFileType = folder; path = StationDetails; sourceTree = "<group>"; };
 		B949AE432C5F804100E2A338 /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		B949AE452C5F805600E2A338 /* FavStationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavStationModel.swift; sourceTree = "<group>"; };
 		B949AE472C5F805600E2A338 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
@@ -483,13 +485,14 @@
 				CBF57B4C2C57FA59006237E8 /* Example */,
 				CBF57B622C584CC4006237E8 /* Presenter */,
 				CB2C8CB12C5767E500D280FE /* Base */,
+				113FE4F92C61370100B2AC8B /* StationDetails */,
 				C62348462C5E883700F536E7 /* Helpers */,
 				BECF66402C5A1E0E0068160D /* Services */,
+				CB2C8C9E2C5698E400D280FE /* RadioApp.xcdatamodeld */,
 				CB2C8CA32C5698E600D280FE /* LaunchScreen.storyboard */,
 				BECF66672C5D22240068160D /* Localizable.strings */,
 				CB2C8CC72C57C8AB00D280FE /* Assets.xcassets */,
 				CB2C8CA62C5698E600D280FE /* Info.plist */,
-				CB2C8C9E2C5698E400D280FE /* RadioApp.xcdatamodeld */,
 			);
 			path = RadioApp;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 			files = (
 				BECF66652C5D22240068160D /* Localizable.strings in Resources */,
 				CB2C8CC82C57C8AB00D280FE /* Assets.xcassets in Resources */,
+				113FE4FA2C61370100B2AC8B /* StationDetails in Resources */,
 				CB2C8CA52C5698E600D280FE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
