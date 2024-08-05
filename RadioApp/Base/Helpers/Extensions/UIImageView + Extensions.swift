@@ -16,4 +16,9 @@ extension UIImageView {
         self.isHidden = isHidden
         self.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+    convenience init(templateImage: UIImage, renderingMode: UIImage.RenderingMode = .alwaysTemplate) {
+        self.init()
+        self.image = templateImage.withRenderingMode(renderingMode)
+    }
 }

@@ -25,11 +25,10 @@ class FavoriteRadioView: UIView, CellConfigurable {
         return label
     }()
     
-    private let image: UIImageView = {
-        let image = UIImage(named: "wave")
-        let imageView = UIImageView(image: image)
-        return imageView
-    }()
+    private let waveView = WaveView(
+        waveColor: .white,
+        circlesColor: ColorFactory.getRandomCircleColor()
+    )
     
     private lazy var favButton: UIButton = {
        let button = UIButton()
@@ -65,8 +64,7 @@ class FavoriteRadioView: UIView, CellConfigurable {
         addSubview(favButton)
         stackView.addArrangedSubview(genreLabel)
         stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(image)
-        
+        stackView.addArrangedSubview(waveView)
     }
     
     private func setConstraints() {
@@ -80,11 +78,14 @@ class FavoriteRadioView: UIView, CellConfigurable {
             $0.top.equalToSuperview().inset(31)
             $0.trailing.equalToSuperview().inset(16)
         }
+        
+        waveView.snp.makeConstraints {
+            $0.height.equalTo(22)
+        }
     }
     
     @objc private func favButtonTapped() {
         favoriteHandler?()
-        print("favButtonTapped")
     }
     
     func update(with model: FavStationModel?) {
