@@ -76,6 +76,11 @@
 		CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8CB92C57AB5800D280FE /* Configurable.swift */; };
 		CB2C8CC02C57B1A000D280FE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8CBF2C57B1A000D280FE /* TabBarController.swift */; };
 		CB2C8CC82C57C8AB00D280FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB2C8CC72C57C8AB00D280FE /* Assets.xcassets */; };
+		CBB20CBA2C61501300B35416 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBB20CB92C61501300B35416 /* GoogleService-Info.plist */; };
+		CBB20CBF2C61540E00B35416 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CBE2C61540E00B35416 /* FirebaseAuth */; };
+		CBB20CC12C61540E00B35416 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CC02C61540E00B35416 /* FirebaseFirestore */; };
+		CBB20CC42C61542A00B35416 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CC32C61542A00B35416 /* SnapKit */; };
+		CBB20CC72C61566300B35416 /* RadioBrowser in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CC62C61566300B35416 /* RadioBrowser */; };
 		CBCA8D7A2C5D38AB003B01B9 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D762C5D38AB003B01B9 /* OnboardingController.swift */; };
 		CBCA8D7B2C5D38AB003B01B9 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D772C5D38AB003B01B9 /* OnboardingRouter.swift */; };
 		CBCA8D7C2C5D38AB003B01B9 /* OnboardingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D782C5D38AB003B01B9 /* OnboardingAssembly.swift */; };
@@ -92,9 +97,6 @@
 		CBCA8D9E2C5D3965003B01B9 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D932C5D3965003B01B9 /* ForgotPasswordController.swift */; };
 		CBCA8D9F2C5D3965003B01B9 /* ForgotPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D942C5D3965003B01B9 /* ForgotPasswordPresenter.swift */; };
 		CBCA8DA12C5D39AD003B01B9 /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8DA02C5D39AD003B01B9 /* UITextField+Padding.swift */; };
-		CBE2B2BF2C5D385D004BC467 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CBE2B2BE2C5D385D004BC467 /* FirebaseAuth */; };
-		CBE2B2C12C5D385D004BC467 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CBE2B2C02C5D385D004BC467 /* FirebaseFirestore */; };
-		CBF57B492C57FA34006237E8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CBF57B482C57FA34006237E8 /* SnapKit */; };
 		CBF57B4B2C57FA53006237E8 /* ExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B4A2C57FA53006237E8 /* ExampleController.swift */; };
 		CBF57B4E2C57FA83006237E8 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B4D2C57FA83006237E8 /* Example.swift */; };
 		CBF57B522C57FD2B006237E8 /* ExampleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B512C57FD2B006237E8 /* ExampleRouter.swift */; };
@@ -181,6 +183,7 @@
 		CB2C8CB92C57AB5800D280FE /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		CB2C8CBF2C57B1A000D280FE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CB2C8CC72C57C8AB00D280FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CBB20CB92C61501300B35416 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CBCA8D762C5D38AB003B01B9 /* OnboardingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		CBCA8D772C5D38AB003B01B9 /* OnboardingRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
 		CBCA8D782C5D38AB003B01B9 /* OnboardingAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingAssembly.swift; sourceTree = "<group>"; };
@@ -214,9 +217,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBF57B492C57FA34006237E8 /* SnapKit in Frameworks */,
-				CBE2B2BF2C5D385D004BC467 /* FirebaseAuth in Frameworks */,
-				CBE2B2C12C5D385D004BC467 /* FirebaseFirestore in Frameworks */,
+				CBB20CC42C61542A00B35416 /* SnapKit in Frameworks */,
+				CBB20CBF2C61540E00B35416 /* FirebaseAuth in Frameworks */,
+				CBB20CC12C61540E00B35416 /* FirebaseFirestore in Frameworks */,
+				CBB20CC72C61566300B35416 /* RadioBrowser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,6 +551,7 @@
 				BECF66672C5D22240068160D /* Localizable.strings */,
 				CB2C8CC72C57C8AB00D280FE /* Assets.xcassets */,
 				CB2C8CA62C5698E600D280FE /* Info.plist */,
+				CBB20CB92C61501300B35416 /* GoogleService-Info.plist */,
 			);
 			path = RadioApp;
 			sourceTree = "<group>";
@@ -714,9 +719,10 @@
 			);
 			name = RadioApp;
 			packageProductDependencies = (
-				CBF57B482C57FA34006237E8 /* SnapKit */,
-				CBE2B2BE2C5D385D004BC467 /* FirebaseAuth */,
-				CBE2B2C02C5D385D004BC467 /* FirebaseFirestore */,
+				CBB20CBE2C61540E00B35416 /* FirebaseAuth */,
+				CBB20CC02C61540E00B35416 /* FirebaseFirestore */,
+				CBB20CC32C61542A00B35416 /* SnapKit */,
+				CBB20CC62C61566300B35416 /* RadioBrowser */,
 			);
 			productName = RadioApp;
 			productReference = CB2C8C922C5698E400D280FE /* RadioApp.app */;
@@ -748,8 +754,9 @@
 			);
 			mainGroup = CB2C8C892C5698E400D280FE;
 			packageReferences = (
-				CBF57B472C57FA34006237E8 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				CBE2B2BD2C5D385D004BC467 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				CBB20CBD2C61540E00B35416 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				CBB20CC22C61542A00B35416 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				CBB20CC52C61566300B35416 /* XCRemoteSwiftPackageReference "RadioBrowser" */,
 			);
 			productRefGroup = CB2C8C932C5698E400D280FE /* Products */;
 			projectDirPath = "";
@@ -766,6 +773,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BECF66652C5D22240068160D /* Localizable.strings in Resources */,
+				CBB20CBA2C61501300B35416 /* GoogleService-Info.plist in Resources */,
 				CB2C8CC82C57C8AB00D280FE /* Assets.xcassets in Resources */,
 				CB2C8CA52C5698E600D280FE /* LaunchScreen.storyboard in Resources */,
 			);
@@ -1104,7 +1112,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CBE2B2BD2C5D385D004BC467 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		CBB20CBD2C61540E00B35416 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
@@ -1112,7 +1120,7 @@
 				minimumVersion = 11.0.0;
 			};
 		};
-		CBF57B472C57FA34006237E8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		CBB20CC22C61542A00B35416 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -1120,23 +1128,36 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		CBB20CC52C61566300B35416 /* XCRemoteSwiftPackageReference "RadioBrowser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ShapovalovIlya/RadioBrowser.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CBE2B2BE2C5D385D004BC467 /* FirebaseAuth */ = {
+		CBB20CBE2C61540E00B35416 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CBE2B2BD2C5D385D004BC467 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = CBB20CBD2C61540E00B35416 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		CBE2B2C02C5D385D004BC467 /* FirebaseFirestore */ = {
+		CBB20CC02C61540E00B35416 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CBE2B2BD2C5D385D004BC467 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = CBB20CBD2C61540E00B35416 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
-		CBF57B482C57FA34006237E8 /* SnapKit */ = {
+		CBB20CC32C61542A00B35416 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CBF57B472C57FA34006237E8 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = CBB20CC22C61542A00B35416 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		CBB20CC62C61566300B35416 /* RadioBrowser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CBB20CC52C61566300B35416 /* XCRemoteSwiftPackageReference "RadioBrowser" */;
+			productName = RadioBrowser;
 		};
 /* End XCSwiftPackageProductDependency section */
 
