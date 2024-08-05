@@ -26,9 +26,15 @@ final class PopularViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadStations()
         setDelegates()
+        loadStations()
         setupVolumeProgress()
+    }
+    
+    // MARK: - Set Delegates
+    private func setDelegates() {
+        popularView.radioCollection.dataSource = self
+        popularView.radioCollection.delegate = self
     }
     
     // MARK: - Load Stations
@@ -36,12 +42,6 @@ final class PopularViewController: ViewController {
         Task {
             await presenter.loadStations()
         }
-    }
-    
-    // MARK: - Set Delegates
-    private func setDelegates() {
-        popularView.radioCollection.dataSource = self
-        popularView.radioCollection.delegate = self
     }
 }
 

@@ -19,7 +19,7 @@ protocol PopularPresenterProtocol {
     var getStations: [PopularViewModel] { get }
     
     func loadStations() async
-    func loadVotedStation()
+    //func loadVotedStation()
     func changeStation(_ stationId: Int)
     func toggleVoteState(for stationId: Int, stationUniqueID: UUID)
     func isStationVoted(_ stationId: Int) -> Bool
@@ -61,7 +61,7 @@ extension PopularPresenter {
         
         switch result {
         case .success(let fetctedStations):
-            stations = fetctedStations.enumerated().map({ (index, station) in
+            stations = fetctedStations.map({ station in
                 let title: String
                 let subtitle: String
                 
@@ -73,7 +73,7 @@ extension PopularPresenter {
                     subtitle = ""
                 }
                 
-                //loadVotedStation(with: station.stationUUID)
+                loadVotedStation(with: station.stationUUID)
                 
                 return PopularViewModel(
                     id: station.stationUUID,
@@ -86,22 +86,18 @@ extension PopularPresenter {
             print(error)
         }
         
-        loadVotedStation()
+        //loadVotedStation()
         view?.didUpdateStations()
     }
 }
 
 // MARK: - Load Voted Stations
-extension PopularPresenter {
-    func loadVotedStation() {
-        votedStations = []
-        
-        stations.forEach { station in
-            if let _ = storage.fetchStation(with: station.id) {
-                votedStations.append(true)
-            } else {
-                votedStations.append(false)
-            }
+private extension PopularPresenter {
+    func loadVotedStation(with stationUniqueID: UUID) {
+        if let _ = storage.fetchStation(with: stationUniqueID) {
+            votedStations.append(true)
+        } else {
+            votedStations.append(false)
         }
         
         //view?.didUpdateVotedStation()
