@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		113FE4FA2C61370100B2AC8B /* StationDetails in Resources */ = {isa = PBXBuildFile; fileRef = 113FE4F92C61370100B2AC8B /* StationDetails */; };
+		113FE5012C61395C00B2AC8B /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FE4FF2C61395C00B2AC8B /* WaveView.swift */; };
+		113FE50B2C61396B00B2AC8B /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FE5022C61396A00B2AC8B /* RadioStation.swift */; };
+		113FE50C2C61396B00B2AC8B /* StationDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FE5042C61396A00B2AC8B /* StationDetailsPresenter.swift */; };
+		113FE50D2C61396B00B2AC8B /* EqualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FE5062C61396A00B2AC8B /* EqualizerView.swift */; };
+		113FE50E2C61396B00B2AC8B /* StationDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FE5072C61396A00B2AC8B /* StationDetailsController.swift */; };
+		113FE50F2C61396B00B2AC8B /* StationDetailsAssembly .swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FE5092C61396A00B2AC8B /* StationDetailsAssembly .swift */; };
 		B949AE442C5F804100E2A338 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE432C5F804100E2A338 /* StorageManager.swift */; };
 		B949AE512C5F805600E2A338 /* FavStationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE452C5F805600E2A338 /* FavStationModel.swift */; };
 		B949AE522C5F805600E2A338 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE472C5F805600E2A338 /* FavoritesPresenter.swift */; };
@@ -52,7 +57,6 @@
 		C623484A2C5E88D100F536E7 /* ColorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348492C5E88D100F536E7 /* ColorFactory.swift */; };
 		C623484C2C5E88E700F536E7 /* UIStackView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C623484B2C5E88E700F536E7 /* UIStackView + Extensions.swift */; };
 		C623484E2C5E899800F536E7 /* UIImageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C623484D2C5E899800F536E7 /* UIImageView + Extensions.swift */; };
-		C62348502C5E89BA00F536E7 /* UIImage + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C623484F2C5E89BA00F536E7 /* UIImage + Extensions.swift */; };
 		C62348562C5E8AA900F536E7 /* PopularAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348552C5E8AA900F536E7 /* PopularAssembly.swift */; };
 		C62348582C5E8ABB00F536E7 /* PopularRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348572C5E8ABB00F536E7 /* PopularRouter.swift */; };
 		C623485A2C5E8AD300F536E7 /* PopularViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348592C5E8AD300F536E7 /* PopularViewModel.swift */; };
@@ -104,7 +108,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		113FE4F92C61370100B2AC8B /* StationDetails */ = {isa = PBXFileReference; lastKnownFileType = folder; path = StationDetails; sourceTree = "<group>"; };
+		113FE4FF2C61395C00B2AC8B /* WaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
+		113FE5022C61396A00B2AC8B /* RadioStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioStation.swift; sourceTree = "<group>"; };
+		113FE5042C61396A00B2AC8B /* StationDetailsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationDetailsPresenter.swift; sourceTree = "<group>"; };
+		113FE5062C61396A00B2AC8B /* EqualizerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualizerView.swift; sourceTree = "<group>"; };
+		113FE5072C61396A00B2AC8B /* StationDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationDetailsController.swift; sourceTree = "<group>"; };
+		113FE5092C61396A00B2AC8B /* StationDetailsAssembly .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StationDetailsAssembly .swift"; sourceTree = "<group>"; };
 		B949AE432C5F804100E2A338 /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		B949AE452C5F805600E2A338 /* FavStationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavStationModel.swift; sourceTree = "<group>"; };
 		B949AE472C5F805600E2A338 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
@@ -151,7 +160,6 @@
 		C62348492C5E88D100F536E7 /* ColorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFactory.swift; sourceTree = "<group>"; };
 		C623484B2C5E88E700F536E7 /* UIStackView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extensions.swift"; sourceTree = "<group>"; };
 		C623484D2C5E899800F536E7 /* UIImageView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extensions.swift"; sourceTree = "<group>"; };
-		C623484F2C5E89BA00F536E7 /* UIImage + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extensions.swift"; sourceTree = "<group>"; };
 		C62348552C5E8AA900F536E7 /* PopularAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularAssembly.swift; sourceTree = "<group>"; };
 		C62348572C5E8ABB00F536E7 /* PopularRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularRouter.swift; sourceTree = "<group>"; };
 		C62348592C5E8AD300F536E7 /* PopularViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewModel.swift; sourceTree = "<group>"; };
@@ -215,6 +223,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		113FE5002C61395C00B2AC8B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				113FE4FF2C61395C00B2AC8B /* WaveView.swift */,
+			);
+			name = Common;
+			path = RadioApp/Common;
+			sourceTree = SOURCE_ROOT;
+		};
+		113FE5032C61396A00B2AC8B /* Model  */ = {
+			isa = PBXGroup;
+			children = (
+				113FE5022C61396A00B2AC8B /* RadioStation.swift */,
+			);
+			path = "Model ";
+			sourceTree = "<group>";
+		};
+		113FE5052C61396A00B2AC8B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				113FE5042C61396A00B2AC8B /* StationDetailsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		113FE5082C61396A00B2AC8B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				113FE5062C61396A00B2AC8B /* EqualizerView.swift */,
+				113FE5072C61396A00B2AC8B /* StationDetailsController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		113FE50A2C61396A00B2AC8B /* StationDetails */ = {
+			isa = PBXGroup;
+			children = (
+				113FE5032C61396A00B2AC8B /* Model  */,
+				113FE5052C61396A00B2AC8B /* Presenter */,
+				113FE5082C61396A00B2AC8B /* View */,
+				113FE5092C61396A00B2AC8B /* StationDetailsAssembly .swift */,
+			);
+			name = StationDetails;
+			path = RadioApp/StationDetails;
+			sourceTree = SOURCE_ROOT;
+		};
 		B949AE462C5F805600E2A338 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,7 +391,6 @@
 				CBCA8DA02C5D39AD003B01B9 /* UITextField+Padding.swift */,
 				C623484B2C5E88E700F536E7 /* UIStackView + Extensions.swift */,
 				C623484D2C5E899800F536E7 /* UIImageView + Extensions.swift */,
-				C623484F2C5E89BA00F536E7 /* UIImage + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -484,8 +537,9 @@
 				BECF660C2C58D3930068160D /* Profile */,
 				CBF57B4C2C57FA59006237E8 /* Example */,
 				CBF57B622C584CC4006237E8 /* Presenter */,
+				113FE50A2C61396A00B2AC8B /* StationDetails */,
+				113FE5002C61395C00B2AC8B /* Common */,
 				CB2C8CB12C5767E500D280FE /* Base */,
-				113FE4F92C61370100B2AC8B /* StationDetails */,
 				C62348462C5E883700F536E7 /* Helpers */,
 				BECF66402C5A1E0E0068160D /* Services */,
 				CB2C8C9E2C5698E400D280FE /* RadioApp.xcdatamodeld */,
@@ -713,7 +767,6 @@
 			files = (
 				BECF66652C5D22240068160D /* Localizable.strings in Resources */,
 				CB2C8CC82C57C8AB00D280FE /* Assets.xcassets in Resources */,
-				113FE4FA2C61370100B2AC8B /* StationDetails in Resources */,
 				CB2C8CA52C5698E600D280FE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -748,6 +801,7 @@
 				BECF66252C5A06470068160D /* PrivacyViewController.swift in Sources */,
 				BECF661D2C5A05750068160D /* CustomSettingsView.swift in Sources */,
 				CB2C8CB02C5767DF00D280FE /* Router.swift in Sources */,
+				113FE50C2C61396B00B2AC8B /* StationDetailsPresenter.swift in Sources */,
 				BECF66132C58D6C30068160D /* ProfileRouter.swift in Sources */,
 				CBCA8D7B2C5D38AB003B01B9 /* OnboardingRouter.swift in Sources */,
 				C62348482C5E88BD00F536E7 /* Constants.swift in Sources */,
@@ -771,16 +825,18 @@
 				BECF66512C5A35C50068160D /* NotificationsPresenter.swift in Sources */,
 				C62348632C5E8B2100F536E7 /* PopularViewController.swift in Sources */,
 				CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */,
+				113FE50B2C61396B00B2AC8B /* RadioStation.swift in Sources */,
 				CB2C8CC02C57B1A000D280FE /* TabBarController.swift in Sources */,
 				BECF66172C58D7410068160D /* ProfileViewController.swift in Sources */,
 				CBF57B612C583F67006237E8 /* ExamplePresenter.swift in Sources */,
 				CBF57B562C58319D006237E8 /* Builder.swift in Sources */,
-				C62348502C5E89BA00F536E7 /* UIImage + Extensions.swift in Sources */,
+				113FE50F2C61396B00B2AC8B /* StationDetailsAssembly .swift in Sources */,
 				BECF665A2C5A4F740068160D /* NotificationService.swift in Sources */,
 				BECF661B2C5A055C0068160D /* GeneralView.swift in Sources */,
 				BECF662E2C5A0D7E0068160D /* AboutUsPresenter.swift in Sources */,
 				CBCA8D972C5D3965003B01B9 /* AuthorizationPresenter.swift in Sources */,
 				C62348672C5E8B3900F536E7 /* VolumeProgressView.swift in Sources */,
+				113FE50D2C61396B00B2AC8B /* EqualizerView.swift in Sources */,
 				BECF66322C5A0DB70068160D /* Team.swift in Sources */,
 				BECF66352C5A10AA0068160D /* UIView+.swift in Sources */,
 				BECF66582C5A36340068160D /* LanguageCell.swift in Sources */,
@@ -799,10 +855,12 @@
 				BECF66232C5A06240068160D /* PrivacyPresenter.swift in Sources */,
 				BECF661F2C5A059A0068160D /* ProfilePresenter.swift in Sources */,
 				CBF57B4E2C57FA83006237E8 /* Example.swift in Sources */,
+				113FE5012C61395C00B2AC8B /* WaveView.swift in Sources */,
 				BECF66302C5A0D9A0068160D /* TeamViewCell.swift in Sources */,
 				CBCA8D9D2C5D3965003B01B9 /* UpdatePasswordPresenter.swift in Sources */,
 				CBCA8D9A2C5D3965003B01B9 /* AuthorizationController.swift in Sources */,
 				B949AE512C5F805600E2A338 /* FavStationModel.swift in Sources */,
+				113FE50E2C61396B00B2AC8B /* StationDetailsController.swift in Sources */,
 				CBCA8D9E2C5D3965003B01B9 /* ForgotPasswordController.swift in Sources */,
 				C62348652C5E8B2D00F536E7 /* PopularCollectionViewCell.swift in Sources */,
 				BECF66562C5A361B0068160D /* LanguagePresenter.swift in Sources */,
