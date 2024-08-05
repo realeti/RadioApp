@@ -8,6 +8,7 @@
 import Foundation
 
 struct PopularViewModel {
+    let id: UUID
     let title: String
     let subtitle: String
     let voteCount: Int

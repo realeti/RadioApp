@@ -8,10 +8,15 @@
 import UIKit
 
 extension UIImageView {
-    convenience init(image: UIImage? = nil, contentMode: UIView.ContentMode, isHidden: Bool = false) {
+    convenience init(
+        image: UIImage? = nil,
+        contentMode: UIView.ContentMode,
+        renderingMode: UIImage.RenderingMode = .alwaysOriginal,
+        isHidden: Bool = false
+    ) {
         self.init()
         
-        self.image = image
+        self.image = image?.withRenderingMode(renderingMode)
         self.contentMode = contentMode
         self.isHidden = isHidden
         self.translatesAutoresizingMaskIntoConstraints = false

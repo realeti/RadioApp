@@ -45,10 +45,12 @@ class FavoritesController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         presenter.activate()
-        
     }
     
     private func setupView() {

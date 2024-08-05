@@ -33,7 +33,9 @@ final class PopularViewController: ViewController {
     
     // MARK: - Load Stations
     private func loadStations() {
-        presenter.loadStations()
+        Task {
+            await presenter.loadStations()
+        }
     }
     
     // MARK: - Set Delegates
@@ -70,11 +72,17 @@ extension PopularViewController: PopularViewProtocol {
         }
     }
     
-    func voteForStation(at indexPath: IndexPath?) {
-        guard let indexPath else { return }
+    /*func didUpdateVotedStation() {
+        DispatchQueue.main.async {
+            self.popularView.radioCollection.reloadData()
+        }
+    }*/
+    
+    func voteForStation(at indexPath: IndexPath?, stationUniqueID: UUID?) {
+        guard let indexPath, let stationUniqueID else { return }
         
         let stationId = indexPath.row
-        presenter.toggleVoteState(for: stationId)
+        presenter.toggleVoteState(for: stationId, stationUniqueID: stationUniqueID)
         
         let isStationVoted = presenter.isStationVoted(stationId)
         updateStationVotes(at: indexPath, isStationVoted)
