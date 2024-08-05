@@ -30,6 +30,7 @@ final class AllStationsController: ViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupUI()
+		presenter.activate()
 	}
 	
 	// MARK: - Public methods
@@ -82,7 +83,7 @@ extension AllStationsController: UICollectionViewDataSource {
 extension AllStationsController: UICollectionViewDelegate {
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		
+		// TODO: - реализовать событие перехода на другой экран
 	}
 }
 
@@ -149,5 +150,9 @@ private extension AllStationsController {
 
 @available(iOS 17.0, *)
 #Preview {
-	NavigationController(rootViewController: AllStationsController())
+	let navigation = UINavigationController()
+	let builder = AllStationsAssembly()
+	let router = AllStationsRouter(builder: builder, navigation: navigation)
+	router.showAllStations()
+	return navigation
 }
