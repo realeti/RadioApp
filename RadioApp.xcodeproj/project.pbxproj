@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B9326A9A2C60F1B900DE9478 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9326A992C60F1B900DE9478 /* WaveView.swift */; };
-		1106F81B2C610FE900ED7CE6 /* StationDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1106F81A2C610FE900ED7CE6 /* StationDetailsPresenter.swift */; };
-		1106F81D2C6115C900ED7CE6 /* StationDetailsAssembly .swift in Sources */ = {isa = PBXBuildFile; fileRef = 1106F81C2C6115C900ED7CE6 /* StationDetailsAssembly .swift */; };
-		1106F81F2C611E9000ED7CE6 /* EqualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1106F81E2C611E9000ED7CE6 /* EqualizerView.swift */; };
-		1127F4C02C6102B4008B5AB5 /* StationDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127F4BF2C6102B4008B5AB5 /* StationDetailsController.swift */; };
-		1127F4C32C610521008B5AB5 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127F4C22C610521008B5AB5 /* RadioStation.swift */; };
 		B949AE442C5F804100E2A338 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE432C5F804100E2A338 /* StorageManager.swift */; };
 		B949AE512C5F805600E2A338 /* FavStationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE452C5F805600E2A338 /* FavStationModel.swift */; };
 		B949AE522C5F805600E2A338 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE472C5F805600E2A338 /* FavoritesPresenter.swift */; };
@@ -57,6 +51,7 @@
 		C623484A2C5E88D100F536E7 /* ColorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348492C5E88D100F536E7 /* ColorFactory.swift */; };
 		C623484C2C5E88E700F536E7 /* UIStackView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C623484B2C5E88E700F536E7 /* UIStackView + Extensions.swift */; };
 		C623484E2C5E899800F536E7 /* UIImageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C623484D2C5E899800F536E7 /* UIImageView + Extensions.swift */; };
+		C62348502C5E89BA00F536E7 /* UIImage + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C623484F2C5E89BA00F536E7 /* UIImage + Extensions.swift */; };
 		C62348562C5E8AA900F536E7 /* PopularAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348552C5E8AA900F536E7 /* PopularAssembly.swift */; };
 		C62348582C5E8ABB00F536E7 /* PopularRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348572C5E8ABB00F536E7 /* PopularRouter.swift */; };
 		C623485A2C5E8AD300F536E7 /* PopularViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348592C5E8AD300F536E7 /* PopularViewModel.swift */; };
@@ -108,12 +103,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B9326A992C60F1B900DE9478 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
-		1106F81A2C610FE900ED7CE6 /* StationDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailsPresenter.swift; sourceTree = "<group>"; };
-		1106F81C2C6115C900ED7CE6 /* StationDetailsAssembly .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StationDetailsAssembly .swift"; sourceTree = "<group>"; };
-		1106F81E2C611E9000ED7CE6 /* EqualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualizerView.swift; sourceTree = "<group>"; };
-		1127F4BF2C6102B4008B5AB5 /* StationDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailsController.swift; sourceTree = "<group>"; };
-		1127F4C22C610521008B5AB5 /* RadioStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStation.swift; sourceTree = "<group>"; };
 		B949AE432C5F804100E2A338 /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		B949AE452C5F805600E2A338 /* FavStationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavStationModel.swift; sourceTree = "<group>"; };
 		B949AE472C5F805600E2A338 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
@@ -160,6 +149,7 @@
 		C62348492C5E88D100F536E7 /* ColorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFactory.swift; sourceTree = "<group>"; };
 		C623484B2C5E88E700F536E7 /* UIStackView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extensions.swift"; sourceTree = "<group>"; };
 		C623484D2C5E899800F536E7 /* UIImageView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extensions.swift"; sourceTree = "<group>"; };
+		C623484F2C5E89BA00F536E7 /* UIImage + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extensions.swift"; sourceTree = "<group>"; };
 		C62348552C5E8AA900F536E7 /* PopularAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularAssembly.swift; sourceTree = "<group>"; };
 		C62348572C5E8ABB00F536E7 /* PopularRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularRouter.swift; sourceTree = "<group>"; };
 		C62348592C5E8AD300F536E7 /* PopularViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewModel.swift; sourceTree = "<group>"; };
@@ -223,48 +213,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B9326A9B2C61134E00DE9478 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				B9326A992C60F1B900DE9478 /* WaveView.swift */,
-			);
-			path = Common;
-		1106F8182C610FA400ED7CE6 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				1106F81A2C610FE900ED7CE6 /* StationDetailsPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		1106F8192C610FB500ED7CE6 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				1127F4BF2C6102B4008B5AB5 /* StationDetailsController.swift */,
-				1106F81E2C611E9000ED7CE6 /* EqualizerView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		1127F4BE2C610289008B5AB5 /* StationDetails */ = {
-			isa = PBXGroup;
-			children = (
-				1127F4C12C61050F008B5AB5 /* Model  */,
-				1106F8192C610FB500ED7CE6 /* View */,
-				1106F8182C610FA400ED7CE6 /* Presenter */,
-				1106F81C2C6115C900ED7CE6 /* StationDetailsAssembly .swift */,
-			);
-			path = StationDetails;
-			sourceTree = "<group>";
-		};
-		1127F4C12C61050F008B5AB5 /* Model  */ = {
-			isa = PBXGroup;
-			children = (
-				1127F4C22C610521008B5AB5 /* RadioStation.swift */,
-			);
-			path = "Model ";
-			sourceTree = "<group>";
-		};
 		B949AE462C5F805600E2A338 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,6 +335,7 @@
 				CBCA8DA02C5D39AD003B01B9 /* UITextField+Padding.swift */,
 				C623484B2C5E88E700F536E7 /* UIStackView + Extensions.swift */,
 				C623484D2C5E899800F536E7 /* UIImageView + Extensions.swift */,
+				C623484F2C5E89BA00F536E7 /* UIImage + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -525,12 +474,10 @@
 			children = (
 				CB2C8C952C5698E400D280FE /* AppDelegate.swift */,
 				CB2C8C972C5698E400D280FE /* SceneDelegate.swift */,
-				B9326A9B2C61134E00DE9478 /* Common */,
 				B949AE502C5F805600E2A338 /* Favorites */,
 				CB2C8CC12C57BC4200D280FE /* TabBar */,
 				CBCA8DA22C5D3A36003B01B9 /* Onboarding */,
 				CBCA8D842C5D3965003B01B9 /* Authorization */,
-				1127F4BE2C610289008B5AB5 /* StationDetails */,
 				C62348512C5E8A4900F536E7 /* Popular */,
 				BECF660C2C58D3930068160D /* Profile */,
 				CBF57B4C2C57FA59006237E8 /* Example */,
@@ -792,7 +739,6 @@
 				B949AE562C5F805600E2A338 /* FavoritesBuilder.swift in Sources */,
 				BECF66422C5A1E300068160D /* UDService.swift in Sources */,
 				BECF66482C5A22A70068160D /* EditProfileViewController.swift in Sources */,
-				1106F81B2C610FE900ED7CE6 /* StationDetailsPresenter.swift in Sources */,
 				B949AE582C5F805600E2A338 /* FavoritesRouter.swift in Sources */,
 				CBF57B5B2C5839EA006237E8 /* ExampleProtocols.swift in Sources */,
 				BECF66252C5A06470068160D /* PrivacyViewController.swift in Sources */,
@@ -804,7 +750,6 @@
 				CB2C8CB52C576A5C00D280FE /* ViewController.swift in Sources */,
 				B949AE532C5F805600E2A338 /* FavoriteRadioView.swift in Sources */,
 				BECF66292C5A06810068160D /* PrivacyInfoModel.swift in Sources */,
-				1106F81D2C6115C900ED7CE6 /* StationDetailsAssembly .swift in Sources */,
 				CBF57B542C582540006237E8 /* ExampleBuilder.swift in Sources */,
 				B949AE572C5F805600E2A338 /* FavoritesProtocol.swift in Sources */,
 				C623485C2C5E8AE000F536E7 /* PopularPresenter.swift in Sources */,
@@ -817,7 +762,6 @@
 				CBCA8D9B2C5D3965003B01B9 /* AuthorizationField.swift in Sources */,
 				BECF664C2C5A22EA0068160D /* ImageSelectionViewController.swift in Sources */,
 				B949AE542C5F805600E2A338 /* FavoritesController.swift in Sources */,
-				1127F4C02C6102B4008B5AB5 /* StationDetailsController.swift in Sources */,
 				BECF66542C5A36030068160D /* LanguageViewController.swift in Sources */,
 				CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */,
 				BECF66512C5A35C50068160D /* NotificationsPresenter.swift in Sources */,
@@ -825,15 +769,13 @@
 				CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */,
 				CB2C8CC02C57B1A000D280FE /* TabBarController.swift in Sources */,
 				BECF66172C58D7410068160D /* ProfileViewController.swift in Sources */,
-				1106F81F2C611E9000ED7CE6 /* EqualizerView.swift in Sources */,
 				CBF57B612C583F67006237E8 /* ExamplePresenter.swift in Sources */,
 				CBF57B562C58319D006237E8 /* Builder.swift in Sources */,
+				C62348502C5E89BA00F536E7 /* UIImage + Extensions.swift in Sources */,
 				BECF665A2C5A4F740068160D /* NotificationService.swift in Sources */,
 				BECF661B2C5A055C0068160D /* GeneralView.swift in Sources */,
 				BECF662E2C5A0D7E0068160D /* AboutUsPresenter.swift in Sources */,
 				CBCA8D972C5D3965003B01B9 /* AuthorizationPresenter.swift in Sources */,
-				B9326A9A2C60F1B900DE9478 /* WaveView.swift in Sources */,
-				1127F4C32C610521008B5AB5 /* RadioStation.swift in Sources */,
 				C62348672C5E8B3900F536E7 /* VolumeProgressView.swift in Sources */,
 				BECF66322C5A0DB70068160D /* Team.swift in Sources */,
 				BECF66352C5A10AA0068160D /* UIView+.swift in Sources */,
