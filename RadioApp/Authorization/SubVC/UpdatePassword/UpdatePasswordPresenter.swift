@@ -22,6 +22,7 @@ final class UpdatePasswordPresenter: UpdatePasswordPresenterProtocol {
     }
     
     func updatePassword(password: String?) {
+        
         router?.proceedToSignIn()
     }
     

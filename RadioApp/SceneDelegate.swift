@@ -6,18 +6,39 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Lottie
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    
-    
+    private var isShowingHomeVC: Bool = false
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
+
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = Builder.createOnboarding()
+        
+        let navViewController = UINavigationController()
+        navViewController.navigationBar.isHidden = true
+        let loading = LoadingView()
+        navViewController.viewControllers = [loading]
+        Auth.auth().addStateDidChangeListener { auth, user in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                if let user {
+                    let home = Builder.createTabBar()
+                    navViewController.viewControllers = [home]
+                } else {
+                    let onboarding = Builder.createOnboarding()
+                    navViewController.viewControllers = [onboarding]
+                }
+            }
+            
+        }
+            
+        window?.rootViewController = navViewController
         window?.makeKeyAndVisible()
+        
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

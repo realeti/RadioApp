@@ -8,9 +8,12 @@
 import UIKit
 import SnapKit
 
-class AuthorizationController: UIViewController {
+final class AuthorizationController: UIViewController {
     var presenter: (any AuthorizationPresenterProtocol)?
     private var mode: AuthorizationMode?
+    private var nameField: AuthorizationField?
+    private var emailField: AuthorizationField?
+    private var passwordField: AuthorizationField?
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -125,7 +128,12 @@ private extension AuthorizationController {
     
     @objc func doneTapped() {
         print("done tapped")
-        presenter?.finishAuthorization()
+        switch mode {
+        case .signIn:
+            presenter?.signIn(email: emailField?.textField.text, password: passwordField?.textField.text)
+        default:
+            presenter?.signUp(name: nameField?.textField.text, email: emailField?.textField.text, password: passwordField?.textField.text)
+        }
     }
     
     @objc func switchModeTapped() {
@@ -139,8 +147,8 @@ private extension AuthorizationController {
     func configureSignInUI() -> UIView {
         let container = UIView()
         let stack = UIStackView()
-        let emailField = AuthorizationField(delegate: self, title: "Email", placeholder: "Your email", isSecure: false)
-        let passwordField = AuthorizationField(delegate: self, title: "Password", placeholder: "Your password", isSecure: true)
+        emailField = AuthorizationField(delegate: self, title: "Email", placeholder: "Your email", isSecure: false)
+        passwordField = AuthorizationField(delegate: self, title: "Password", placeholder: "Your password", isSecure: true)
         
         let forgotPasswordButton = UIButton()
         forgotPasswordButton.setTitle("Forgot Password ?", for: .normal)
@@ -161,6 +169,8 @@ private extension AuthorizationController {
         let googleButton = UIButton()
         googleButton.setImage(.googlePlus, for: .normal)
         googleButton.addTarget(self, action: #selector(googleTapped), for: .touchUpInside)
+        
+        guard let emailField, let passwordField else { return UIView() }
         
         stack.addArrangedSubview(emailField)
         stack.addArrangedSubview(passwordField)
@@ -228,9 +238,11 @@ private extension AuthorizationController {
     func configureSignUpUI() -> UIView {
         let container = UIView()
         let stack = UIStackView()
-        let nameField = AuthorizationField(delegate: self, title: "Name", placeholder: "Your name", isSecure: false)
-        let emailField = AuthorizationField(delegate: self, title: "Email", placeholder: "Your email", isSecure: false)
-        let passwordField = AuthorizationField(delegate: self, title: "Password", placeholder: "Your password", isSecure: true)
+        nameField = AuthorizationField(delegate: self, title: "Name", placeholder: "Your name", isSecure: false)
+        emailField = AuthorizationField(delegate: self, title: "Email", placeholder: "Your email", isSecure: false)
+        passwordField = AuthorizationField(delegate: self, title: "Password", placeholder: "Your password", isSecure: true)
+        
+        guard let nameField, let emailField, let passwordField else { return UIView() }
         
         stack.addArrangedSubview(nameField)
         stack.addArrangedSubview(emailField)
@@ -249,7 +261,10 @@ private extension AuthorizationController {
 }
 
 extension AuthorizationController: UITextFieldDelegate {
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
 }
 
 @available(iOS 17.0, *)

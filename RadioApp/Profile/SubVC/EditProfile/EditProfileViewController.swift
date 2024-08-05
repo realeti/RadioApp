@@ -197,7 +197,7 @@ final class EditProfileViewController: ViewController, EditProfileViewController
         if let login = nameTextField.text,
            let email = emailTextField.text,
            let imageData = profileImage.image?.pngData() {
-            var user = User()
+            var user = UserApp()
             user.image = imageData
             user.email = email
             user.login = login

@@ -20,7 +20,8 @@ protocol AuthorizationPresenterProtocol: AnyObject {
     var mode: AuthorizationMode { get set }
     func activate()
     func switchMode()
-    func finishAuthorization()
+    func signIn(email: String?, password: String?)
+    func signUp(name: String?, email: String?, password: String?)
     func didTapGoogleButton()
     func didTapForgotPasswordButton()
 }

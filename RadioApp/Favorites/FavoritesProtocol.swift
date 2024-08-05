@@ -11,7 +11,6 @@ protocol FavoritesControllerProtocol: AnyObject {
     func update(with model: FavoritesController.Model)
 }
 
-
 protocol FavoritesPresenterProtocol {
     func activate()
 }

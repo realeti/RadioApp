@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FavoritesPresenter: FavoritesPresenterProtocol {
+final class FavoritesPresenter: FavoritesPresenterProtocol {
     
     weak var view: FavoritesControllerProtocol?
     private let router: FavoritesRouterProtocol
@@ -28,16 +28,18 @@ class FavoritesPresenter: FavoritesPresenterProtocol {
     }
     
     private func updateUI(with stations: [StationEntity]) {
-        let items = stations.map { stationEntity in
-            FavStationModel(
-                radioTitle: stationEntity.title ?? "",
-                genre: stationEntity.genre ?? "",
-                favoriteHandler: { [weak self] in
-                    self?.removeFromFavorites(stationEntity)
-                },
-                didSelectHandler: {}
-            )
-        }
+//        let items = stations.map { stationEntity in
+//            FavStationModel(
+//                radioTitle: stationEntity.title ?? "",
+//                genre: stationEntity.genre ?? "",
+//                favoriteHandler: { [weak self] in
+//                    self?.removeFromFavorites(stationEntity)
+//                },
+//                didSelectHandler: {}
+//            )
+//        }
+        let items: [FavStationModel] = [FavStationModel(radioTitle: "Title", genre: "Genre", favoriteHandler: {print("fav tap")}, didSelectHandler: {print("fav tap")}), FavStationModel(radioTitle: "Title", genre: "Genre", favoriteHandler: {print("fav tap")}, didSelectHandler: {print("fav tap")}), FavStationModel(radioTitle: "Title", genre: "Genre", favoriteHandler: {print("fav tap")}, didSelectHandler: {print("fav tap")})]
+                                              
         view?.update(with: .init(items: items))
     }
     

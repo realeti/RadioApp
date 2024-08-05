@@ -12,7 +12,7 @@ protocol UpdatePasswordControllerProtocol: AnyObject {
     func update(with model: UpdatePasswordController.Model)
 }
 
-class UpdatePasswordController: UIViewController {
+final class UpdatePasswordController: UIViewController {
     var presenter: (any UpdatePasswordPresenterProtocol)?
     private var password: String?
 

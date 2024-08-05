@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class OnboardingController: UIViewController {
+final class OnboardingController: UIViewController {
     var presenter: (any OnboardingPresenterProtocol)?
     
     override func viewDidLoad() {

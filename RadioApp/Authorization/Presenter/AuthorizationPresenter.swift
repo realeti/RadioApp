@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     
@@ -30,44 +31,76 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
         }
         view?.update(with: .init(mode: mode))
     }
-    
-    func finishAuthorization() {
-        switch mode {
-        case .signIn:
-            switch signIn() {
-            case .success(true):
-                print("successfully signeded in")
-                router?.goHome()
-            case .success(false):
-                print("can't sign in")
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-            
-        case .signUp:
-            switch signUp() {
-            case .success(true):
-                print("successfully signed up")
-                router?.goHome()
-            case .success(false):
-                print("can't sign up")
-            case .failure(let error):
-                print(error.localizedDescription)
+        
+    func signIn(email: String?, password: String?) {
+        
+        guard let email, let password else {
+            print("No email or password found!")
+            return
+        }
+        
+        guard !email.isEmpty, !password.isEmpty else {
+            print("No email or password found!")
+            return
+        }
+        
+        Task {
+            do {
+                let data = try await AuthenticationManager.shared.signInUser(email: email, password: password)
+                guard let userEmail = data.email else { return }
+                print("successfuly signed in")
+                DispatchQueue.main.async { [weak self] in
+                    self?.router?.goHome()
+                }
+            } catch {
+                print("Error: \(error)")
             }
         }
     }
     
-    
-    private func signIn() -> Result<Bool, Error> {
-        return .success(true)
-    }
-    
-    private func signUp() -> Result<Bool, Error> {
-        return .success(true)
+    func signUp(name: String?, email: String?, password: String?) {
+        guard let name, let email, let password else {
+            print("No name, email or password found!")
+            return
+        }
+        
+        guard !name.isEmpty, !email.isEmpty, !password.isEmpty else {
+            print("No name, email or password found!")
+            return
+        }
+        
+        Task {
+            do {
+                let data = try await AuthenticationManager.shared.createUser(name: name, email: email, password: password)
+                guard let userEmail = data.email else { return }
+                print("successfuly signed up")
+                DispatchQueue.main.async { [weak self] in
+                    self?.router?.goHome()
+                }
+            } catch {
+                print("Error: \(error)")
+            }
+        }
     }
     
     func didTapGoogleButton() {
-        
+        Task {
+            let result = await AuthenticationManager.shared.signInWithGoogleAccount()
+            switch result {
+            case true:
+                DispatchQueue.main.sync { [weak self] in
+                    self?.router?.goHome()
+                }
+                
+            case false:
+                let ac = await UIAlertController(title: "Something went wrong", message: nil, preferredStyle: .alert)
+                let submitAction = await UIAlertAction(title: "OK", style: .default)
+                await ac.addAction(submitAction)
+
+                let viewa = self.view as? UIViewController
+                await viewa?.present(ac, animated: true)
+            }
+        }
     }
     
     func didTapForgotPasswordButton() {

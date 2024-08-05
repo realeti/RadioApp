@@ -37,8 +37,29 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
 
         
         let action = UIAction() {_ in
-//            self.saveButtonAction()
-            print("LogOut")
+            //self.saveButtonAction()
+            let alertController = UIAlertController(title: "Do you want to Sign Out?", message: nil, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            alertController.addAction(UIAlertAction(title: "Sign Out", style: .destructive
+                                                    , handler: { _ in
+                do {
+                    try AuthenticationManager.shared.signOut()
+                    //go to ondoarding + login flow
+                    let onboarding = OnboardingAssembly().build()
+                    let navVC = UINavigationController()
+                    navVC.navigationBar.isHidden = true
+                    DispatchQueue.main.async { [weak self] in
+                        let scenes = UIApplication.shared.connectedScenes
+                        let windowScene = scenes.first as? UIWindowScene
+                        windowScene?.keyWindow?.rootViewController = navVC
+                        navVC.viewControllers = [onboarding]
+                        print("Logged Out")
+                    }
+                } catch {
+                    print("Can't sign out")
+                }
+            }))
+            self.present(alertController, animated: true, completion: nil)
         }
         button.addAction(action, for: .primaryActionTriggered)
         return button

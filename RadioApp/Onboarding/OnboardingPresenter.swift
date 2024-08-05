@@ -17,5 +17,6 @@ final class OnboardingPresenter: OnboardingPresenterProtocol {
     
     func goToAutorization() {
         router?.goToAutorization()
+//        let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
     }
 }
