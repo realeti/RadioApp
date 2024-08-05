@@ -13,6 +13,7 @@ final class FavoritesAssembly {
         let presenter = FavoritesPresenter(router: router)
         let controller = FavoritesController(presenter: presenter)
         presenter.view = controller
+        router.controller = controller
         return controller
     }
 }
