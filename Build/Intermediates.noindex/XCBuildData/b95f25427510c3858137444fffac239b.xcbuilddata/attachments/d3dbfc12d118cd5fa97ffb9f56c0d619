@@ -1,4 +1,0 @@
-module grpcWrapper {
-umbrella "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/grpc-binary/grpc-Wrapper/include"
-export *
-}

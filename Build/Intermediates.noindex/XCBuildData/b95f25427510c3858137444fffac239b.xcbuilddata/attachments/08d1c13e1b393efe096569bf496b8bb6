@@ -1,4 +1,0 @@
-module FirebaseFirestoreInternalWrapper {
-umbrella "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/firebase-ios-sdk/FirebaseFirestoreInternal"
-export *
-}
