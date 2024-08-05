@@ -13,9 +13,9 @@ final class AllStationsPresenter {
 	// TODO: - данные, полученные из сети
 	// private let stations: StationData
 	private let stationsStub = [
-		AllStations.Model.Station(tag: "POP", title: "Radio Record", votes: 315, isPlayingNow: true),
-		AllStations.Model.Station(tag: "16bit", title: "Radio Gameplay", votes: 240, isPlayingNow: false),
-		AllStations.Model.Station(tag: "Punk", title: "Russian Punk rock", votes: 200, isPlayingNow: false)
+		AllStations.Model.Station(tag: "POP", title: "Radio Record", votes: 315, isPlayingNow: true, isFavorite: true),
+		AllStations.Model.Station(tag: "16bit", title: "Radio Gameplay", votes: 240, isPlayingNow: false, isFavorite: false),
+		AllStations.Model.Station(tag: "Punk", title: "Russian Punk rock", votes: 200, isPlayingNow: false, isFavorite: false)
 	]
 	
 	// MARK: - Dependencies

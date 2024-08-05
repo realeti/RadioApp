@@ -27,6 +27,8 @@ enum AllStations {
 			let votes: Int
 			/// Статус проигрывания.
 			let isPlayingNow: Bool
+			/// Предпочтение.
+			let isFavorite: Bool
 		}
 	}
 }
