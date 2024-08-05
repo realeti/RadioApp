@@ -68,28 +68,40 @@ private extension AllStationsController {
 			)
 		]
 
-		let station = stationsStub[1]
-		let cell = StationView()
+		let index = 2
+		let station = stationsStub[index]
+		let stationView = StationView()
 
-		cell.title = station.tag
-		cell.subtitle = station.title
-		cell.numberOfVotes = station.votes
-		cell.status = station.isPlayingNow ? "Playing now" : nil
-		cell.isFavorite = station.isFavorite
-		cell.waveCirclesColor = StationView.ColorCircle(rawValue: (0 % StationView.ColorCircle.allCases.count))
-		cell.layer.cornerRadius = 15
-		cell.translatesAutoresizingMaskIntoConstraints = false
+		stationView.title = station.tag
+		stationView.subtitle = station.title
+		stationView.numberOfVotes = station.votes
+		stationView.status = station.isPlayingNow ? "Playing now" : nil
+		stationView.isFavorite = station.isFavorite
+		stationView.waveCirclesColor = StationView
+			.ColorCircle(rawValue: (index % StationView.ColorCircle.allCases.count))
+		stationView.layer.cornerRadius = 15
+		stationView.translatesAutoresizingMaskIntoConstraints = false
 
 		let theme = station.isPlayingNow ? StationView.Theme.pink : .base
-		cell.setTheme(theme)
+		stationView.setTheme(theme)
 
-		view.addSubview(cell)
+		let stationCell = AllStationsCell()
+		stationCell.translatesAutoresizingMaskIntoConstraints = false
+		stationCell.configure(by: IndexPath(row: index, section: 0), with: station)
+
+		view.addSubview(stationView)
+		view.addSubview(stationCell)
 
 		NSLayoutConstraint.activate([
-			cell.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-			cell.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-			cell.widthAnchor.constraint(equalToConstant: 293),
-			cell.heightAnchor.constraint(equalToConstant: 123)
+			stationView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+			stationView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+			stationView.widthAnchor.constraint(equalToConstant: 293),
+			stationView.heightAnchor.constraint(equalToConstant: 123),
+			
+			stationCell.topAnchor.constraint(equalTo: stationView.bottomAnchor, constant: 20),
+			stationCell.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+			stationCell.widthAnchor.constraint(equalToConstant: 293),
+			stationCell.heightAnchor.constraint(equalToConstant: 123)
 		])
 
 		addSubviews()

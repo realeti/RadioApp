@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B68A899C2C6085840078B3A4 /* AllStationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A899B2C6085840078B3A4 /* AllStationsController.swift */; };
 		B68A899E2C60873F0078B3A4 /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A899D2C60873E0078B3A4 /* StationView.swift */; };
+		B68A89A02C60F1A80078B3A4 /* AllStationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A899F2C60F1A70078B3A4 /* AllStationsCell.swift */; };
 		B6B4527D2C5CE9BC00594354 /* AllStationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B4527C2C5CE9BC00594354 /* AllStationsPresenter.swift */; };
 		B6D5E7902C5A51FB00E83FC0 /* AllStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5E78E2C5A51FB00E83FC0 /* AllStations.swift */; };
 		B6D5E7932C5A52CB00E83FC0 /* AllStationsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5E7922C5A52CB00E83FC0 /* AllStationsProtocols.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		B68A899B2C6085840078B3A4 /* AllStationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStationsController.swift; sourceTree = "<group>"; };
 		B68A899D2C60873E0078B3A4 /* StationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationView.swift; sourceTree = "<group>"; };
+		B68A899F2C60F1A70078B3A4 /* AllStationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStationsCell.swift; sourceTree = "<group>"; };
 		B6B4527C2C5CE9BC00594354 /* AllStationsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStationsPresenter.swift; sourceTree = "<group>"; };
 		B6D5E78E2C5A51FB00E83FC0 /* AllStations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStations.swift; sourceTree = "<group>"; };
 		B6D5E7922C5A52CB00E83FC0 /* AllStationsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStationsProtocols.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			children = (
 				B68A899B2C6085840078B3A4 /* AllStationsController.swift */,
 				B68A899D2C60873E0078B3A4 /* StationView.swift */,
+				B68A899F2C60F1A70078B3A4 /* AllStationsCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				CBF57B5F2C583EA9006237E8 /* ExampleAssembly.swift in Sources */,
 				CB2C8CB32C5768CB00D280FE /* NavigationController.swift in Sources */,
 				CBF57B5D2C583B12006237E8 /* ExampleCellView.swift in Sources */,
+				B68A89A02C60F1A80078B3A4 /* AllStationsCell.swift in Sources */,
 				CB2C8CA02C5698E400D280FE /* RadioApp.xcdatamodeld in Sources */,
 				CBF57B5B2C5839EA006237E8 /* ExampleProtocols.swift in Sources */,
 				CB2C8CB02C5767DF00D280FE /* Router.swift in Sources */,
