@@ -65,13 +65,10 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    private let waveImageView = UIImageView(
-        image: .wave.withTintColor(.white.withAlphaComponent(0.3)),
-        contentMode: .scaleAspectFit
+    private let waveImageView = WaveView(
+        waveColor: .white.withAlphaComponent(0.3),
+        circlesColor: nil
     )
-    
-    private let leftWaveCircle = UIImageView(contentMode: .scaleAspectFit)
-    private let rightWaveCircle = UIImageView(contentMode: .scaleAspectFit)
     
     // MARK: - Private Properties
     private var votes: Int = 0
@@ -98,13 +95,16 @@ final class PopularCollectionViewCell: UICollectionViewCell {
                 playImageView.isHidden = false
                 containerView.layer.borderColor = nil
                 containerView.backgroundColor = .pinkApp
-                waveImageView.image = .wave.tinted(with: .white)
             } else {
                 playImageView.isHidden = true
                 containerView.backgroundColor = nil
                 containerView.layer.borderColor = UIColor.stormyBlue.cgColor
-                waveImageView.image = .wave.tinted(with: .white.withAlphaComponent(0.3))
             }
+            
+            let waveColor: UIColor = isSelected 
+            ? .white
+            : .white.withAlphaComponent(0.3)
+            waveImageView.setWaveTint(with: waveColor)
         }
     }
     
@@ -115,8 +115,6 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         voteCountLabel.text = nil
         radioTitleLabel.text = nil
         radioSubtitleLabel.text = nil
-        leftWaveCircle.image = nil
-        rightWaveCircle.image = nil
     }
     
     override func layoutSubviews() {
@@ -148,8 +146,6 @@ final class PopularCollectionViewCell: UICollectionViewCell {
             radioTitleLabel,
             radioSubtitleLabel
         )
-        
-        waveImageView.addSubviews(leftWaveCircle, rightWaveCircle)
     }
 }
 
@@ -164,20 +160,13 @@ extension PopularCollectionViewCell {
         self.votes = model.voteCount
         
         setupVoteButton(isStationVoted)
-        setupWaveCircles(with: indexPath)
+        waveImageView.setCirclesColor(by: indexPath.row)
     }
     
     // MARK: - Set VoteButton image
     private func setupVoteButton(_ isStationVoted: Bool) {
         let image: UIImage = isStationVoted ? .voteOn : .voteOff
         voteButton.setBackgroundImage(image, for: .normal)
-    }
-    
-    // MARK: - Set WaveCircles image
-    private func setupWaveCircles(with indexPath: IndexPath) {
-        let color = ColorFactory.getCircleColor(for: indexPath.row)
-        leftWaveCircle.image = .waveCircle.tinted(with: color)
-        rightWaveCircle.image = .waveCircle.tinted(with: color)
     }
 }
 
@@ -225,7 +214,6 @@ private extension PopularCollectionViewCell {
         setupHeartButtonConstraints()
         setupRadioTitleStackViewConstraints()
         setupWaveImageViewConstraints()
-        setupWaveCirclesContraints()
     }
     
     func setupContainerViewConstraints() {
@@ -271,20 +259,6 @@ private extension PopularCollectionViewCell {
             make.bottom.equalToSuperview().inset(Metrics.waveImageBottomIndent)
         }
     }
-    
-    func setupWaveCirclesContraints() {
-        leftWaveCircle.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Metrics.circleIndent)
-            make.leading.equalToSuperview().inset(Metrics.circleIndent)
-            make.width.height.equalTo(waveImageView.snp.height).multipliedBy(0.37)
-        }
-        
-        rightWaveCircle.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Metrics.circleIndent)
-            make.trailing.equalToSuperview()
-            make.width.height.equalTo(leftWaveCircle)
-        }
-    }
 }
 
 // MARK: - Metrics
@@ -307,9 +281,6 @@ fileprivate struct Metrics {
     /// wave image view
     static let waveImageTopIndent: CGFloat = 10.0
     static let waveImageBottomIndent: CGFloat = 15.0
-    
-    /// wave circle image view
-    static let circleIndent: CGFloat = 2.0
     
     private init() {}
 }
