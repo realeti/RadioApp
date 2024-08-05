@@ -8,5 +8,7 @@
 import UIKit
 
 protocol ModuleAssembly {
-    func build() -> UIViewController
+	associatedtype Router
+
+	func build(router: Router) -> UIViewController
 }

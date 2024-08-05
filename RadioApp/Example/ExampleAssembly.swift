@@ -8,7 +8,7 @@
 import UIKit
 
 final class ExampleAssembly: ModuleAssembly {
-    func build() -> UIViewController {
+	func build(router: ExampleRouterProtocol) -> UIViewController {
         let controller = ExampleController()
         let presenter = ExamplePresenter()
         let router = ExampleRouter()

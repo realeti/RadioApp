@@ -12,11 +12,17 @@ final class AllStationsController: ViewController {
 	// MARK: - Outlets
 	
 	// MARK: - Public properties
-	
+
+	var presenter: AllStationsPresenterProtocol!
+
 	// MARK: - Dependencies
 	
 	// MARK: - Private properties
-	
+
+	private lazy var collectionView = makeCollectionView()
+
+	private var model = AllStations.Model(stations: [])
+
 	// MARK: - Initialization
 	
 	// MARK: - Lifecycle
@@ -27,8 +33,57 @@ final class AllStationsController: ViewController {
 	}
 	
 	// MARK: - Public methods
-	
+
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		layout()
+	}
+
 	// MARK: - Private methods
+}
+
+// MARK: - AllStationsControllerProtocol
+
+extension AllStationsController: AllStationsControllerProtocol {
+
+	func update(with model: AllStations.Model) {
+		self.model = model
+		collectionView.reloadData()
+	}
+}
+
+// MARK: - Collection View Data Source
+
+extension AllStationsController: UICollectionViewDataSource {
+	
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		model.stations.count
+	}
+	
+	func collectionView(
+		_ collectionView: UICollectionView,
+		cellForItemAt indexPath: IndexPath
+	) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(
+			withReuseIdentifier: AllStationsCell.reusableIdentifier,
+			for: indexPath
+		)
+		guard let cell = cell as? AllStationsCell else { return UICollectionViewCell() }
+		
+		let station = model.stations[indexPath.row]
+		cell.configure(by: indexPath, with: station)
+		
+		return cell
+	}
+}
+
+// MARK: - Collection View Delegate
+
+extension AllStationsController: UICollectionViewDelegate {
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		
+	}
 }
 
 // MARK: - Actions
@@ -42,69 +97,30 @@ private extension AllStationsController {
 private extension AllStationsController {
 	
 	func setupUI() {
-		view.backgroundColor = .systemCyan
-
-		let stationsStub = [
-			AllStations.Model.Station(
-				tag: "POP",
-				title: "Radio Record",
-				votes: 315,
-				isPlayingNow: true,
-				isFavorite: true
-			),
-			AllStations.Model.Station(
-				tag: "16bit",
-				title: "Radio Gameplay",
-				votes: 240,
-				isPlayingNow: false,
-				isFavorite: false
-			),
-			AllStations.Model.Station(
-				tag: "Punk",
-				title: "Russian Punk rock",
-				votes: 200,
-				isPlayingNow: false,
-				isFavorite: false
-			)
-		]
-
-		let index = 2
-		let station = stationsStub[index]
-		let stationView = StationView()
-
-		stationView.title = station.tag
-		stationView.subtitle = station.title
-		stationView.numberOfVotes = station.votes
-		stationView.status = station.isPlayingNow ? "Playing now" : nil
-		stationView.isFavorite = station.isFavorite
-		stationView.waveCirclesColor = StationView
-			.ColorCircle(rawValue: (index % StationView.ColorCircle.allCases.count))
-		stationView.layer.cornerRadius = 15
-		stationView.translatesAutoresizingMaskIntoConstraints = false
-
-		let theme = station.isPlayingNow ? StationView.Theme.pink : .base
-		stationView.setTheme(theme)
-
-		let stationCell = AllStationsCell()
-		stationCell.translatesAutoresizingMaskIntoConstraints = false
-		stationCell.configure(by: IndexPath(row: index, section: 0), with: station)
-
-		view.addSubview(stationView)
-		view.addSubview(stationCell)
-
-		NSLayoutConstraint.activate([
-			stationView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-			stationView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-			stationView.widthAnchor.constraint(equalToConstant: 293),
-			stationView.heightAnchor.constraint(equalToConstant: 123),
-			
-			stationCell.topAnchor.constraint(equalTo: stationView.bottomAnchor, constant: 20),
-			stationCell.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-			stationCell.widthAnchor.constraint(equalToConstant: 293),
-			stationCell.heightAnchor.constraint(equalToConstant: 123)
-		])
+		view.backgroundColor = .darkBlueApp
 
 		addSubviews()
+	}
+
+	func makeFlowLayout() -> UICollectionViewFlowLayout {
+		let layout = UICollectionViewFlowLayout()
+
+		layout.itemSize = CGSize(width: 291, height: 123)
+		layout.minimumLineSpacing = 20
+
+		return layout
+	}
+
+	func makeCollectionView() -> UICollectionView {
+		let element = UICollectionView(frame: .zero, collectionViewLayout: makeFlowLayout())
+
+		element.backgroundColor = .clear
+		element.register(AllStationsCell.self, forCellWithReuseIdentifier: AllStationsCell.reusableIdentifier)
+		element.dataSource = self
+		element.delegate = self
+		element.translatesAutoresizingMaskIntoConstraints = false
+
+		return element
 	}
 }
 
@@ -113,7 +129,7 @@ private extension AllStationsController {
 private extension AllStationsController {
 	
 	func addSubviews() {
-		
+		view.addSubview(collectionView)
 	}
 }
 
@@ -123,7 +139,10 @@ private extension AllStationsController {
 	
 	func layout() {
 		NSLayoutConstraint.activate([
-			
+			collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+			collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+			collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -130)
 		])
 	}
 }

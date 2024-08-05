@@ -10,6 +10,8 @@
 		B68A899C2C6085840078B3A4 /* AllStationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A899B2C6085840078B3A4 /* AllStationsController.swift */; };
 		B68A899E2C60873F0078B3A4 /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A899D2C60873E0078B3A4 /* StationView.swift */; };
 		B68A89A02C60F1A80078B3A4 /* AllStationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A899F2C60F1A70078B3A4 /* AllStationsCell.swift */; };
+		B68A89A22C610C6B0078B3A4 /* AllStationsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A89A12C610C6B0078B3A4 /* AllStationsAssembly.swift */; };
+		B68A89A42C6115580078B3A4 /* AllStationsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A89A32C6115580078B3A4 /* AllStationsRouter.swift */; };
 		B6B4527D2C5CE9BC00594354 /* AllStationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B4527C2C5CE9BC00594354 /* AllStationsPresenter.swift */; };
 		B6D5E7902C5A51FB00E83FC0 /* AllStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5E78E2C5A51FB00E83FC0 /* AllStations.swift */; };
 		B6D5E7932C5A52CB00E83FC0 /* AllStationsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5E7922C5A52CB00E83FC0 /* AllStationsProtocols.swift */; };
@@ -41,6 +43,8 @@
 		B68A899B2C6085840078B3A4 /* AllStationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStationsController.swift; sourceTree = "<group>"; };
 		B68A899D2C60873E0078B3A4 /* StationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationView.swift; sourceTree = "<group>"; };
 		B68A899F2C60F1A70078B3A4 /* AllStationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStationsCell.swift; sourceTree = "<group>"; };
+		B68A89A12C610C6B0078B3A4 /* AllStationsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStationsAssembly.swift; sourceTree = "<group>"; };
+		B68A89A32C6115580078B3A4 /* AllStationsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStationsRouter.swift; sourceTree = "<group>"; };
 		B6B4527C2C5CE9BC00594354 /* AllStationsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStationsPresenter.swift; sourceTree = "<group>"; };
 		B6D5E78E2C5A51FB00E83FC0 /* AllStations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStations.swift; sourceTree = "<group>"; };
 		B6D5E7922C5A52CB00E83FC0 /* AllStationsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStationsProtocols.swift; sourceTree = "<group>"; };
@@ -98,6 +102,8 @@
 				B68A899A2C60851E0078B3A4 /* Views */,
 				B6D5E7922C5A52CB00E83FC0 /* AllStationsProtocols.swift */,
 				B6B4527C2C5CE9BC00594354 /* AllStationsPresenter.swift */,
+				B68A89A12C610C6B0078B3A4 /* AllStationsAssembly.swift */,
+				B68A89A32C6115580078B3A4 /* AllStationsRouter.swift */,
 			);
 			path = AllStations;
 			sourceTree = "<group>";
@@ -308,6 +314,7 @@
 				CB2C8CB72C57AACC00D280FE /* ModuleAssembly.swift in Sources */,
 				B6B4527D2C5CE9BC00594354 /* AllStationsPresenter.swift in Sources */,
 				CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */,
+				B68A89A22C610C6B0078B3A4 /* AllStationsAssembly.swift in Sources */,
 				CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */,
 				B68A899C2C6085840078B3A4 /* AllStationsController.swift in Sources */,
 				CB2C8CC02C57B1A000D280FE /* TabBarController.swift in Sources */,
@@ -315,6 +322,7 @@
 				CBF57B612C583F67006237E8 /* ExamplePresenter.swift in Sources */,
 				CBF57B562C58319D006237E8 /* Builder.swift in Sources */,
 				CB2C8C982C5698E400D280FE /* SceneDelegate.swift in Sources */,
+				B68A89A42C6115580078B3A4 /* AllStationsRouter.swift in Sources */,
 				CBF57B4B2C57FA53006237E8 /* ExampleController.swift in Sources */,
 				CBF57B4E2C57FA83006237E8 /* Example.swift in Sources */,
 				B6D5E7932C5A52CB00E83FC0 /* AllStationsProtocols.swift in Sources */,

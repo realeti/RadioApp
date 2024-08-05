@@ -28,8 +28,11 @@ protocol AllStationsPresenterProtocol: AnyObject {
 
 /// Протокол роутера для перехода с экрана, отображающего все радиостанции, на другие экраны.
 protocol AllStationsRouterProtocol {
+	
+	/// Показывает экран со всеми радиостанциями.
+	func showAllStations()
 
 	/// Переход на экран с детальной информацией о радиостанции.
-	/// - Parameter data: даные о радиостанции.
-	func showStationDetails(with data: AllStations.Model.Station)
+	/// - Parameter data: данные о радиостанции.
+	func showStationDetails(with stationData: AllStations.Model.Station)
 }

@@ -247,6 +247,7 @@ private extension StationView {
 		let element = UIButton()
 
 		element.configuration = .plain()
+		element.configuration?.cornerStyle = .small
 		element.translatesAutoresizingMaskIntoConstraints = false
 
 		return element
