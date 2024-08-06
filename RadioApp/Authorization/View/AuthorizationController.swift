@@ -8,13 +8,22 @@
 import UIKit
 import SnapKit
 
-class AuthorizationController: UIViewController {
-    var presenter: (any AuthorizationPresenterProtocol)?
+final class AuthorizationController: UIViewController {
     private var mode: AuthorizationMode?
-
+    private let presenter: AuthorizationPresenterProtocol
+    
+    init(presenter: AuthorizationPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter?.activate()
+        presenter.activate()
     }
 }
 
@@ -125,12 +134,12 @@ private extension AuthorizationController {
     
     @objc func doneTapped() {
         print("done tapped")
-        presenter?.finishAuthorization()
+        presenter.finishAuthorization()
     }
     
     @objc func switchModeTapped() {
         print("switch mode tapped")
-        presenter?.switchMode()
+        presenter.switchMode()
     }
 }
 
@@ -213,12 +222,12 @@ private extension AuthorizationController {
     
     @objc func forgotPasswordTapped() {
         print("forgot password tapped")
-        presenter?.didTapForgotPasswordButton()
+        presenter.didTapForgotPasswordButton()
     }
     
     @objc func googleTapped() {
         print("google tapped")
-        presenter?.didTapGoogleButton()
+        presenter.didTapGoogleButton()
     }
 }
 
@@ -250,9 +259,4 @@ private extension AuthorizationController {
 
 extension AuthorizationController: UITextFieldDelegate {
     
-}
-
-@available(iOS 17.0, *)
-#Preview {
-    Builder.createAuthorization()
 }

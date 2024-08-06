@@ -9,12 +9,13 @@ import Foundation
 
 final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     
-    var view: (any AuthorizationControllerProtocol)?
-    var router: (any AuthorizationRouterProtocol)?
-    var mode: AuthorizationMode
+    weak var view: AuthorizationControllerProtocol?
+    private let router: AuthorizationRouterProtocol
+    private var mode: AuthorizationMode
     
-    init(mode: AuthorizationMode) {
+    init(mode: AuthorizationMode, router: AuthorizationRouterProtocol) {
         self.mode = mode
+        self.router = router
     }
 
     func activate() {
@@ -37,7 +38,7 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
             switch signIn() {
             case .success(true):
                 print("successfully signeded in")
-                router?.goHome()
+                router.goHome()
             case .success(false):
                 print("can't sign in")
             case .failure(let error):
@@ -48,7 +49,7 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
             switch signUp() {
             case .success(true):
                 print("successfully signed up")
-                router?.goHome()
+                router.goHome()
             case .success(false):
                 print("can't sign up")
             case .failure(let error):
@@ -71,6 +72,6 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     }
     
     func didTapForgotPasswordButton() {
-        router?.showForgotPasswordVC()
+        router.showForgotPasswordVC()
     }
 }

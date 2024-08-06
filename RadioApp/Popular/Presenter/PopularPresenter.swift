@@ -15,7 +15,7 @@ protocol PopularViewProtocol: AnyObject {
 }
 
 protocol PopularPresenterProtocol {
-    init(view: PopularViewProtocol, router: Router)
+    init(router: PopularRouterProtocol)
     var getStations: [PopularViewModel] { get }
     
     func loadStations() async
@@ -34,8 +34,8 @@ final class PopularPresenter: PopularPresenterProtocol {
     private var mockStations: [PopularViewModel] = []
     private var votedStations: [Bool] = []
     
-    private weak var view: PopularViewProtocol?
-    private let router: Router
+    weak var view: PopularViewProtocol?
+    private let router: PopularRouterProtocol
     
     // MARK: - Public Properties
     var getStations: [PopularViewModel] {
@@ -45,8 +45,7 @@ final class PopularPresenter: PopularPresenterProtocol {
     }
     
     // MARK: - Init
-    init(view: PopularViewProtocol, router: Router) {
-        self.view = view
+    init(router: PopularRouterProtocol) {
         self.router = router
     }
 }

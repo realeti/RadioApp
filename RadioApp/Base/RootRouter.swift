@@ -1,0 +1,41 @@
+//
+//  RootRouter.swift
+//  RadioApp
+//
+//  Created by Мария Нестерова on 06.08.2024.
+//
+
+import UIKit
+
+final class RootRouter {
+    private let window: UIWindow
+    private let builder: RootBuilder
+
+    init(_ window: UIWindow, builder: RootBuilder) {
+        self.window = window
+        self.builder = builder
+    }
+
+    deinit {
+        print("im dead!")
+    }
+
+    func startFlow() {
+        let onboarding = builder.buildOnboarding()
+        onboarding.root = self
+        onboarding.showOnboarding(on: window)
+        window.makeKeyAndVisible()
+    }
+
+    func startAuthorization() {
+        let authorization = builder.buildAuthorization()
+        authorization.root = self
+        authorization.showAuthorization(on: window)
+    }
+
+    func startHome() {
+        let home = builder.buildHome()
+        home.root = self
+        home.showHome(on: window)
+    }
+}

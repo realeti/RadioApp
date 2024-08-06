@@ -14,7 +14,7 @@ protocol StationDetailsPresenterProtocol {
     func removeStationFromFavorites()
 }
 
-class StationDetailsPresenter: StationDetailsPresenterProtocol {
+final class StationDetailsPresenter: StationDetailsPresenterProtocol {
     
     private weak var view: StationDetailsView?
     private let station: RadioStation

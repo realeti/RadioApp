@@ -16,6 +16,6 @@ protocol FavoritesPresenterProtocol {
     func activate()
 }
 
-protocol FavoritesRouterProtocol {
+protocol FavoritesRouterProtocol: Router {
     func showDetails()
 }

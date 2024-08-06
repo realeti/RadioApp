@@ -12,7 +12,7 @@ protocol ForgotPasswordControllerProtocol: AnyObject {
     func update(with model: ForgotPasswordController.Model)
 }
 
-class ForgotPasswordController: UIViewController {
+final class ForgotPasswordController: UIViewController {
     var presenter: (any ForgotPasswordPresenterProtocol)?
     private var email: String?
 
@@ -112,9 +112,4 @@ extension ForgotPasswordController: UITextFieldDelegate {
         email = textField.text
         return true
     }
-}
-
-@available(iOS 17.0, *)
-#Preview {
-    Builder.createForgotPasswordVC()
 }

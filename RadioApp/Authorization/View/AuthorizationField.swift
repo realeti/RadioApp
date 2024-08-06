@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AuthorizationField: UIView {
+final class AuthorizationField: UIView {
     private let title: String
     private let placeholder: String
     private var isSecure: Bool

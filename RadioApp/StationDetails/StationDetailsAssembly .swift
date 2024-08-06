@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class StationDetailsAssembly: ModuleAssembly {
+final class StationDetailsAssembly {
     func build() -> UIViewController {
         let station = RadioStation(frequency: "91.5", name: "Radio Divelement", imageName: "googlePlus")
         let view = StationDetailsController()

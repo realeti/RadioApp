@@ -8,8 +8,17 @@
 import UIKit
 
 final class ProfileViewController: ViewController, ProfileViewProtocol {
-    var presenter: ProfilePresenterProtocol!
+    private let presenter: ProfilePresenterProtocol
     private let userView = UserView()
+    
+    init(presenter: ProfilePresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private var generalView = GeneralView(
         frame: .zero, title: "General".localized,

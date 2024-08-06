@@ -89,10 +89,7 @@ final class LanguageViewController: ViewController, LanguageVCProtocol {
     private func reloadRootController() {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let windowDelegate = windowScene.delegate as? SceneDelegate else { return }
-        let rootVC = Builder.createTabBar()
-        let window = windowDelegate.window
-        window?.rootViewController = rootVC
-        window?.makeKeyAndVisible()
+        windowDelegate.router?.startHome()
     }
 }
 

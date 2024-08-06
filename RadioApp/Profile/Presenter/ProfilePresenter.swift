@@ -16,16 +16,15 @@ protocol ProfilePresenterProtocol: AnyObject {
     func showPolicyVC()
     func showAboutUsVC()
     func showLanguageVC()
-    init(view: ProfileViewProtocol, router: ProfileRouterProtocol)
+    init(router: ProfileRouterProtocol)
 }
 
 final class ProfilePresenter: ProfilePresenterProtocol {
     
     weak var view: ProfileViewProtocol?
-    private var router: ProfileRouterProtocol
+    private let router: ProfileRouterProtocol
     
-    required init(view: ProfileViewProtocol, router: ProfileRouterProtocol) {
-        self.view = view
+    required init(router: ProfileRouterProtocol) {
         self.router = router
     }
    

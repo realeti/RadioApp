@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoriteRadioView: UIView, CellConfigurable {
+final class FavoriteRadioView: UIView, CellConfigurable {
     
     private var favoriteHandler: (() -> Void)?
     
