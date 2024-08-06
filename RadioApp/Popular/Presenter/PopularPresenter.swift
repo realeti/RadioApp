@@ -142,21 +142,21 @@ extension PopularPresenter {
         var stations: [PopularViewModel] = []
         
         let baseTitles = [
-            "POP",
-            "16bit",
-            "Punk",
-            "Dj Remix",
-            "Adult",
-            "Etnic",
+            "POP".localized,
+            "16bit".localized,
+            "Punk".localized,
+            "Dj Remix".localized,
+            "Adult".localized,
+            "Etnic".localized,
         ]
         
         let baseSubtitles = [
-            "Radio Record",
-            "Radio Gameplay",
-            "Russian Punk rock",
-            "!REMIX!",
-            "RUSSIAN WAVE",
-            "beufm.kz"
+            "Radio Record".localized,
+            "Radio Gameplay".localized,
+            "Russian Punk rock".localized,
+            "!REMIX!".localized,
+            "RUSSIAN WAVE".localized,
+            "beufm.kz".localized
         ]
         
         let baseVotes = [

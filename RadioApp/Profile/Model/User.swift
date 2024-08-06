@@ -11,4 +11,5 @@ struct User {
     var image: Data = Data()
     var login: String = ""
     var email: String = ""
+    var password: String = ""
 }
