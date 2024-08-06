@@ -14,7 +14,7 @@
 		</dict>
 	</array>
 	<key>GIDClientID</key>
-	<string>com.googleusercontent.apps.527946517860-uauob2ffv6ik7s11r5k5npvjvoq8raek</string>
+	<string>527946517860-uauob2ffv6ik7s11r5k5npvjvoq8raek.apps.googleusercontent.com</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
