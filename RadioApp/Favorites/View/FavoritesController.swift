@@ -45,10 +45,12 @@ class FavoritesController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         presenter.activate()
-        
     }
     
     private func setupView() {
@@ -79,7 +81,9 @@ extension FavoritesController: FavoritesControllerProtocol {
 }
 
 extension FavoritesController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        items[indexPath.row].didSelectHandler()
+    }
 }
 
 extension FavoritesController: UITableViewDataSource {
@@ -113,6 +117,7 @@ extension FavoritesController: UITableViewDataSource {
             ),
             insets: .init(top: 0, left: 0, bottom: 20, right: 0)
         )
+        cell.selectionStyle = .none
         return cell
     }
     

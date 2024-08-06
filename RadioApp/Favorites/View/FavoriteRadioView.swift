@@ -13,7 +13,7 @@ class FavoriteRadioView: UIView, CellConfigurable {
     
     private let genreLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 30, weight: .bold)
+        label.font = .systemFont(ofSize: 28, weight: .bold)
         label.textColor = .white
         return label
     }()
@@ -25,15 +25,15 @@ class FavoriteRadioView: UIView, CellConfigurable {
         return label
     }()
     
-    private let image: UIImageView = {
-        let image = UIImage(named: "wave")
-        let imageView = UIImageView(image: image)
-        return imageView
-    }()
+    private let waveView = WaveView(
+        waveColor: .white,
+        circlesColor: ColorFactory.getRandomCircleColor()
+    )
     
     private lazy var favButton: UIButton = {
        let button = UIButton()
         button.setImage(UIImage(named: "favOn"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
         button.addTarget(self, action: #selector(favButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -65,8 +65,7 @@ class FavoriteRadioView: UIView, CellConfigurable {
         addSubview(favButton)
         stackView.addArrangedSubview(genreLabel)
         stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(image)
-        
+        stackView.addArrangedSubview(waveView)
     }
     
     private func setConstraints() {
@@ -74,17 +73,22 @@ class FavoriteRadioView: UIView, CellConfigurable {
             $0.top.equalToSuperview().inset(18)
             $0.leading.equalToSuperview().inset(22)
             $0.bottom.equalToSuperview().inset(15)
+            $0.trailing.equalTo(favButton.snp.leading).inset(-16)
         }
         
         favButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(31)
             $0.trailing.equalToSuperview().inset(16)
+            $0.width.equalTo(58)
+        }
+        
+        waveView.snp.makeConstraints {
+            $0.height.equalTo(22)
         }
     }
     
     @objc private func favButtonTapped() {
         favoriteHandler?()
-        print("favButtonTapped")
     }
     
     func update(with model: FavStationModel?) {

@@ -35,7 +35,9 @@ class FavoritesPresenter: FavoritesPresenterProtocol {
                 favoriteHandler: { [weak self] in
                     self?.removeFromFavorites(stationEntity)
                 },
-                didSelectHandler: {}
+                didSelectHandler: { [weak self] in
+                    self?.router.showDetails()
+                }
             )
         }
         view?.update(with: .init(items: items))

@@ -25,7 +25,7 @@ final class NotificationsPresenter: NotificationsPresenterProtocol {
     
     init(
         view: NotificationsVCProtocol,
-        notificationService: NotificationService // = DIContainer.shared.notificationService
+        notificationService: NotificationService
     ) {
         self.view = view
         self.notificationService = notificationService
