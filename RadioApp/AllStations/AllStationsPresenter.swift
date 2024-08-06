@@ -6,32 +6,32 @@
 //
 
 import Foundation
+import RadioBrowser
 
 /// Презентер для экрана с полным списком радиостанций.
 final class AllStationsPresenter {
 
-	// TODO: - данные, полученные из сети
-	// private let stations: StationData
-	private let stationsStub = [
-		AllStations.Model.Station(tag: "POP", title: "Radio Record", votes: 315, isPlayingNow: true, isFavorite: true),
-		AllStations.Model.Station(tag: "16bit", title: "Radio Gameplay", votes: 240, isPlayingNow: false, isFavorite: false),
-		AllStations.Model.Station(tag: "Punk", title: "Russian Punk rock", votes: 200, isPlayingNow: false, isFavorite: false)
-	]
-	
 	// MARK: - Dependencies
 
 	private let router: AllStationsRouterProtocol
 	private weak var view: AllStationsControllerProtocol!
-	
+	private let radioBrowser: RadioBrowser
+
+	// MARK: - Private properties
+
+	private var stations: [Station] = []
+
 	// MARK: - Initialization
 	
 	/// Инициализатор презентера.
 	/// - Parameters:
 	///   - router: роутер, для осуществления перехода на другие экраны.
 	///   - view: view, на которой будет отображаться информация.
-	init(router: AllStationsRouterProtocol, view: AllStationsControllerProtocol) {
+	///   - radioBrowser: сервис для работы с `API all.api.radio-browser`.
+	init(router: AllStationsRouterProtocol, view: AllStationsControllerProtocol, radioBrowser: RadioBrowser) {
 		self.router = router
 		self.view = view
+		self.radioBrowser = radioBrowser
 	}
 }
 
@@ -43,8 +43,17 @@ extension AllStationsPresenter: AllStationsPresenterProtocol {
 	///
 	/// Получает все возможные радиостанции из api и обновляет экран AllStations.
 	func activate() {
-		// TODO: - получить данные по радиостанциям
-		view.update(with: AllStations.Model(stations: mapStationsData()))
+		Task {
+			let result = await radioBrowser.getAllStations(offset: stations.count)
+
+			switch result {
+			case .success(let data):
+				stations += data
+				await render()
+			case .failure(let error):
+				print(error)
+			}
+		}
 	}
 
 	/// Выбрана радиостанция.
@@ -52,7 +61,7 @@ extension AllStationsPresenter: AllStationsPresenterProtocol {
 	///
 	/// Переход на экран с детальной информацией станции, которую выбрал пользователь.
 	func didStationSelected(at indexPath: IndexPath) {
-		router.showStationDetails(with: stationsStub[indexPath.row])
+		router.showStationDetails(with: stations[indexPath.row])
 	}
 }
 
@@ -60,9 +69,23 @@ extension AllStationsPresenter: AllStationsPresenterProtocol {
 
 private extension AllStationsPresenter {
 
-	func mapStationsData() -> [AllStations.Model.Station] {
-		// TODO: - мапинг полученных данных радиостанций
-		// stations.map { AllStations.Model.Station(...) }
-		stationsStub
+	@MainActor
+	func render() {
+		view.update(with: mapStationsData())
+	}
+
+	func mapStationsData() -> AllStations.Model {
+		let radioStations = stations.map { makeStationModel(from: $0) }
+		return AllStations.Model(stations: radioStations)
+	}
+	
+	func makeStationModel(from data: Station) -> AllStations.Model.Station {
+		AllStations.Model.Station(
+			tag: data.tags.first ?? "nil",
+			title: data.name.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .newlines),
+			votes: data.votes,
+			isPlayingNow: false,
+			isFavorite: false
+		)
 	}
 }

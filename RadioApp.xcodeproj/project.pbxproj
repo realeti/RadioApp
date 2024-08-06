@@ -301,7 +301,6 @@
 			isa = PBXGroup;
 			children = (
 				B65085CC2C61D1DE00FBB0B2 /* AllStationsCell.swift */,
-				B65085CD2C61D1DE00FBB0B2 /* AllStationsController.swift */,
 				B65085CE2C61D1DE00FBB0B2 /* StationView.swift */,
 			);
 			path = Views;
@@ -312,6 +311,7 @@
 			children = (
 				B65085CB2C61D1DE00FBB0B2 /* Model */,
 				B65085CF2C61D1DE00FBB0B2 /* Views */,
+				B65085CD2C61D1DE00FBB0B2 /* AllStationsController.swift */,
 				B65085D02C61D1DE00FBB0B2 /* AllStationsAssembly.swift */,
 				B65085D12C61D1DE00FBB0B2 /* AllStationsPresenter.swift */,
 				B65085D22C61D1DE00FBB0B2 /* AllStationsProtocols.swift */,

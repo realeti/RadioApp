@@ -85,6 +85,16 @@ extension AllStationsController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		// TODO: - реализовать событие перехода на другой экран
 	}
+
+	func collectionView(
+		_ collectionView: UICollectionView,
+		willDisplay cell: UICollectionViewCell,
+		forItemAt indexPath: IndexPath
+	) {
+		if model.stations.count - indexPath.row == 4 {
+			presenter.activate()
+		}
+	}
 }
 
 // MARK: - Actions

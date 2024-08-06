@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RadioBrowser
 
 /// Протокол экрана для отображения всех радиостанций.
 protocol AllStationsControllerProtocol: AnyObject {
@@ -34,5 +35,5 @@ protocol AllStationsRouterProtocol {
 
 	/// Переход на экран с детальной информацией о радиостанции.
 	/// - Parameter data: данные о радиостанции.
-	func showStationDetails(with stationData: AllStations.Model.Station)
+	func showStationDetails(with stationData: Station)
 }

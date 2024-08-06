@@ -58,7 +58,7 @@ final class StationView: UIView {
 			if let waveCirclesColor {
 				waveCirclesImage.tintColor = waveCirclesColor.color
 			} else {
-				waveCirclesImage.image = nil
+				waveCirclesImage.tintColor = nil
 			}
 		}
 	}
@@ -76,6 +76,7 @@ final class StationView: UIView {
 	private lazy var voteLabel = makeLabel(font: .systemFont(ofSize: 10, weight: .bold))
 	private lazy var favoriteButton = makeButton()
 
+	private lazy var waveImage = makeImageView(with: .wave)
 	private lazy var waveCirclesImage = makeImageView(with: .waveCircles)
 
 	// MARK: - Initialization
@@ -105,6 +106,7 @@ final class StationView: UIView {
 		subtitleLabel.textColor = theme.textColor
 		statusLabel.textColor = UIColor(red: 0.69, green: 0.16, blue: 0.33, alpha: 1.00)
 		voteLabel.textColor = theme.textColor
+		waveImage.layer.opacity = theme.waveOpacity
 	}
 
 	// MARK: - Private methods
@@ -151,12 +153,12 @@ extension StationView {
 		}
 		
 		/// Цвет волны.
-		var waveColor: UIColor {
+		var waveOpacity: Float {
 			switch self {
 			case .base:
-				.white.withAlphaComponent(0.3)
+				0.3
 			case .pink:
-				.white
+				1
 			}
 		}
 	}
@@ -271,6 +273,7 @@ private extension StationView {
 	func addSubviews() {
 		addSubview(titleStack)
 		addSubview(voteStack)
+		addSubview(waveImage)
 		addSubview(waveCirclesImage)
 
 		titleStack.addArrangedSubview(titleLabel)
@@ -291,6 +294,7 @@ private extension StationView {
 			titleStack.topAnchor.constraint(equalTo: topAnchor, constant: 18),
 			titleStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
 			titleStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+			titleStack.trailingAnchor.constraint(equalTo: centerXAnchor),
 
 			voteStack.topAnchor.constraint(equalTo: topAnchor, constant: 18),
 			voteStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
@@ -300,12 +304,21 @@ private extension StationView {
 
 			waveCirclesImage.centerYAnchor.constraint(equalTo: centerYAnchor),
 			waveCirclesImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-			waveCirclesImage.widthAnchor.constraint(equalToConstant: 93.91)
+			waveCirclesImage.widthAnchor.constraint(equalToConstant: 93.91),
+
+			waveImage.centerYAnchor.constraint(equalTo: waveCirclesImage.centerYAnchor, constant: 4.5),
+			waveImage.centerXAnchor.constraint(equalTo: waveCirclesImage.centerXAnchor),
+			waveImage.widthAnchor.constraint(equalToConstant: 86.66),
+			waveImage.heightAnchor.constraint(equalToConstant: 22.66),
 		])
 	}
 }
 
 @available(iOS 17.0, *)
 #Preview {
-	NavigationController(rootViewController: AllStationsController())
+	let navigation = UINavigationController()
+	let builder = AllStationsAssembly()
+	let router = AllStationsRouter(builder: builder, navigation: navigation)
+	router.showAllStations()
+	return navigation
 }

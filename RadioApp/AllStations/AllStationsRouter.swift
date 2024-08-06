@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RadioBrowser
 
 final class AllStationsRouter: AllStationsRouterProtocol {
 
@@ -22,7 +23,7 @@ final class AllStationsRouter: AllStationsRouterProtocol {
 		navigation.viewControllers = [controller]
 	}
 
-	func showStationDetails(with stationData: AllStations.Model.Station) {
+	func showStationDetails(with stationData: Station) {
 		
 	}
 }
