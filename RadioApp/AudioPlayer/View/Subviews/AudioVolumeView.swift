@@ -1,5 +1,5 @@
 //
-//  VolumeProgressView.swift
+//  AudioVolumeView.swift
 //  RadioApp
 //
 //  Created by realeti on 30.07.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class VolumeProgressView: UIView {
+final class AudioVolumeView: UIView {
     // MARK: - UI
     private let volumeLabel = UILabel(
         font: .systemFont(ofSize: 10.0, weight: .regular),
@@ -60,7 +60,7 @@ final class VolumeProgressView: UIView {
 }
 
 // MARK: - Setup ProgressCircle
-private extension VolumeProgressView {
+private extension AudioVolumeView {
     func setupProgressCircleLayer() {
         let circleRadius: CGFloat = Metrics.circleRadius
         
@@ -84,12 +84,12 @@ private extension VolumeProgressView {
 }
 
 // MARK: - Update Progress
-extension VolumeProgressView {
-    func update(_ progress: Float) {
-        self.volumeProgressBar.progress = progress
+extension AudioVolumeView {
+    func update(_ volume: Float) {
+        self.volumeProgressBar.progress = volume
         self.updateProgressCirclePosition()
         
-        let progressValue = String(format: "%.0f", progress * 100.0)
+        let progressValue = String(format: "%.0f", volume * 100.0)
         volumeLabel.text = progressValue + "%"
     }
     
@@ -104,7 +104,7 @@ extension VolumeProgressView {
 }
 
 // MARK: - Setup Constraints
-private extension VolumeProgressView {
+private extension AudioVolumeView {
     func setupConstraints() {
         setupVolumeLabelConstraints()
         setupProgressBarContainerConstraints()

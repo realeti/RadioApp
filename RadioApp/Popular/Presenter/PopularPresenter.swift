@@ -79,7 +79,8 @@ extension PopularPresenter {
                     id: station.stationUUID,
                     title: title,
                     subtitle: subtitle,
-                    voteCount: station.votes
+                    voteCount: station.votes,
+                    url: station.urlResolved
                 )
             })
         case .failure(let error):
@@ -106,9 +107,13 @@ private extension PopularPresenter {
 
 // MARK: - Change Station
 extension PopularPresenter {
-    func changeStation(_ stationId: Int) {
-        /// set new station for audio player
-        print("change station (item id #\(stationId))")
+    func changeStation(_ stationId: Int) {        
+        let selectedStation = stations[stationId]
+        let currentStreamURL = AudioPlayerController.shared.currentURL
+        
+        if let url = URL(string: selectedStation.url), url != currentStreamURL {
+            AudioPlayerController.shared.playStream(url: url)
+        }
     }
 }
 
@@ -124,7 +129,8 @@ extension PopularPresenter {
             id: stationUniqueID,
             title: selectedStation.title,
             subtitle: selectedStation.subtitle,
-            voteCount: selectedStation.voteCount + voteChange
+            voteCount: selectedStation.voteCount + voteChange,
+            url: selectedStation.url
         )
         
         stations[stationId] = selectedStation

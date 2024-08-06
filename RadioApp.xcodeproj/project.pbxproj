@@ -65,9 +65,12 @@
 		C62348612C5E8B1300F536E7 /* PopularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348602C5E8B1300F536E7 /* PopularView.swift */; };
 		C62348632C5E8B2100F536E7 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348622C5E8B2100F536E7 /* PopularViewController.swift */; };
 		C62348652C5E8B2D00F536E7 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348642C5E8B2D00F536E7 /* PopularCollectionViewCell.swift */; };
-		C62348672C5E8B3900F536E7 /* VolumeProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348662C5E8B3900F536E7 /* VolumeProgressView.swift */; };
-		C66106D32C601AF100E6196C /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66106D22C601AF100E6196C /* CustomTabBar.swift */; };
+		C62348672C5E8B3900F536E7 /* AudioVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348662C5E8B3900F536E7 /* AudioVolumeView.swift */; };
 		C66106D72C60224E00E6196C /* AudioPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66106D62C60224E00E6196C /* AudioPlayerController.swift */; };
+		C68453E02C62BA4D00C457EA /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68453DF2C62BA4D00C457EA /* AudioPlayerViewController.swift */; };
+		C68453E42C62BBE000C457EA /* AudioPlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68453E32C62BBE000C457EA /* AudioPlayerPresenter.swift */; };
+		C68453E62C62BDB700C457EA /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68453E52C62BDB700C457EA /* AudioView.swift */; };
+		C68453E82C62C60000C457EA /* AudioAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68453E72C62C60000C457EA /* AudioAssembly.swift */; };
 		C6DF00C62C5FA62E0011EA5D /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DF00C52C5FA62E0011EA5D /* AudioPlayerView.swift */; };
 		C6DF00C82C5FAA4B0011EA5D /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DF00C72C5FAA4B0011EA5D /* UIButton + Extensions.swift */; };
 		CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8C952C5698E400D280FE /* AppDelegate.swift */; };
@@ -175,9 +178,12 @@
 		C62348602C5E8B1300F536E7 /* PopularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularView.swift; sourceTree = "<group>"; };
 		C62348622C5E8B2100F536E7 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
 		C62348642C5E8B2D00F536E7 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
-		C62348662C5E8B3900F536E7 /* VolumeProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeProgressView.swift; sourceTree = "<group>"; };
-		C66106D22C601AF100E6196C /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		C62348662C5E8B3900F536E7 /* AudioVolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVolumeView.swift; sourceTree = "<group>"; };
 		C66106D62C60224E00E6196C /* AudioPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerController.swift; sourceTree = "<group>"; };
+		C68453DF2C62BA4D00C457EA /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
+		C68453E32C62BBE000C457EA /* AudioPlayerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerPresenter.swift; sourceTree = "<group>"; };
+		C68453E52C62BDB700C457EA /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
+		C68453E72C62C60000C457EA /* AudioAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAssembly.swift; sourceTree = "<group>"; };
 		C6DF00C52C5FA62E0011EA5D /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		C6DF00C72C5FAA4B0011EA5D /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
 		CB2C8C922C5698E400D280FE /* RadioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -406,7 +412,6 @@
 				CBCA8DA02C5D39AD003B01B9 /* UITextField+Padding.swift */,
 				C623484B2C5E88E700F536E7 /* UIStackView + Extensions.swift */,
 				C623484D2C5E899800F536E7 /* UIImageView + Extensions.swift */,
-				C623484F2C5E89BA00F536E7 /* UIImage + Extensions.swift */,
 				C6DF00C72C5FAA4B0011EA5D /* UIButton + Extensions.swift */,
 			);
 			path = Extensions;
@@ -519,19 +524,39 @@
 		C66106D42C6021FB00E6196C /* AudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				C68453E72C62C60000C457EA /* AudioAssembly.swift */,
 				C66106D62C60224E00E6196C /* AudioPlayerController.swift */,
-				C66106D82C6022D200E6196C /* Views */,
+				C66106D82C6022D200E6196C /* View */,
+				C68453E22C62BBC200C457EA /* Presenter */,
 			);
 			path = AudioPlayer;
 			sourceTree = "<group>";
 		};
-		C66106D82C6022D200E6196C /* Views */ = {
+		C66106D82C6022D200E6196C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C68453E52C62BDB700C457EA /* AudioView.swift */,
+				C68453DF2C62BA4D00C457EA /* AudioPlayerViewController.swift */,
+				C68453E12C62BB9E00C457EA /* Subviews */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C68453E12C62BB9E00C457EA /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
 				C6DF00C52C5FA62E0011EA5D /* AudioPlayerView.swift */,
-				C62348662C5E8B3900F536E7 /* VolumeProgressView.swift */,
+				C62348662C5E8B3900F536E7 /* AudioVolumeView.swift */,
 			);
-			path = Views;
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		C68453E22C62BBC200C457EA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				C68453E32C62BBE000C457EA /* AudioPlayerPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		CB2C8C892C5698E400D280FE = {
@@ -605,7 +630,6 @@
 			isa = PBXGroup;
 			children = (
 				CB2C8CBF2C57B1A000D280FE /* TabBarController.swift */,
-				C66106D22C601AF100E6196C /* CustomTabBar.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -857,7 +881,6 @@
 				B949AE542C5F805600E2A338 /* FavoritesController.swift in Sources */,
 				BECF66542C5A36030068160D /* LanguageViewController.swift in Sources */,
 				CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */,
-				C66106D32C601AF100E6196C /* CustomTabBar.swift in Sources */,
 				BECF66512C5A35C50068160D /* NotificationsPresenter.swift in Sources */,
 				C62348632C5E8B2100F536E7 /* PopularViewController.swift in Sources */,
 				CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */,
@@ -867,11 +890,12 @@
 				CBF57B612C583F67006237E8 /* ExamplePresenter.swift in Sources */,
 				CBF57B562C58319D006237E8 /* Builder.swift in Sources */,
 				113FE50F2C61396B00B2AC8B /* StationDetailsAssembly .swift in Sources */,
+				C68453E42C62BBE000C457EA /* AudioPlayerPresenter.swift in Sources */,
 				BECF665A2C5A4F740068160D /* NotificationService.swift in Sources */,
 				BECF661B2C5A055C0068160D /* GeneralView.swift in Sources */,
 				BECF662E2C5A0D7E0068160D /* AboutUsPresenter.swift in Sources */,
 				CBCA8D972C5D3965003B01B9 /* AuthorizationPresenter.swift in Sources */,
-				C62348672C5E8B3900F536E7 /* VolumeProgressView.swift in Sources */,
+				C62348672C5E8B3900F536E7 /* AudioVolumeView.swift in Sources */,
 				113FE50D2C61396B00B2AC8B /* EqualizerView.swift in Sources */,
 				BECF66322C5A0DB70068160D /* Team.swift in Sources */,
 				BECF66352C5A10AA0068160D /* UIView+.swift in Sources */,
@@ -894,11 +918,14 @@
 				CBF57B4E2C57FA83006237E8 /* Example.swift in Sources */,
 				113FE5012C61395C00B2AC8B /* WaveView.swift in Sources */,
 				BECF66302C5A0D9A0068160D /* TeamViewCell.swift in Sources */,
+				C68453E82C62C60000C457EA /* AudioAssembly.swift in Sources */,
+				C68453E02C62BA4D00C457EA /* AudioPlayerViewController.swift in Sources */,
 				CBCA8D9D2C5D3965003B01B9 /* UpdatePasswordPresenter.swift in Sources */,
 				CBCA8D9A2C5D3965003B01B9 /* AuthorizationController.swift in Sources */,
 				B949AE512C5F805600E2A338 /* FavStationModel.swift in Sources */,
 				113FE50E2C61396B00B2AC8B /* StationDetailsController.swift in Sources */,
 				CBCA8D9E2C5D3965003B01B9 /* ForgotPasswordController.swift in Sources */,
+				C68453E62C62BDB700C457EA /* AudioView.swift in Sources */,
 				C62348652C5E8B2D00F536E7 /* PopularCollectionViewCell.swift in Sources */,
 				BECF66562C5A361B0068160D /* LanguagePresenter.swift in Sources */,
 				CBF57B522C57FD2B006237E8 /* ExampleRouter.swift in Sources */,

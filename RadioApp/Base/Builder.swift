@@ -42,4 +42,8 @@ final class Builder {
     static func createOnboarding() -> UIViewController {
         OnboardingAssembly().build()
     }
+    
+    static func createAudioPlayer() -> UIViewController {
+        AudioAssembly().build()
+    }
 }

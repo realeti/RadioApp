@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import SnapKit
 
 final class TabBarController: UITabBarController {
+    // MARK: - Private Properties
+    private let audioPlayerVC = Builder.createAudioPlayer()
+    
+    // MARK: - Init
     init() {
         super.init(nibName: nil, bundle: nil)
-        setupCustomTabBar()
         configure()
     }
     
@@ -18,10 +22,12 @@ final class TabBarController: UITabBarController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupCustomTabBar() {
-        let customTabBar = CustomTabBar()
-        customTabBar.tabBarController = self
-        self.setValue(customTabBar, forKey: "tabBar")
+    // MARK: - Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupAudioPlayer()
+        setupConstraints()
     }
     
     private func configure() {
@@ -38,5 +44,24 @@ final class TabBarController: UITabBarController {
         allStationsVC.view.backgroundColor = .neonBlueApp
         
         viewControllers = [popularVC, favoriteVC, allStationsVC]
+    }
+}
+
+// MARK: - Set AudioPlayer
+private extension TabBarController {
+    func setupAudioPlayer() {
+        addChild(audioPlayerVC)
+        view.addSubview(audioPlayerVC.view)
+        audioPlayerVC.didMove(toParent: self)
+    }
+}
+
+// MARK: - Setup Constraints
+private extension TabBarController {
+    func setupConstraints() {
+        audioPlayerVC.view.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(tabBar.snp.top)
+        }
     }
 }

@@ -28,7 +28,6 @@ final class PopularViewController: ViewController {
         
         setDelegates()
         loadStations()
-        setupVolumeProgress()
     }
     
     // MARK: - Set Delegates
@@ -41,25 +40,6 @@ final class PopularViewController: ViewController {
     private func loadStations() {
         Task {
             await presenter.loadStations()
-        }
-    }
-}
-
-// MARK: - Set VolumeProgress
-private extension PopularViewController {
-    func setupVolumeProgress() {
-        let volume = getSystemVolume()
-        popularView.updateVolumeProgress(volume)
-    }
-    
-    private func getSystemVolume() -> Float {
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setActive(true)
-            return audioSession.outputVolume
-        } catch {
-            print("Error activating audio session: \(error)")
-            return 0
         }
     }
 }

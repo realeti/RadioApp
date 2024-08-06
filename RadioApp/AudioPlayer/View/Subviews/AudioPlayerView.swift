@@ -8,12 +8,6 @@
 import UIKit
 import SnapKit
 
-protocol AudioPlayerViewDelegate: AnyObject {
-    func didTapPlayPauseButton()
-    func didTapBackButton()
-    func didTapNextButton()
-}
-
 final class AudioPlayerView: UIView {
     // MARK: - UI
     private let playerStackView = UIStackView(
@@ -28,7 +22,7 @@ final class AudioPlayerView: UIView {
     private let nextButton = UIButton(backgroundImage: .playerNext)
     
     // MARK: - Delegate
-    weak var delegate: AudioPlayerViewDelegate?
+    weak var delegate: AudioViewProtocol?
     
     // MARK: - Init
     override init(frame: CGRect) {
@@ -57,8 +51,8 @@ final class AudioPlayerView: UIView {
 
 // MARK: - External methods
 extension AudioPlayerView {
-    func updatePlayerButtonImage(_ isPlaying: Bool) {
-        let playerImage: UIImage = isPlaying ? .playerPause : .playerPlay
+    func updatePlayerImage(_ isPlaying: Bool) {
+        let playerImage: UIImage = isPlaying ? .playerPlay : .playerPause
         
         UIView.animate(withDuration: 0.1) {
             self.playerButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
