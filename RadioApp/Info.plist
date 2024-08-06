@@ -14,7 +14,12 @@
 		</dict>
 	</array>
 	<key>GIDClientID</key>
-	<string>527946517860-uauob2ffv6ik7s11r5k5npvjvoq8raek.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.527946517860-uauob2ffv6ik7s11r5k5npvjvoq8raek</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

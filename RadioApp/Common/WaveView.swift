@@ -49,15 +49,24 @@ final class WaveView: UIView {
         }
         
         leftWaveCircle.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(2)
-            make.leading.equalToSuperview().inset(-2)
+            make.top.equalToSuperview().inset(Metrics.circleTopIndent)
+            make.leading.equalToSuperview().offset(-Metrics.circleLeadingIndent)
             make.width.height.equalTo(waveImageView.snp.height).multipliedBy(0.37)
         }
         
         rightWaveCircle.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(2)
-            make.trailing.equalToSuperview().offset(2)
+            make.top.equalToSuperview().inset(Metrics.circleTopIndent)
+            make.trailing.equalToSuperview().offset(Metrics.circleTrailingIndent)
             make.width.height.equalTo(leftWaveCircle)
         }
     }
+}
+
+fileprivate struct Metrics {
+    /// wave circle image view
+    static let circleTopIndent: CGFloat = 3.0
+    static let circleLeadingIndent: CGFloat = 1.5
+    static let circleTrailingIndent: CGFloat = 4.0
+    
+    private init() {}
 }

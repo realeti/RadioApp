@@ -19,14 +19,14 @@ final class StationDetailsController: ViewController {
     
     private let backgroundImage: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named: "stationDetailsBackground")
+        iv.image = UIImage(named: "bg_nontransparent")
         iv.contentMode = .scaleAspectFit
         return iv
     }()
     
     private let radioFrequencyLabel: UILabel = {
         let label = UILabel()
-        label.text = "90.5"
+//        label.text = "90.5"
         label.font = UIFont.systemFont(ofSize: 54, weight: .bold)
         label.textColor = UIColor.white
         return label
@@ -34,7 +34,7 @@ final class StationDetailsController: ViewController {
     
     private let radioNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Radio Divelement"
+//        label.text = "Radio Divelement"
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         label.textColor = UIColor.white
         return label
@@ -43,7 +43,7 @@ final class StationDetailsController: ViewController {
     private let stationImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "googlePlus")
+//        imageView.image = UIImage(named: "googlePlus")
         return imageView
     }()
     
@@ -54,7 +54,7 @@ final class StationDetailsController: ViewController {
         return button
     }()
     
-    private let favoriteButton: UIButton = {
+    private lazy var favoriteButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "favOff"), for: .normal)
         button.setImage(UIImage(named: "favOn"), for: .selected)

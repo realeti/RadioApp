@@ -24,7 +24,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let loading = LoadingView()
         navViewController.viewControllers = [loading]
         Auth.auth().addStateDidChangeListener { auth, user in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 if let user {
                     let home = Builder.createTabBar()
                     navViewController.viewControllers = [home]

@@ -61,7 +61,7 @@ final class StorageManager {
         }
     }
     
-    private func fetchStation(with id: UUID) -> StationEntity? {
+    func fetchStation(with id: UUID) -> StationEntity? {
         let fetchRequest: NSFetchRequest<StationEntity> = StationEntity.fetchRequest()
         let stations = try? viewContext.fetch(fetchRequest)
         let station = stations?.first(where: { $0.id == id })

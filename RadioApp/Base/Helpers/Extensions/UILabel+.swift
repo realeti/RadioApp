@@ -40,7 +40,7 @@ extension UILabel {
         self.font = font
         self.textAlignment = alignment
         self.adjustsFontSizeToFitWidth = true
-        self.minimumScaleFactor = 0.9
+        self.minimumScaleFactor = 0.8
         self.translatesAutoresizingMaskIntoConstraints = false
     }
 }
