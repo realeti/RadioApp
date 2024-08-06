@@ -1,4 +1,0 @@
-module nanopb {
-umbrella "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/nanopb/spm_headers"
-export *
-}

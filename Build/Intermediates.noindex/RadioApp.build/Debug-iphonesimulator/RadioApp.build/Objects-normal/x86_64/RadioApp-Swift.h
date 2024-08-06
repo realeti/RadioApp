@@ -275,6 +275,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import CoreData;
 @import CoreFoundation;
 @import Foundation;
 @import UIKit;
@@ -401,6 +402,13 @@ SWIFT_CLASS("_TtC8RadioApp25EditProfileViewController")
 @end
 
 
+SWIFT_CLASS("_TtC8RadioApp13EqualizerView")
+@interface EqualizerView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC8RadioApp15ExampleCellView")
 @interface ExampleCellView : UIView
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -424,6 +432,36 @@ SWIFT_CLASS("_TtC8RadioApp17ExampleController")
 
 
 
+
+
+SWIFT_CLASS("_TtC8RadioApp17FavoriteRadioView")
+@interface FavoriteRadioView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC8RadioApp19FavoritesController")
+@interface FavoritesController : ViewController
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+@class UITableView;
+
+@interface FavoritesController (SWIFT_EXTENSION(RadioApp)) <UITableViewDelegate>
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+
+@class UITableViewCell;
+
+@interface FavoritesController (SWIFT_EXTENSION(RadioApp)) <UITableViewDataSource>
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
 SWIFT_CLASS("_TtC8RadioApp24ForgotPasswordController")
@@ -484,7 +522,6 @@ SWIFT_CLASS("_TtC8RadioApp22LanguageViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UITableView;
 
 @interface LanguageViewController (SWIFT_EXTENSION(RadioApp)) <UITableViewDataSource>
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
@@ -606,6 +643,33 @@ SWIFT_CLASS("_TtC8RadioApp13SceneDelegate")
 @end
 
 
+SWIFT_CLASS("_TtC8RadioApp24StationDetailsController")
+@interface StationDetailsController : ViewController
+- (void)viewDidLoad;
+- (void)playButtonTapped;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@class NSEntityDescription;
+@class NSManagedObjectContext;
+
+SWIFT_CLASS_NAMED("StationEntity")
+@interface StationEntity : NSManagedObject
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@class NSUUID;
+
+@interface StationEntity (SWIFT_EXTENSION(RadioApp))
+@property (nonatomic, copy) NSString * _Nullable genre;
+@property (nonatomic, copy) NSUUID * _Nullable id;
+@property (nonatomic, copy) NSString * _Nullable title;
+@end
+
+
 SWIFT_CLASS("_TtC8RadioApp16TabBarController")
 @interface TabBarController : UITabBarController
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -620,7 +684,6 @@ SWIFT_CLASS("_TtC8RadioApp12TeamViewCell")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)layoutSubviews;
 @end
-
 
 
 
@@ -671,6 +734,13 @@ SWIFT_CLASS("_TtC8RadioApp18VolumeProgressView")
 
 
 
+
+
+SWIFT_CLASS("_TtC8RadioApp8WaveView")
+@interface WaveView : UIView
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
 
 #endif
 #if __has_attribute(external_source_symbol)
