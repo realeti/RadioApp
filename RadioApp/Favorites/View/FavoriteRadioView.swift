@@ -13,7 +13,7 @@ class FavoriteRadioView: UIView, CellConfigurable {
     
     private let genreLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 30, weight: .bold)
+        label.font = .systemFont(ofSize: 28, weight: .bold)
         label.textColor = .white
         return label
     }()
@@ -33,6 +33,7 @@ class FavoriteRadioView: UIView, CellConfigurable {
     private lazy var favButton: UIButton = {
        let button = UIButton()
         button.setImage(UIImage(named: "favOn"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
         button.addTarget(self, action: #selector(favButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -72,11 +73,13 @@ class FavoriteRadioView: UIView, CellConfigurable {
             $0.top.equalToSuperview().inset(18)
             $0.leading.equalToSuperview().inset(22)
             $0.bottom.equalToSuperview().inset(15)
+            $0.trailing.equalTo(favButton.snp.leading).inset(-16)
         }
         
         favButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(31)
             $0.trailing.equalToSuperview().inset(16)
+            $0.width.equalTo(58)
         }
         
         waveView.snp.makeConstraints {

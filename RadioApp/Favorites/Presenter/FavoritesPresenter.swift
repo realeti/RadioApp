@@ -35,10 +35,11 @@ class FavoritesPresenter: FavoritesPresenterProtocol {
                 favoriteHandler: { [weak self] in
                     self?.removeFromFavorites(stationEntity)
                 },
-                didSelectHandler: {}
+                didSelectHandler: { [weak self] in
+                    self?.router.showDetails()
+                }
             )
         }
-        /*let items: [FavStationModel] = [.init(radioTitle: "RadioL Legend", genre: "11", favoriteHandler: {}, didSelectHandler: { self.router.showDetails() })]*/
         view?.update(with: .init(items: items))
     }
     

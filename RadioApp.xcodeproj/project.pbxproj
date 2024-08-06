@@ -533,8 +533,8 @@
 			children = (
 				CB2C8C952C5698E400D280FE /* AppDelegate.swift */,
 				CB2C8C972C5698E400D280FE /* SceneDelegate.swift */,
-				B949AE502C5F805600E2A338 /* Favorites */,
 				CB2C8CC12C57BC4200D280FE /* TabBar */,
+				B949AE502C5F805600E2A338 /* Favorites */,
 				CBCA8DA22C5D3A36003B01B9 /* Onboarding */,
 				CBCA8D842C5D3965003B01B9 /* Authorization */,
 				C62348512C5E8A4900F536E7 /* Popular */,

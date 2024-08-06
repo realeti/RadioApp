@@ -27,7 +27,7 @@ final class TabBarController: UITabBarController {
         favoriteVC.view.backgroundColor = .darkBlueApp
         
         let allStationsVC = NavigationController(rootViewController: ViewController())
-        favoriteVC.tabBarItem.title = "All Stations"
+        allStationsVC.tabBarItem.title = "All Stations"
         allStationsVC.view.backgroundColor = .neonBlueApp
         
         viewControllers = [popularVC, favoriteVC, allStationsVC]
