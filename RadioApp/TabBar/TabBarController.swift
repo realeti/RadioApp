@@ -22,12 +22,12 @@ final class TabBarController: UITabBarController {
         popularVC.tabBarItem.title = "Popular".localized
         popularVC.view.backgroundColor = .darkBlueApp
 
-        let favoriteVC = NavigationController(rootViewController: ViewController())
-        favoriteVC.tabBarItem.title = "Favorites".localized
-        favoriteVC.view.backgroundColor = .lightBlueApp
+        let favoriteVC = NavigationController(rootViewController: Builder.createFavorite())
+        favoriteVC.tabBarItem.title = "Favorites"
+        favoriteVC.view.backgroundColor = .darkBlueApp
         
         let allStationsVC = NavigationController(rootViewController: ViewController())
-        favoriteVC.tabBarItem.title = "All Stations".localized
+        allStationsVC.tabBarItem.title = "All Stations"
         allStationsVC.view.backgroundColor = .neonBlueApp
         
         viewControllers = [popularVC, favoriteVC, allStationsVC]
