@@ -128,8 +128,8 @@ private extension AudioPlayerView {
 
 fileprivate struct Metrics {
     /// player button
-    static let playerButtonWidth: CGFloat = 111.0
-    static let playerButtonHeight: CGFloat = 122.0
+    static let playerButtonWidth: CGFloat = K.audioPlayerWidth
+    static let playerButtonHeight: CGFloat = K.audioPlayerHeight
     
     /// back button
     static let backButtonWidth: CGFloat = 42.0

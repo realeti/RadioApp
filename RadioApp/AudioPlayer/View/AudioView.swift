@@ -59,7 +59,7 @@ private extension AudioView {
     func setupAudioPlayerViewConstraints() {
         audioPlayerView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().offset(Metrics.audioPlayerBottomIndent)
+            make.bottom.equalToSuperview()
         }
     }
     
@@ -72,9 +72,6 @@ private extension AudioView {
 }
 
 fileprivate struct Metrics {
-    /// audio player view
-    static let audioPlayerBottomIndent: CGFloat = 11.5
-    
     /// audio player volume view
     //static let audioVolumeLeadingIndent: CGFloat = 25.0
     

@@ -88,12 +88,6 @@
 		CBB20CC12C61540E00B35416 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CC02C61540E00B35416 /* FirebaseFirestore */; };
 		CBB20CC42C61542A00B35416 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CC32C61542A00B35416 /* SnapKit */; };
 		CBB20CC72C61566300B35416 /* RadioBrowser in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CC62C61566300B35416 /* RadioBrowser */; };
-		CBB20CE22C626C0000B35416 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CE12C626C0000B35416 /* RootRouter.swift */; };
-		CBB20CE42C626C4700B35416 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CE32C626C4700B35416 /* RootBuilder.swift */; };
-		CBB20CE62C62792800B35416 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CE52C62792800B35416 /* HomeRouter.swift */; };
-		CBB20CEA2C627A7100B35416 /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CE92C627A7100B35416 /* HomeAssembly.swift */; };
-		CBB20CEC2C627AA200B35416 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CEB2C627AA200B35416 /* HomePresenter.swift */; };
-		CBB20CEE2C627E0B00B35416 /* ProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CED2C627E0B00B35416 /* ProfileAssembly.swift */; };
 		CBB20CCD2C62139500B35416 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = CBB20CCC2C62139400B35416 /* loading.json */; };
 		CBB20CCF2C6213A000B35416 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CCE2C6213A000B35416 /* AuthenticationService.swift */; };
 		CBB20CD12C6213BF00B35416 /* UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CD02C6213BF00B35416 /* UserApp.swift */; };
@@ -102,6 +96,12 @@
 		CBB20CD82C6216B400B35416 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CD72C6216B400B35416 /* GoogleSignIn */; };
 		CBB20CDA2C6216B400B35416 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CD92C6216B400B35416 /* GoogleSignInSwift */; };
 		CBB20CDD2C62171700B35416 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CDC2C62171700B35416 /* Lottie */; };
+		CBB20CE22C626C0000B35416 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CE12C626C0000B35416 /* RootRouter.swift */; };
+		CBB20CE42C626C4700B35416 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CE32C626C4700B35416 /* RootBuilder.swift */; };
+		CBB20CE62C62792800B35416 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CE52C62792800B35416 /* HomeRouter.swift */; };
+		CBB20CEA2C627A7100B35416 /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CE92C627A7100B35416 /* HomeAssembly.swift */; };
+		CBB20CEC2C627AA200B35416 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CEB2C627AA200B35416 /* HomePresenter.swift */; };
+		CBB20CEE2C627E0B00B35416 /* ProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CED2C627E0B00B35416 /* ProfileAssembly.swift */; };
 		CBCA8D7A2C5D38AB003B01B9 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D762C5D38AB003B01B9 /* OnboardingController.swift */; };
 		CBCA8D7B2C5D38AB003B01B9 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D772C5D38AB003B01B9 /* OnboardingRouter.swift */; };
 		CBCA8D7C2C5D38AB003B01B9 /* OnboardingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D782C5D38AB003B01B9 /* OnboardingAssembly.swift */; };
@@ -204,17 +204,17 @@
 		CB2C8CBF2C57B1A000D280FE /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		CB2C8CC72C57C8AB00D280FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBB20CB92C61501300B35416 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CBB20CCC2C62139400B35416 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		CBB20CCE2C6213A000B35416 /* AuthenticationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		CBB20CD02C6213BF00B35416 /* UserApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserApp.swift; sourceTree = "<group>"; };
+		CBB20CD22C62141900B35416 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		CBB20CD42C62145000B35416 /* BrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrowserController.swift; path = RadioApp/Authorization/SubVC/ForgotPassword/BrowserController.swift; sourceTree = SOURCE_ROOT; };
 		CBB20CE12C626C0000B35416 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		CBB20CE32C626C4700B35416 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
 		CBB20CE52C62792800B35416 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		CBB20CE92C627A7100B35416 /* HomeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssembly.swift; sourceTree = "<group>"; };
 		CBB20CEB2C627AA200B35416 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		CBB20CED2C627E0B00B35416 /* ProfileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembly.swift; sourceTree = "<group>"; };
-		CBB20CCC2C62139400B35416 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
-		CBB20CCE2C6213A000B35416 /* AuthenticationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
-		CBB20CD02C6213BF00B35416 /* UserApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserApp.swift; sourceTree = "<group>"; };
-		CBB20CD22C62141900B35416 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		CBB20CD42C62145000B35416 /* BrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrowserController.swift; path = RadioApp/Authorization/SubVC/ForgotPassword/BrowserController.swift; sourceTree = SOURCE_ROOT; };
 		CBCA8D762C5D38AB003B01B9 /* OnboardingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		CBCA8D772C5D38AB003B01B9 /* OnboardingRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
 		CBCA8D782C5D38AB003B01B9 /* OnboardingAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingAssembly.swift; sourceTree = "<group>"; };
@@ -651,27 +651,19 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		CBB20CEF2C62825900B35416 /* Example */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Example;
-			sourceTree = "<group>";
-		};
-		CBB20CC82C62136600B35416 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				CBB20CC92C62136600B35416 /* ExamplePresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
 		CBB20CCB2C62139400B35416 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
 				CBB20CCC2C62139400B35416 /* loading.json */,
 			);
 			path = Lottie;
+			sourceTree = "<group>";
+		};
+		CBB20CEF2C62825900B35416 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Example;
 			sourceTree = "<group>";
 		};
 		CBCA8D842C5D3965003B01B9 /* Authorization */ = {
@@ -847,7 +839,6 @@
 				C623485A2C5E8AD300F536E7 /* PopularViewModel.swift in Sources */,
 				C623484A2C5E88D100F536E7 /* ColorFactory.swift in Sources */,
 				C66106D72C60224E00E6196C /* AudioPlayerController.swift in Sources */,
-				CBF57B5F2C583EA9006237E8 /* ExampleAssembly.swift in Sources */,
 				CBCA8D992C5D3965003B01B9 /* AuthorizationBuilder.swift in Sources */,
 				C6DF00C82C5FAA4B0011EA5D /* UIButton + Extensions.swift in Sources */,
 				CB2C8CB32C5768CB00D280FE /* NavigationController.swift in Sources */,
