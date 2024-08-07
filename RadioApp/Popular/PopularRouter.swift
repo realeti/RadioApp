@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol PopularRouterProtocol: AnyObject {
+protocol PopularRouterProtocol: AnyObject, Router {
     //
 }
 

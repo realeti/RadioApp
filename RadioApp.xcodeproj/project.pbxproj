@@ -23,7 +23,6 @@
 		B949AE572C5F805600E2A338 /* FavoritesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE4E2C5F805600E2A338 /* FavoritesProtocol.swift */; };
 		B949AE582C5F805600E2A338 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE4F2C5F805600E2A338 /* FavoritesRouter.swift */; };
 		B949AE5A2C5F808600E2A338 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE592C5F808600E2A338 /* TableCell.swift */; };
-		BECF66112C58D5D90068160D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66102C58D5D90068160D /* User.swift */; };
 		BECF66132C58D6C30068160D /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66122C58D6C30068160D /* ProfileRouter.swift */; };
 		BECF66152C58D6FA0068160D /* ProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66142C58D6FA0068160D /* ProfileBuilder.swift */; };
 		BECF66172C58D7410068160D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66162C58D7410068160D /* ProfileViewController.swift */; };
@@ -82,13 +81,27 @@
 		CB2C8CB52C576A5C00D280FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8CB42C576A5C00D280FE /* ViewController.swift */; };
 		CB2C8CB72C57AACC00D280FE /* ModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8CB62C57AACC00D280FE /* ModuleAssembly.swift */; };
 		CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8CB92C57AB5800D280FE /* Configurable.swift */; };
-		CB2C8CC02C57B1A000D280FE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8CBF2C57B1A000D280FE /* TabBarController.swift */; };
+		CB2C8CC02C57B1A000D280FE /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8CBF2C57B1A000D280FE /* HomeController.swift */; };
 		CB2C8CC82C57C8AB00D280FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB2C8CC72C57C8AB00D280FE /* Assets.xcassets */; };
 		CBB20CBA2C61501300B35416 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBB20CB92C61501300B35416 /* GoogleService-Info.plist */; };
 		CBB20CBF2C61540E00B35416 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CBE2C61540E00B35416 /* FirebaseAuth */; };
 		CBB20CC12C61540E00B35416 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CC02C61540E00B35416 /* FirebaseFirestore */; };
 		CBB20CC42C61542A00B35416 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CC32C61542A00B35416 /* SnapKit */; };
 		CBB20CC72C61566300B35416 /* RadioBrowser in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CC62C61566300B35416 /* RadioBrowser */; };
+		CBB20CE22C626C0000B35416 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CE12C626C0000B35416 /* RootRouter.swift */; };
+		CBB20CE42C626C4700B35416 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CE32C626C4700B35416 /* RootBuilder.swift */; };
+		CBB20CE62C62792800B35416 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CE52C62792800B35416 /* HomeRouter.swift */; };
+		CBB20CEA2C627A7100B35416 /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CE92C627A7100B35416 /* HomeAssembly.swift */; };
+		CBB20CEC2C627AA200B35416 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CEB2C627AA200B35416 /* HomePresenter.swift */; };
+		CBB20CEE2C627E0B00B35416 /* ProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CED2C627E0B00B35416 /* ProfileAssembly.swift */; };
+		CBB20CCD2C62139500B35416 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = CBB20CCC2C62139400B35416 /* loading.json */; };
+		CBB20CCF2C6213A000B35416 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CCE2C6213A000B35416 /* AuthenticationService.swift */; };
+		CBB20CD12C6213BF00B35416 /* UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CD02C6213BF00B35416 /* UserApp.swift */; };
+		CBB20CD32C62141900B35416 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CD22C62141900B35416 /* LoadingView.swift */; };
+		CBB20CD52C62145000B35416 /* BrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CD42C62145000B35416 /* BrowserController.swift */; };
+		CBB20CD82C6216B400B35416 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CD72C6216B400B35416 /* GoogleSignIn */; };
+		CBB20CDA2C6216B400B35416 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CD92C6216B400B35416 /* GoogleSignInSwift */; };
+		CBB20CDD2C62171700B35416 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CDC2C62171700B35416 /* Lottie */; };
 		CBCA8D7A2C5D38AB003B01B9 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D762C5D38AB003B01B9 /* OnboardingController.swift */; };
 		CBCA8D7B2C5D38AB003B01B9 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D772C5D38AB003B01B9 /* OnboardingRouter.swift */; };
 		CBCA8D7C2C5D38AB003B01B9 /* OnboardingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D782C5D38AB003B01B9 /* OnboardingAssembly.swift */; };
@@ -105,16 +118,8 @@
 		CBCA8D9E2C5D3965003B01B9 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D932C5D3965003B01B9 /* ForgotPasswordController.swift */; };
 		CBCA8D9F2C5D3965003B01B9 /* ForgotPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D942C5D3965003B01B9 /* ForgotPasswordPresenter.swift */; };
 		CBCA8DA12C5D39AD003B01B9 /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8DA02C5D39AD003B01B9 /* UITextField+Padding.swift */; };
-		CBF57B4B2C57FA53006237E8 /* ExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B4A2C57FA53006237E8 /* ExampleController.swift */; };
-		CBF57B4E2C57FA83006237E8 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B4D2C57FA83006237E8 /* Example.swift */; };
-		CBF57B522C57FD2B006237E8 /* ExampleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B512C57FD2B006237E8 /* ExampleRouter.swift */; };
-		CBF57B542C582540006237E8 /* ExampleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B532C582540006237E8 /* ExampleBuilder.swift */; };
 		CBF57B562C58319D006237E8 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B552C58319D006237E8 /* Builder.swift */; };
 		CBF57B592C5835AC006237E8 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B582C5835AC006237E8 /* CollectionCell.swift */; };
-		CBF57B5B2C5839EA006237E8 /* ExampleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B5A2C5839EA006237E8 /* ExampleProtocols.swift */; };
-		CBF57B5D2C583B12006237E8 /* ExampleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B5C2C583B12006237E8 /* ExampleCellView.swift */; };
-		CBF57B5F2C583EA9006237E8 /* ExampleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B5E2C583EA9006237E8 /* ExampleAssembly.swift */; };
-		CBF57B612C583F67006237E8 /* ExamplePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B602C583F67006237E8 /* ExamplePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,7 +139,6 @@
 		B949AE4E2C5F805600E2A338 /* FavoritesProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesProtocol.swift; sourceTree = "<group>"; };
 		B949AE4F2C5F805600E2A338 /* FavoritesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		B949AE592C5F808600E2A338 /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
-		BECF66102C58D5D90068160D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BECF66122C58D6C30068160D /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		BECF66142C58D6FA0068160D /* ProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBuilder.swift; sourceTree = "<group>"; };
 		BECF66162C58D7410068160D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -197,9 +201,20 @@
 		CB2C8CB42C576A5C00D280FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CB2C8CB62C57AACC00D280FE /* ModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleAssembly.swift; sourceTree = "<group>"; };
 		CB2C8CB92C57AB5800D280FE /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
-		CB2C8CBF2C57B1A000D280FE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		CB2C8CBF2C57B1A000D280FE /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		CB2C8CC72C57C8AB00D280FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBB20CB92C61501300B35416 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CBB20CE12C626C0000B35416 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		CBB20CE32C626C4700B35416 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
+		CBB20CE52C62792800B35416 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		CBB20CE92C627A7100B35416 /* HomeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssembly.swift; sourceTree = "<group>"; };
+		CBB20CEB2C627AA200B35416 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		CBB20CED2C627E0B00B35416 /* ProfileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembly.swift; sourceTree = "<group>"; };
+		CBB20CCC2C62139400B35416 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		CBB20CCE2C6213A000B35416 /* AuthenticationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		CBB20CD02C6213BF00B35416 /* UserApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserApp.swift; sourceTree = "<group>"; };
+		CBB20CD22C62141900B35416 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		CBB20CD42C62145000B35416 /* BrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrowserController.swift; path = RadioApp/Authorization/SubVC/ForgotPassword/BrowserController.swift; sourceTree = SOURCE_ROOT; };
 		CBCA8D762C5D38AB003B01B9 /* OnboardingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		CBCA8D772C5D38AB003B01B9 /* OnboardingRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
 		CBCA8D782C5D38AB003B01B9 /* OnboardingAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingAssembly.swift; sourceTree = "<group>"; };
@@ -216,16 +231,8 @@
 		CBCA8D932C5D3965003B01B9 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		CBCA8D942C5D3965003B01B9 /* ForgotPasswordPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresenter.swift; sourceTree = "<group>"; };
 		CBCA8DA02C5D39AD003B01B9 /* UITextField+Padding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
-		CBF57B4A2C57FA53006237E8 /* ExampleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleController.swift; sourceTree = "<group>"; };
-		CBF57B4D2C57FA83006237E8 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
-		CBF57B512C57FD2B006237E8 /* ExampleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleRouter.swift; sourceTree = "<group>"; };
-		CBF57B532C582540006237E8 /* ExampleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleBuilder.swift; sourceTree = "<group>"; };
 		CBF57B552C58319D006237E8 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		CBF57B582C5835AC006237E8 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
-		CBF57B5A2C5839EA006237E8 /* ExampleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleProtocols.swift; sourceTree = "<group>"; };
-		CBF57B5C2C583B12006237E8 /* ExampleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCellView.swift; sourceTree = "<group>"; };
-		CBF57B5E2C583EA9006237E8 /* ExampleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleAssembly.swift; sourceTree = "<group>"; };
-		CBF57B602C583F67006237E8 /* ExamplePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,8 +240,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBB20CD82C6216B400B35416 /* GoogleSignIn in Frameworks */,
+				CBB20CDD2C62171700B35416 /* Lottie in Frameworks */,
 				CBB20CC42C61542A00B35416 /* SnapKit in Frameworks */,
 				CBB20CBF2C61540E00B35416 /* FirebaseAuth in Frameworks */,
+				CBB20CDA2C6216B400B35416 /* GoogleSignInSwift in Frameworks */,
 				CBB20CC12C61540E00B35416 /* FirebaseFirestore in Frameworks */,
 				CBB20CC72C61566300B35416 /* RadioBrowser in Frameworks */,
 			);
@@ -331,9 +341,10 @@
 		BECF660C2C58D3930068160D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				BECF660D2C58D3C50068160D /* Model */,
+				CBB20CED2C627E0B00B35416 /* ProfileAssembly.swift */,
 				BECF66122C58D6C30068160D /* ProfileRouter.swift */,
 				BECF66142C58D6FA0068160D /* ProfileBuilder.swift */,
+				BECF660D2C58D3C50068160D /* Model */,
 				BECF660E2C58D3CC0068160D /* View */,
 				BECF660F2C58D3D60068160D /* Presenter */,
 				BECF66202C5A05D30068160D /* SubVC */,
@@ -344,7 +355,7 @@
 		BECF660D2C58D3C50068160D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BECF66102C58D5D90068160D /* User.swift */,
+				CBB20CD02C6213BF00B35416 /* UserApp.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -423,6 +434,7 @@
 				BECF66412C5A1E300068160D /* UDService.swift */,
 				B949AE432C5F804100E2A338 /* StorageManager.swift */,
 				BECF66592C5A4F740068160D /* NotificationService.swift */,
+				CBB20CCE2C6213A000B35416 /* AuthenticationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -580,20 +592,20 @@
 			children = (
 				CB2C8C952C5698E400D280FE /* AppDelegate.swift */,
 				CB2C8C972C5698E400D280FE /* SceneDelegate.swift */,
-				CB2C8CC12C57BC4200D280FE /* TabBar */,
-				B949AE502C5F805600E2A338 /* Favorites */,
 				CBCA8DA22C5D3A36003B01B9 /* Onboarding */,
 				CBCA8D842C5D3965003B01B9 /* Authorization */,
+				CB2C8CC12C57BC4200D280FE /* Home */,
+				B949AE502C5F805600E2A338 /* Favorites */,
 				C62348512C5E8A4900F536E7 /* Popular */,
 				BECF660C2C58D3930068160D /* Profile */,
-				CBF57B4C2C57FA59006237E8 /* Example */,
-				CBF57B622C584CC4006237E8 /* Presenter */,
+				CBB20CCB2C62139400B35416 /* Lottie */,
 				113FE50A2C61396A00B2AC8B /* StationDetails */,
 				113FE5002C61395C00B2AC8B /* Common */,
 				CB2C8CB12C5767E500D280FE /* Base */,
 				C62348462C5E883700F536E7 /* Helpers */,
 				BECF66402C5A1E0E0068160D /* Services */,
 				C66106D42C6021FB00E6196C /* AudioPlayer */,
+				CBB20CEF2C62825900B35416 /* Example */,
 				CB2C8C9E2C5698E400D280FE /* RadioApp.xcdatamodeld */,
 				CB2C8CA32C5698E600D280FE /* LaunchScreen.storyboard */,
 				BECF66672C5D22240068160D /* Localizable.strings */,
@@ -608,9 +620,11 @@
 			isa = PBXGroup;
 			children = (
 				CB2C8CAF2C5767DF00D280FE /* Router.swift */,
+				CBF57B552C58319D006237E8 /* Builder.swift */,
+				CBB20CE12C626C0000B35416 /* RootRouter.swift */,
+				CBB20CE32C626C4700B35416 /* RootBuilder.swift */,
 				CB2C8CB22C5768CB00D280FE /* NavigationController.swift */,
 				CB2C8CB42C576A5C00D280FE /* ViewController.swift */,
-				CBF57B552C58319D006237E8 /* Builder.swift */,
 				CB2C8CB82C57AAEA00D280FE /* Protocols */,
 				CBF57B572C58359D006237E8 /* Views */,
 			);
@@ -626,23 +640,49 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		CB2C8CC12C57BC4200D280FE /* TabBar */ = {
+		CB2C8CC12C57BC4200D280FE /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				CB2C8CBF2C57B1A000D280FE /* TabBarController.swift */,
+				CBB20CE92C627A7100B35416 /* HomeAssembly.swift */,
+				CB2C8CBF2C57B1A000D280FE /* HomeController.swift */,
+				CBB20CEB2C627AA200B35416 /* HomePresenter.swift */,
+				CBB20CE52C62792800B35416 /* HomeRouter.swift */,
 			);
-			path = TabBar;
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CBB20CEF2C62825900B35416 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		CBB20CC82C62136600B35416 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				CBB20CC92C62136600B35416 /* ExamplePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		CBB20CCB2C62139400B35416 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				CBB20CCC2C62139400B35416 /* loading.json */,
+			);
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 		CBCA8D842C5D3965003B01B9 /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
-				CBCA8D852C5D3965003B01B9 /* AuthorizationRouter.swift */,
-				CBCA8D862C5D3965003B01B9 /* AuthorizationProtocols.swift */,
-				CBCA8D872C5D3965003B01B9 /* Presenter */,
 				CBCA8D892C5D3965003B01B9 /* AuthorizationAssembly.swift */,
+				CBCA8D862C5D3965003B01B9 /* AuthorizationProtocols.swift */,
 				CBCA8D8A2C5D3965003B01B9 /* AuthorizationBuilder.swift */,
+				CBCA8D852C5D3965003B01B9 /* AuthorizationRouter.swift */,
 				CBCA8D8B2C5D3965003B01B9 /* View */,
+				CBCA8D872C5D3965003B01B9 /* Presenter */,
 				CBCA8D8E2C5D3965003B01B9 /* SubVC */,
 			);
 			path = Authorization;
@@ -679,6 +719,7 @@
 			children = (
 				CBCA8D902C5D3965003B01B9 /* UpdatePasswordController.swift */,
 				CBCA8D912C5D3965003B01B9 /* UpdatePasswordPresenter.swift */,
+				CBB20CD42C62145000B35416 /* BrowserController.swift */,
 			);
 			path = UpdatePassword;
 			sourceTree = "<group>";
@@ -703,51 +744,14 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		CBF57B4C2C57FA59006237E8 /* Example */ = {
-			isa = PBXGroup;
-			children = (
-				CBF57B5A2C5839EA006237E8 /* ExampleProtocols.swift */,
-				CBF57B512C57FD2B006237E8 /* ExampleRouter.swift */,
-				CBF57B532C582540006237E8 /* ExampleBuilder.swift */,
-				CBF57B5E2C583EA9006237E8 /* ExampleAssembly.swift */,
-				CBF57B4F2C57FAA6006237E8 /* Model */,
-				CBF57B502C57FADD006237E8 /* View */,
-			);
-			path = Example;
-			sourceTree = "<group>";
-		};
-		CBF57B4F2C57FAA6006237E8 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				CBF57B4D2C57FA83006237E8 /* Example.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		CBF57B502C57FADD006237E8 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				CBF57B4A2C57FA53006237E8 /* ExampleController.swift */,
-				CBF57B5C2C583B12006237E8 /* ExampleCellView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		CBF57B572C58359D006237E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				B949AE592C5F808600E2A338 /* TableCell.swift */,
 				CBF57B582C5835AC006237E8 /* CollectionCell.swift */,
+				CBB20CD22C62141900B35416 /* LoadingView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		CBF57B622C584CC4006237E8 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				CBF57B602C583F67006237E8 /* ExamplePresenter.swift */,
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -771,6 +775,9 @@
 				CBB20CC02C61540E00B35416 /* FirebaseFirestore */,
 				CBB20CC32C61542A00B35416 /* SnapKit */,
 				CBB20CC62C61566300B35416 /* RadioBrowser */,
+				CBB20CD72C6216B400B35416 /* GoogleSignIn */,
+				CBB20CD92C6216B400B35416 /* GoogleSignInSwift */,
+				CBB20CDC2C62171700B35416 /* Lottie */,
 			);
 			productName = RadioApp;
 			productReference = CB2C8C922C5698E400D280FE /* RadioApp.app */;
@@ -805,6 +812,8 @@
 				CBB20CBD2C61540E00B35416 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				CBB20CC22C61542A00B35416 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				CBB20CC52C61566300B35416 /* XCRemoteSwiftPackageReference "RadioBrowser" */,
+				CBB20CD62C6216B400B35416 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				CBB20CDB2C62171700B35416 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = CB2C8C932C5698E400D280FE /* Products */;
 			projectDirPath = "";
@@ -824,6 +833,7 @@
 				CBB20CBA2C61501300B35416 /* GoogleService-Info.plist in Resources */,
 				CB2C8CC82C57C8AB00D280FE /* Assets.xcassets in Resources */,
 				CB2C8CA52C5698E600D280FE /* LaunchScreen.storyboard in Resources */,
+				CBB20CCD2C62139500B35416 /* loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -841,8 +851,8 @@
 				CBCA8D992C5D3965003B01B9 /* AuthorizationBuilder.swift in Sources */,
 				C6DF00C82C5FAA4B0011EA5D /* UIButton + Extensions.swift in Sources */,
 				CB2C8CB32C5768CB00D280FE /* NavigationController.swift in Sources */,
-				CBF57B5D2C583B12006237E8 /* ExampleCellView.swift in Sources */,
 				CBCA8D7A2C5D38AB003B01B9 /* OnboardingController.swift in Sources */,
+				CBB20CE42C626C4700B35416 /* RootBuilder.swift in Sources */,
 				BECF66442C5A1FBF0068160D /* UILabel+.swift in Sources */,
 				BECF666D2C60D1FE0068160D /* CustomSwitchSettingsView.swift in Sources */,
 				BECF66152C58D6FA0068160D /* ProfileBuilder.swift in Sources */,
@@ -856,7 +866,6 @@
 				BECF66422C5A1E300068160D /* UDService.swift in Sources */,
 				BECF66482C5A22A70068160D /* EditProfileViewController.swift in Sources */,
 				B949AE582C5F805600E2A338 /* FavoritesRouter.swift in Sources */,
-				CBF57B5B2C5839EA006237E8 /* ExampleProtocols.swift in Sources */,
 				BECF66252C5A06470068160D /* PrivacyViewController.swift in Sources */,
 				BECF661D2C5A05750068160D /* CustomSettingsView.swift in Sources */,
 				CB2C8CB02C5767DF00D280FE /* Router.swift in Sources */,
@@ -867,12 +876,10 @@
 				CB2C8CB52C576A5C00D280FE /* ViewController.swift in Sources */,
 				B949AE532C5F805600E2A338 /* FavoriteRadioView.swift in Sources */,
 				BECF66292C5A06810068160D /* PrivacyInfoModel.swift in Sources */,
-				CBF57B542C582540006237E8 /* ExampleBuilder.swift in Sources */,
 				B949AE572C5F805600E2A338 /* FavoritesProtocol.swift in Sources */,
 				C623485C2C5E8AE000F536E7 /* PopularPresenter.swift in Sources */,
 				CBCA8D962C5D3965003B01B9 /* AuthorizationProtocols.swift in Sources */,
 				B949AE5A2C5F808600E2A338 /* TableCell.swift in Sources */,
-				BECF66112C58D5D90068160D /* User.swift in Sources */,
 				CBCA8D952C5D3965003B01B9 /* AuthorizationRouter.swift in Sources */,
 				B949AE522C5F805600E2A338 /* FavoritesPresenter.swift in Sources */,
 				CB2C8CB72C57AACC00D280FE /* ModuleAssembly.swift in Sources */,
@@ -882,12 +889,15 @@
 				BECF66542C5A36030068160D /* LanguageViewController.swift in Sources */,
 				CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */,
 				BECF66512C5A35C50068160D /* NotificationsPresenter.swift in Sources */,
+				CBB20CEA2C627A7100B35416 /* HomeAssembly.swift in Sources */,
+				CBB20CD12C6213BF00B35416 /* UserApp.swift in Sources */,
 				C62348632C5E8B2100F536E7 /* PopularViewController.swift in Sources */,
 				CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */,
+				CBB20CE62C62792800B35416 /* HomeRouter.swift in Sources */,
 				113FE50B2C61396B00B2AC8B /* RadioStation.swift in Sources */,
-				CB2C8CC02C57B1A000D280FE /* TabBarController.swift in Sources */,
+				CB2C8CC02C57B1A000D280FE /* HomeController.swift in Sources */,
+				CBB20CEE2C627E0B00B35416 /* ProfileAssembly.swift in Sources */,
 				BECF66172C58D7410068160D /* ProfileViewController.swift in Sources */,
-				CBF57B612C583F67006237E8 /* ExamplePresenter.swift in Sources */,
 				CBF57B562C58319D006237E8 /* Builder.swift in Sources */,
 				113FE50F2C61396B00B2AC8B /* StationDetailsAssembly .swift in Sources */,
 				C68453E42C62BBE000C457EA /* AudioPlayerPresenter.swift in Sources */,
@@ -899,6 +909,7 @@
 				113FE50D2C61396B00B2AC8B /* EqualizerView.swift in Sources */,
 				BECF66322C5A0DB70068160D /* Team.swift in Sources */,
 				BECF66352C5A10AA0068160D /* UIView+.swift in Sources */,
+				CBB20CD32C62141900B35416 /* LoadingView.swift in Sources */,
 				BECF66582C5A36340068160D /* LanguageCell.swift in Sources */,
 				B949AE442C5F804100E2A338 /* StorageManager.swift in Sources */,
 				CB2C8C982C5698E400D280FE /* SceneDelegate.swift in Sources */,
@@ -909,31 +920,32 @@
 				CBCA8D9C2C5D3965003B01B9 /* UpdatePasswordController.swift in Sources */,
 				BECF66192C5A05360068160D /* UserView.swift in Sources */,
 				C62348612C5E8B1300F536E7 /* PopularView.swift in Sources */,
-				CBF57B4B2C57FA53006237E8 /* ExampleController.swift in Sources */,
+				CBB20CE22C626C0000B35416 /* RootRouter.swift in Sources */,
 				C623484C2C5E88E700F536E7 /* UIStackView + Extensions.swift in Sources */,
 				CBCA8D982C5D3965003B01B9 /* AuthorizationAssembly.swift in Sources */,
 				C6DF00C62C5FA62E0011EA5D /* AudioPlayerView.swift in Sources */,
 				BECF66232C5A06240068160D /* PrivacyPresenter.swift in Sources */,
 				BECF661F2C5A059A0068160D /* ProfilePresenter.swift in Sources */,
-				CBF57B4E2C57FA83006237E8 /* Example.swift in Sources */,
 				113FE5012C61395C00B2AC8B /* WaveView.swift in Sources */,
 				BECF66302C5A0D9A0068160D /* TeamViewCell.swift in Sources */,
 				C68453E82C62C60000C457EA /* AudioAssembly.swift in Sources */,
 				C68453E02C62BA4D00C457EA /* AudioPlayerViewController.swift in Sources */,
 				CBCA8D9D2C5D3965003B01B9 /* UpdatePasswordPresenter.swift in Sources */,
 				CBCA8D9A2C5D3965003B01B9 /* AuthorizationController.swift in Sources */,
+				CBB20CEC2C627AA200B35416 /* HomePresenter.swift in Sources */,
 				B949AE512C5F805600E2A338 /* FavStationModel.swift in Sources */,
 				113FE50E2C61396B00B2AC8B /* StationDetailsController.swift in Sources */,
 				CBCA8D9E2C5D3965003B01B9 /* ForgotPasswordController.swift in Sources */,
 				C68453E62C62BDB700C457EA /* AudioView.swift in Sources */,
 				C62348652C5E8B2D00F536E7 /* PopularCollectionViewCell.swift in Sources */,
 				BECF66562C5A361B0068160D /* LanguagePresenter.swift in Sources */,
-				CBF57B522C57FD2B006237E8 /* ExampleRouter.swift in Sources */,
+				CBB20CCF2C6213A000B35416 /* AuthenticationService.swift in Sources */,
 				C62348582C5E8ABB00F536E7 /* PopularRouter.swift in Sources */,
 				CBCA8DA12C5D39AD003B01B9 /* UITextField+Padding.swift in Sources */,
 				CBF57B592C5835AC006237E8 /* CollectionCell.swift in Sources */,
 				BECF664A2C5A22C90068160D /* EditProfilePresenter.swift in Sources */,
 				C62348562C5E8AA900F536E7 /* PopularAssembly.swift in Sources */,
+				CBB20CD52C62145000B35416 /* BrowserController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1192,6 +1204,22 @@
 				kind = branch;
 			};
 		};
+		CBB20CD62C6216B400B35416 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.0;
+			};
+		};
+		CBB20CDB2C62171700B35416 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1214,6 +1242,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CBB20CC52C61566300B35416 /* XCRemoteSwiftPackageReference "RadioBrowser" */;
 			productName = RadioBrowser;
+		};
+		CBB20CD72C6216B400B35416 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CBB20CD62C6216B400B35416 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		CBB20CD92C6216B400B35416 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CBB20CD62C6216B400B35416 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		CBB20CDC2C62171700B35416 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CBB20CDB2C62171700B35416 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 

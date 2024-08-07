@@ -1,33 +1,27 @@
 //
-//  TabBarController.swift
+//  HomeController.swift
 //  RadioApp
 //
 //  Created by Мария Нестерова on 29.07.2024.
 //
 
 import UIKit
-import SnapKit
 
-final class TabBarController: UITabBarController {
-    // MARK: - Private Properties
-    private let audioPlayerVC = Builder.createAudioPlayer()
+final class HomeController: UITabBarController {
+    private let presenter: HomePresenter
     
-    // MARK: - Init
-    init() {
+    init(presenter: HomePresenter) {
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
-        configure()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupAudioPlayer()
-        setupConstraints()
+        configure()
     }
     
     private func configure() {
@@ -36,32 +30,13 @@ final class TabBarController: UITabBarController {
         popularVC.view.backgroundColor = .darkBlueApp
 
         let favoriteVC = NavigationController(rootViewController: Builder.createFavorite())
-        favoriteVC.tabBarItem.title = "Favorites"
+        favoriteVC.tabBarItem.title = "Favorites".localized
         favoriteVC.view.backgroundColor = .darkBlueApp
         
         let allStationsVC = NavigationController(rootViewController: ViewController())
-        allStationsVC.tabBarItem.title = "All Stations"
+        allStationsVC.tabBarItem.title = "All Stations".localized
         allStationsVC.view.backgroundColor = .neonBlueApp
         
         viewControllers = [popularVC, favoriteVC, allStationsVC]
-    }
-}
-
-// MARK: - Set AudioPlayer
-private extension TabBarController {
-    func setupAudioPlayer() {
-        addChild(audioPlayerVC)
-        view.addSubview(audioPlayerVC.view)
-        audioPlayerVC.didMove(toParent: self)
-    }
-}
-
-// MARK: - Setup Constraints
-private extension TabBarController {
-    func setupConstraints() {
-        audioPlayerVC.view.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(tabBar.snp.top)
-        }
     }
 }

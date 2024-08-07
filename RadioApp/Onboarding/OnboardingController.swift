@@ -8,8 +8,17 @@
 import UIKit
 import SnapKit
 
-class OnboardingController: UIViewController {
-    var presenter: (any OnboardingPresenterProtocol)?
+final class OnboardingController: UIViewController {
+    private let presenter: OnboardingPresenterProtocol
+    
+    init(presenter: OnboardingPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,11 +103,6 @@ private extension OnboardingController {
     
     @objc func startTapped() {
         print("start tapped")
-        presenter?.goToAutorization()
+        presenter.goToAutorization()
     }
-}
-
-@available(iOS 17.0, *)
-#Preview {
-    Builder.createOnboarding()
 }

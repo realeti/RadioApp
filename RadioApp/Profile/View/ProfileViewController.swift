@@ -8,8 +8,17 @@
 import UIKit
 
 final class ProfileViewController: ViewController, ProfileViewProtocol {
-    var presenter: ProfilePresenterProtocol!
+    private let presenter: ProfilePresenterProtocol
     private let userView = UserView()
+    
+    init(presenter: ProfilePresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private var generalView = GeneralView(
         frame: .zero, title: "General".localized,
@@ -38,8 +47,24 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
 
         
         let action = UIAction() {_ in
-
-            print("LogOut")
+            //self.saveButtonAction()
+            let alertController = UIAlertController(title: "Do you want to Sign Out?", message: nil, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            alertController.addAction(UIAlertAction(title: "Sign Out", style: .destructive
+                                                    , handler: { _ in
+                do {
+                    try AuthenticationManager.shared.signOut()
+                    //go to ondoarding + login flow
+                    guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                          let windowDelegate = windowScene.delegate as? SceneDelegate else { return }
+                    windowDelegate.router?.startFlow()
+                        print("Logged Out")
+                    
+                } catch {
+                    print("Can't sign out")
+                }
+            }))
+            self.present(alertController, animated: true, completion: nil)
         }
         button.addAction(action, for: .primaryActionTriggered)
         return button

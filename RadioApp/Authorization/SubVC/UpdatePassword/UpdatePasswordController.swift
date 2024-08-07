@@ -12,7 +12,7 @@ protocol UpdatePasswordControllerProtocol: AnyObject {
     func update(with model: UpdatePasswordController.Model)
 }
 
-class UpdatePasswordController: UIViewController {
+final class UpdatePasswordController: UIViewController {
     var presenter: (any UpdatePasswordPresenterProtocol)?
     private var password: String?
 
@@ -120,9 +120,4 @@ extension UpdatePasswordController: UITextFieldDelegate {
         password = textField.text
         return true
     }
-}
-
-@available(iOS 17.0, *)
-#Preview {
-    Builder.createUpdatePasswordVC()
 }

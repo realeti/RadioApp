@@ -9,7 +9,7 @@ import UIKit
 
 private typealias RadioCell = TableCell<FavoriteRadioView>
 
-class FavoritesController: ViewController {
+final class FavoritesController: ViewController {
 
     private let presenter: FavoritesPresenterProtocol
     

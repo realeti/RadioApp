@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AudioAssembly: ModuleAssembly {
+final class AudioAssembly {
     func build() -> UIViewController {
         let viewController = AudioPlayerViewController()
         let presenter = AudioPlayerPresenter(view: viewController)
