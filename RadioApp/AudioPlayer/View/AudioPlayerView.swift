@@ -51,18 +51,23 @@ final class AudioPlayerView: UIView {
 
 // MARK: - External methods
 extension AudioPlayerView {
-    func updatePlayerImage(_ isPlaying: Bool) {
+    func updatePlayerImage(_ isPlaying: Bool, animated: Bool) {
         let playerImage: UIImage = isPlaying ? .playerPause : .playerPlay
         
-        UIView.animate(withDuration: 0.1) {
-            self.playerButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-        } completion: { _ in
-            self.playerButton.setBackgroundImage(playerImage, for: .normal)
-            self.playerButton.setBackgroundImage(playerImage, for: .highlighted)
-            
-            UIView.animate(withDuration: 0.1, animations: {
-                self.playerButton.transform = .identity
-            })
+        if animated {
+            UIView.animate(withDuration: 0.1) {
+                self.playerButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            } completion: { _ in
+                self.playerButton.setBackgroundImage(playerImage, for: .normal)
+                self.playerButton.setBackgroundImage(playerImage, for: .highlighted)
+                
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.playerButton.transform = .identity
+                })
+            }
+        } else {
+            playerButton.setBackgroundImage(playerImage, for: .normal)
+            playerButton.setBackgroundImage(playerImage, for: .highlighted)
         }
     }
 }

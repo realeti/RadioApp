@@ -34,11 +34,29 @@ final class AudioPlayerViewController: UIViewController {
         super.viewDidLoad()
         
         setDelegates()
+        setNotification()
     }
     
     // MARK: - Set Delegates
     private func setDelegates() {
         audioView.delegate = self
+    }
+    
+    // MARK: - Set Notification
+    private func setNotification() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handlePlayerStatusChange),
+            name: .playerStatusDidChange,
+            object: nil
+        )
+    }
+    
+    // MARK: - Notification handle
+    @objc private func handlePlayerStatusChange(_ notification: Notification) {
+        if let isPlaying = notification.userInfo?["isPlaying"] as? Bool {
+            audioView.updatePlayerImage(isPlaying, animated: false)
+        }
     }
 }
 
@@ -57,6 +75,6 @@ extension AudioPlayerViewController: AudioViewProtocol {
     }
     
     func didUpdatePlayerImage(_ isPlaying: Bool) {
-        audioView.updatePlayerImage(isPlaying)
+        audioView.updatePlayerImage(isPlaying, animated: true)
     }
 }

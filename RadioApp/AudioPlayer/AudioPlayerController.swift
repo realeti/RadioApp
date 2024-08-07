@@ -43,6 +43,7 @@ extension AudioPlayerController {
         audioPlayer = AVPlayer(playerItem: playerItem)
         audioPlayer?.play()
         isPlaying = true
+        postStatusNotification()
     }
     
     func playPause() {
@@ -53,6 +54,7 @@ extension AudioPlayerController {
         }
         
         isPlaying.toggle()
+        postStatusNotification()
     }
     
     func playPrevious() {
@@ -91,4 +93,15 @@ private extension AudioPlayerController {
         audioPlayer = nil
         isPlaying = false
     }
+}
+
+// MARK: - AudioPlayer Notifications
+private extension AudioPlayerController {
+    func postStatusNotification() {
+        NotificationCenter.default.post(name: .playerStatusDidChange, object: nil, userInfo: ["isPlaying": isPlaying])
+    }
+}
+
+extension Notification.Name {
+    static let playerStatusDidChange = Notification.Name("playerStatusDidChange")
 }

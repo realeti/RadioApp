@@ -10,13 +10,9 @@ import SnapKit
 
 class ViewController: UIViewController {
     // MARK: - Private Properties
-    private let audioPlayerVC = Builder.createAudioPlayer()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureItems()
-        setupAudioPlayer()
     }
     
     private func configureItems() {
@@ -94,20 +90,5 @@ class ViewController: UIViewController {
         let profileVC = Builder.createProfile()
         profileVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(profileVC, animated: true)
-    }
-}
-
-// MARK: - Set AudioPlayer
-private extension ViewController {
-    func setupAudioPlayer() {
-        addChild(audioPlayerVC)
-        view.addSubview(audioPlayerVC.view)
-        audioPlayerVC.didMove(toParent: self)
-        
-        audioPlayerVC.view.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-            make.height.equalTo(K.audioPlayerHeight)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(K.audioPlayerBottomIndent)
-        }
     }
 }
