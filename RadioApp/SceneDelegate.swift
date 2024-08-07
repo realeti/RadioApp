@@ -7,17 +7,16 @@
 
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    
+final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    var router: RootRouter?
     var window: UIWindow?
     
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
-        window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = Builder.createOnboarding()
-        window?.makeKeyAndVisible()
+
+        router = RootBuilder.makeRootRouter(windowScene)
+        router?.startFlow()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -12,7 +12,7 @@ protocol ForgotPasswordControllerProtocol: AnyObject {
     func update(with model: ForgotPasswordController.Model)
 }
 
-class ForgotPasswordController: UIViewController {
+final class ForgotPasswordController: UIViewController {
     var presenter: (any ForgotPasswordPresenterProtocol)?
     private var email: String?
 
@@ -49,12 +49,12 @@ private extension ForgotPasswordController {
         mainLabel.font = .systemFont(ofSize: 50, weight: .bold)
         mainLabel.textColor = .white
         mainLabel.numberOfLines = 2
-        mainLabel.text = "Forgot\nPassword"
+        mainLabel.text = "Forgot\nPassword".localized
         
-        let emailField = AuthorizationField(delegate: self, title: "Email", placeholder: "Your email", isSecure: false)
+        let emailField = AuthorizationField(delegate: self, title: "Email".localized, placeholder: "Your email".localized, isSecure: false)
         
         let sendButton = UIButton()
-        sendButton.setTitle("Send", for: .normal)
+        sendButton.setTitle("Send".localized, for: .normal)
         sendButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
         sendButton.backgroundColor = .neonBlueApp
         sendButton.tintColor = .white
@@ -112,9 +112,4 @@ extension ForgotPasswordController: UITextFieldDelegate {
         email = textField.text
         return true
     }
-}
-
-@available(iOS 17.0, *)
-#Preview {
-    Builder.createForgotPasswordVC()
 }

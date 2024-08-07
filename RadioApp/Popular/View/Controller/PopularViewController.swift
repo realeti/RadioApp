@@ -10,10 +10,20 @@ import AVFoundation
 
 final class PopularViewController: ViewController {
     // MARK: - Public Properties
-    var presenter: PopularPresenterProtocol!
+    private let presenter: PopularPresenterProtocol
     
     // MARK: - Private Properties
     private var popularView: PopularView!
+    
+    
+    init(presenter: PopularPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Life Cycle
     override func loadView() {
@@ -26,20 +36,22 @@ final class PopularViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadStations()
         setDelegates()
+        loadStations()
         setupVolumeProgress()
-    }
-    
-    // MARK: - Load Stations
-    private func loadStations() {
-        presenter.loadStations()
     }
     
     // MARK: - Set Delegates
     private func setDelegates() {
         popularView.radioCollection.dataSource = self
         popularView.radioCollection.delegate = self
+    }
+    
+    // MARK: - Load Stations
+    private func loadStations() {
+        Task {
+            await presenter.loadStations()
+        }
     }
 }
 
@@ -70,11 +82,17 @@ extension PopularViewController: PopularViewProtocol {
         }
     }
     
-    func voteForStation(at indexPath: IndexPath?) {
-        guard let indexPath else { return }
+    /*func didUpdateVotedStation() {
+        DispatchQueue.main.async {
+            self.popularView.radioCollection.reloadData()
+        }
+    }*/
+    
+    func voteForStation(at indexPath: IndexPath?, stationUniqueID: UUID?) {
+        guard let indexPath, let stationUniqueID else { return }
         
         let stationId = indexPath.row
-        presenter.toggleVoteState(for: stationId)
+        presenter.toggleVoteState(for: stationId, stationUniqueID: stationUniqueID)
         
         let isStationVoted = presenter.isStationVoted(stationId)
         updateStationVotes(at: indexPath, isStationVoted)

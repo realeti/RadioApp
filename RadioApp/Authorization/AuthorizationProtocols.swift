@@ -5,7 +5,7 @@
 //  Created by Мария Нестерова on 30.07.2024.
 //
 
-import Foundation
+import UIKit
 
 enum AuthorizationMode {
     case signIn
@@ -17,7 +17,6 @@ protocol AuthorizationControllerProtocol: AnyObject {
 }
 
 protocol AuthorizationPresenterProtocol: AnyObject {
-    var mode: AuthorizationMode { get set }
     func activate()
     func switchMode()
     func finishAuthorization()
@@ -25,7 +24,8 @@ protocol AuthorizationPresenterProtocol: AnyObject {
     func didTapForgotPasswordButton()
 }
 
-protocol AuthorizationRouterProtocol: AnyObject {
+protocol AuthorizationRouterProtocol: AnyObject, Router {
+    func showAuthorization(on window: UIWindow)
     func goHome()
     func showForgotPasswordVC()
     func showUpdatePasswordVC()

@@ -13,40 +13,34 @@ protocol ProfileViewProtocol: AnyObject {
 
 protocol ProfilePresenterProtocol: AnyObject {
     func showEditProfileVC()
-    func showNotificationVC()
     func showPolicyVC()
     func showAboutUsVC()
     func showLanguageVC()
-    init(view: ProfileViewProtocol, router: ProfileRouterProtocol)
+    init(router: ProfileRouterProtocol)
 }
 
 final class ProfilePresenter: ProfilePresenterProtocol {
     
     weak var view: ProfileViewProtocol?
-    private var router: ProfileRouterProtocol?
+    private let router: ProfileRouterProtocol
     
-    required init(view: ProfileViewProtocol, router: ProfileRouterProtocol) {
-        self.view = view
+    required init(router: ProfileRouterProtocol) {
         self.router = router
     }
    
     func showEditProfileVC() {
-        router?.showEditProfile()
+        router.showEditProfile()
     }
-    
-    func showNotificationVC() {
-        router?.showNotifications()
-    }
-    
+
     func showPolicyVC() {
-        router?.showPrivacyPolicy()
+        router.showPrivacyPolicy()
     }
     
     func showAboutUsVC() {
-        router?.showAboutUsVC()
+        router.showAboutUsVC()
     }
     
     func showLanguageVC() {
-        router?.showLanguageVC()
+        router.showLanguageVC()
     }
 }

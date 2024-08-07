@@ -8,19 +8,11 @@
 import UIKit
 
 final class AuthorizationAssembly: ModuleAssembly {
-    func build() -> UIViewController {
-        let controller = AuthorizationController()
-        let presenter = AuthorizationPresenter(mode: .signIn)
-        let router = AuthorizationRouter()
-        
+    func build(router: AuthorizationRouterProtocol) -> UIViewController {
+        let presenter = AuthorizationPresenter(mode: .signIn, router: router)
+        let controller = AuthorizationController(presenter: presenter)
         presenter.view = controller
-        presenter.router = router
-        controller.presenter = presenter
         router.controller = controller
-        
-        let navVC = UINavigationController(rootViewController: controller)
-        navVC.isNavigationBarHidden = true
-    
-        return navVC
+        return controller
     }
 }

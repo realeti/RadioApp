@@ -7,14 +7,13 @@
 
 import UIKit
 
-protocol ProfileRouterProtocol: AnyObject {
+protocol ProfileRouterProtocol: AnyObject, Router {
     func showPrivacyPolicy()
     func showEditProfile()
-    func showNotifications()
     func showLanguageVC()
     func showAboutUsVC()
-
 }
+
 final class ProfileRouter: Router, ProfileRouterProtocol {
     func showPrivacyPolicy() {
         let vc = Builder.createPrivacyPolicyVC()
@@ -27,17 +26,13 @@ final class ProfileRouter: Router, ProfileRouterProtocol {
         vc.hidesBottomBarWhenPushed = true
         pushScreen(vc)
     }
-        
-    func showNotifications() {
-        let vc = Builder.createNotificationsVC()
+
+    func showLanguageVC() {
+        let vc = Builder.createLanguageVC()
         vc.hidesBottomBarWhenPushed = true
         pushScreen(vc)
     }
-    func showLanguageVC() {
-        let vc = NavigationController(rootViewController: Builder.createLanguageVC())
-        vc.modalPresentationStyle = .fullScreen
-        presentScreen(vc)
-    }
+    
     func showAboutUsVC() {
         let vc = Builder.createAboutUsVC()
         vc.hidesBottomBarWhenPushed = true

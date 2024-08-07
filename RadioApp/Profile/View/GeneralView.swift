@@ -24,7 +24,7 @@ final class GeneralView: UIView {
         return label
     }()
     
-    private var firstView: CustomSettingsView = {
+    private var firstView: UIView = {
         CustomSettingsView()
     }()
     
@@ -45,16 +45,29 @@ final class GeneralView: UIView {
         firstTitle: String,
         firstImage: UIImage,
         secondTitle: String,
-        secondImage: UIImage
+        secondImage: UIImage,
+        showSwitchForFirst: Bool = false
     )
     {
         super.init(frame: frame)
         titleLabel.text = title
-        firstView.configure(title: firstTitle, image: firstImage)
+        
+        if showSwitchForFirst {
+            let switchView = CustomSwitchSettingsView()
+            switchView.configure(title: firstTitle, isOn: false, icon: firstImage)
+            firstView = switchView
+        } else {
+            firstView = CustomSettingsView()
+            (firstView as? CustomSettingsView)?.configure(title: firstTitle, image: firstImage)
+        }
+        
+        secondView = CustomSettingsView()
         secondView.configure(title: secondTitle, image: secondImage)
+        
         setViews()
         setupConstraints()
         addTapGesture()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -137,3 +150,4 @@ private extension GeneralView {
         }
     }
 }
+

@@ -7,17 +7,23 @@
 
 import UIKit
 
-protocol OnboardingRouterProtocol: AnyObject {
+protocol OnboardingRouterProtocol: AnyObject, Router {
     func goToAutorization()
 }
 
 final class OnboardingRouter: Router, OnboardingRouterProtocol {
+    private let builder: OnboardingAssembly
+    
+    weak var root: RootRouter?
+    
+    init(builder: OnboardingAssembly) {
+        self.builder = builder
+    }
+    
+    func showOnboarding(on window: UIWindow) {
+        window.rootViewController = builder.build(router: self)
+    }
     func goToAutorization() {
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let windowDelegate = windowScene.delegate as? SceneDelegate {
-            let vc = Builder.createAuthorization()
-            let window = windowDelegate.window
-            window?.rootViewController = vc
-        }
+        root?.startAuthorization()
     }
 }

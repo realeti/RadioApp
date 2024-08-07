@@ -45,7 +45,13 @@ final class LanguageViewController: ViewController, LanguageVCProtocol {
         title = "Language".localized
         setupConstraints()
         setupTableView()
-        configureBarBackButton()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if presenter.isShouldReloadRootController {
+            reloadRootController()
+        }
     }
     
     // MARK: - Private Methods
@@ -80,27 +86,13 @@ final class LanguageViewController: ViewController, LanguageVCProtocol {
         static let mainViewHeight: CGFloat = 160
     }
     
-    private func configureBarBackButton() {
-        navigationItem.leftBarButtonItem = .init(
-            image: .back.withRenderingMode(.alwaysOriginal),
-            style: .plain,
-            target: self,
-            action: #selector(didTapBackButtonToHome)
-        )
-    }
-    
-    @objc
-    private func didTapBackButtonToHome() {
-        printContent("Tap didTapBackButtonToHome")
-//        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-//           let windowDelegate = windowScene.delegate as? SceneDelegate {
-//            let vc = Builder.createTabBar()
-//            vc.tabBarController?.selectedIndex = 3
-//            let window = windowDelegate.window
-//            window?.rootViewController = vc
-//        }
+    private func reloadRootController() {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let windowDelegate = windowScene.delegate as? SceneDelegate else { return }
+        windowDelegate.router?.startHome()
     }
 }
+
 
 // MARK: - UITableViewDataSource
 extension LanguageViewController: UITableViewDataSource {

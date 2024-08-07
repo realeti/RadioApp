@@ -8,13 +8,25 @@
 import UIKit
 
 final class AuthorizationRouter: Router, AuthorizationRouterProtocol {
+    private let builder: AuthorizationAssembly
+    private let navigation: UINavigationController
+    
+    weak var root: RootRouter?
+    
+    init(builder: AuthorizationAssembly) {
+        self.builder = builder
+        self.navigation = UINavigationController()
+        self.navigation.isNavigationBarHidden = true
+    }
+    
+    func showAuthorization(on window: UIWindow) {
+        let vc = builder.build(router: self)
+        navigation.viewControllers = [vc]
+        window.rootViewController = navigation
+    }
+    
     func goHome() {
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let windowDelegate = windowScene.delegate as? SceneDelegate {
-            let vc = Builder.createTabBar()
-            let window = windowDelegate.window
-            window?.rootViewController = vc
-        }
+        root?.startHome()
     }
     
     func showForgotPasswordVC() {

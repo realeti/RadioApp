@@ -6,30 +6,36 @@
 //
 
 import Foundation
+import RadioBrowser
 
 protocol PopularViewProtocol: AnyObject {
     func didUpdateStations()
-    func voteForStation(at: IndexPath?)
+    //func didUpdateVotedStation()
+    func voteForStation(at: IndexPath?, stationUniqueID: UUID?)
 }
 
 protocol PopularPresenterProtocol {
-    init(view: PopularViewProtocol, router: Router)
+    init(router: PopularRouterProtocol)
     var getStations: [PopularViewModel] { get }
     
-    func loadStations()
+    func loadStations() async
+    //func loadVotedStation()
     func changeStation(_ stationId: Int)
-    func toggleVoteState(for stationId: Int)
+    func toggleVoteState(for stationId: Int, stationUniqueID: UUID)
     func isStationVoted(_ stationId: Int) -> Bool
 }
 
 final class PopularPresenter: PopularPresenterProtocol {
     // MARK: - Private Properties
+    private let radioBrowser = RadioBrowser.default
+    private let storage = StorageManager.shared
+    
     private var stations: [PopularViewModel] = []
     private var mockStations: [PopularViewModel] = []
     private var votedStations: [Bool] = []
     
-    private weak var view: PopularViewProtocol?
-    private let router: Router
+    weak var view: PopularViewProtocol?
+    private let router: PopularRouterProtocol
     
     // MARK: - Public Properties
     var getStations: [PopularViewModel] {
@@ -39,19 +45,61 @@ final class PopularPresenter: PopularPresenterProtocol {
     }
     
     // MARK: - Init
-    init(view: PopularViewProtocol, router: Router) {
-        self.view = view
+    init(router: PopularRouterProtocol) {
         self.router = router
     }
 }
 
 // MARK: - Load Popular Stations
 extension PopularPresenter {
-    func loadStations() {
-        stations = getMockData()
-        votedStations = Array(repeating: false, count: stations.count)
+    func loadStations() async {
+        //stations = getMockData()
+        //votedStations = Array(repeating: false, count: stations.count)
         
+        let result = await radioBrowser.getPopularStation()
+        
+        switch result {
+        case .success(let fetctedStations):
+            stations = fetctedStations.map({ station in
+                let title: String
+                let subtitle: String
+                
+                if let tag = station.tags.first, !tag.isEmpty {
+                    title = tag
+                    subtitle = station.name
+                } else {
+                    title = station.name
+                    subtitle = ""
+                }
+                
+                loadVotedStation(with: station.stationUUID)
+                
+                return PopularViewModel(
+                    id: station.stationUUID,
+                    title: title,
+                    subtitle: subtitle,
+                    voteCount: station.votes
+                )
+            })
+        case .failure(let error):
+            print(error)
+        }
+        
+        //loadVotedStation()
         view?.didUpdateStations()
+    }
+}
+
+// MARK: - Load Voted Stations
+private extension PopularPresenter {
+    func loadVotedStation(with stationUniqueID: UUID) {
+        if let _ = storage.fetchStation(with: stationUniqueID) {
+            votedStations.append(true)
+        } else {
+            votedStations.append(false)
+        }
+        
+        //view?.didUpdateVotedStation()
     }
 }
 
@@ -65,19 +113,21 @@ extension PopularPresenter {
 
 // MARK: - Votes for Station
 extension PopularPresenter {
-    func toggleVoteState(for stationId: Int) {
+    func toggleVoteState(for stationId: Int, stationUniqueID: UUID) {
         votedStations[stationId].toggle()
         
         var selectedStation = stations[stationId]
         let voteChange = isStationVoted(stationId) ? 1 : -1
         
         selectedStation = PopularViewModel(
+            id: stationUniqueID,
             title: selectedStation.title,
             subtitle: selectedStation.subtitle,
             voteCount: selectedStation.voteCount + voteChange
         )
         
         stations[stationId] = selectedStation
+        storage.toggleFavorite(id: stationUniqueID, title: selectedStation.title, genre: selectedStation.subtitle)
     }
     
     func isStationVoted(_ stationId: Int) -> Bool {
@@ -86,26 +136,26 @@ extension PopularPresenter {
 }
 
 // MARK: - Mock Data
-private extension PopularPresenter {
+/*private extension PopularPresenter {
     func getMockData() -> [PopularViewModel] {
         var stations: [PopularViewModel] = []
         
         let baseTitles = [
-            "POP",
-            "16bit",
-            "Punk",
-            "Dj Remix",
-            "Adult",
-            "Etnic",
+            "POP".localized,
+            "16bit".localized,
+            "Punk".localized,
+            "Dj Remix".localized,
+            "Adult".localized,
+            "Etnic".localized,
         ]
         
         let baseSubtitles = [
-            "Radio Record",
-            "Radio Gameplay",
-            "Russian Punk rock",
-            "!REMIX!",
-            "RUSSIAN WAVE",
-            "beufm.kz"
+            "Radio Record".localized,
+            "Radio Gameplay".localized,
+            "Russian Punk rock".localized,
+            "!REMIX!".localized,
+            "RUSSIAN WAVE".localized,
+            "beufm.kz".localized
         ]
         
         let baseVotes = [
@@ -123,6 +173,7 @@ private extension PopularPresenter {
         
         for index in 0..<stationTitles.count {
             let newStation = PopularViewModel(
+                id: UUID(),
                 title: stationTitles[index],
                 subtitle: stationSubtitles[index],
                 voteCount: stationVotes[index]
@@ -132,4 +183,4 @@ private extension PopularPresenter {
         
         return stations
     }
-}
+}*/

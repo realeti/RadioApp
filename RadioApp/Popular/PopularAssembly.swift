@@ -8,14 +8,14 @@
 import UIKit
 
 final class PopularAssembly: ModuleAssembly {
-    func build() -> UIViewController {
-        let viewController = PopularViewController()
-        let router = PopularRouter()
-        let presenter = PopularPresenter(view: viewController, router: router)
-
-        viewController.presenter = presenter
-        router.controller = viewController
+    func build(router: PopularRouterProtocol) -> UIViewController {
+        let presenter = PopularPresenter(router: router)
+        let controller = PopularViewController(presenter: presenter)
         
-        return viewController
+        presenter.view = controller
+        router.controller = controller
+        
+        return controller
     }
 }
+

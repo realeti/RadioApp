@@ -8,13 +8,22 @@
 import UIKit
 import SnapKit
 
-class AuthorizationController: UIViewController {
-    var presenter: (any AuthorizationPresenterProtocol)?
+final class AuthorizationController: UIViewController {
     private var mode: AuthorizationMode?
-
+    private let presenter: AuthorizationPresenterProtocol
+    
+    init(presenter: AuthorizationPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter?.activate()
+        presenter.activate()
     }
 }
 
@@ -53,7 +62,7 @@ private extension AuthorizationController {
         let startPlayLabel = UILabel()
         startPlayLabel.font = .systemFont(ofSize: 25, weight: .regular)
         startPlayLabel.textColor = .white
-        startPlayLabel.text = "to start play"
+        startPlayLabel.text = "to start play".localized
         
         let doneButton = UIButton()
         doneButton.setImage(UIImage(systemName: "arrow.forward"), for: .normal)
@@ -69,11 +78,11 @@ private extension AuthorizationController {
         
         switch mode {
         case .signIn:
-            mainLabel.text = "Sign in"
-            switchModeButton.setTitle("Or Sign Up", for: .normal)
+            mainLabel.text = "Sign in".localized
+            switchModeButton.setTitle("Or Sign Up".localized, for: .normal)
         case .signUp:
-            mainLabel.text = "Sign Up"
-            switchModeButton.setTitle("Or Sign In", for: .normal)
+            mainLabel.text = "Sign Up".localized
+            switchModeButton.setTitle("Or Sign In".localized, for: .normal)
         }
 
         view.addSubview(bg)
@@ -125,12 +134,12 @@ private extension AuthorizationController {
     
     @objc func doneTapped() {
         print("done tapped")
-        presenter?.finishAuthorization()
+        presenter.finishAuthorization()
     }
     
     @objc func switchModeTapped() {
         print("switch mode tapped")
-        presenter?.switchMode()
+        presenter.switchMode()
     }
 }
 
@@ -139,11 +148,11 @@ private extension AuthorizationController {
     func configureSignInUI() -> UIView {
         let container = UIView()
         let stack = UIStackView()
-        let emailField = AuthorizationField(delegate: self, title: "Email", placeholder: "Your email", isSecure: false)
-        let passwordField = AuthorizationField(delegate: self, title: "Password", placeholder: "Your password", isSecure: true)
+        let emailField = AuthorizationField(delegate: self, title: "Email".localized, placeholder: "Your email".localized, isSecure: false)
+        let passwordField = AuthorizationField(delegate: self, title: "Password".localized, placeholder: "Your password".localized, isSecure: true)
         
         let forgotPasswordButton = UIButton()
-        forgotPasswordButton.setTitle("Forgot Password ?", for: .normal)
+        forgotPasswordButton.setTitle("Forgot Password ?".localized, for: .normal)
         forgotPasswordButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .regular)
         forgotPasswordButton.titleLabel?.textColor = .white
         forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordTapped), for: .touchUpInside)
@@ -156,7 +165,7 @@ private extension AuthorizationController {
         let googleLabel = UILabel()
         googleLabel.font = .systemFont(ofSize: 11, weight: .bold)
         googleLabel.textColor = .gray
-        googleLabel.text = "Or connect with"
+        googleLabel.text = "Or connect with".localized
         
         let googleButton = UIButton()
         googleButton.setImage(.googlePlus, for: .normal)
@@ -213,12 +222,12 @@ private extension AuthorizationController {
     
     @objc func forgotPasswordTapped() {
         print("forgot password tapped")
-        presenter?.didTapForgotPasswordButton()
+        presenter.didTapForgotPasswordButton()
     }
     
     @objc func googleTapped() {
         print("google tapped")
-        presenter?.didTapGoogleButton()
+        presenter.didTapGoogleButton()
     }
 }
 
@@ -228,9 +237,9 @@ private extension AuthorizationController {
     func configureSignUpUI() -> UIView {
         let container = UIView()
         let stack = UIStackView()
-        let nameField = AuthorizationField(delegate: self, title: "Name", placeholder: "Your name", isSecure: false)
-        let emailField = AuthorizationField(delegate: self, title: "Email", placeholder: "Your email", isSecure: false)
-        let passwordField = AuthorizationField(delegate: self, title: "Password", placeholder: "Your password", isSecure: true)
+        let nameField = AuthorizationField(delegate: self, title: "Name".localized, placeholder: "Your name".localized, isSecure: false)
+        let emailField = AuthorizationField(delegate: self, title: "Email".localized, placeholder: "Your email".localized, isSecure: false)
+        let passwordField = AuthorizationField(delegate: self, title: "Password".localized, placeholder: "Your password".localized, isSecure: true)
         
         stack.addArrangedSubview(nameField)
         stack.addArrangedSubview(emailField)
@@ -250,9 +259,4 @@ private extension AuthorizationController {
 
 extension AuthorizationController: UITextFieldDelegate {
     
-}
-
-@available(iOS 17.0, *)
-#Preview {
-    Builder.createAuthorization()
 }
