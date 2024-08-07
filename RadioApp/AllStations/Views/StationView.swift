@@ -7,6 +7,14 @@
 
 import UIKit
 
+/// Методы для взаимодействия с представлением радиостанции.
+protocol StationViewDelegate {
+	
+	/// Проголосовать.
+	/// - Parameter indexPath: индекс радиостанции, за которую проголосовали.
+	func vote(at indexPath: IndexPath)
+}
+
 /// Представление радиостанции для экрана AllStations
 final class StationView: UIView {
 	
@@ -14,6 +22,10 @@ final class StationView: UIView {
 	
 	// MARK: - Public properties
 	
+	/// Делегат.
+	var delegate: StationViewDelegate?
+	/// Индекс радиостанции.
+	var indexPath: IndexPath?
 	/// Заголовок.
 	var title: String? {
 		didSet {
@@ -36,7 +48,7 @@ final class StationView: UIView {
 	var numberOfVotes: Int? {
 		didSet {
 			if let numberOfVotes {
-				voteLabel.text = "votes \(numberOfVotes)"
+				voteLabel.text = "\("votes".localized) \(numberOfVotes)"
 			} else {
 				voteLabel.text = nil
 			}
@@ -178,22 +190,21 @@ extension StationView {
 		case yellow
 		case orange
 
-		// TODO: - использовать цвета из ассетов
 		/// Цвет.
 		var color: UIColor {
 			switch self {
 			case .darkPink:
-				.systemPink
+				.darkPinkCircle
 			case .blue:
-				.systemBlue
+				.blueCircle
 			case .magenta:
-				.systemPurple
+				.magentaCircle
 			case .green:
-				.systemGreen
+				.greenCircle
 			case .yellow:
-				.systemYellow
+				.yellowCircle
 			case .orange:
-				.systemRed
+				.orangeCircle
 			}
 		}
 	}
@@ -202,7 +213,13 @@ extension StationView {
 // MARK: - Actions
 
 private extension StationView {
-	
+
+	var favoriteButtonHandler: UIActionHandler {
+		{ [weak self] _ in
+			guard let self, let indexPath else { return }
+			delegate?.vote(at: indexPath)
+		}
+	}
 }
 
 // MARK: - Setup UI
@@ -213,6 +230,7 @@ private extension StationView {
 		layer.borderWidth = 2
 
 		addSubviews()
+		addActions()
 	}
 
 	func makeStackView() -> UIStackView {
@@ -282,6 +300,10 @@ private extension StationView {
 
 		voteStack.addArrangedSubview(voteLabel)
 		voteStack.addArrangedSubview(favoriteButton)
+	}
+
+	func addActions() {
+		favoriteButton.addAction(UIAction(handler: favoriteButtonHandler), for: .touchUpInside)
 	}
 }
 

@@ -25,6 +25,10 @@ protocol AllStationsPresenterProtocol: AnyObject {
 	/// Выбрана радиостанция.
 	/// - Parameter indexPath: индекс радиостанции.
 	func didStationSelected(at indexPath: IndexPath)
+	
+	/// Проголосовали за радиостанцию.
+	/// - Parameter indexPath: индекс радиостанции.
+	func didStationVoted(at indexPath: IndexPath)
 }
 
 /// Протокол роутера для перехода с экрана, отображающего все радиостанции, на другие экраны.

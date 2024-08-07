@@ -53,6 +53,15 @@ extension AllStationsController: AllStationsControllerProtocol {
 	}
 }
 
+// MARK: - StationViewDelegate
+
+extension AllStationsController: StationViewDelegate {
+
+	func vote(at indexPath: IndexPath) {
+		presenter.didStationVoted(at: indexPath)
+	}
+}
+
 // MARK: - Collection View Data Source
 
 extension AllStationsController: UICollectionViewDataSource {
@@ -72,7 +81,7 @@ extension AllStationsController: UICollectionViewDataSource {
 		guard let cell = cell as? AllStationsCell else { return UICollectionViewCell() }
 		
 		let station = model.stations[indexPath.row]
-		cell.configure(by: indexPath, with: station)
+		cell.configure(by: indexPath, with: station, and: self)
 		
 		return cell
 	}

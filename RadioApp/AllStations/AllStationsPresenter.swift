@@ -15,7 +15,9 @@ final class AllStationsPresenter {
 
 	private let router: AllStationsRouterProtocol
 	private weak var view: AllStationsControllerProtocol!
+
 	private let radioBrowser: RadioBrowser
+	private let storageManager: StorageManager
 
 	// MARK: - Private properties
 
@@ -28,10 +30,17 @@ final class AllStationsPresenter {
 	///   - router: роутер, для осуществления перехода на другие экраны.
 	///   - view: view, на которой будет отображаться информация.
 	///   - radioBrowser: сервис для работы с `API all.api.radio-browser`.
-	init(router: AllStationsRouterProtocol, view: AllStationsControllerProtocol, radioBrowser: RadioBrowser) {
+	///   - storageManager: менеджер, управляющий хранилищем радиостанций.
+	init(
+		router: AllStationsRouterProtocol,
+		view: AllStationsControllerProtocol,
+		radioBrowser: RadioBrowser,
+		storageManager: StorageManager
+	) {
 		self.router = router
 		self.view = view
 		self.radioBrowser = radioBrowser
+		self.storageManager = storageManager
 	}
 }
 
@@ -41,7 +50,7 @@ extension AllStationsPresenter: AllStationsPresenterProtocol {
 
 	/// Активация презентера для обновления информации на экране.
 	///
-	/// Получает все возможные радиостанции из api и обновляет экран AllStations.
+	/// Получает первые 20 радиостанций из api и обновляет экран AllStations. При повторном вызове подгружает еще 20 радиостанций и т.д.
 	func activate() {
 		Task {
 			let result = await radioBrowser.getAllStations(offset: stations.count)
@@ -63,6 +72,21 @@ extension AllStationsPresenter: AllStationsPresenterProtocol {
 	func didStationSelected(at indexPath: IndexPath) {
 		router.showStationDetails(with: stations[indexPath.row])
 	}
+	
+	/// Проголосовали за радиостанцию.
+	/// - Parameter indexPath: индекс радиостанции.
+	///
+	/// Метод добавляет радиостанцию в избранное или удаляет от туда. Также голосует за выбранную радиостанцию, но только один раз.
+	@MainActor
+	func didStationVoted(at indexPath: IndexPath) {
+		let station = stations[indexPath.row]
+		storageManager.toggleFavorite(
+			id: station.stationUUID,
+			title: station.name.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .newlines),
+			genre: station.tags.first ?? ""
+		)
+		render()
+	}
 }
 
 // MARK: - Private methods
@@ -80,12 +104,14 @@ private extension AllStationsPresenter {
 	}
 	
 	func makeStationModel(from data: Station) -> AllStations.Model.Station {
-		AllStations.Model.Station(
+		let station = storageManager.fetchStation(with: data.stationUUID)
+
+		return AllStations.Model.Station(
 			tag: data.tags.first ?? "nil",
 			title: data.name.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .newlines),
 			votes: data.votes,
 			isPlayingNow: false,
-			isFavorite: false
+			isFavorite: station != nil ? true : false
 		)
 	}
 }

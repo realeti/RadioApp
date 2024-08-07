@@ -36,6 +36,8 @@ final class AllStationsCell: UICollectionViewCell {
 
 	override func prepareForReuse() {
 		super.prepareForReuse()
+		stationView.delegate = nil
+		stationView.indexPath = nil
 		stationView.title = nil
 		stationView.subtitle = nil
 		stationView.status = nil
@@ -51,7 +53,10 @@ final class AllStationsCell: UICollectionViewCell {
 
 	// MARK: - Public methods
 
-	func configure(by indexPath: IndexPath, with model: AllStations.Model.Station) {
+	func configure(by indexPath: IndexPath, with model: AllStations.Model.Station, and delegate: StationViewDelegate) {
+		stationView.delegate = delegate
+		stationView.indexPath = indexPath
+
 		stationView.title = model.tag
 		stationView.subtitle = model.title
 		stationView.status = model.isPlayingNow ? "Playing now" : nil

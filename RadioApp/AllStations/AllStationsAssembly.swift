@@ -12,7 +12,12 @@ final class AllStationsAssembly: ModuleAssembly {
 
 	func build(router: AllStationsRouterProtocol) -> UIViewController {
 		let controller = AllStationsController()
-		let presenter = AllStationsPresenter(router: router, view: controller, radioBrowser: RadioBrowser.default)
+		let presenter = AllStationsPresenter(
+			router: router,
+			view: controller,
+			radioBrowser: RadioBrowser.default,
+			storageManager: StorageManager.shared
+		)
 		controller.presenter = presenter
 
 		return controller
