@@ -55,16 +55,11 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
                 do {
                     try AuthenticationManager.shared.signOut()
                     //go to ondoarding + login flow
-                    let onboarding = OnboardingAssembly().build()
-                    let navVC = UINavigationController()
-                    navVC.navigationBar.isHidden = true
-                    DispatchQueue.main.async { [weak self] in
-                        let scenes = UIApplication.shared.connectedScenes
-                        let windowScene = scenes.first as? UIWindowScene
-                        windowScene?.keyWindow?.rootViewController = navVC
-                        navVC.viewControllers = [onboarding]
+                    guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                          let windowDelegate = windowScene.delegate as? SceneDelegate else { return }
+                    windowDelegate.router?.startFlow()
                         print("Logged Out")
-                    }
+                    
                 } catch {
                     print("Can't sign out")
                 }

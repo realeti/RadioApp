@@ -52,7 +52,7 @@ private extension ForgotPasswordController {
         mainLabel.numberOfLines = 2
         mainLabel.text = "Forgot\nPassword".localized
         
-        let emailField = AuthorizationField(delegate: self, title: "Email".localized, placeholder: "Your email".localized, isSecure: false)
+        emailField = AuthorizationField(delegate: self, title: "Email".localized, placeholder: "Your email".localized, isSecure: false)
         guard let emailField else { return }
         emailField.textField.text = email
         
@@ -83,6 +83,7 @@ private extension ForgotPasswordController {
         
         mainLabel.snp.makeConstraints { make in
             make.leading.equalTo(backButton)
+            make.leading.equalToSuperview().inset(43)
             make.top.equalTo(backButton.snp.bottom).inset(-35)
         }
         

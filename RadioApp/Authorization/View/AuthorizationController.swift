@@ -139,9 +139,9 @@ private extension AuthorizationController {
         print("done tapped")
         switch mode {
         case .signIn:
-            presenter?.signIn(email: emailField?.textField.text, password: passwordField?.textField.text)
+            presenter.signIn(email: emailField?.textField.text, password: passwordField?.textField.text)
         default:
-            presenter?.signUp(name: nameField?.textField.text, email: emailField?.textField.text, password: passwordField?.textField.text)
+            presenter.signUp(name: nameField?.textField.text, email: emailField?.textField.text, password: passwordField?.textField.text)
         }
     }
     
@@ -156,8 +156,8 @@ private extension AuthorizationController {
     func configureSignInUI() -> UIView {
         let container = UIView()
         let stack = UIStackView()
-        let emailField = AuthorizationField(delegate: self, title: "Email".localized, placeholder: "Your email".localized, isSecure: false)
-        let passwordField = AuthorizationField(delegate: self, title: "Password".localized, placeholder: "Your password".localized, isSecure: true)
+        emailField = AuthorizationField(delegate: self, title: "Email".localized, placeholder: "Your email".localized, isSecure: false)
+        passwordField = AuthorizationField(delegate: self, title: "Password".localized, placeholder: "Your password".localized, isSecure: true)
         
         let forgotPasswordButton = UIButton()
         forgotPasswordButton.setTitle("Forgot Password ?".localized, for: .normal)
@@ -178,7 +178,7 @@ private extension AuthorizationController {
         let googleButton = UIButton()
         googleButton.setImage(.googlePlus, for: .normal)
         googleButton.addTarget(self, action: #selector(googleTapped), for: .touchUpInside)
-        
+
         guard let emailField, let passwordField else { return UIView() }
         
         stack.addArrangedSubview(emailField)
@@ -247,9 +247,9 @@ private extension AuthorizationController {
     func configureSignUpUI() -> UIView {
         let container = UIView()
         let stack = UIStackView()
-        let nameField = AuthorizationField(delegate: self, title: "Name".localized, placeholder: "Your name".localized, isSecure: false)
-        let emailField = AuthorizationField(delegate: self, title: "Email".localized, placeholder: "Your email".localized, isSecure: false)
-        let passwordField = AuthorizationField(delegate: self, title: "Password".localized, placeholder: "Your password".localized, isSecure: true)
+        nameField = AuthorizationField(delegate: self, title: "Name".localized, placeholder: "Your name".localized, isSecure: false)
+        emailField = AuthorizationField(delegate: self, title: "Email".localized, placeholder: "Your email".localized, isSecure: false)
+        passwordField = AuthorizationField(delegate: self, title: "Password".localized, placeholder: "Your password".localized, isSecure: true)
         guard let nameField, let emailField, let passwordField else { return UIView() }
         
         stack.addArrangedSubview(nameField)

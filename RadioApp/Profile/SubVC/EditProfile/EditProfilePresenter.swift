@@ -24,7 +24,7 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
         self.router = router
     }
     
-    func saveUserData(user: User) {
+    func saveUserData(user: UserApp) {
 
     }
     

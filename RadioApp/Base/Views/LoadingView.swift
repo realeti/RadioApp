@@ -9,18 +9,18 @@ import UIKit
 import Lottie
 import SnapKit
 
-final class LoadingView: UIViewController {
+final class LoadingView: UIView {
     let animation = LottieAnimationView()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .darkBlueApp
+    init() {
+        super.init(frame: .zero)
+        backgroundColor = .darkBlueApp
         animation.animation = .filepath(Bundle.main.path(forResource: "loading", ofType: "json") ?? "")
         animation.contentMode = .scaleAspectFit
         animation.loopMode = .autoReverse
         animation.play()
         
-        view.addSubview(animation)
+        addSubview(animation)
         
         animation.snp.makeConstraints {
             $0.size.equalTo(100)
@@ -28,8 +28,12 @@ final class LoadingView: UIViewController {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
         animation.stop()
     }
+    
 }

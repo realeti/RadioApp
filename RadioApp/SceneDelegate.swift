@@ -20,20 +20,6 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         router = RootBuilder.makeRootRouter(windowScene)
         router?.startFlow()
-        let navViewController = UINavigationController()
-        navViewController.navigationBar.isHidden = true
-        navViewController.viewControllers = [loading]
-        let loading = LoadingView()
-        Auth.auth().addStateDidChangeListener { auth, user in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                if let user {
-                    let home = Builder.createTabBar()
-                    navViewController.viewControllers = [home]
-                } else {
-                    let onboarding = Builder.createOnboarding()
-                    navViewController.viewControllers = [onboarding]
-                }
-            }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

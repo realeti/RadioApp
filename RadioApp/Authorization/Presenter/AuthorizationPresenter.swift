@@ -51,7 +51,7 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
                 guard let userEmail = data.email else { return }
                 print("successfuly signed in")
                 DispatchQueue.main.async { [weak self] in
-                    self?.router?.goHome()
+                    self?.router.goHome()
                 }
             } catch {
                 print("Error: \(error)")
@@ -76,7 +76,7 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
                 guard let userEmail = data.email else { return }
                 print("successfuly signed up")
                 DispatchQueue.main.async { [weak self] in
-                    self?.router?.goHome()
+                    self?.router.goHome()
                 }
             } catch {
                 print("Error: \(error)")
@@ -90,7 +90,7 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
             switch result {
             case true:
                 DispatchQueue.main.sync { [weak self] in
-                    self?.router?.goHome()
+                    self?.router.goHome()
                 }
                 
             case false:
