@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 final class RootRouter {
     private let window: UIWindow
@@ -21,10 +22,23 @@ final class RootRouter {
     }
 
     func startFlow() {
-        let onboarding = builder.buildOnboarding()
-        onboarding.root = self
-        onboarding.showOnboarding(on: window)
+        
+        let loading = UIViewController()
+        loading.view = LoadingView()
+        window.rootViewController = loading
         window.makeKeyAndVisible()
+        Auth.auth().addStateDidChangeListener { auth, user in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+                if let user {
+                    self?.startHome()
+                } else {
+                    let onboarding = self?.builder.buildOnboarding()
+                    onboarding?.root = self
+                    onboarding?.showOnboarding(on: self?.window ?? UIWindow())
+                }
+            }
+        }
+        
     }
 
     func startAuthorization() {
