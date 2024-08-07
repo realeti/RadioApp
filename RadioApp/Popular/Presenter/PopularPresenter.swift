@@ -17,8 +17,10 @@ protocol PopularViewProtocol: AnyObject {
 protocol PopularPresenterProtocol {
     init(router: PopularRouterProtocol)
     var getStations: [PopularViewModel] { get }
+    var isStationsLoaded: Bool { get }
     
     func loadStations() async
+    func setStations()
     func changeStation(_ stationId: Int)
     func toggleVoteState(for stationId: Int, stationUniqueID: UUID)
     func isStationVoted(_ stationId: Int) -> Bool
@@ -43,6 +45,8 @@ final class PopularPresenter: PopularPresenterProtocol {
             return stations
         }
     }
+    
+    var isStationsLoaded = false
     
     // MARK: - Init
     init(router: PopularRouterProtocol) {
@@ -83,7 +87,8 @@ extension PopularPresenter {
             print(error)
         }
         
-        setAudioPlayerStations()
+        isStationsLoaded = true
+        setStations()
         view?.didUpdateStations()
     }
 }
@@ -101,9 +106,9 @@ private extension PopularPresenter {
     }
 }
 
-// MARK: - Set AudioPlayer Stations
-private extension PopularPresenter {
-    func setAudioPlayerStations() {
+// MARK: - Set Stations
+extension PopularPresenter {
+    func setStations() {
         let audioStations: [AudioStation] = stations.map { station in
             AudioStation(id: station.id, url: station.url)
         }

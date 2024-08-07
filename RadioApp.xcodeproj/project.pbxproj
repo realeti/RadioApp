@@ -66,7 +66,7 @@
 		C62348652C5E8B2D00F536E7 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348642C5E8B2D00F536E7 /* PopularCollectionViewCell.swift */; };
 		C66106D72C60224E00E6196C /* AudioPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66106D62C60224E00E6196C /* AudioPlayerController.swift */; };
 		C667FD6F2C63FC1100BB3320 /* AudioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C667FD6E2C63FC1100BB3320 /* AudioStation.swift */; };
-		C667FD712C64029800BB3320 /* HomeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C667FD702C64029800BB3320 /* HomeTabBar.swift */; };
+		C667FD732C64147300BB3320 /* Int + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C667FD722C64147300BB3320 /* Int + Extensions.swift */; };
 		C68453E02C62BA4D00C457EA /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68453DF2C62BA4D00C457EA /* AudioPlayerViewController.swift */; };
 		C68453E42C62BBE000C457EA /* AudioPlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68453E32C62BBE000C457EA /* AudioPlayerPresenter.swift */; };
 		C68453E82C62C60000C457EA /* AudioAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68453E72C62C60000C457EA /* AudioAssembly.swift */; };
@@ -184,7 +184,7 @@
 		C62348642C5E8B2D00F536E7 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
 		C66106D62C60224E00E6196C /* AudioPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerController.swift; sourceTree = "<group>"; };
 		C667FD6E2C63FC1100BB3320 /* AudioStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStation.swift; sourceTree = "<group>"; };
-		C667FD702C64029800BB3320 /* HomeTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBar.swift; sourceTree = "<group>"; };
+		C667FD722C64147300BB3320 /* Int + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int + Extensions.swift"; sourceTree = "<group>"; };
 		C68453DF2C62BA4D00C457EA /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
 		C68453E32C62BBE000C457EA /* AudioPlayerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerPresenter.swift; sourceTree = "<group>"; };
 		C68453E72C62C60000C457EA /* AudioAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAssembly.swift; sourceTree = "<group>"; };
@@ -424,6 +424,7 @@
 				C623484B2C5E88E700F536E7 /* UIStackView + Extensions.swift */,
 				C623484D2C5E899800F536E7 /* UIImageView + Extensions.swift */,
 				C6DF00C72C5FAA4B0011EA5D /* UIButton + Extensions.swift */,
+				C667FD722C64147300BB3320 /* Int + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -646,7 +647,6 @@
 				CB2C8CBF2C57B1A000D280FE /* HomeController.swift */,
 				CBB20CEB2C627AA200B35416 /* HomePresenter.swift */,
 				CBB20CE52C62792800B35416 /* HomeRouter.swift */,
-				C667FD702C64029800BB3320 /* HomeTabBar.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -845,7 +845,6 @@
 				CBCA8D7A2C5D38AB003B01B9 /* OnboardingController.swift in Sources */,
 				CBB20CE42C626C4700B35416 /* RootBuilder.swift in Sources */,
 				BECF66442C5A1FBF0068160D /* UILabel+.swift in Sources */,
-				C667FD712C64029800BB3320 /* HomeTabBar.swift in Sources */,
 				BECF666D2C60D1FE0068160D /* CustomSwitchSettingsView.swift in Sources */,
 				BECF66152C58D6FA0068160D /* ProfileBuilder.swift in Sources */,
 				CBCA8D7C2C5D38AB003B01B9 /* OnboardingAssembly.swift in Sources */,
@@ -863,6 +862,7 @@
 				CB2C8CB02C5767DF00D280FE /* Router.swift in Sources */,
 				113FE50C2C61396B00B2AC8B /* StationDetailsPresenter.swift in Sources */,
 				BECF66132C58D6C30068160D /* ProfileRouter.swift in Sources */,
+				C667FD732C64147300BB3320 /* Int + Extensions.swift in Sources */,
 				CBCA8D7B2C5D38AB003B01B9 /* OnboardingRouter.swift in Sources */,
 				C62348482C5E88BD00F536E7 /* Constants.swift in Sources */,
 				CB2C8CB52C576A5C00D280FE /* ViewController.swift in Sources */,

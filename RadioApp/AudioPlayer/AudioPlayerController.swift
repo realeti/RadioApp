@@ -42,6 +42,7 @@ extension AudioPlayerController {
         let playerItem = AVPlayerItem(url: url)
         audioPlayer = AVPlayer(playerItem: playerItem)
         audioPlayer?.play()
+        
         isPlaying = true
         postStatusNotification()
     }
@@ -54,7 +55,6 @@ extension AudioPlayerController {
         }
         
         isPlaying.toggle()
-        postStatusNotification()
     }
     
     func playPrevious() {
@@ -72,10 +72,10 @@ extension AudioPlayerController {
     }
     
     func playStation(at index: Int) {
-        currentIndex = index
         let station = stations[index]
         
         if let url = URL(string: station.url) {
+            currentIndex = index
             playStream(url: url)
         }
     }
@@ -99,9 +99,11 @@ private extension AudioPlayerController {
 private extension AudioPlayerController {
     func postStatusNotification() {
         NotificationCenter.default.post(name: .playerStatusDidChange, object: nil, userInfo: ["isPlaying": isPlaying])
+        NotificationCenter.default.post(name: .playerCurrentIndexDidChange, object: nil, userInfo: ["stationIndex": currentIndex])
     }
 }
 
 extension Notification.Name {
     static let playerStatusDidChange = Notification.Name("playerStatusDidChange")
+    static let playerCurrentIndexDidChange = Notification.Name("playerCurrentIndexDidChange")
 }

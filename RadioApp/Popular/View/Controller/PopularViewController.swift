@@ -34,7 +34,16 @@ final class PopularViewController: ViewController {
         super.viewDidLoad()
         
         setDelegates()
+        setNotification()
         loadStations()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        /*if presenter.isStationsLoaded {
+            presenter.setStations()
+        }*/
     }
     
     // MARK: - Set Delegates
@@ -43,10 +52,38 @@ final class PopularViewController: ViewController {
         popularView.radioCollection.delegate = self
     }
     
+    // MARK: - Set Notification
+    private func setNotification() {
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(handleIndexChange),
+            name: .playerCurrentIndexDidChange,
+            object: nil
+        )
+    }
+    
     // MARK: - Load Stations
     private func loadStations() {
         Task {
             await presenter.loadStations()
+        }
+    }
+    
+    // MARK: - Deinit
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+}
+
+// MARK: - Notification handle
+private extension PopularViewController {
+    @objc func handleIndexChange(_ notification: Notification) {
+        if let index = notification.userInfo?["stationIndex"] as? Int {
+            let indexPath = IndexPath(item: index, section: 0)
+            popularView.radioCollection.selectItem(
+                at: indexPath,
+                animated: true,
+                scrollPosition: .centeredVertically
+            )
         }
     }
 }
