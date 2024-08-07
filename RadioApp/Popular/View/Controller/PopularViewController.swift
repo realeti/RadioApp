@@ -6,16 +6,13 @@
 //
 
 import UIKit
-import AVFoundation
 
 final class PopularViewController: ViewController {
-    // MARK: - Public Properties
-    private let presenter: PopularPresenterProtocol
-    
     // MARK: - Private Properties
+    private let presenter: PopularPresenterProtocol
     private var popularView: PopularView!
     
-    
+    // MARK: - Init
     init(presenter: PopularPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)

@@ -64,11 +64,10 @@
 		C62348612C5E8B1300F536E7 /* PopularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348602C5E8B1300F536E7 /* PopularView.swift */; };
 		C62348632C5E8B2100F536E7 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348622C5E8B2100F536E7 /* PopularViewController.swift */; };
 		C62348652C5E8B2D00F536E7 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348642C5E8B2D00F536E7 /* PopularCollectionViewCell.swift */; };
-		C62348672C5E8B3900F536E7 /* AudioVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348662C5E8B3900F536E7 /* AudioVolumeView.swift */; };
 		C66106D72C60224E00E6196C /* AudioPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66106D62C60224E00E6196C /* AudioPlayerController.swift */; };
+		C667FD6F2C63FC1100BB3320 /* AudioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C667FD6E2C63FC1100BB3320 /* AudioStation.swift */; };
 		C68453E02C62BA4D00C457EA /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68453DF2C62BA4D00C457EA /* AudioPlayerViewController.swift */; };
 		C68453E42C62BBE000C457EA /* AudioPlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68453E32C62BBE000C457EA /* AudioPlayerPresenter.swift */; };
-		C68453E62C62BDB700C457EA /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68453E52C62BDB700C457EA /* AudioView.swift */; };
 		C68453E82C62C60000C457EA /* AudioAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68453E72C62C60000C457EA /* AudioAssembly.swift */; };
 		C6DF00C62C5FA62E0011EA5D /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DF00C52C5FA62E0011EA5D /* AudioPlayerView.swift */; };
 		C6DF00C82C5FAA4B0011EA5D /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DF00C72C5FAA4B0011EA5D /* UIButton + Extensions.swift */; };
@@ -182,11 +181,10 @@
 		C62348602C5E8B1300F536E7 /* PopularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularView.swift; sourceTree = "<group>"; };
 		C62348622C5E8B2100F536E7 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
 		C62348642C5E8B2D00F536E7 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
-		C62348662C5E8B3900F536E7 /* AudioVolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVolumeView.swift; sourceTree = "<group>"; };
 		C66106D62C60224E00E6196C /* AudioPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerController.swift; sourceTree = "<group>"; };
+		C667FD6E2C63FC1100BB3320 /* AudioStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStation.swift; sourceTree = "<group>"; };
 		C68453DF2C62BA4D00C457EA /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
 		C68453E32C62BBE000C457EA /* AudioPlayerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerPresenter.swift; sourceTree = "<group>"; };
-		C68453E52C62BDB700C457EA /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		C68453E72C62C60000C457EA /* AudioAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAssembly.swift; sourceTree = "<group>"; };
 		C6DF00C52C5FA62E0011EA5D /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		C6DF00C72C5FAA4B0011EA5D /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
@@ -538,6 +536,7 @@
 			children = (
 				C68453E72C62C60000C457EA /* AudioAssembly.swift */,
 				C66106D62C60224E00E6196C /* AudioPlayerController.swift */,
+				C667FD6D2C63FC0300BB3320 /* Model */,
 				C66106D82C6022D200E6196C /* View */,
 				C68453E22C62BBC200C457EA /* Presenter */,
 			);
@@ -547,20 +546,18 @@
 		C66106D82C6022D200E6196C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C68453E52C62BDB700C457EA /* AudioView.swift */,
+				C6DF00C52C5FA62E0011EA5D /* AudioPlayerView.swift */,
 				C68453DF2C62BA4D00C457EA /* AudioPlayerViewController.swift */,
-				C68453E12C62BB9E00C457EA /* Subviews */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		C68453E12C62BB9E00C457EA /* Subviews */ = {
+		C667FD6D2C63FC0300BB3320 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C6DF00C52C5FA62E0011EA5D /* AudioPlayerView.swift */,
-				C62348662C5E8B3900F536E7 /* AudioVolumeView.swift */,
+				C667FD6E2C63FC1100BB3320 /* AudioStation.swift */,
 			);
-			path = Subviews;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C68453E22C62BBC200C457EA /* Presenter */ = {
@@ -896,7 +893,6 @@
 				BECF661B2C5A055C0068160D /* GeneralView.swift in Sources */,
 				BECF662E2C5A0D7E0068160D /* AboutUsPresenter.swift in Sources */,
 				CBCA8D972C5D3965003B01B9 /* AuthorizationPresenter.swift in Sources */,
-				C62348672C5E8B3900F536E7 /* AudioVolumeView.swift in Sources */,
 				113FE50D2C61396B00B2AC8B /* EqualizerView.swift in Sources */,
 				BECF66322C5A0DB70068160D /* Team.swift in Sources */,
 				BECF66352C5A10AA0068160D /* UIView+.swift in Sources */,
@@ -923,11 +919,11 @@
 				C68453E02C62BA4D00C457EA /* AudioPlayerViewController.swift in Sources */,
 				CBCA8D9D2C5D3965003B01B9 /* UpdatePasswordPresenter.swift in Sources */,
 				CBCA8D9A2C5D3965003B01B9 /* AuthorizationController.swift in Sources */,
+				C667FD6F2C63FC1100BB3320 /* AudioStation.swift in Sources */,
 				CBB20CEC2C627AA200B35416 /* HomePresenter.swift in Sources */,
 				B949AE512C5F805600E2A338 /* FavStationModel.swift in Sources */,
 				113FE50E2C61396B00B2AC8B /* StationDetailsController.swift in Sources */,
 				CBCA8D9E2C5D3965003B01B9 /* ForgotPasswordController.swift in Sources */,
-				C68453E62C62BDB700C457EA /* AudioView.swift in Sources */,
 				C62348652C5E8B2D00F536E7 /* PopularCollectionViewCell.swift in Sources */,
 				BECF66562C5A361B0068160D /* LanguagePresenter.swift in Sources */,
 				CBB20CCF2C6213A000B35416 /* AuthenticationService.swift in Sources */,

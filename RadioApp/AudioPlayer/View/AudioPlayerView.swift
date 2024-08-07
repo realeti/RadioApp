@@ -52,7 +52,7 @@ final class AudioPlayerView: UIView {
 // MARK: - External methods
 extension AudioPlayerView {
     func updatePlayerImage(_ isPlaying: Bool) {
-        let playerImage: UIImage = isPlaying ? .playerPlay : .playerPause
+        let playerImage: UIImage = isPlaying ? .playerPause : .playerPlay
         
         UIView.animate(withDuration: 0.1) {
             self.playerButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
@@ -100,7 +100,9 @@ private extension AudioPlayerView {
     
     func setupPlayerStackViewConstraints() {
         playerStackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            //make.edges.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
     }
     

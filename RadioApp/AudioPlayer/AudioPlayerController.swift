@@ -9,10 +9,14 @@ import Foundation
 import AVFoundation
 
 protocol AudioPlayerProtocol {
-    func playStream(url: URL)
+    var currentIndex: Int { get }
+    var isPlaying: Bool { get }
+    
     func playPause()
     func playPrevious()
     func playNext()
+    func playStation(at index: Int)
+    func setStations(_ stations: [AudioStation], startIndex: Int)
 }
 
 final class AudioPlayerController: AudioPlayerProtocol {
@@ -21,9 +25,10 @@ final class AudioPlayerController: AudioPlayerProtocol {
     
     // MARK: - Private properties
     private var audioPlayer: AVPlayer?
+    private var stations: [AudioStation] = []
     
     // MARK: - Public Properties
-    var currentURL: URL?
+    var currentIndex: Int = 0
     var isPlaying: Bool = false
     
     private init() {}
@@ -31,14 +36,12 @@ final class AudioPlayerController: AudioPlayerProtocol {
 
 // MARK: - AudioPlayer methods
 extension AudioPlayerController {
-    func playStream(url: URL) {
+    private func playStream(url: URL) {
         stopStream()
         
         let playerItem = AVPlayerItem(url: url)
         audioPlayer = AVPlayer(playerItem: playerItem)
         audioPlayer?.play()
-        
-        currentURL = url
         isPlaying = true
     }
     
@@ -53,11 +56,31 @@ extension AudioPlayerController {
     }
     
     func playPrevious() {
-        print("Previous button pressed")
+        guard !stations.isEmpty else { return }
+        
+        currentIndex = (currentIndex - 1 + stations.count) % stations.count
+        playStation(at: currentIndex)
     }
     
     func playNext() {
-        print("Next button pressed")
+        guard !stations.isEmpty else { return }
+        
+        currentIndex = (currentIndex + 1) % stations.count
+        playStation(at: currentIndex)
+    }
+    
+    func playStation(at index: Int) {
+        currentIndex = index
+        let station = stations[index]
+        
+        if let url = URL(string: station.url) {
+            playStream(url: url)
+        }
+    }
+    
+    func setStations(_ stations: [AudioStation], startIndex: Int = 0) {
+        self.stations = stations
+        self.currentIndex = startIndex
     }
 }
 
@@ -67,6 +90,5 @@ private extension AudioPlayerController {
         audioPlayer?.pause()
         audioPlayer = nil
         isPlaying = false
-        currentURL = nil
     }
 }
