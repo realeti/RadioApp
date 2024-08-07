@@ -10,19 +10,20 @@ import FirebaseAuth
 import Lottie
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    
+    var router: RootRouter?
+
     var window: UIWindow?
     private var isShowingHomeVC: Bool = false
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        window = UIWindow(windowScene: windowScene)
-        
+        router = RootBuilder.makeRootRouter(windowScene)
+        router?.startFlow()
         let navViewController = UINavigationController()
         navViewController.navigationBar.isHidden = true
-        let loading = LoadingView()
         navViewController.viewControllers = [loading]
+        let loading = LoadingView()
         Auth.auth().addStateDidChangeListener { auth, user in
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 if let user {
@@ -33,12 +34,6 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     navViewController.viewControllers = [onboarding]
                 }
             }
-            
-        }
-            
-        window?.rootViewController = navViewController
-        window?.makeKeyAndVisible()
-        
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

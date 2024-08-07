@@ -86,6 +86,15 @@ final class EditProfileViewController: ViewController, EditProfileViewController
         view.layer.cornerRadius = 25
         return view
     }()
+    
+    private let passwordFieldView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.layer.borderColor = UIColor.gray.cgColor
+        view.layer.borderWidth = 1
+        view.layer.cornerRadius = 25
+        return view
+    }()
 
     private let loginLabel: UILabel = {
         let label = UILabel.makeLabel(
@@ -107,10 +116,22 @@ final class EditProfileViewController: ViewController, EditProfileViewController
         )
         label.backgroundColor = .darkBlueApp
         label.textAlignment = .center
-        label.text = "Email"
+        label.text = "Email".localized
         return label
     }()
     
+    private let passwordLabel: UILabel = {
+        let label = UILabel.makeLabel(
+            font: .systemFont(ofSize: 12, weight: .medium),
+            color: .white,
+            numberOfLines: 1
+        )
+        label.backgroundColor = .darkBlueApp
+        label.textAlignment = .center
+        label.text = "Password".localized
+        return label
+    }()
+
     private let nameTextField: UITextField = {
         let textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(
@@ -126,10 +147,23 @@ final class EditProfileViewController: ViewController, EditProfileViewController
     private let emailTextField: UITextField = {
         let textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(
-                   string: "Enter your email",
-                   attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)]
-               )
+            string: "Enter your email".localized,
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)]
+        )
         textField.tag = 1
+        textField.tintColor = .white
+        textField.textColor = .white
+        textField.autocorrectionType = .no
+        return textField
+    }()
+
+    private let passwordTextField: UITextField = {
+        let textField  = UITextField()
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Enter you password".localized,
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)]
+        )
+        textField.tag = 2
         textField.tintColor = .white
         textField.textColor = .white
         textField.autocorrectionType = .no
@@ -148,6 +182,17 @@ final class EditProfileViewController: ViewController, EditProfileViewController
     }()
     
     private var emailErrorLabel: UILabel = {
+        var label = UILabel.makeLabel(
+            font: .systemFont(ofSize: 12, weight: .medium),
+            color: .systemRed,
+            numberOfLines: 1
+        )
+        label.text = "* Required field".localized
+        label.isHidden = true
+        return label
+    }()
+    
+    private var passwordErrorLabel: UILabel = {
         var label = UILabel.makeLabel(
             font: .systemFont(ofSize: 12, weight: .medium),
             color: .systemRed,
@@ -182,26 +227,37 @@ final class EditProfileViewController: ViewController, EditProfileViewController
 //        presenter.fetchUser()
         nameTextField.delegate = self
         emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     // MARK: - Private Methods
     private func setupViews() {
         view.backgroundColor = .darkBlueApp
         title = "Edit Profile".localized
-        view.addSubviews(profileImage, editButton, userNameLabel, userEmailLabel, nameFieldView, emailFieldView, loginLabel, emailLabel, nameErrorLabel,emailErrorLabel, saveButton)
+        view.addSubviews(
+            profileImage, editButton, userNameLabel, userEmailLabel,
+            nameFieldView, emailFieldView, passwordFieldView,
+            loginLabel, emailLabel, passwordLabel,
+            nameErrorLabel,emailErrorLabel, passwordErrorLabel, saveButton
+        )
+        
         nameFieldView.addSubview(nameTextField)
         emailFieldView.addSubview(emailTextField)
+        passwordFieldView.addSubview(passwordTextField)
+
     }
     
     private func saveButtonAction() {
         if let login = nameTextField.text,
            let email = emailTextField.text,
+           let password = passwordTextField.text,
            let imageData = profileImage.image?.pngData() {
             var user = UserApp()
             user.image = imageData
             user.email = email
             user.login = login
-            presenter.saveUserData(user: user)
+            user.password = password
+//            presenter.saveUserData(user: user)
         }
     }
     
@@ -243,6 +299,18 @@ final class EditProfileViewController: ViewController, EditProfileViewController
         }
     }
     
+    private func updatePasswordErrorLabel(password: String) {
+        if let text = passwordTextField.text, !text.isEmpty {
+            let passwordAvailability = presenter.isPasswordBooked(password: password)
+            passwordErrorLabel.text = "* \(passwordAvailability ? "Password already registered" : "Password Available")"
+            passwordErrorLabel.textColor = passwordAvailability ? .red : .green
+            passwordErrorLabel.isHidden = false
+        } else {
+            passwordErrorLabel.text = "* Required"
+            passwordErrorLabel.textColor = .red
+            passwordErrorLabel.isHidden = false
+        }
+    }
 }
 // MARK: - UITextFieldDelegate
 extension EditProfileViewController: UITextFieldDelegate {
@@ -252,6 +320,8 @@ extension EditProfileViewController: UITextFieldDelegate {
             updateNameErrorLabel(login: textField.text ?? "")
         case 1:
             updateEmailErrorLabel(email: textField.text ?? "")
+        case 2:
+            updatePasswordErrorLabel(password: textField.text ?? "")
         default:
             break
         }
@@ -358,9 +428,40 @@ private extension EditProfileViewController {
                 .offset(EditViewLayout.topOrBottomOfSetItems)
             make.left.equalTo(emailFieldView.snp.left)
         }
+         
+         passwordFieldView.snp.makeConstraints { make in
+             make.top.equalTo(emailErrorLabel.snp.bottom)
+                 .offset(EditViewLayout.topOffSetBlock)
+             make.left.right.equalToSuperview()
+                 .inset(EditViewLayout.textFieldLeftRightInset)
+             make.height.equalTo(EditViewLayout.textFieldHeight)
+         }
+         
+         passwordLabel.snp.makeConstraints { make in
+             make.top.equalTo(passwordFieldView.snp.top)
+                 .offset(EditViewLayout.nameEmailLabelTopOffset)
+             make.left.equalTo(passwordFieldView.snp.left)
+                 .offset(EditViewLayout.nameEmailLabelLeftOffset)
+             make.width.equalTo(EditViewLayout.nameEmailLabelWidth)
+         }
+         
+         passwordTextField.snp.makeConstraints { make in
+             make.left.right.equalToSuperview()
+                 .inset(EditViewLayout.textFieldLeftRightInset)
+             make.top.equalToSuperview()
+                 .offset(EditViewLayout.topOrBottomOfSetItems)
+             make.bottom.equalToSuperview()
+                 .offset(-EditViewLayout.topOrBottomOfSetItems)
+         }
+         
+         passwordErrorLabel.snp.makeConstraints { make in
+             make.top.equalTo(passwordFieldView.snp.bottom)
+                 .offset(EditViewLayout.topOrBottomOfSetItems)
+             make.left.equalTo(passwordFieldView.snp.left)
+         }
         
          saveButton.snp.makeConstraints { make in
-             make.top.equalTo(emailErrorLabel.snp.bottom)
+             make.top.equalTo(passwordErrorLabel.snp.bottom)
                  .offset(EditViewLayout.topOrBottomOfSetItems)
              make.left.right.equalToSuperview()
                  .inset(EditViewLayout.textFieldLeftRightInset)
@@ -379,7 +480,7 @@ private extension EditProfileViewController {
         static let nameEmailLabelLeftOffset = 35
         static let nameEmailLabelWidth = 80
         static let saveButtonBottomOffset = 50
-        static let saveButtonHeight = 55
+        static let saveButtonHeight = 45
         static let editButtonBottomOffset = 3
         static let editButtonRightOffset = 5
     }

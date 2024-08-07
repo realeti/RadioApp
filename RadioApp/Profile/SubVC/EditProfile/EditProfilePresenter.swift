@@ -12,37 +12,39 @@ protocol EditProfilePresenterProtocol {
     func fetchUser()
     func isLoginBooked(login: String) -> Bool
     func isEmailBooked(email: String) -> Bool
+    func isPasswordBooked(password: String) -> Bool
 }
 
 final class EditProfilePresenter: EditProfilePresenterProtocol {
+    
     weak var view: EditProfileViewControllerProtocol?
-    private var router: ProfileRouterProtocol?
-//    private var realmService: RealmServiceProtocol?
+    private var router: ProfileRouterProtocol
     init(view: EditProfileViewControllerProtocol, router: ProfileRouterProtocol) {
         self.view = view
         self.router = router
-//        self.realmService = realmService
     }
     
-    func saveUserData(user: UserApp) {
-//        realmService?.saveUser(user)
+    func saveUserData(user: User) {
+
     }
     
     func fetchUser() {
-//        if let user = realmService?.fetchUser() {
-//            view?.fetchUser(user)
-//        }
+
     }
     
     func isLoginBooked(login: String) -> Bool {
-//        guard let realmService else { return false }
-//        return realmService.isUserWithLoginExist(withLogin: login)
+
         return false
     }
     
     func isEmailBooked(email: String) -> Bool {
-//        guard let realmService else { return false }
-//        return realmService.isUserWithEmailExist(withEmail: email)
+
+        return false
+    }
+    
+    func isPasswordBooked(password: String) -> Bool {
+        
         return false
     }
 }
+

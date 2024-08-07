@@ -9,45 +9,6 @@ import Foundation
 
 struct PrivacyInfo {
 
-//    // MARK: - Private Properties
-//    private let aboutUs =
-//    """
-//    Добро пожаловать в RadioApp — ваше главное место для наслаждения музыкой и радиопередачами. RadioApp привержен защите вашей конфиденциальности и обеспечению безопасности ваших личных данных. Эта Политика конфиденциальности описывает, как мы собираем, используем и защищаем вашу информацию. Используя RadioApp, вы соглашаетесь с условиями, изложенными в этой политике.
-//    """.localized
-//    
-//    private let informationWeCollect =
-//    """
-//    Информация об учетной записи: Для улучшения вашего опыта мы собираем регистрационные данные, включая ваше имя, электронную почту и профильную информацию.
-//    Информация об использовании: Мы собираем данные о ваших взаимодействиях с RadioApp, таких как история прослушивания и предпочтения.
-//    Информация об устройстве: Мы можем собирать информацию о вашем устройстве, операционной системе и уникальных идентификаторах.
-//    """.localized
-//    
-//    private let howWeUseYourInformation =
-//    """
-//    Мы используем собранные данные для предоставления, персонализации и улучшения услуг RadioApp.
-//    Информация обрабатывается для выполнения транзакций, поддержки клиентов и анализа шаблонов использования для улучшения функций.
-//    """.localized
-//    
-//    private let security =
-//    """
-//    Применяются стандартные в отрасли меры для защиты вашей информации от несанкционированного доступа, изменения или раскрытия.
-//    """.localized
-//    
-//    private let childrensPrivacy =
-//    """
-//    RadioApp не предназначен для пользователей младше 13 лет, и мы сознательно не собираем информацию от детей.
-//    """.localized
-//    
-//    private let contactUs =
-//    """
-//    Если у вас есть вопросы или сомнения по поводу этой Политики конфиденциальности, пожалуйста, свяжитесь с нами по адресу  [https://github.com/ridebyhorse].
-//    """.localized
-//    
-//    private let thankYou =
-//    """
-//    Благодарим вас за выбор RadioApp. Мы стремимся предоставить вам исключительный и безопасный опыт прослушивания радио.
-//    """.localized
-    
     // MARK: - Private Properties
     private let aboutUs =
     """
@@ -88,13 +49,13 @@ struct PrivacyInfo {
     """.localized
     
     func getSectionsInfo() -> [PrivacyInfoModel] {
-        let about = PrivacyInfoModel(title: "О нас".localized, description: aboutUs)
-        let info =  PrivacyInfoModel(title: "Информация, которую мы собираем".localized, description: informationWeCollect)
-        let howWeUse = PrivacyInfoModel(title: "Как мы используем вашу информацию".localized, description: howWeUseYourInformation)
-        let security = PrivacyInfoModel(title: "Безопасность".localized, description: security)
-        let childrensPrivacy = PrivacyInfoModel(title: "Конфиденциальность детей".localized, description: childrensPrivacy)
-        let contactUs = PrivacyInfoModel(title: "Связаться с нами".localized, description: contactUs)
-        let thankYou = PrivacyInfoModel(title: "Спасибо".localized, description: thankYou)
+        let about = PrivacyInfoModel(title: "About Us".localized, description: aboutUs)
+        let info =  PrivacyInfoModel(title: "Information we collect".localized, description: informationWeCollect)
+        let howWeUse = PrivacyInfoModel(title: "How we use your information".localized, description: howWeUseYourInformation)
+        let security = PrivacyInfoModel(title: "Security".localized, description: security)
+        let childrensPrivacy = PrivacyInfoModel(title: "Children's privacy".localized, description: childrensPrivacy)
+        let contactUs = PrivacyInfoModel(title: "Contact Us".localized, description: contactUs)
+        let thankYou = PrivacyInfoModel(title: "Thank you".localized, description: thankYou)
         return [about, info, howWeUse, security, childrensPrivacy, contactUs, thankYou]
     }
 }

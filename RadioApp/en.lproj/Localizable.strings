@@ -6,6 +6,7 @@
   
 */
 "Hello" = "Hello";
+"Mark" = "Mark";
 "See all" = "See all";
 "Search" = "Search";
 "Profile" = "Profile";
@@ -25,6 +26,7 @@
 "Save Changes" = "Save Changes";
 "* Required field" = "* Required field";
 "Enter your email" = "Enter your email";
+"Enter you password" = "Enter you password";
 "Enter your name" = "Enter your name";
 "Cancel" = "Cancel";
 "Information we collect" = "Information we collect";
@@ -37,7 +39,6 @@
 "IOS Developer" = "IOS Developer";
 
 "Welcome to RadioApp, your premier destination for enjoying music and radio. RadioApp is committed to protecting your privacy and keeping your personal information secure. This Privacy Policy describes how we collect, use, and protect your information. By using RadioApp, you agree to the terms set out in this policy." = "Welcome to RadioApp, your premier destination for enjoying music and radio. RadioApp is committed to protecting your privacy and keeping your personal information secure. This Privacy Policy describes how we collect, use, and protect your information. By using RadioApp, you agree to the terms set out in this policy.";
-
 "Account Information: To enhance your experience, we collect registration information, including your name, email, and profile information.
 Usage Information: We collect data about your interactions with RadioApp, such as listening history and preferences.
 Device Information: We may collect information about your device, operating system, and unique identifiers." = "Account Information: To enhance your experience, we collect registration information, including your name, email, and profile information.
@@ -55,6 +56,50 @@ The information is processed to complete transactions, provide customer support 
 "If you have any questions or concerns about this Privacy Policy, please contact us at [https://github.com/ridebyhorse]" = "If you have any questions or concerns about this Privacy Policy, please contact us at [https://github.com/ridebyhorse]";
 
 "Thank you for choosing RadioApp. We are committed to providing you with an exceptional and safe radio listening experience." = "Thank you for choosing RadioApp. We are committed to providing you with an exceptional and safe radio listening experience.";
+
+"Let's Get Started" = "Let's Get Started";
+"Get Started" = "Get Started";
+"Sign in" = "Sign in";
+"Sign Up" = "Sign Up";
+"Or Sign Up" = "Or Sign Up";
+"Or Sign In" = "Or Sign In";
+"to start play" = "to start play";
+
+"Update\nPassword" = "Update Password";
+"Confirm password" = "Confirm password";
+"Change password" = "Change password";
+"Forgot\nPassword" = "Forgot Password";
+"Send" = "Send";
+"votes" = "votes";
+
+"Popular" = "Popular";
+"Favorites" = "Favorites";
+"All Stations" = "All Stations";
+
+"Name" = "Name";
+"Your name" = "Your name";
+"Email" = "Email";
+"Your email" = "Your email";
+"Password" = "Password";
+"Your password" = "Your password";
+"Forgot Password ?" = "Forgot Password ?";
+"Or connect with" = "Or connect with";
+
+"POP" = "POP";
+"16bit" = "16bit";
+"Punk" = "Punk";
+"Dj Remix" = "Dj Remix";
+"Adult" = "Adult";
+"Etnic" = "Etnic";
+
+"Radio Record" = "Radio Record";
+"Radio Gameplay" = "Radio Gameplay";
+"Russian Punk rock" = "Russian Punk rock";
+"!REMIX!" = "!REMIX!";
+"RUSSIAN WAVE" = "RUSSIAN WAVE";
+"beufm.kz" = "beufm.kz";
+
+"Enjoy the best radio stations \nfrom your home, don't miss \nout on anything" = "Enjoy the best radio stations \nfrom your home, don't miss \nout on anything";
 
 "Hello!" = "Hello!";
 "Hello, " = "Hello, ";

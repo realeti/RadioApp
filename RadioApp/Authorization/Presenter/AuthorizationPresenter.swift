@@ -10,12 +10,13 @@ import UIKit
 
 final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     
-    var view: (any AuthorizationControllerProtocol)?
-    var router: (any AuthorizationRouterProtocol)?
-    var mode: AuthorizationMode
+    weak var view: AuthorizationControllerProtocol?
+    private let router: AuthorizationRouterProtocol
+    private var mode: AuthorizationMode
     
-    init(mode: AuthorizationMode) {
+    init(mode: AuthorizationMode, router: AuthorizationRouterProtocol) {
         self.mode = mode
+        self.router = router
     }
 
     func activate() {
@@ -104,6 +105,6 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     }
     
     func didTapForgotPasswordButton() {
-        router?.showForgotPasswordVC()
+        router.showForgotPasswordVC()
     }
 }

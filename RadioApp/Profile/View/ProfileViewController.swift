@@ -8,15 +8,25 @@
 import UIKit
 
 final class ProfileViewController: ViewController, ProfileViewProtocol {
-    var presenter: ProfilePresenterProtocol!
+    private let presenter: ProfilePresenterProtocol
     private let userView = UserView()
+    
+    init(presenter: ProfilePresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private var generalView = GeneralView(
         frame: .zero, title: "General".localized,
         firstTitle: "Notifications".localized,
         firstImage: .notification,
         secondTitle: "Language".localized,
-        secondImage: .globe
+        secondImage: .globe,
+        showSwitchForFirst: true
     )
     
     private var moreView = GeneralView(
@@ -70,12 +80,7 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
         setupView()
         setupButtons()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        updateUI()
-    }
-    
+        
     private func setupView() {
         view.addSubviews(userView, generalView, moreView, LogOutButton)
         setupConstraints()
@@ -88,13 +93,7 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
             self.presenter.showEditProfileVC()
         }
     }
-    
-//    private func setupNotificationButton() {
-//        generalView.onFirstTap = {
-//            self.presenter.showNotificationVC()
-//        }
-//    }
-    
+
     private func setupPoliciesButton() {
         moreView.onFirstTap = {
             self.presenter.showPolicyVC()
@@ -116,17 +115,11 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
     private func setupButtons() {
         setupPoliciesButton()
         setupEditButton()
-//        setupNotificationButton()
         setupPoliciesButton()
         setupAboutUsButton()
         setupLanguageViewButton()
     }
     
-//    private func updateUI() {
-//        guard let user = presenter.fetchUser() else { return }
-//        userView.setViews(with: user)
-//    }
-     
     func setupConstraints() {
         userView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
@@ -169,3 +162,4 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
         }
     }
 }
+

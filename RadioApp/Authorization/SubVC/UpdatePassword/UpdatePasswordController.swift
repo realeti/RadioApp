@@ -49,14 +49,14 @@ private extension UpdatePasswordController {
         mainLabel.font = .systemFont(ofSize: 50, weight: .bold)
         mainLabel.textColor = .white
         mainLabel.numberOfLines = 2
-        mainLabel.text = "Update\nPassword"
+        mainLabel.text = "Update\nPassword".localized
         
-        let passwordField = AuthorizationField(delegate: self, title: "Password", placeholder: "Your password", isSecure: true)
+        let passwordField = AuthorizationField(delegate: self, title: "Password".localized, placeholder: "Your password".localized, isSecure: true)
         
-        let confirmPasswordField = AuthorizationField(delegate: self, title: "Confirm password", placeholder: "Your password", isSecure: true)
+        let confirmPasswordField = AuthorizationField(delegate: self, title: "Confirm password".localized, placeholder: "Your password".localized, isSecure: true)
         
         let sendButton = UIButton()
-        sendButton.setTitle("Change password", for: .normal)
+        sendButton.setTitle("Change password".localized, for: .normal)
         sendButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
         sendButton.backgroundColor = .neonBlueApp
         sendButton.tintColor = .white
@@ -120,9 +120,4 @@ extension UpdatePasswordController: UITextFieldDelegate {
         password = textField.text
         return true
     }
-}
-
-@available(iOS 17.0, *)
-#Preview {
-    Builder.createUpdatePasswordVC()
 }

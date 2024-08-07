@@ -10,10 +10,20 @@ import AVFoundation
 
 final class PopularViewController: ViewController {
     // MARK: - Public Properties
-    var presenter: PopularPresenterProtocol!
+    private let presenter: PopularPresenterProtocol
     
     // MARK: - Private Properties
     private var popularView: PopularView!
+    
+    
+    init(presenter: PopularPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Life Cycle
     override func loadView() {

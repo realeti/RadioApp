@@ -9,7 +9,16 @@ import UIKit
 import SnapKit
 
 final class OnboardingController: UIViewController {
-    var presenter: (any OnboardingPresenterProtocol)?
+    private let presenter: OnboardingPresenterProtocol
+    
+    init(presenter: OnboardingPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,16 +45,16 @@ private extension OnboardingController {
         mainLabel.font = .systemFont(ofSize: 60, weight: .bold)
         mainLabel.textColor = .white
         mainLabel.numberOfLines = 2
-        mainLabel.text = "Let's Get Started"
+        mainLabel.text = "Let's Get Started".localized
         
         let textLabel = UILabel()
         textLabel.font = .systemFont(ofSize: 16, weight: .regular)
         textLabel.textColor = .white
         textLabel.numberOfLines = 0
-        textLabel.text = "Enjoy the best radio stations \nfrom your home, don't miss \nout on anything"
+        textLabel.text = "Enjoy the best radio stations \nfrom your home, don't miss \nout on anything".localized
         
         let startButton = UIButton()
-        startButton.setTitle("Get Started", for: .normal)
+        startButton.setTitle("Get Started".localized, for: .normal)
         startButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
         startButton.backgroundColor = .pinkApp
         startButton.tintColor = .white
@@ -94,11 +103,6 @@ private extension OnboardingController {
     
     @objc func startTapped() {
         print("start tapped")
-        presenter?.goToAutorization()
+        presenter.goToAutorization()
     }
-}
-
-@available(iOS 17.0, *)
-#Preview {
-    Builder.createOnboarding()
 }

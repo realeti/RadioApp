@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FavoritesPresenter: FavoritesPresenterProtocol {
+final class FavoritesPresenter: FavoritesPresenterProtocol {
     
     weak var view: FavoritesControllerProtocol?
     private let router: FavoritesRouterProtocol
