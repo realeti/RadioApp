@@ -13,9 +13,22 @@ class ViewController: UIViewController {
     let loadingView = LoadingView()
     let errorView = ErrorView()
     
+    private lazy var profileView: UIImageView = {
+        let image = getUserImage() ?? .natalyaLuzyanina
+        let view = UIImageView(image: image)
+        view.contentMode = .scaleAspectFit
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateUserImage()
     }
     
     private func configureItems() {
@@ -35,45 +48,34 @@ class ViewController: UIViewController {
         }
     }
     
-    private func getUserImage(completion: @escaping (UIImage?) -> Void) {
-        guard let id = Auth.auth().currentUser?.uid else {
-            completion(nil)
-            return
+    private func getUserImage() -> UIImage? {
+        guard
+            let id = Auth.auth().currentUser?.uid,
+            let userEntity = StorageManager.shared.fetchUser(id: id),
+            let imageData = userEntity.imageData,
+            let image = UIImage(data: imageData)
+        else {
+            return nil
         }
-        StorageManager.shared.fetchUser(id: id) { result in
-            switch result {
-            case .success(let user):
-                guard let imageData = user.imageData else {
-                    completion(nil)
-                    return
-                }
-                let image = UIImage(data: imageData)
-                completion(image)
-            case .failure(let error):
-                completion(nil)
-                print(error.localizedDescription)
-            }
-        }
+        return image
     }
     
+    
     private func setRightBarButtonItem() {
-        getUserImage { image in
-            DispatchQueue.main.async { [weak self] in
-                let profileImage = image ?? .natalyaLuzyanina
-                let view = PlayShapeView(image: profileImage)
-                view.contentMode = .scaleAspectFit
-                view.snp.makeConstraints { make in
-                    make.height.width.equalTo(70)
-                }
-                let tapGesture = UITapGestureRecognizer(
-                    target: self,
-                    action: #selector(self?.didTapProfilePic)
-                )
-                view.addGestureRecognizer(tapGesture)
-                let rightBarButtonItem = UIBarButtonItem(customView: view)
-                self?.navigationItem.rightBarButtonItem = rightBarButtonItem
-            }
+        profileView.snp.makeConstraints { make in
+            make.height.width.equalTo(70)
         }
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(self.didTapProfilePic)
+        )
+        profileView.addGestureRecognizer(tapGesture)
+        let rightBarButtonItem = UIBarButtonItem(customView: profileView)
+        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+    
+    func updateUserImage() {
+        profileView.image = getUserImage() ?? .natalyaLuzyanina
     }
     
     private func createCustomItem() -> UIBarButtonItem {

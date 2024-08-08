@@ -38,22 +38,26 @@ final class StorageManager {
         }
     }
     
-    func fetchUser(id: String, completion: (Result<UserEntity, Error>) -> Void) {
+    func fetchUser(id: String) -> UserEntity? {
         let fetchRequest: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
-        
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
         do {
             let result = try viewContext.fetch(fetchRequest)
-            if let user = result.first(where: { $0.id == id }) {
-                completion(.success(user))
-            }
+            let user = result.first(where: { $0.id == id })
+            return user
         } catch let error {
-            completion(.failure(error))
+            print(error.localizedDescription)
+            return nil
         }
     }
     
-    
-    func saveUser(_ user: User) {
-        let userEnttity = UserEntity(context: viewContext)
+    func saveUser(_ user: UserApp) {
+        var userEnttity: UserEntity
+        if let entity = fetchUser(id: user.id) {
+            userEnttity = entity
+        } else {
+            userEnttity = UserEntity(context: viewContext)
+        }
         userEnttity.id = user.id
         userEnttity.imageData = user.image
         userEnttity.email = user.email

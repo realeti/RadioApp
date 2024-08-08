@@ -24,8 +24,9 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
         self.router = router
     }
     
-    func saveUserData(user: User) {
+    func saveUserData(user: UserApp) {
         StorageManager.shared.saveUser(user)
+        view?.updateRightBarButtonImage()
     }
     
     func fetchUser() {
