@@ -21,7 +21,6 @@ protocol PopularPresenterProtocol {
     func setStations()
     func changeStation(_ stationId: Int)
     func toggleVoteState(for stationId: Int)
-    func removeVote(for stationId: Int)
     func isStationVoted(_ stationId: Int) -> Bool
 }
 
@@ -128,10 +127,6 @@ extension PopularPresenter {
         /// save to storage
         let selectedStation = stations[stationId]
         storage.toggleFavorite(id: selectedStation.id, title: selectedStation.title, genre: selectedStation.subtitle)
-    }
-    
-    func removeVote(for stationId: Int) {
-        updateVotes(for: stationId, voteChange: -1)
     }
     
     func isStationVoted(_ stationId: Int) -> Bool {

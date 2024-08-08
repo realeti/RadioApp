@@ -99,7 +99,6 @@ private extension PopularViewController {
         }
         
         cell.clearVoteImage()
-        presenter.removeVote(for: stationId)
     }
 }
 
