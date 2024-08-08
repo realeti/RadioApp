@@ -41,7 +41,6 @@ final class AuthenticationManager {
 
     func createUser(name: String, email: String, password: String) async throws -> AuthDataResultModel {
         let authDataResults = try await auth.createUser(withEmail: email, password: password)
-        saveUsername(name: name)
         return AuthDataResultModel(user: authDataResults.user)
     }
 
@@ -98,11 +97,19 @@ final class AuthenticationManager {
         try await auth.currentUser?.sendEmailVerification(beforeUpdatingEmail: newEmail)
     }
     
-    private func saveUsername(name: String) {
+    func updateUsername(name: String) {
+        let currentUser = auth.currentUser
+        if currentUser?.displayName == nil {
+            currentUser?.displayName = "Ko"
+        }
         let changeRequest = auth.currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = name
-        changeRequest?.commitChanges() { error in
-            print(error?.localizedDescription)
+        changeRequest?.commitChanges() { [weak self] error in
+            if let error {
+                print(error.localizedDescription)
+            } else {
+                self?.auth.currentUser?.reload()
+            }
         }
     }
     

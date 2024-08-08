@@ -11,10 +11,25 @@ import SnapKit
 class ViewController: UIViewController {
     let loadingView = LoadingView()
     let errorView = ErrorView()
+    let nameTitle = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setName()
         configureItems()
+    }
+    
+    private func setName() {
+        Task {
+            do {
+                let user = try await AuthenticationManager.shared.getAuthenticatedUser()
+                nameTitle.text = user.name
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+            
+        }
     }
     
     private func configureItems() {
@@ -47,8 +62,6 @@ class ViewController: UIViewController {
         greetingTitle.textColor = .white
         greetingTitle.font = .systemFont(ofSize: 25, weight: .medium)
         
-        let nameTitle = UILabel()
-        nameTitle.text = "Mark".localized
         nameTitle.textColor = .pinkApp
         nameTitle.font = .systemFont(ofSize: 30, weight: .medium)
         

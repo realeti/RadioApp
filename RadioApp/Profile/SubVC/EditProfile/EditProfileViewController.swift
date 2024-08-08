@@ -224,7 +224,7 @@ final class EditProfileViewController: ViewController, EditProfileViewController
             user.image = imageData
             user.email = email
             user.login = login
-            //            presenter.saveUserData(user: user)
+            presenter.saveUserData(user: user)
         }
     }
     

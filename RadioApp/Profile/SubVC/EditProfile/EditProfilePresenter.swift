@@ -25,7 +25,16 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
     }
     
     func saveUserData(user: UserApp) {
-
+        AuthenticationManager.shared.updateUsername(name: user.login)
+        Task {
+            do {
+                let authUser = try await AuthenticationManager.shared.getAuthenticatedUser()
+                print(authUser.name)
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func fetchUser() {

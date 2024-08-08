@@ -83,6 +83,7 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
                 let data = try await AuthenticationManager.shared.createUser(name: name, email: email, password: password)
                 guard let userEmail = data.email else { return }
                 print("successfuly signed up")
+                AuthenticationManager.shared.updateUsername(name: name)
                 DispatchQueue.main.async { [weak self] in
                     self?.router.goHome()
                 }
