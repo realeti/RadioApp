@@ -9,7 +9,9 @@ import UIKit
 import SnapKit
 
 class ViewController: UIViewController {
-    // MARK: - Private Properties
+    let loadingView = LoadingView()
+    let errorView = ErrorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
@@ -90,5 +92,46 @@ class ViewController: UIViewController {
         let profileVC = Builder.createProfile()
         profileVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(profileVC, animated: true)
+    }
+}
+
+extension ViewController: LoadingPresenting {
+    func showLoading() {
+        loadingView.animation.play()
+        view.addSubview(loadingView)
+        loadingView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        loadingView.backgroundColor = .darkBlueApp
+    }
+    
+    func hideLoading() {
+        loadingView.animation.stop()
+        loadingView.removeFromSuperview()
+    }
+}
+
+extension ViewController: ErrorPresenting {
+    func showError(
+        title: String,
+        message: String?,
+        actionTitle: String?,
+        action: ((UIView) -> Void)?
+    ) {
+        errorView.title = title
+        errorView.message = message
+        errorView.actionTitle = actionTitle
+        errorView.action = action
+        
+        view.addSubview(errorView)
+        errorView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        errorView.backgroundColor = view.backgroundColor
+        errorView.animation.play()
+    }
+    
+    func hideError() {
+        errorView.removeFromSuperview()
     }
 }

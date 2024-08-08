@@ -18,7 +18,6 @@ final class LoadingView: UIView {
         animation.animation = .filepath(Bundle.main.path(forResource: "loading", ofType: "json") ?? "")
         animation.contentMode = .scaleAspectFit
         animation.loopMode = .autoReverse
-        animation.play()
         
         addSubview(animation)
         
@@ -31,9 +30,4 @@ final class LoadingView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    deinit {
-        animation.stop()
-    }
-    
 }

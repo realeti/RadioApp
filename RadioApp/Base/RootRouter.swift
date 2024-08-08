@@ -23,8 +23,8 @@ final class RootRouter {
 
     func startFlow() {
         
-        let loading = UIViewController()
-        loading.view = LoadingView()
+        let loading = ViewController()
+        loading.showLoading()
         window.rootViewController = loading
         window.makeKeyAndVisible()
         Auth.auth().addStateDidChangeListener { auth, user in
