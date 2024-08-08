@@ -8,6 +8,7 @@
 
 /* Common */
 "Hello" = "Привет";
+"Mark" = "Марк";
 "See all" = "Посмотреть все";
 "Search" = "Поиск";
 "Profile" = "Профиль";
@@ -27,13 +28,14 @@
 "Save Changes" = "Сохранить изменения";
 "* Required field" = "* Обязательное поле";
 "Enter your email" = "Введите ваш email";
+"Enter you password" = "Введите ваш password";
 "Enter your name" = "Введите ваше имя";
 "Cancel" = "Отмена";
 "Information we collect" = "Информация, которую мы собираем";
 "How we use your information" = "Как мы используем вашу информацию";
 "Security" = "Безопасность";
 "Children's privacy" = "Детская конфиденциальность";
-"Contact us" = "Связаться с нами";
+"Contact Us" = "Связаться с нами";
 "Thank you" = "Спасибо вам";
 "TeamLeader" = "Тимлид";
 "IOS Developer" = "IOS Разработчик";
@@ -57,6 +59,50 @@ The information is processed to complete transactions, provide customer support 
 "If you have any questions or concerns about this Privacy Policy, please contact us at [https://github.com/ridebyhorse]" = "Если у вас есть вопросы или сомнения по поводу этой Политики конфиденциальности, пожалуйста, свяжитесь с нами по адресу  [https://github.com/ridebyhorse]";
 
 "Thank you for choosing RadioApp. We are committed to providing you with an exceptional and safe radio listening experience." = "Благодарим вас за выбор RadioApp. Мы стремимся предоставить вам исключительный и безопасный опыт прослушивания радио.";
+
+"Let's Get Started" = "Давайте начнем";
+"Get Started" = "Начать";
+"Sign in" = "Войти";
+"Sign Up" = "Зарегистрироваться";
+"Or Sign Up" = "Или зарегистрируйтесь";
+"Or Sign In" = "Или войдите";
+"to start play" = "и начать прослушивание";
+
+"Update\nPassword" = "Обновить\nпароль";
+"Confirm password" = "Подтвердить пароль";
+"Change password" = "Изменить пароль";
+"Forgot\nPassword" = "Забыли\nпароль";
+"Send" = "Отправить";
+"votes" = "голоса";
+
+"Popular" = "Популярные";
+"Favorites" = "Избранные";
+"All Stations" = "Все станции";
+
+"Name" = "Имя";
+"Your name" = "Ваше Имя";
+"Email" = "Email";
+"Your email" = "Ваш email";
+"Password" = "Пароль";
+"Your password" = "Ваш пароль";
+"Forgot Password ?" = "Забыли пароль ?";
+"Or connect with" = "Связаться";
+
+"POP" = "Поп";
+"16bit" = "16бит";
+"Punk" = "Панк";
+"Dj Remix" = "Dj Remix";
+"Adult" = "Взрослый";
+"Etnic" = "Этнический";
+
+"Radio Record" = "Радио Рекорд";
+"Radio Gameplay" = "Радио Геймплей";
+"Russian Punk rock" = "Русский Панк Рок";
+"!REMIX!" = "!Ремиксы!";
+"RUSSIAN WAVE" = "Русская Волна";
+"beufm.kz" = "beufm.kz";
+
+"Enjoy the best radio stations \nfrom your home, don't miss \nout on anything" = "Наслаждайтесь лучшими радиостанциями у себя дома, не пропуская ничего";
 
 "Hello!" = "Привет!";
 "Hello, " = "Привет, ";

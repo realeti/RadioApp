@@ -26,6 +26,11 @@ final class AboutUsViewController: ViewController, AboutViewControllerProtocol {
     //MARK: - Lyfe cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setViews()
+    }
+    
+    //MARK: - Private Methods
+    private func setViews() {
         view.backgroundColor = .darkBlueApp
         view.addSubview(collection)
         collection.dataSource = self

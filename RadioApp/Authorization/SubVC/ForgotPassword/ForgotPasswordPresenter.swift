@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ForgotPasswordPresenterProtocol {
     func activate()
@@ -22,7 +23,43 @@ final class ForgotPasswordPresenter: ForgotPasswordPresenterProtocol {
     }
     
     func requestUpdatePassword(email: String?) {
-        router?.showUpdatePasswordVC()
+        guard let email else {
+            print("No email found!")
+            return
+        }
+        
+        guard !email.isEmpty else {
+            print("No email found!")
+            return
+        }
+        
+        Task {
+            do {
+                try await AuthenticationManager.shared.resetPassword(with: email)
+//                await AuthenticationManager.shared.sendSignInLink(with: email)
+                print("successfuly send request on email")
+                DispatchQueue.main.async { [weak self] in
+                    let ac = UIAlertController(title: "Sent request on email", message: "Do you want to open browser in app to navigate to nail client or you'll do it on your own?", preferredStyle: .alert)
+                    let browserAction = UIAlertAction(title: "Open Browser", style: .default) { [weak self] _ in
+                        let browser = BrowserController() { self?.router?.proceedToSignIn() }
+                        self?.view?.present(browser, animated: true)
+                        }
+                    let returnAction = UIAlertAction(title: "Return yo Sign In", style: .default) { [weak self] _ in
+                        self?.router?.proceedToSignIn()
+                    }
+
+                    ac.addAction(browserAction)
+                    ac.addAction(returnAction)
+
+                    self?.view?.present(ac, animated: true)
+//                    present(UIAlertController, animated: <#T##Bool#>)
+//                    self?.router?.showUpdatePasswordVC()
+                }
+            } catch {
+                print("Error: \(error)")
+            }
+        }
+        
     }
     
     func activate() {

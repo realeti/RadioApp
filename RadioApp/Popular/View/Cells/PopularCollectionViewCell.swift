@@ -30,7 +30,7 @@ final class PopularCollectionViewCell: UICollectionViewCell {
     )
     
     private let voteLabel = UILabel(
-        text: K.Popular.votes.rawValue + " ",
+        text: K.Popular.votes.rawValue.localized + " ",
         font: .systemFont(ofSize: 10.0, weight: .bold)
     )
     
