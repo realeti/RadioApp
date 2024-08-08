@@ -6,16 +6,13 @@
 //
 
 import UIKit
-import AVFoundation
 
 final class PopularViewController: ViewController {
-    // MARK: - Public Properties
-    private let presenter: PopularPresenterProtocol
-    
     // MARK: - Private Properties
+    private let presenter: PopularPresenterProtocol
     private var popularView: PopularView!
     
-    
+    // MARK: - Init
     init(presenter: PopularPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -37,8 +34,16 @@ final class PopularViewController: ViewController {
         super.viewDidLoad()
         
         setDelegates()
+        setNotification()
         loadStations()
-        setupVolumeProgress()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        /*if presenter.isStationsLoaded {
+            presenter.setStations()
+        }*/
     }
     
     // MARK: - Set Delegates
@@ -47,29 +52,38 @@ final class PopularViewController: ViewController {
         popularView.radioCollection.delegate = self
     }
     
+    // MARK: - Set Notification
+    private func setNotification() {
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(handleIndexChange),
+            name: .playerCurrentIndexDidChange,
+            object: nil
+        )
+    }
+    
     // MARK: - Load Stations
     private func loadStations() {
         Task {
             await presenter.loadStations()
         }
     }
+    
+    // MARK: - Deinit
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
-// MARK: - Set VolumeProgress
+// MARK: - Notification handle
 private extension PopularViewController {
-    func setupVolumeProgress() {
-        let volume = getSystemVolume()
-        popularView.updateVolumeProgress(volume)
-    }
-    
-    private func getSystemVolume() -> Float {
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setActive(true)
-            return audioSession.outputVolume
-        } catch {
-            print("Error activating audio session: \(error)")
-            return 0
+    @objc func handleIndexChange(_ notification: Notification) {
+        if let index = notification.userInfo?["stationIndex"] as? Int {
+            let indexPath = IndexPath(item: index, section: 0)
+            popularView.radioCollection.selectItem(
+                at: indexPath,
+                animated: true,
+                scrollPosition: .centeredVertically
+            )
         }
     }
 }

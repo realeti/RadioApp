@@ -17,9 +17,10 @@ protocol PopularViewProtocol: AnyObject {
 protocol PopularPresenterProtocol {
     init(router: PopularRouterProtocol)
     var getStations: [PopularViewModel] { get }
+    var isStationsLoaded: Bool { get }
     
     func loadStations() async
-    //func loadVotedStation()
+    func setStations()
     func changeStation(_ stationId: Int)
     func toggleVoteState(for stationId: Int, stationUniqueID: UUID)
     func isStationVoted(_ stationId: Int) -> Bool
@@ -29,6 +30,7 @@ final class PopularPresenter: PopularPresenterProtocol {
     // MARK: - Private Properties
     private let radioBrowser = RadioBrowser.default
     private let storage = StorageManager.shared
+    private let audioPlayer = AudioPlayerController.shared
     
     private var stations: [PopularViewModel] = []
     private var mockStations: [PopularViewModel] = []
@@ -44,6 +46,8 @@ final class PopularPresenter: PopularPresenterProtocol {
         }
     }
     
+    var isStationsLoaded = false
+    
     // MARK: - Init
     init(router: PopularRouterProtocol) {
         self.router = router
@@ -53,9 +57,6 @@ final class PopularPresenter: PopularPresenterProtocol {
 // MARK: - Load Popular Stations
 extension PopularPresenter {
     func loadStations() async {
-        //stations = getMockData()
-        //votedStations = Array(repeating: false, count: stations.count)
-        
         let result = await radioBrowser.getPopularStation()
         
         switch result {
@@ -78,14 +79,16 @@ extension PopularPresenter {
                     id: station.stationUUID,
                     title: title,
                     subtitle: subtitle,
-                    voteCount: station.votes
+                    voteCount: station.votes,
+                    url: station.urlResolved
                 )
             })
         case .failure(let error):
             print(error)
         }
         
-        //loadVotedStation()
+        isStationsLoaded = true
+        setStations()
         view?.didUpdateStations()
     }
 }
@@ -103,11 +106,24 @@ private extension PopularPresenter {
     }
 }
 
+// MARK: - Set Stations
+extension PopularPresenter {
+    func setStations() {
+        let audioStations: [AudioStation] = stations.map { station in
+            AudioStation(id: station.id, url: station.url)
+        }
+        audioPlayer.setStations(audioStations)
+    }
+}
+
 // MARK: - Change Station
 extension PopularPresenter {
     func changeStation(_ stationId: Int) {
-        /// set new station for auido player
-        print("change station (item id #\(stationId))")
+        let currentStationId = audioPlayer.currentIndex
+        
+        if stationId != currentStationId {
+            audioPlayer.playStation(at: stationId)
+        }
     }
 }
 
@@ -123,7 +139,8 @@ extension PopularPresenter {
             id: stationUniqueID,
             title: selectedStation.title,
             subtitle: selectedStation.subtitle,
-            voteCount: selectedStation.voteCount + voteChange
+            voteCount: selectedStation.voteCount + voteChange,
+            url: selectedStation.url
         )
         
         stations[stationId] = selectedStation
@@ -134,53 +151,3 @@ extension PopularPresenter {
         return votedStations[stationId]
     }
 }
-
-// MARK: - Mock Data
-/*private extension PopularPresenter {
-    func getMockData() -> [PopularViewModel] {
-        var stations: [PopularViewModel] = []
-        
-        let baseTitles = [
-            "POP".localized,
-            "16bit".localized,
-            "Punk".localized,
-            "Dj Remix".localized,
-            "Adult".localized,
-            "Etnic".localized,
-        ]
-        
-        let baseSubtitles = [
-            "Radio Record".localized,
-            "Radio Gameplay".localized,
-            "Russian Punk rock".localized,
-            "!REMIX!".localized,
-            "RUSSIAN WAVE".localized,
-            "beufm.kz".localized
-        ]
-        
-        let baseVotes = [
-            315,
-            240,
-            200,
-            54,
-            315,
-            74
-        ]
-        
-        let stationTitles = Array(repeating: baseTitles, count: 2).flatMap { $0 }
-        let stationSubtitles = Array(repeating: baseSubtitles, count: 2).flatMap { $0 }
-        let stationVotes = Array(repeating: baseVotes, count: 2).flatMap { $0 }
-        
-        for index in 0..<stationTitles.count {
-            let newStation = PopularViewModel(
-                id: UUID(),
-                title: stationTitles[index],
-                subtitle: stationSubtitles[index],
-                voteCount: stationVotes[index]
-            )
-            stations.append(newStation)
-        }
-        
-        return stations
-    }
-}*/

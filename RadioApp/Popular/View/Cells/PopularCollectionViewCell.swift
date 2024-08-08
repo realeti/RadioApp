@@ -152,7 +152,7 @@ extension PopularCollectionViewCell {
     func configure(with model: PopularViewModel, _ isStationVoted: Bool, and indexPath: IndexPath) {
         radioTitleLabel.text = model.title
         radioSubtitleLabel.text = model.subtitle
-        voteCountLabel.text = "\(model.voteCount) "
+        voteCountLabel.text = model.voteCount.formatVoteCount() + " "
         
         stationUniqueID = model.id
         votes = model.voteCount
@@ -178,7 +178,7 @@ extension PopularCollectionViewCell {
     
     private func updateVoteCount(_ isStationVoted: Bool) {
         votes += isStationVoted ? 1 : -1
-        let votesText = "\(votes) "
+        let votesText = votes.formatVoteCount() + " "
         
         UIView.transition(with: voteCountLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
             self.voteCountLabel.text = votesText

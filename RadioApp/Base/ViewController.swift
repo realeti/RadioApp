@@ -11,10 +11,27 @@ import SnapKit
 class ViewController: UIViewController {
     let loadingView = LoadingView()
     let errorView = ErrorView()
+    var playerIsHidden: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if playerIsHidden,
+            let homeController = tabBarController as? HomeController {
+            homeController.playerIsHidden = true
+        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if playerIsHidden,
+           let homeController = tabBarController as? HomeController {
+            homeController.playerIsHidden = false
+        }
     }
     
     private func configureItems() {
