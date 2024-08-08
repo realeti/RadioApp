@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import UIKit
 
 final class StorageManager {
     
@@ -35,6 +36,29 @@ final class StorageManager {
         } catch let error {
             completion(.failure(error))
         }
+    }
+    
+    func fetchUser(id: String, completion: (Result<UserEntity, Error>) -> Void) {
+        let fetchRequest: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
+        
+        do {
+            let result = try viewContext.fetch(fetchRequest)
+            if let user = result.first(where: { $0.id == id }) {
+                completion(.success(user))
+            }
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+    
+    
+    func saveUser(_ user: User) {
+        let userEnttity = UserEntity(context: viewContext)
+        userEnttity.id = user.id
+        userEnttity.imageData = user.image
+        userEnttity.email = user.email
+        userEnttity.login = user.login
+        saveContext()
     }
     
     func toggleFavorite(id: UUID, title: String, genre: String) {

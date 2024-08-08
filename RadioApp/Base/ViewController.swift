@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import FirebaseAuth
 
 class ViewController: UIViewController {
     override func viewDidLoad() {
@@ -16,12 +17,8 @@ class ViewController: UIViewController {
     
     private func configureItems() {
         //right
-        navigationItem.rightBarButtonItem = .init(
-            image: .mockPic.withRenderingMode(.alwaysOriginal),
-            style: .plain,
-            target: self,
-            action: #selector(didTapProfilePic)
-        )
+        setRightBarButtonItem()
+        
         //left
         if navigationController?.viewControllers.first != self {
             navigationItem.leftBarButtonItem = .init(
@@ -32,6 +29,47 @@ class ViewController: UIViewController {
             )
         } else {
             navigationItem.leftBarButtonItem = createCustomItem()
+        }
+    }
+    
+    private func getUserImage(completion: @escaping (UIImage?) -> Void) {
+        guard let id = Auth.auth().currentUser?.uid else {
+            completion(nil)
+            return
+        }
+        StorageManager.shared.fetchUser(id: id) { result in
+            switch result {
+            case .success(let user):
+                guard let imageData = user.imageData else {
+                    completion(nil)
+                    return
+                }
+                let image = UIImage(data: imageData)
+                completion(image)
+            case .failure(let error):
+                completion(nil)
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func setRightBarButtonItem() {
+        getUserImage { image in
+            DispatchQueue.main.async { [weak self] in
+                let profileImage = image ?? .natalyaLuzyanina
+                let view = PlayShapeView(image: profileImage)
+                view.contentMode = .scaleAspectFit
+                view.snp.makeConstraints { make in
+                    make.height.width.equalTo(70)
+                }
+                let tapGesture = UITapGestureRecognizer(
+                    target: self,
+                    action: #selector(self?.didTapProfilePic)
+                )
+                view.addGestureRecognizer(tapGesture)
+                let rightBarButtonItem = UIBarButtonItem(customView: view)
+                self?.navigationItem.rightBarButtonItem = rightBarButtonItem
+            }
         }
     }
     

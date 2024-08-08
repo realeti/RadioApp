@@ -23,6 +23,7 @@
 		B949AE572C5F805600E2A338 /* FavoritesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE4E2C5F805600E2A338 /* FavoritesProtocol.swift */; };
 		B949AE582C5F805600E2A338 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE4F2C5F805600E2A338 /* FavoritesRouter.swift */; };
 		B949AE5A2C5F808600E2A338 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE592C5F808600E2A338 /* TableCell.swift */; };
+		B9EB02D42C62186B0012A03D /* PlayShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EB02D32C62186B0012A03D /* PlayShapeView.swift */; };
 		BECF66112C58D5D90068160D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66102C58D5D90068160D /* User.swift */; };
 		BECF66132C58D6C30068160D /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66122C58D6C30068160D /* ProfileRouter.swift */; };
 		BECF66152C58D6FA0068160D /* ProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66142C58D6FA0068160D /* ProfileBuilder.swift */; };
@@ -126,6 +127,7 @@
 		B949AE4E2C5F805600E2A338 /* FavoritesProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesProtocol.swift; sourceTree = "<group>"; };
 		B949AE4F2C5F805600E2A338 /* FavoritesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		B949AE592C5F808600E2A338 /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		B9EB02D32C62186B0012A03D /* PlayShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayShapeView.swift; sourceTree = "<group>"; };
 		BECF66102C58D5D90068160D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BECF66122C58D6C30068160D /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		BECF66142C58D6FA0068160D /* ProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBuilder.swift; sourceTree = "<group>"; };
@@ -561,6 +563,7 @@
 			children = (
 				CB2C8CAF2C5767DF00D280FE /* Router.swift */,
 				CB2C8CB22C5768CB00D280FE /* NavigationController.swift */,
+				B9EB02D32C62186B0012A03D /* PlayShapeView.swift */,
 				CB2C8CB42C576A5C00D280FE /* ViewController.swift */,
 				CBF57B552C58319D006237E8 /* Builder.swift */,
 				CB2C8CB82C57AAEA00D280FE /* Protocols */,
@@ -853,6 +856,7 @@
 				BECF66272C5A06670068160D /* PrivacyInfo.swift in Sources */,
 				C623484E2C5E899800F536E7 /* UIImageView + Extensions.swift in Sources */,
 				BECF662C2C5A0D570068160D /* AboutUsViewController.swift in Sources */,
+				B9EB02D42C62186B0012A03D /* PlayShapeView.swift in Sources */,
 				BECF664F2C5A35AE0068160D /* NotificationsViewController.swift in Sources */,
 				CBCA8D9C2C5D3965003B01B9 /* UpdatePasswordController.swift in Sources */,
 				BECF66192C5A05360068160D /* UserView.swift in Sources */,

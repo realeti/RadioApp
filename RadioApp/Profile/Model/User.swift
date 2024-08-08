@@ -8,6 +8,7 @@
 import Foundation
 
 struct User {
+    let id: String
     var image: Data = Data()
     var login: String = ""
     var email: String = ""

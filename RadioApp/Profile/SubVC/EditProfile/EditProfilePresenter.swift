@@ -25,7 +25,7 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
     }
     
     func saveUserData(user: User) {
-//        realmService?.saveUser(user)
+        StorageManager.shared.saveUser(user)
     }
     
     func fetchUser() {
