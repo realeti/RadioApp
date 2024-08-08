@@ -72,7 +72,6 @@ final class PopularCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Private Properties
     private var votes: Int = 0
-    private var stationUniqueID: UUID?
     
     // MARK: - Public Properties
     weak var delegate: PopularViewProtocol?
@@ -154,7 +153,6 @@ extension PopularCollectionViewCell {
         radioSubtitleLabel.text = model.subtitle
         voteCountLabel.text = model.voteCount.formatVoteCount() + " "
         
-        stationUniqueID = model.id
         votes = model.voteCount
         self.indexPath = indexPath
         
@@ -174,6 +172,10 @@ extension PopularCollectionViewCell {
     func updateStationVotes(_ isStationVoted: Bool) {
         updateVoteCount(isStationVoted)
         updateVoteImage(isStationVoted)
+    }
+    
+    func clearVoteImage() {
+        voteButton.setBackgroundImage(.voteOff, for: .normal)
     }
     
     private func updateVoteCount(_ isStationVoted: Bool) {
@@ -200,7 +202,7 @@ extension PopularCollectionViewCell {
 private extension PopularCollectionViewCell {
     @objc func voteButtonPressed(_ sender: UIButton) {
         voteButton.isUserInteractionEnabled = false
-        delegate?.voteForStation(at: indexPath, stationUniqueID: stationUniqueID)
+        delegate?.voteForStation(at: indexPath)
     }
 }
 

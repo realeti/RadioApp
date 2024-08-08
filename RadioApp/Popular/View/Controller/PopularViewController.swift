@@ -38,14 +38,6 @@ final class PopularViewController: ViewController {
         loadStations()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        /*if presenter.isStationsLoaded {
-            presenter.setStations()
-        }*/
-    }
-    
     // MARK: - Set Delegates
     private func setDelegates() {
         popularView.radioCollection.dataSource = self
@@ -57,6 +49,12 @@ final class PopularViewController: ViewController {
         NotificationCenter.default.addObserver(
             self, selector: #selector(handleIndexChange),
             name: .playerCurrentIndexDidChange,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(handleFavoritesChanged),
+            name: .favoriteRemoved,
             object: nil
         )
     }
@@ -77,14 +75,31 @@ final class PopularViewController: ViewController {
 // MARK: - Notification handle
 private extension PopularViewController {
     @objc func handleIndexChange(_ notification: Notification) {
-        if let index = notification.userInfo?["stationIndex"] as? Int {
-            let indexPath = IndexPath(item: index, section: 0)
-            popularView.radioCollection.selectItem(
-                at: indexPath,
-                animated: true,
-                scrollPosition: .centeredVertically
-            )
+        guard let stationId = notification.userInfo?[K.UserInfoKey.stationIndex] as? Int else {
+            return
         }
+        
+        let indexPath = IndexPath(item: stationId, section: 0)
+        popularView.radioCollection.selectItem(
+            at: indexPath,
+            animated: true,
+            scrollPosition: .centeredVertically
+        )
+    }
+    
+    @objc func handleFavoritesChanged(_ notification: Notification) {
+        guard let stationUniqueId = notification.userInfo?[K.UserInfoKey.removedStationIndex] as? UUID,
+              let stationId = presenter.getStations.firstIndex(where: { $0.id == stationUniqueId }) else {
+            return
+        }
+        
+        let indexPath = IndexPath(item: stationId, section: 0)
+        guard let cell = popularView.radioCollection.cellForItem(at: indexPath) as? PopularCollectionViewCell else {
+            return
+        }
+        
+        cell.clearVoteImage()
+        presenter.removeVote(for: stationId)
     }
 }
 
@@ -96,17 +111,11 @@ extension PopularViewController: PopularViewProtocol {
         }
     }
     
-    /*func didUpdateVotedStation() {
-        DispatchQueue.main.async {
-            self.popularView.radioCollection.reloadData()
-        }
-    }*/
-    
-    func voteForStation(at indexPath: IndexPath?, stationUniqueID: UUID?) {
-        guard let indexPath, let stationUniqueID else { return }
+    func voteForStation(at indexPath: IndexPath?) {
+        guard let indexPath else { return }
         
         let stationId = indexPath.row
-        presenter.toggleVoteState(for: stationId, stationUniqueID: stationUniqueID)
+        presenter.toggleVoteState(for: stationId)
         
         let isStationVoted = presenter.isStationVoted(stationId)
         updateStationVotes(at: indexPath, isStationVoted)

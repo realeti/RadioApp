@@ -46,6 +46,8 @@ final class StorageManager {
     }
     
     func deleteStation(_ station: StationEntity) {
+        setNotification(station.id)
+        
         viewContext.delete(station)
         saveContext()
     }
@@ -75,5 +77,18 @@ final class StorageManager {
         station.genre = genre
         
         saveContext()
+    }
+}
+
+// MARK: - Notification
+private extension StorageManager {
+    func setNotification(_ stationId: UUID?) {
+        guard let stationId else { return }
+        
+        NotificationCenter.default.post(
+            name: .favoriteRemoved,
+            object: nil,
+            userInfo: [K.UserInfoKey.removedStationIndex: stationId]
+        )
     }
 }

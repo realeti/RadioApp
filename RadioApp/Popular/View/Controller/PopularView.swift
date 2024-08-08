@@ -10,13 +10,10 @@ import SnapKit
 
 final class PopularView: UIView {
     // MARK: - UI
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = K.Popular.title.rawValue.localized
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 30.0, weight: .light)
-        return label
-    }()
+    private let titleLabel = UILabel(
+        text: K.Popular.title.rawValue.localized,
+        font: .systemFont(ofSize: 30.0, weight: .light)
+    )
     
     private lazy var radioCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -53,13 +50,6 @@ final class PopularView: UIView {
         addSubviews(titleLabel, radioCollectionView)
     }
 }
-
-// MARK: - External methods
-/*extension PopularView {
-    func updateVolumeProgress(_ progress: Float) {
-        volumeProgressView.update(progress)
-    }
-}*/
 
 // MARK: - Setup Constraints
 private extension PopularView {
