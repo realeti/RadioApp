@@ -12,6 +12,7 @@ protocol ProfileRouterProtocol: AnyObject, Router {
     func showEditProfile()
     func showLanguageVC()
     func showAboutUsVC()
+    func showReauthenticate()
 }
 
 final class ProfileRouter: Router, ProfileRouterProtocol {
@@ -37,5 +38,10 @@ final class ProfileRouter: Router, ProfileRouterProtocol {
         let vc = Builder.createAboutUsVC()
         vc.hidesBottomBarWhenPushed = true
         pushScreen(vc)
+    }
+    
+    func showReauthenticate() {
+        let authorization = RootBuilder().buildAuthorization()
+        authorization.reauthenticate(on: self)
     }
 }

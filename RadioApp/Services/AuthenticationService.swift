@@ -26,7 +26,6 @@ struct AuthDataResultModel {
 final class AuthenticationManager {
     private let auth = Auth.auth()
     private let db = Firestore.firestore()
-    private var credential: AuthCredential?
     static let shared = AuthenticationManager()
     
     private init() {
@@ -37,7 +36,6 @@ final class AuthenticationManager {
         guard var user = auth.currentUser else {
             throw URLError(.badServerResponse)
         }
-//        user.displayName = getUsername()
         return AuthDataResultModel(user: user)
     }
 
@@ -64,8 +62,8 @@ final class AuthenticationManager {
                 throw URLError(.badServerResponse)
             }
             let accessToken = user.accessToken
-            let credentials = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: accessToken.tokenString)
-            let result = try await auth.signIn(with: credentials)
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: accessToken.tokenString)
+            let result = try await auth.signIn(with: credential)
             let firebaseUser = result.user
             print("User \(firebaseUser.uid) successfully signed in with email: \(firebaseUser.email ?? "Unknown")")
             return true
@@ -84,60 +82,28 @@ final class AuthenticationManager {
         try await auth.sendPasswordReset(withEmail: email)
     }
     
-//    func updatePassword(newPassword: String) async throws -> Bool {
-//        let user = auth.currentUser
-//        guard let credential else { return false }
-//        user?.reauthenticate(with: credential) { _, error  in
-//          if let error {
-//              print(error.localizedDescription)
-//          }
-//        }
-//        
-//        do {
-//            try await user?.updatePassword(to: newPassword)
-//            return true
-//        }
-//        catch {
-//            return false
-//        }
-//    }
-//    
+    func updatePassword(newPassword: String) async throws -> Bool {
+        let user = auth.currentUser
+        
+        do {
+            try await user?.updatePassword(to: newPassword)
+            return true
+        }
+        catch {
+            return false
+        }
+    }
+    
     func updateEmail(newEmail: String) async throws {
         try await auth.currentUser?.sendEmailVerification(beforeUpdatingEmail: newEmail)
     }
     
     private func saveUsername(name: String) {
-        guard let userUID = auth.currentUser?.uid else { return }
-        var ref: DocumentReference? = nil
-        ref = db.collection("users").addDocument(data: [
-            userUID : name
-        ]) { error in
-            if let error {
-                print(error.localizedDescription)
-            } else {
-                print("Document \(ref!.documentID) added")
-            }
+        let changeRequest = auth.currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = name
+        changeRequest?.commitChanges() { error in
+            print(error?.localizedDescription)
         }
     }
     
-//    private func getUsername() -> String? {
-//        guard let userUID = auth.currentUser?.uid else { return nil }
-//        var userName: String? = nil
-//        db.collection("users").getDocuments { querySnapshot, error in
-//            if let error {
-//                print(error.localizedDescription)
-//            } else {
-//                if let documents = querySnapshot?.documents {
-//                    for doc in documents {
-//                        print(doc.data().keys)
-//                        if doc.data().keys.first == userUID {
-//                            userName = doc.data()[userUID] as? String
-//                            print(userName)
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        return userName
-//    }
 }

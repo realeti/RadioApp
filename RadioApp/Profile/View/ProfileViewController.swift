@@ -48,9 +48,9 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
         
         let action = UIAction() {_ in
             //self.saveButtonAction()
-            let alertController = UIAlertController(title: "Do you want to Sign Out?", message: nil, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            alertController.addAction(UIAlertAction(title: "Sign Out", style: .destructive
+            let alertController = UIAlertController(title: "Do you want to Log Out?".localized, message: nil, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel))
+            alertController.addAction(UIAlertAction(title: "Log Out".localized, style: .destructive
                                                     , handler: { _ in
                 do {
                     try AuthenticationManager.shared.signOut()

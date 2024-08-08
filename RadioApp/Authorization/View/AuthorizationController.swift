@@ -39,7 +39,7 @@ extension AuthorizationController: AuthorizationControllerProtocol {
         mode = model.mode
         view = UIView()
         switch model.mode {
-        case .signIn:
+        case .signIn, .reauthenticate:
             setupCommonUI(with: configureSignInUI())
         case .signUp:
             setupCommonUI(with: configureSignUpUI())
@@ -86,6 +86,9 @@ private extension AuthorizationController {
         case .signUp:
             mainLabel.text = "Sign Up".localized
             switchModeButton.setTitle("Or Sign In".localized, for: .normal)
+        case .reauthenticate:
+            mainLabel.text = "Sign in".localized
+            switchModeButton.isHidden = true
         }
 
         view.addSubview(bg)
@@ -138,7 +141,7 @@ private extension AuthorizationController {
     @objc func doneTapped() {
         print("done tapped")
         switch mode {
-        case .signIn:
+        case .signIn, .reauthenticate:
             presenter.signIn(email: emailField?.textField.text, password: passwordField?.textField.text)
         default:
             presenter.signUp(name: nameField?.textField.text, email: emailField?.textField.text, password: passwordField?.textField.text)

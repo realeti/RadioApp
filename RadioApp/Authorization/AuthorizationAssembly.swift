@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class AuthorizationAssembly: ModuleAssembly {
-    func build(router: AuthorizationRouterProtocol) -> UIViewController {
-        let presenter = AuthorizationPresenter(mode: .signIn, router: router)
+final class AuthorizationAssembly {
+    func build(router: AuthorizationRouterProtocol, mode: AuthorizationMode) -> UIViewController {
+        let presenter = AuthorizationPresenter(mode: mode, router: router)
         let controller = AuthorizationController(presenter: presenter)
         presenter.view = controller
         router.controller = controller

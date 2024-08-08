@@ -12,13 +12,13 @@ protocol EditProfilePresenterProtocol {
     func fetchUser()
     func isLoginBooked(login: String) -> Bool
     func isEmailBooked(email: String) -> Bool
-    func isPasswordBooked(password: String) -> Bool
+    func reathenticate()
 }
 
 final class EditProfilePresenter: EditProfilePresenterProtocol {
-    
     weak var view: EditProfileViewControllerProtocol?
     private var router: ProfileRouterProtocol
+    
     init(view: EditProfileViewControllerProtocol, router: ProfileRouterProtocol) {
         self.view = view
         self.router = router
@@ -42,9 +42,10 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
         return false
     }
     
-    func isPasswordBooked(password: String) -> Bool {
-        
-        return false
+    func reathenticate() {
+        router.showReauthenticate()
     }
+    
+    
 }
 

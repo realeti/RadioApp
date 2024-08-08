@@ -20,9 +20,16 @@ final class AuthorizationRouter: Router, AuthorizationRouterProtocol {
     }
     
     func showAuthorization(on window: UIWindow) {
-        let vc = builder.build(router: self)
+        let vc = builder.build(router: self, mode: .signIn)
         navigation.viewControllers = [vc]
         window.rootViewController = navigation
+    }
+    
+    func reauthenticate(on router: Router) {
+        let vc = builder.build(router: self, mode: .reauthenticate)
+        navigation.modalPresentationStyle = .fullScreen
+        navigation.viewControllers = [vc]
+        router.presentScreen(navigation)
     }
     
     func goHome() {
@@ -41,5 +48,9 @@ final class AuthorizationRouter: Router, AuthorizationRouterProtocol {
     
     func proceedToSignIn() {
         controller?.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func backToEditProfile() {
+        navigation.dismiss(animated: true)
     }
 }
