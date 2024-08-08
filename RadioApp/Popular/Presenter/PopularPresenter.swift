@@ -16,6 +16,7 @@ protocol PopularViewProtocol: AnyObject {
 protocol PopularPresenterProtocol {
     init(router: PopularRouterProtocol)
     var getStations: [PopularViewModel] { get }
+    var isStationsLoaded: Bool { get }
     
     func loadStations() async
     func setStations()
@@ -41,6 +42,8 @@ final class PopularPresenter: PopularPresenterProtocol {
     var getStations: [PopularViewModel] {
         get { stations }
     }
+    
+    var isStationsLoaded: Bool = false
     
     // MARK: - Init
     init(router: PopularRouterProtocol) {
@@ -81,6 +84,7 @@ extension PopularPresenter {
             print(error)
         }
         
+        isStationsLoaded = true
         setStations()
         view?.didUpdateStations()
     }

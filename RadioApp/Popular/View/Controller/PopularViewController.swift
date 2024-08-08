@@ -38,6 +38,14 @@ final class PopularViewController: ViewController {
         loadStations()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if presenter.isStationsLoaded {
+            presenter.setStations()
+        }
+    }
+    
     // MARK: - Set Delegates
     private func setDelegates() {
         popularView.radioCollection.dataSource = self
