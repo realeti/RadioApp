@@ -12,6 +12,16 @@ final class HomeController: UITabBarController {
     private let presenter: HomePresenter
     private let audioPlayerVC = Builder.createAudioPlayer()
     
+    var playerIsHidden: Bool {
+        get {
+            audioPlayerVC.view.isHidden
+        }
+        
+        set {
+            audioPlayerVC.view.isHidden = newValue
+        }
+    }
+    
     init(presenter: HomePresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -23,6 +33,7 @@ final class HomeController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configure()
         setupAudioPlayer()
     }
@@ -54,7 +65,7 @@ private extension HomeController {
         audioPlayerVC.view.snp.makeConstraints { make in
             make.width.equalToSuperview()
             make.height.equalTo(K.audioPlayerHeight)
-            make.bottom.equalTo(tabBar.snp.top).offset(K.audioPlayerBottomIndent)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(25.0)
         }
     }
 }

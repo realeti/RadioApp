@@ -20,7 +20,7 @@ struct K {
     // MARK: - Audio Player
     static let audioPlayerHeight: CGFloat = 122.0
     static let audioPlayerWidth: CGFloat = 111.0
-    static let audioPlayerBottomIndent: CGFloat = 11.5
+    static let audioPlayerBottomIndent: CGFloat = 25.0
     
     private init() {}
 }
