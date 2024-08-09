@@ -13,11 +13,13 @@ final class AllStationsController: ViewController {
 	
 	// MARK: - Public properties
 
+	// MARK: - Dependencies
+
 	var presenter: AllStationsPresenterProtocol!
 
-	// MARK: - Dependencies
-	
 	// MARK: - Private properties
+
+	private lazy var titleLabel = makeLabel()
 
 	private lazy var collectionView = makeCollectionView()
 
@@ -142,6 +144,17 @@ private extension AllStationsController {
 
 		return element
 	}
+
+	func makeLabel() -> UILabel {
+		let element = UILabel()
+
+		element.text = "All Stations"
+		element.font = .systemFont(ofSize: 30, weight: .light)
+		element.textColor = .white
+		element.translatesAutoresizingMaskIntoConstraints = false
+
+		return element
+	}
 }
 
 // MARK: - Setting UI
@@ -149,6 +162,7 @@ private extension AllStationsController {
 private extension AllStationsController {
 	
 	func addSubviews() {
+		view.addSubview(titleLabel)
 		view.addSubview(collectionView)
 	}
 }
@@ -159,7 +173,12 @@ private extension AllStationsController {
 	
 	func layout() {
 		NSLayoutConstraint.activate([
-			collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+			titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+			titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60.18),
+			titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60.18),
+			titleLabel.heightAnchor.constraint(equalToConstant: 36),
+
+			collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
 			collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
 			collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 			collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -130)
