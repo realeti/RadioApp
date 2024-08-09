@@ -29,7 +29,7 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
             mode = .signUp
         case .signUp:
             mode = .signIn
-        case .reauthenticate:
+        case .reauthenticateEmail, .reauthenticatePassword:
             break
         }
         view?.update(with: .init(mode: mode))
@@ -56,8 +56,12 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
                     switch self?.mode {
                     case .signIn:
                         self?.router.goHome()
-                    default:
+                    case .reauthenticatePassword:
                         self?.router.showUpdatePasswordVC()
+                    case .reauthenticateEmail:
+                        self?.router.showUpdateEmailVC()
+                    default:
+                        break
                     }
                     
                 }

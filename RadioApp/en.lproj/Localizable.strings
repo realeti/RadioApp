@@ -118,4 +118,11 @@ The information is processed to complete transactions, provide customer support 
 "Do you want to Log Out?" = "Do you want to Log Out?";
 "Cancel" = "Cancel";
 "To update password you need to Sign In again" = "To update password you need to Sign In again";
+"To update email you need to Sign In again" = "To update email you need to Sign In again";
 "Password successfully updated" = "Password successfully updated";
+"Update email" = "Update email";
+"Update\nEmail" = "Update\nEmail";
+"New email" = "New email";
+"Your new email" = "Your new email";
+"to update email" = "to update email";
+"to update password" = "to update password";

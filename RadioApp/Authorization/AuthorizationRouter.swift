@@ -25,10 +25,16 @@ final class AuthorizationRouter: Router, AuthorizationRouterProtocol {
         window.rootViewController = navigation
     }
     
-    func reauthenticate(on router: Router) {
-        let vc = builder.build(router: self, mode: .reauthenticate)
+    func reauthenticate(on router: Router, with mode: ReauthenticateMode) {
+        switch mode {
+        case .email:
+            let vc = builder.build(router: self, mode: .reauthenticateEmail)
+            navigation.viewControllers = [vc]
+        case .password:
+            let vc = builder.build(router: self, mode: .reauthenticatePassword)
+            navigation.viewControllers = [vc]
+        }
         navigation.modalPresentationStyle = .fullScreen
-        navigation.viewControllers = [vc]
         router.presentScreen(navigation)
     }
     
@@ -37,12 +43,17 @@ final class AuthorizationRouter: Router, AuthorizationRouterProtocol {
     }
     
     func showForgotPasswordVC() {
-        let vc = Builder.createForgotPasswordVC(router: self)
+        let vc = Builder.createForgotPasswordVC(router: self, mode: .forgotPassword)
         pushScreen(vc)
     }
     
     func showUpdatePasswordVC() {
         let vc = Builder.createUpdatePasswordVC(router: self)
+        pushScreen(vc)
+    }
+    
+    func showUpdateEmailVC() {
+        let vc = Builder.createForgotPasswordVC(router: self, mode: .updateEmail)
         pushScreen(vc)
     }
     

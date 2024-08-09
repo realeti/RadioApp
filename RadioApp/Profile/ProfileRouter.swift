@@ -12,7 +12,7 @@ protocol ProfileRouterProtocol: AnyObject, Router {
     func showEditProfile()
     func showLanguageVC()
     func showAboutUsVC()
-    func showReauthenticate()
+    func showReauthenticate(mode: ReauthenticateMode)
 }
 
 final class ProfileRouter: Router, ProfileRouterProtocol {
@@ -40,8 +40,8 @@ final class ProfileRouter: Router, ProfileRouterProtocol {
         pushScreen(vc)
     }
     
-    func showReauthenticate() {
+    func showReauthenticate(mode: ReauthenticateMode) {
         let authorization = RootBuilder().buildAuthorization()
-        authorization.reauthenticate(on: self)
+        authorization.reauthenticate(on: self, with: mode)
     }
 }

@@ -95,6 +95,7 @@ final class AuthenticationManager {
     
     func updateEmail(newEmail: String) async throws {
         try await auth.currentUser?.sendEmailVerification(beforeUpdatingEmail: newEmail)
+        try await auth.currentUser?.reload()
     }
     
     func updateUsername(name: String) {

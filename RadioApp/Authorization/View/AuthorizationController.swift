@@ -39,7 +39,7 @@ extension AuthorizationController: AuthorizationControllerProtocol {
         mode = model.mode
         view = UIView()
         switch model.mode {
-        case .signIn, .reauthenticate:
+        case .signIn, .reauthenticateEmail, .reauthenticatePassword:
             setupCommonUI(with: configureSignInUI())
         case .signUp:
             setupCommonUI(with: configureSignUpUI())
@@ -65,7 +65,6 @@ private extension AuthorizationController {
         let startPlayLabel = UILabel()
         startPlayLabel.font = .systemFont(ofSize: 25, weight: .regular)
         startPlayLabel.textColor = .white
-        startPlayLabel.text = "to start play".localized
         
         let doneButton = UIButton()
         doneButton.setImage(UIImage(systemName: "arrow.forward"), for: .normal)
@@ -83,12 +82,19 @@ private extension AuthorizationController {
         case .signIn:
             mainLabel.text = "Sign in".localized
             switchModeButton.setTitle("Or Sign Up".localized, for: .normal)
+            startPlayLabel.text = "to start play".localized
         case .signUp:
             mainLabel.text = "Sign Up".localized
             switchModeButton.setTitle("Or Sign In".localized, for: .normal)
-        case .reauthenticate:
+            startPlayLabel.text = "to start play".localized
+        case .reauthenticateEmail:
             mainLabel.text = "Sign in".localized
             switchModeButton.isHidden = true
+            startPlayLabel.text = "to update email".localized
+        case .reauthenticatePassword:
+            mainLabel.text = "Sign in".localized
+            switchModeButton.isHidden = true
+            startPlayLabel.text = "to update password".localized
         }
 
         view.addSubview(bg)
@@ -141,7 +147,7 @@ private extension AuthorizationController {
     @objc func doneTapped() {
         print("done tapped")
         switch mode {
-        case .signIn, .reauthenticate:
+        case .signIn, .reauthenticateEmail, .reauthenticatePassword:
             presenter.signIn(email: emailField?.textField.text, password: passwordField?.textField.text)
         default:
             presenter.signUp(name: nameField?.textField.text, email: emailField?.textField.text, password: passwordField?.textField.text)

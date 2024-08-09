@@ -7,12 +7,17 @@
 
 import Foundation
 
+enum ReauthenticateMode {
+    case email
+    case password
+}
+
 protocol EditProfilePresenterProtocol {
     func saveUserData(user: UserApp)
     func fetchUser()
     func isLoginBooked(login: String) -> Bool
     func isEmailBooked(email: String) -> Bool
-    func reathenticate()
+    func reathenticate(mode: ReauthenticateMode)
 }
 
 final class EditProfilePresenter: EditProfilePresenterProtocol {
@@ -63,8 +68,8 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
         return false
     }
     
-    func reathenticate() {
-        router.showReauthenticate()
+    func reathenticate(mode: ReauthenticateMode) {
+        router.showReauthenticate(mode: mode)
     }
     
     
