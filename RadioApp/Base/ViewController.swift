@@ -14,12 +14,11 @@ class ViewController: UIViewController {
     let errorView = ErrorView()
     
     private lazy var profileView: UIImageView = {
-        let image = getUserImage() ?? .natalyaLuzyanina
+        let image = getUserImage()
         let view = UIImageView(image: image)
-        view.contentMode = .scaleAspectFit
         return view
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
@@ -48,22 +47,26 @@ class ViewController: UIViewController {
         }
     }
     
-    private func getUserImage() -> UIImage? {
-        guard
+    private func getUserImage() -> UIImage {
+        var userImage: UIImage
+        if
             let id = Auth.auth().currentUser?.uid,
             let userEntity = StorageManager.shared.fetchUser(id: id),
             let imageData = userEntity.imageData,
             let image = UIImage(data: imageData)
-        else {
-            return nil
+        {
+            userImage = image
+        } else {
+            userImage = .person
         }
-        return image
+        let maskedImage = setMask(for: userImage)
+        return maskedImage
     }
     
     
     private func setRightBarButtonItem() {
         profileView.snp.makeConstraints { make in
-            make.height.width.equalTo(70)
+            make.width.equalTo(40)
         }
         let tapGesture = UITapGestureRecognizer(
             target: self,
@@ -74,8 +77,19 @@ class ViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
-    func updateUserImage() {
-        profileView.image = getUserImage() ?? .natalyaLuzyanina
+    private func updateUserImage() {
+        profileView.image = getUserImage()
+    }
+    
+    private func setMask(for image: UIImage) -> UIImage {
+        let mask: UIImage = .mask
+        let size = image.size
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let newImage = renderer.image { context in
+            image.draw(in: CGRect(origin: .zero, size: size), blendMode: .normal, alpha: 1)
+            mask.draw(in: CGRect(origin: .zero, size: size), blendMode: .destinationIn, alpha: 1)
+        }
+        return newImage
     }
     
     private func createCustomItem() -> UIBarButtonItem {
