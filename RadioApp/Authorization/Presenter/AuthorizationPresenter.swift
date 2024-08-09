@@ -20,14 +20,6 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     }
 
     func activate() {
-        if mode == .reauthenticate {
-            do {
-                try AuthenticationManager.shared.signOut()
-            }
-            catch {
-                print(error.localizedDescription)
-            }
-        }
         view?.update(with: .init(mode: mode))
     }
     
