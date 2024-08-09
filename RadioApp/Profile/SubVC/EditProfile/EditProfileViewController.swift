@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol EditProfileViewControllerProtocol: AnyObject {
 //    func fetchUser(_ user: User)
+    func updateRightBarButtonImage()
 }
 
 final class EditProfileViewController: ViewController, EditProfileViewControllerProtocol {
@@ -247,17 +249,22 @@ final class EditProfileViewController: ViewController, EditProfileViewController
 
     }
     
+    func updateRightBarButtonImage() {
+        self.updateUserImage()
+    }
+    
     private func saveButtonAction() {
         if let login = nameTextField.text,
            let email = emailTextField.text,
            let password = passwordTextField.text,
-           let imageData = profileImage.image?.pngData() {
-            var user = UserApp()
+           let imageData = profileImage.image?.pngData(),
+           let id = Auth.auth().currentUser?.uid {
+            var user = UserApp(id: id)
             user.image = imageData
             user.email = email
             user.login = login
             user.password = password
-//            presenter.saveUserData(user: user)
+            presenter.saveUserData(user: user)
         }
     }
     
