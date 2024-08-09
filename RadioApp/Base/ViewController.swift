@@ -89,7 +89,7 @@ class ViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
-    private func updateUserImage() {
+    func updateUserImage() {
         profileView.image = getUserImage()
     }
     
