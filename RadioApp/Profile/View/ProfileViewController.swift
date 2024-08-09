@@ -13,6 +13,7 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
     
     init(presenter: ProfilePresenterProtocol) {
         self.presenter = presenter
+        presenter.getCurrentUser()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -70,19 +71,30 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
         return button
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.getCurrentUser()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupButtons()
     }
-        
+    
+    func update(with user: UserApp?) {
+        guard let user else { return }
+        userView.setViews(with: user)
+    }
+    
+    // MARK: - Private Methods
+    
     private func setupView() {
         view.addSubviews(userView, generalView, moreView, LogOutButton)
         setupConstraints()
         view.backgroundColor = .darkBlueApp
     }
     
-    // MARK: - Private Methods
     private func setupEditButton() {
         userView.editButtonTap = {
             self.presenter.showEditProfileVC()

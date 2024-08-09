@@ -13,9 +13,13 @@ class ViewController: UIViewController {
     let errorView = ErrorView()
     let nameTitle = UILabel()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setName()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setName()
         configureItems()
     }
     
@@ -76,7 +80,7 @@ class ViewController: UIViewController {
         
         greetingTitle.snp.makeConstraints { make in
             make.leading.equalTo(icon.snp.trailing).offset(8)
-            make.bottom.equalTo(icon.snp.bottom).inset(1.8)
+            make.bottom.equalTo(icon.snp.bottom).inset(1)
         }
         
         nameTitle.snp.makeConstraints { make in

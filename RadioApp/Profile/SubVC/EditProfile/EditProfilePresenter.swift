@@ -18,6 +18,14 @@ protocol EditProfilePresenterProtocol {
 final class EditProfilePresenter: EditProfilePresenterProtocol {
     weak var view: EditProfileViewControllerProtocol?
     private var router: ProfileRouterProtocol
+    private var currentUser: UserApp? {
+        didSet {
+            guard let currentUser else { return }
+            DispatchQueue.main.sync { [weak self] in
+                self?.view?.fetchUser(currentUser)
+            }
+        }
+    }
     
     init(view: EditProfileViewControllerProtocol, router: ProfileRouterProtocol) {
         self.view = view
@@ -25,20 +33,24 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
     }
     
     func saveUserData(user: UserApp) {
-        AuthenticationManager.shared.updateUsername(name: user.login)
+        if !user.login.isEmpty {
+            AuthenticationManager.shared.updateUsername(name: user.login)
+        }
+        if !user.email.isEmpty {
+        }
+    }
+    
+    func fetchUser() {
         Task {
             do {
                 let authUser = try await AuthenticationManager.shared.getAuthenticatedUser()
-                print(authUser.name)
+                currentUser = .init(login: authUser.name ?? "Unknown", email: authUser.email ?? "-")
+                fetchUser()
             }
             catch {
                 print(error.localizedDescription)
             }
         }
-    }
-    
-    func fetchUser() {
-
     }
     
     func isLoginBooked(login: String) -> Bool {

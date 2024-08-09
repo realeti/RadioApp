@@ -8,7 +8,7 @@
 import UIKit
 
 protocol EditProfileViewControllerProtocol: AnyObject {
-    //    func fetchUser(_ user: User)
+    func fetchUser(_ user: UserApp)
 }
 
 final class EditProfileViewController: ViewController, EditProfileViewControllerProtocol {
@@ -195,7 +195,7 @@ final class EditProfileViewController: ViewController, EditProfileViewController
         super.viewDidLoad()
         setupViews()
         setupConstraints()
-        //        presenter.fetchUser()
+        presenter.fetchUser()
         nameTextField.delegate = self
         emailTextField.delegate = self
     }
@@ -218,13 +218,18 @@ final class EditProfileViewController: ViewController, EditProfileViewController
     
     private func saveButtonAction() {
         if let login = nameTextField.text,
-           let email = emailTextField.text,
-           let imageData = profileImage.image?.pngData() {
+           let email = emailTextField.text {
+//           let email = emailTextField.text,
+//           let imageData = profileImage.image?.pngData() {
             var user = UserApp()
-            user.image = imageData
+//            user.image = imageData
             user.email = email
             user.login = login
             presenter.saveUserData(user: user)
+            nameTextField.text = nil
+            emailTextField.text = nil
+            nameErrorLabel.text = ""
+            emailErrorLabel.text = ""
         }
     }
     
@@ -246,12 +251,11 @@ final class EditProfileViewController: ViewController, EditProfileViewController
         present(imageSelectionVC, animated: true)
     }
     
-    //     func fetchUser(_ user: User) {
-    //         userNameLabel.text = user.login
-    //         nameTextField.text = user.login
-    //         emailTextField.text = user.email
-    //         profileImage.image = UIImage(data: user.image)
-    //    }
+    func fetchUser(_ user: UserApp) {
+        userNameLabel.text = user.login
+        userEmailLabel.text = user.email
+//        profileImage.image = UIImage(data: user.image)
+    }
     
     private func updateNameErrorLabel(login: String) {
         if let text = nameTextField.text, !text.isEmpty {

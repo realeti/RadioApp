@@ -100,7 +100,7 @@ final class AuthenticationManager {
     func updateUsername(name: String) {
         let currentUser = auth.currentUser
         if currentUser?.displayName == nil {
-            currentUser?.displayName = "Ko"
+            currentUser?.displayName = " "
         }
         let changeRequest = auth.currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = name
