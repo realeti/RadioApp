@@ -58,8 +58,9 @@ private extension HomeController {
         audioPlayerVC.didMove(toParent: self)
         
         audioPlayerVC.view.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-            make.height.equalTo(K.audioPlayerHeight)
+            //make.width.equalToSuperview()
+            //make.height.equalTo(K.audioPlayerHeight)
+            make.top.leading.trailing.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(K.audioPlayerBottomIndent)
         }
     }
