@@ -13,13 +13,8 @@ final class HomeController: UITabBarController {
     private let audioPlayerVC = Builder.createAudioPlayer()
     
     var playerIsHidden: Bool {
-        get {
-            audioPlayerVC.view.isHidden
-        }
-        
-        set {
-            audioPlayerVC.view.isHidden = newValue
-        }
+        get { audioPlayerVC.view.isHidden }
+        set { audioPlayerVC.view.isHidden = newValue }
     }
     
     init(presenter: HomePresenter) {
@@ -65,7 +60,7 @@ private extension HomeController {
         audioPlayerVC.view.snp.makeConstraints { make in
             make.width.equalToSuperview()
             make.height.equalTo(K.audioPlayerHeight)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(25.0)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(K.audioPlayerBottomIndent)
         }
     }
 }

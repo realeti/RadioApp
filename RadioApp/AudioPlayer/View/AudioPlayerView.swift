@@ -105,7 +105,6 @@ private extension AudioPlayerView {
     
     func setupPlayerStackViewConstraints() {
         playerStackView.snp.makeConstraints { make in
-            //make.edges.equalToSuperview()
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview()
         }
@@ -113,8 +112,8 @@ private extension AudioPlayerView {
     
     func setupPlayerButtonConstraints() {
         playerButton.snp.makeConstraints { make in
-            make.width.equalTo(Metrics.playerButtonWidth)
-            make.height.equalTo(Metrics.playerButtonHeight)
+            make.width.equalTo(K.audioPlayerWidth)
+            make.height.equalTo(K.audioPlayerHeight)
         }
     }
     
@@ -134,10 +133,6 @@ private extension AudioPlayerView {
 }
 
 fileprivate struct Metrics {
-    /// player button
-    static let playerButtonWidth: CGFloat = K.audioPlayerWidth
-    static let playerButtonHeight: CGFloat = K.audioPlayerHeight
-    
     /// back button
     static let backButtonWidth: CGFloat = 42.0
     static let backButtonHeight: CGFloat = 46.0

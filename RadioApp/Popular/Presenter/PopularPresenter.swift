@@ -10,8 +10,7 @@ import RadioBrowser
 
 protocol PopularViewProtocol: AnyObject {
     func didUpdateStations()
-    //func didUpdateVotedStation()
-    func voteForStation(at: IndexPath?, stationUniqueID: UUID?)
+    func voteForStation(at: IndexPath?)
 }
 
 protocol PopularPresenterProtocol {
@@ -22,7 +21,7 @@ protocol PopularPresenterProtocol {
     func loadStations() async
     func setStations()
     func changeStation(_ stationId: Int)
-    func toggleVoteState(for stationId: Int, stationUniqueID: UUID)
+    func toggleVoteState(for stationId: Int)
     func isStationVoted(_ stationId: Int) -> Bool
 }
 
@@ -41,12 +40,10 @@ final class PopularPresenter: PopularPresenterProtocol {
     
     // MARK: - Public Properties
     var getStations: [PopularViewModel] {
-        get {
-            return stations
-        }
+        get { stations }
     }
     
-    var isStationsLoaded = false
+    var isStationsLoaded: Bool = false
     
     // MARK: - Init
     init(router: PopularRouterProtocol) {
@@ -95,22 +92,20 @@ extension PopularPresenter {
 
 // MARK: - Load Voted Stations
 private extension PopularPresenter {
-    func loadVotedStation(with stationUniqueID: UUID) {
-        if let _ = storage.fetchStation(with: stationUniqueID) {
+    func loadVotedStation(with stationUniqueId: UUID) {
+        if let _ = storage.fetchStation(with: stationUniqueId) {
             votedStations.append(true)
         } else {
             votedStations.append(false)
         }
-        
-        //view?.didUpdateVotedStation()
     }
 }
 
 // MARK: - Set Stations
 extension PopularPresenter {
     func setStations() {
-        let audioStations: [AudioStation] = stations.map { station in
-            AudioStation(id: station.id, url: station.url)
+        let audioStations: [PlayerStation] = stations.map { station in
+            PlayerStation(id: station.id, url: station.url)
         }
         audioPlayer.setStations(audioStations)
     }
@@ -129,25 +124,33 @@ extension PopularPresenter {
 
 // MARK: - Votes for Station
 extension PopularPresenter {
-    func toggleVoteState(for stationId: Int, stationUniqueID: UUID) {
-        votedStations[stationId].toggle()
-        
-        var selectedStation = stations[stationId]
+    func toggleVoteState(for stationId: Int) {
         let voteChange = isStationVoted(stationId) ? 1 : -1
+        updateVotes(for: stationId, voteChange: voteChange)
         
+        /// save to storage
+        let selectedStation = stations[stationId]
+        storage.toggleFavorite(id: selectedStation.id, title: selectedStation.title, genre: selectedStation.subtitle)
+    }
+    
+    func isStationVoted(_ stationId: Int) -> Bool {
+        return votedStations[stationId]
+    }
+    
+    private func updateVotes(for stationId: Int, voteChange: Int) {
+        votedStations[stationId].toggle()
+        var selectedStation = stations[stationId]
+        
+        // update votes on current station
         selectedStation = PopularViewModel(
-            id: stationUniqueID,
+            id: selectedStation.id,
             title: selectedStation.title,
             subtitle: selectedStation.subtitle,
             voteCount: selectedStation.voteCount + voteChange,
             url: selectedStation.url
         )
         
+        // update array of popular stations
         stations[stationId] = selectedStation
-        storage.toggleFavorite(id: stationUniqueID, title: selectedStation.title, genre: selectedStation.subtitle)
-    }
-    
-    func isStationVoted(_ stationId: Int) -> Bool {
-        return votedStations[stationId]
     }
 }

@@ -16,7 +16,7 @@ protocol AudioPlayerProtocol {
     func playPrevious()
     func playNext()
     func playStation(at index: Int)
-    func setStations(_ stations: [AudioStation], startIndex: Int)
+    func setStations(_ stations: [PlayerStation], startIndex: Int)
 }
 
 final class AudioPlayerController: AudioPlayerProtocol {
@@ -25,7 +25,7 @@ final class AudioPlayerController: AudioPlayerProtocol {
     
     // MARK: - Private properties
     private var audioPlayer: AVPlayer?
-    private var stations: [AudioStation] = []
+    private var stations: [PlayerStation] = []
     
     // MARK: - Public Properties
     var currentIndex: Int = 0
@@ -80,7 +80,7 @@ extension AudioPlayerController {
         }
     }
     
-    func setStations(_ stations: [AudioStation], startIndex: Int = 0) {
+    func setStations(_ stations: [PlayerStation], startIndex: Int = 0) {
         self.stations = stations
         self.currentIndex = startIndex
     }
@@ -98,12 +98,16 @@ private extension AudioPlayerController {
 // MARK: - AudioPlayer Notifications
 private extension AudioPlayerController {
     func postStatusNotification() {
-        NotificationCenter.default.post(name: .playerStatusDidChange, object: nil, userInfo: ["isPlaying": isPlaying])
-        NotificationCenter.default.post(name: .playerCurrentIndexDidChange, object: nil, userInfo: ["stationIndex": currentIndex])
+        NotificationCenter.default.post(
+            name: .playerStatusDidChange,
+            object: nil,
+            userInfo: [K.UserInfoKey.isPlaying: isPlaying]
+        )
+        
+        NotificationCenter.default.post(
+            name: .playerCurrentIndexDidChange,
+            object: nil,
+            userInfo: [K.UserInfoKey.stationIndex: currentIndex]
+        )
     }
-}
-
-extension Notification.Name {
-    static let playerStatusDidChange = Notification.Name("playerStatusDidChange")
-    static let playerCurrentIndexDidChange = Notification.Name("playerCurrentIndexDidChange")
 }

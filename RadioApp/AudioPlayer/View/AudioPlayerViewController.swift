@@ -61,7 +61,7 @@ final class AudioPlayerViewController: UIViewController {
 // MARK: - Notification handle
 private extension AudioPlayerViewController {
     @objc func handlePlayerStatusChange(_ notification: Notification) {
-        if let isPlaying = notification.userInfo?["isPlaying"] as? Bool {
+        if let isPlaying = notification.userInfo?[K.UserInfoKey.isPlaying] as? Bool {
             audioView.updatePlayerImage(isPlaying, animated: false)
         }
     }
