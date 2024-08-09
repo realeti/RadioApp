@@ -21,6 +21,9 @@ protocol AllStationsPresenterProtocol: AnyObject {
 
 	/// Активация презентера для обновления информации на экране.
 	func activate()
+	
+	/// Загрузка радиостанций.
+	func fetchStations()
 
 	/// Выбрана радиостанция.
 	/// - Parameter indexPath: индекс радиостанции.
@@ -29,6 +32,12 @@ protocol AllStationsPresenterProtocol: AnyObject {
 	/// Проголосовали за радиостанцию.
 	/// - Parameter indexPath: индекс радиостанции.
 	func didStationVoted(at indexPath: IndexPath)
+}
+
+protocol SearchPresenterProtocol: AllStationsPresenterProtocol {
+
+	/// Поиск радиостанций по названию.
+	func searchStations(with name: String)
 }
 
 /// Протокол роутера для перехода с экрана, отображающего все радиостанции, на другие экраны.

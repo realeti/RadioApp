@@ -13,6 +13,7 @@
 		113FE50D2C61396B00B2AC8B /* EqualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FE5062C61396A00B2AC8B /* EqualizerView.swift */; };
 		113FE50E2C61396B00B2AC8B /* StationDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FE5072C61396A00B2AC8B /* StationDetailsController.swift */; };
 		113FE50F2C61396B00B2AC8B /* StationDetailsAssembly .swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FE5092C61396A00B2AC8B /* StationDetailsAssembly .swift */; };
+		B63972A22C666B87005B7803 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63972A12C666B87005B7803 /* SearchPresenter.swift */; };
 		B65085D52C61D1DE00FBB0B2 /* AllStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65085CA2C61D1DE00FBB0B2 /* AllStations.swift */; };
 		B65085D62C61D1DE00FBB0B2 /* AllStationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65085CC2C61D1DE00FBB0B2 /* AllStationsCell.swift */; };
 		B65085D72C61D1DE00FBB0B2 /* AllStationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65085CD2C61D1DE00FBB0B2 /* AllStationsController.swift */; };
@@ -123,6 +124,7 @@
 		113FE5062C61396A00B2AC8B /* EqualizerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualizerView.swift; sourceTree = "<group>"; };
 		113FE5072C61396A00B2AC8B /* StationDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationDetailsController.swift; sourceTree = "<group>"; };
 		113FE5092C61396A00B2AC8B /* StationDetailsAssembly .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StationDetailsAssembly .swift"; sourceTree = "<group>"; };
+		B63972A12C666B87005B7803 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		B65085CA2C61D1DE00FBB0B2 /* AllStations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStations.swift; sourceTree = "<group>"; };
 		B65085CC2C61D1DE00FBB0B2 /* AllStationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStationsCell.swift; sourceTree = "<group>"; };
 		B65085CD2C61D1DE00FBB0B2 /* AllStationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStationsController.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				B65085CD2C61D1DE00FBB0B2 /* AllStationsController.swift */,
 				B65085D02C61D1DE00FBB0B2 /* AllStationsAssembly.swift */,
 				B65085D12C61D1DE00FBB0B2 /* AllStationsPresenter.swift */,
+				B63972A12C666B87005B7803 /* SearchPresenter.swift */,
 				B65085D22C61D1DE00FBB0B2 /* AllStationsProtocols.swift */,
 				B65085D32C61D1DE00FBB0B2 /* AllStationsRouter.swift */,
 			);
@@ -889,6 +892,7 @@
 				113FE5012C61395C00B2AC8B /* WaveView.swift in Sources */,
 				B65085D52C61D1DE00FBB0B2 /* AllStations.swift in Sources */,
 				BECF66302C5A0D9A0068160D /* TeamViewCell.swift in Sources */,
+				B63972A22C666B87005B7803 /* SearchPresenter.swift in Sources */,
 				B65085D62C61D1DE00FBB0B2 /* AllStationsCell.swift in Sources */,
 				B65085DB2C61D1DE00FBB0B2 /* AllStationsProtocols.swift in Sources */,
 				CBCA8D9D2C5D3965003B01B9 /* UpdatePasswordPresenter.swift in Sources */,

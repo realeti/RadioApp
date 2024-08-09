@@ -1,15 +1,15 @@
 //
-//  AllStationsPresenter.swift
+//  SearchPresenter.swift
 //  RadioApp
 //
-//  Created by Дмитрий Лубов on 02.08.2024.
+//  Created by Дмитрий Лубов on 10.08.2024.
 //
 
 import Foundation
 import RadioBrowser
 
-/// Презентер для экрана с полным списком радиостанций.
-final class AllStationsPresenter {
+/// Презентер для экрана с  поиском радиостанций.
+final class SearchPresenter {
 
 	// MARK: - Dependencies
 
@@ -22,9 +22,10 @@ final class AllStationsPresenter {
 	// MARK: - Private properties
 
 	private var stations: [Station] = []
+	private var searchText: String?
 
 	// MARK: - Initialization
-	
+
 	/// Инициализатор презентера.
 	/// - Parameters:
 	///   - router: роутер, для осуществления перехода на другие экраны.
@@ -44,39 +45,27 @@ final class AllStationsPresenter {
 	}
 }
 
-// MARK: - AllStationsPresenterProtocol
+// MARK: - SearchPresenterProtocol
 
-extension AllStationsPresenter: AllStationsPresenterProtocol {
+extension SearchPresenter: SearchPresenterProtocol {
 
 	/// Активация презентера для обновления информации на экране.
 	///
-	/// Получает первые 20 радиостанций из api и обновляет экран AllStations. Для подгрузки радиостанций используйте `fetchStations()`.
+	/// Обновляет экран по поиску радиостанций. Для подгрузки радиостанций используйте `fetchStations()`.
 	func activate() {
 		Task {
-			if !stations.isEmpty {
-				await render()
-				return
-			}
-		
-			let result = await radioBrowser.getAllStations(offset: stations.count)
-
-			switch result {
-			case .success(let data):
-				stations = data
-				await render()
-			case .failure(let error):
-				print(error)
-			}
+			await render()
 		}
 	}
-	
+
 	/// Загрузка радиостанций.
 	///
 	/// При вызове подгружает 20 станций и обновляет экран.
 	func fetchStations() {
 		Task {
-			let result = await radioBrowser.getAllStations(offset: stations.count)
-			
+			guard let searchText else { return }
+			let result = await radioBrowser.searchStation(named: searchText, offset: stations.count)
+
 			switch result {
 			case .success(let data):
 				stations += data
@@ -84,6 +73,17 @@ extension AllStationsPresenter: AllStationsPresenterProtocol {
 			case .failure(let error):
 				print(error)
 			}
+		}
+	}
+
+	/// Поиск радиостанций по названию.
+	///
+	/// Получает первые 20 радиостанций из api и обновляет экран по поиску. Для подгрузки радиостанций используйте `fetchStations()`.
+	func searchStations(with name: String) {
+		Task {
+			stations = []
+			searchText = name
+			fetchStations()
 		}
 	}
 
@@ -120,7 +120,7 @@ extension AllStationsPresenter: AllStationsPresenterProtocol {
 
 // MARK: - Private methods
 
-private extension AllStationsPresenter {
+private extension SearchPresenter {
 
 	@MainActor
 	func render() {
@@ -150,10 +150,10 @@ private extension AllStationsPresenter {
 		let radioStations = stations.map { makeStationModel(from: $0) }
 		return AllStations.Model(stations: radioStations)
 	}
-	
+
 	func makeStationModel(from data: Station) -> AllStations.Model.Station {
 		let station = storageManager.fetchStation(with: data.stationUUID)
-
+		
 		return AllStations.Model.Station(
 			tag: data.tags.first ?? "nil",
 			title: data.name.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .newlines),

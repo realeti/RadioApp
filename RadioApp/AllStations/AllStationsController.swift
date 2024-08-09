@@ -16,14 +16,26 @@ final class AllStationsController: ViewController {
 	// MARK: - Dependencies
 
 	var presenter: AllStationsPresenterProtocol!
+	var searchPresenter: SearchPresenter!
 
 	// MARK: - Private properties
 
+	private lazy var mainStack = makeStackView()
 	private lazy var titleLabel = makeLabel()
+	private lazy var searchTextField = makeTextField()
+	private lazy var searchImageView = makeImageView()
+	private lazy var activateSearchButton = makeButton()
 
 	private lazy var collectionView = makeCollectionView()
 
 	private var model = AllStations.Model(stations: [])
+	private var isActiveSearch: Bool = false {
+		didSet {
+			let image = isActiveSearch ? UIImage.closeSearch : .goSearch
+			activateSearchButton.setImage(image, for: .normal)
+			titleLabel.isHidden = isActiveSearch
+		}
+	}
 
 	// MARK: - Initialization
 	
@@ -32,7 +44,15 @@ final class AllStationsController: ViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupUI()
-		presenter.activate()
+	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		if isActiveSearch {
+			searchPresenter.activate()
+		} else {
+			presenter.activate()
+		}
 	}
 	
 	// MARK: - Public methods
@@ -43,6 +63,34 @@ final class AllStationsController: ViewController {
 	}
 
 	// MARK: - Private methods
+}
+
+// MARK: - UITextFieldDelegate
+
+extension AllStationsController: UITextFieldDelegate {
+
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		if let text = textField.text, !text.isEmpty {
+			searchPresenter.searchStations(with: text)
+			textField.resignFirstResponder()
+			collectionView.setContentOffset(CGPoint(x:0 ,y:0), animated: true)
+		}
+		return true
+	}
+
+	func textField(
+		_ textField: UITextField,
+		shouldChangeCharactersIn range: NSRange,
+		replacementString string: String
+	) -> Bool {
+		isActiveSearch = true
+		searchPresenter.activate()
+		return true
+	}
+
+	func textFieldDidBeginEditing(_ textField: UITextField) {
+		isActiveSearch = true
+	}
 }
 
 // MARK: - AllStationsControllerProtocol
@@ -60,7 +108,11 @@ extension AllStationsController: AllStationsControllerProtocol {
 extension AllStationsController: StationViewDelegate {
 
 	func vote(at indexPath: IndexPath) {
-		presenter.didStationVoted(at: indexPath)
+		if isActiveSearch {
+			searchPresenter.didStationVoted(at: indexPath)
+		} else {
+			presenter.didStationVoted(at: indexPath)
+		}
 	}
 }
 
@@ -102,8 +154,11 @@ extension AllStationsController: UICollectionViewDelegate {
 		willDisplay cell: UICollectionViewCell,
 		forItemAt indexPath: IndexPath
 	) {
-		if model.stations.count - indexPath.row == 4 {
-			presenter.activate()
+		guard model.stations.count - indexPath.row == 4 else { return }
+		if isActiveSearch {
+			searchPresenter.fetchStations()
+		} else {
+			presenter.fetchStations()
 		}
 	}
 }
@@ -111,7 +166,22 @@ extension AllStationsController: UICollectionViewDelegate {
 // MARK: - Actions
 
 private extension AllStationsController {
-	
+
+	var activateSearchHandler: UIActionHandler {
+		{ [weak self] _ in
+			guard let self else { return }
+			if isActiveSearch {
+				searchTextField.text = ""
+				searchTextField.resignFirstResponder()
+				presenter.activate()
+				collectionView.setContentOffset(CGPoint(x:0 ,y:0), animated: true)
+			} else {
+				searchPresenter.activate()
+				searchTextField.becomeFirstResponder()
+			}
+			isActiveSearch.toggle()
+		}
+	}
 }
 
 // MARK: - Setup UI
@@ -122,6 +192,7 @@ private extension AllStationsController {
 		view.backgroundColor = .darkBlueApp
 
 		addSubviews()
+		addActions()
 	}
 
 	func makeFlowLayout() -> UICollectionViewFlowLayout {
@@ -145,12 +216,62 @@ private extension AllStationsController {
 		return element
 	}
 
+	func makeStackView() -> UIStackView {
+		let element = UIStackView()
+
+		element.axis = .vertical
+		element.alignment = .center
+		element.spacing = 15
+		element.translatesAutoresizingMaskIntoConstraints = false
+
+		return element
+	}
+
 	func makeLabel() -> UILabel {
 		let element = UILabel()
 
-		element.text = "All Stations"
+		element.text = "All Stations".localized
 		element.font = .systemFont(ofSize: 30, weight: .light)
 		element.textColor = .white
+		element.translatesAutoresizingMaskIntoConstraints = false
+
+		return element
+	}
+
+	func makeTextField() -> UITextField {
+		let element = UITextField()
+
+		element.backgroundColor = .searchApp
+		element.layer.cornerRadius = 15
+		element.textColor = .white
+		element.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 58, height: element.frame.height))
+		element.leftViewMode = .always
+		element.rightView = activateSearchButton
+		element.rightViewMode = .always
+		element.attributedPlaceholder = NSAttributedString(
+			string: "Search radio station",
+			attributes: [.foregroundColor: UIColor.white]
+		)
+		element.returnKeyType = .search
+		element.delegate = self
+		element.translatesAutoresizingMaskIntoConstraints = false
+
+		return element
+	}
+
+	func makeImageView() -> UIImageView {
+		let element = UIImageView()
+
+		element.image = .searchApp
+		element.translatesAutoresizingMaskIntoConstraints = false
+
+		return element
+	}
+
+	func makeButton() -> UIButton {
+		let element = UIButton()
+
+		element.setImage(.goSearch, for: .normal)
 		element.translatesAutoresizingMaskIntoConstraints = false
 
 		return element
@@ -162,26 +283,44 @@ private extension AllStationsController {
 private extension AllStationsController {
 	
 	func addSubviews() {
-		view.addSubview(titleLabel)
-		view.addSubview(collectionView)
+		view.addSubview(mainStack)
+
+		mainStack.addArrangedSubview(titleLabel)
+		mainStack.addArrangedSubview(searchTextField)
+		mainStack.addArrangedSubview(collectionView)
+
+		searchTextField.addSubview(searchImageView)
+	}
+
+	func addActions() {
+		activateSearchButton.addAction(UIAction(handler: activateSearchHandler), for: .touchUpInside)
 	}
 }
 
 // MARK: - Layout UI
 
 private extension AllStationsController {
-	
+
 	func layout() {
 		NSLayoutConstraint.activate([
-			titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-			titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60.18),
-			titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60.18),
-			titleLabel.heightAnchor.constraint(equalToConstant: 36),
+			mainStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+			mainStack.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+			mainStack.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+			mainStack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -130),
 
-			collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
-			collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -130)
+			titleLabel.leadingAnchor.constraint(equalTo: mainStack.leadingAnchor, constant: 44.18),
+
+			searchTextField.heightAnchor.constraint(equalToConstant: 56),
+			searchTextField.widthAnchor.constraint(equalTo: mainStack.widthAnchor),
+			
+			searchImageView.centerYAnchor.constraint(equalTo: searchTextField.centerYAnchor),
+			searchImageView.leadingAnchor.constraint(equalTo: searchTextField.layoutMarginsGuide.leadingAnchor),
+			
+			activateSearchButton.heightAnchor.constraint(equalToConstant: 32),
+			activateSearchButton.widthAnchor.constraint(equalToConstant: 50),
+
+			collectionView.widthAnchor.constraint(equalTo: mainStack.widthAnchor),
+			collectionView.bottomAnchor.constraint(equalTo: mainStack.bottomAnchor)
 		])
 	}
 }
