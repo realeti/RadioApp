@@ -12,6 +12,7 @@ import FirebaseAuth
 class ViewController: UIViewController {
     let loadingView = LoadingView()
     let errorView = ErrorView()
+    var playerIsHidden: Bool = false
     
     private lazy var profileView: UIImageView = {
         let image = getUserImage()
@@ -26,8 +27,19 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        if playerIsHidden,
+            let homeController = tabBarController as? HomeController {
+            homeController.playerIsHidden = true
+        }
         updateUserImage()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if playerIsHidden,
+           let homeController = tabBarController as? HomeController {
+            homeController.playerIsHidden = false
+        }
     }
     
     private func configureItems() {

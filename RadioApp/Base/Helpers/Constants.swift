@@ -17,5 +17,22 @@ struct K {
     // MARK: - Reusable Cells
     static let popularRadioCell = "popularCell"
     
+    // MARK: - Audio Player
+    static let audioPlayerHeight: CGFloat = 122.0
+    static let audioPlayerWidth: CGFloat = 111.0
+    static let audioPlayerBottomIndent: CGFloat = 25.0
+    
+    struct Notification {
+        static let playerStatusDidChange = "PlayerStatusDidChange"
+        static let playerCurrentIndexDidChange = "PlayerCurrentIndexDidChange"
+        static let favoriteRemoved = "FavoriteRemoved"
+    }
+
+    struct UserInfoKey {
+        static let isPlaying = "isPlaying"
+        static let stationIndex = "stationIndex"
+        static let removedStationIndex = "removedStationIndex"
+    }
+    
     private init() {}
 }
