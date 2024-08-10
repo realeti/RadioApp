@@ -19,7 +19,8 @@ protocol AuthorizationControllerProtocol: AnyObject {
 protocol AuthorizationPresenterProtocol: AnyObject {
     func activate()
     func switchMode()
-    func finishAuthorization()
+    func signIn(email: String?, password: String?)
+    func signUp(name: String?, email: String?, password: String?)
     func didTapGoogleButton()
     func didTapForgotPasswordButton()
 }

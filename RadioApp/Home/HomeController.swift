@@ -6,9 +6,16 @@
 //
 
 import UIKit
+import SnapKit
 
 final class HomeController: UITabBarController {
     private let presenter: HomePresenter
+    private let audioPlayerVC = Builder.createAudioPlayer()
+    
+    var playerIsHidden: Bool {
+        get { audioPlayerVC.view.isHidden }
+        set { audioPlayerVC.view.isHidden = newValue }
+    }
     
     init(presenter: HomePresenter) {
         self.presenter = presenter
@@ -21,7 +28,9 @@ final class HomeController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configure()
+        setupAudioPlayer()
     }
     
     private func configure() {
@@ -38,5 +47,20 @@ final class HomeController: UITabBarController {
         allStationsVC.view.backgroundColor = .neonBlueApp
         
         viewControllers = [popularVC, favoriteVC, allStationsVC]
+    }
+}
+
+// MARK: - Set AudioPlayer
+private extension HomeController {
+    func setupAudioPlayer() {
+        addChild(audioPlayerVC)
+        view.addSubview(audioPlayerVC.view)
+        audioPlayerVC.didMove(toParent: self)
+        
+        audioPlayerVC.view.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.height.equalTo(K.audioPlayerHeight)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(K.audioPlayerBottomIndent)
+        }
     }
 }

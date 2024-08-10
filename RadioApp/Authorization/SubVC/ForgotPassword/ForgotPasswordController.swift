@@ -15,6 +15,7 @@ protocol ForgotPasswordControllerProtocol: AnyObject {
 final class ForgotPasswordController: UIViewController {
     var presenter: (any ForgotPasswordPresenterProtocol)?
     private var email: String?
+    private var emailField: AuthorizationField?
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -51,7 +52,9 @@ private extension ForgotPasswordController {
         mainLabel.numberOfLines = 2
         mainLabel.text = "Forgot\nPassword".localized
         
-        let emailField = AuthorizationField(delegate: self, title: "Email".localized, placeholder: "Your email".localized, isSecure: false)
+        emailField = AuthorizationField(delegate: self, title: "Email".localized, placeholder: "Your email".localized, isSecure: false)
+        guard let emailField else { return }
+        emailField.textField.text = email
         
         let sendButton = UIButton()
         sendButton.setTitle("Send".localized, for: .normal)
@@ -80,6 +83,7 @@ private extension ForgotPasswordController {
         
         mainLabel.snp.makeConstraints { make in
             make.leading.equalTo(backButton)
+            make.leading.equalToSuperview().inset(43)
             make.top.equalTo(backButton.snp.bottom).inset(-35)
         }
         
@@ -103,13 +107,13 @@ private extension ForgotPasswordController {
     
     @objc func sendTapped() {
         print("send tapped")
-        presenter?.requestUpdatePassword(email: email)
+        presenter?.requestUpdatePassword(email: emailField?.textField.text)
     }
 }
 
 extension ForgotPasswordController: UITextFieldDelegate {
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        email = textField.text
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
         return true
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol EditProfilePresenterProtocol {
-    func saveUserData(user: User)
+    func saveUserData(user: UserApp)
     func fetchUser()
     func isLoginBooked(login: String) -> Bool
     func isEmailBooked(email: String) -> Bool
@@ -24,8 +24,9 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
         self.router = router
     }
     
-    func saveUserData(user: User) {
-
+    func saveUserData(user: UserApp) {
+        StorageManager.shared.saveUser(user)
+        view?.updateRightBarButtonImage()
     }
     
     func fetchUser() {

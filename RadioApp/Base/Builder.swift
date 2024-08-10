@@ -23,4 +23,8 @@ final class Builder {
     static func createProfile() -> UIViewController {
         ProfileAssembly().build(router: ProfileRouter())
     }
+    
+    static func createAudioPlayer() -> UIViewController {
+        AudioAssembly().build()
+    }
 }

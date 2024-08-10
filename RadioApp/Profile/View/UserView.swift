@@ -70,7 +70,7 @@ final class UserView: UIView {
     }
     
     // MARK: - Public Methods
-    func setViews(with user: User) {
+    func setViews(with user: UserApp) {
         profileImageView.image = UIImage(data: user.image)
         userNameLabel.text = user.login
         userEmailLabel.text = user.email
