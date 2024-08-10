@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     let loadingView = LoadingView()
     let errorView = ErrorView()
     var playerIsHidden: Bool = false
+    let nameTitle = UILabel()
     
     private lazy var profileView: UIImageView = {
         let image = getUserImage()
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setName()
         if playerIsHidden,
             let homeController = tabBarController as? HomeController {
             homeController.playerIsHidden = true
@@ -40,6 +42,19 @@ class ViewController: UIViewController {
         if playerIsHidden,
            let homeController = tabBarController as? HomeController {
             homeController.playerIsHidden = false
+        }
+    }
+    
+    private func setName() {
+        Task {
+            do {
+                let user = try await AuthenticationManager.shared.getAuthenticatedUser()
+                nameTitle.text = user.name
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+            
         }
     }
     
@@ -126,8 +141,6 @@ class ViewController: UIViewController {
         greetingTitle.textColor = .white
         greetingTitle.font = .systemFont(ofSize: 25, weight: .medium)
         
-        let nameTitle = UILabel()
-        nameTitle.text = "Mark".localized
         nameTitle.textColor = .pinkApp
         nameTitle.font = .systemFont(ofSize: 30, weight: .medium)
         
@@ -142,7 +155,7 @@ class ViewController: UIViewController {
         
         greetingTitle.snp.makeConstraints { make in
             make.leading.equalTo(icon.snp.trailing).offset(8)
-            make.bottom.equalTo(icon.snp.bottom).inset(1.8)
+            make.bottom.equalTo(icon.snp.bottom).inset(1)
         }
         
         nameTitle.snp.makeConstraints { make in

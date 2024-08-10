@@ -13,6 +13,7 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
     
     init(presenter: ProfilePresenterProtocol) {
         self.presenter = presenter
+        presenter.getCurrentUser()
         super.init(nibName: nil, bundle: nil)
         
         playerIsHidden = true
@@ -50,9 +51,9 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
         
         let action = UIAction() {_ in
             //self.saveButtonAction()
-            let alertController = UIAlertController(title: "Do you want to Sign Out?", message: nil, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            alertController.addAction(UIAlertAction(title: "Sign Out", style: .destructive
+            let alertController = UIAlertController(title: "Do you want to Log Out?".localized, message: nil, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel))
+            alertController.addAction(UIAlertAction(title: "Log Out".localized, style: .destructive
                                                     , handler: { _ in
                 do {
                     try AuthenticationManager.shared.signOut()
@@ -72,19 +73,30 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
         return button
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.getCurrentUser()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupButtons()
     }
-        
+    
+    func update(with user: UserApp?) {
+        guard let user else { return }
+        userView.setViews(with: user)
+    }
+    
+    // MARK: - Private Methods
+    
     private func setupView() {
         view.addSubviews(userView, generalView, moreView, LogOutButton)
         setupConstraints()
         view.backgroundColor = .darkBlueApp
     }
     
-    // MARK: - Private Methods
     private func setupEditButton() {
         userView.editButtonTap = {
             self.presenter.showEditProfileVC()

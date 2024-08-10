@@ -768,7 +768,6 @@
 			children = (
 				CBCA8D902C5D3965003B01B9 /* UpdatePasswordController.swift */,
 				CBCA8D912C5D3965003B01B9 /* UpdatePasswordPresenter.swift */,
-				CBB20CD42C62145000B35416 /* BrowserController.swift */,
 			);
 			path = UpdatePassword;
 			sourceTree = "<group>";
@@ -778,6 +777,7 @@
 			children = (
 				CBCA8D932C5D3965003B01B9 /* ForgotPasswordController.swift */,
 				CBCA8D942C5D3965003B01B9 /* ForgotPasswordPresenter.swift */,
+				CBB20CD42C62145000B35416 /* BrowserController.swift */,
 			);
 			path = ForgotPassword;
 			sourceTree = "<group>";
