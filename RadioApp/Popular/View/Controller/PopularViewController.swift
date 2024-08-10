@@ -107,6 +107,7 @@ private extension PopularViewController {
         }
         
         cell.clearVoteImage()
+        presenter.removeVoteStatus(stationId)
     }
 }
 
