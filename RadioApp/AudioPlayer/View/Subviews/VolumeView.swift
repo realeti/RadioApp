@@ -78,9 +78,9 @@ private extension VolumeView {
     func setupVolumeContainerConstraints() {
         volumeContainer.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().inset(Metrics.volumeLeadingIndent)
-            make.width.equalTo(Metrics.volumeSliderWidth)
-            make.height.equalTo(Metrics.volumeSliderHeight)
+            make.leading.equalToSuperview()
+            make.width.equalTo(K.volumeContainerWidth)
+            make.height.equalTo(K.volumeContainerHeight)
         }
     }
     
@@ -111,13 +111,6 @@ private extension VolumeView {
 }
 
 fileprivate struct Metrics {
-    /// volume container
-    static let volumeLeadingIndent: CGFloat = 23.5
-    
-    /// volume slider
-    static let volumeSliderWidth: CGFloat = 3.0
-    static let volumeSliderHeight: CGFloat = 200.0
-    
     /// volume  label
     static let volumeLabelWidth: CGFloat = 30.0
     static let volumeLabelBottomOffset: CGFloat = 9.5

@@ -37,12 +37,12 @@ extension AudioPlayerView {
         playerView.delegate = delegate
     }
     
-    func updateVolume(_ volume: Float) {
-        volumeView.update(volume)
-    }
-    
     func updatePlayerImage(_ isPlaying: Bool, animated: Bool) {
         playerView.updatePlayerImage(isPlaying, animated: animated)
+    }
+    
+    func updateVolume(_ volume: Float) {
+        volumeView.update(volume)
     }
 }
 
@@ -56,16 +56,18 @@ private extension AudioPlayerView {
     func setupPlayerViewConstraints() {
         playerView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().inset(K.audioPlayerBottomIndent)
+            make.height.equalTo(K.audioPlayerHeight)
             make.width.equalToSuperview()
-            make.height.equalTo(122)
         }
     }
     
     func setupVolumeViewConstraints() {
         volumeView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview()
+            make.leading.equalToSuperview().inset(K.volumeContainerLeadingIndent)
+            make.width.equalTo(K.volumeContainerWidth)
+            make.height.equalTo(K.volumeContainerHeight)
         }
     }
 }

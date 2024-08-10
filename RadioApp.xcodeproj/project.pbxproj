@@ -556,9 +556,25 @@
 			children = (
 				C6DF00C52C5FA62E0011EA5D /* PlayerView.swift */,
 				C634B7232C66BF4500459D1F /* VolumeView.swift */,
-				C634B7212C66B83600459D1F /* VolumeSlider.swift */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		C653B3282C6780C30049A922 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				C634B7212C66B83600459D1F /* VolumeSlider.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		C653B3292C67810C0049A922 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C653B3262C6770740049A922 /* AudioPlayerView.swift */,
+				C68453DF2C62BA4D00C457EA /* AudioPlayerViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		C66106D42C6021FB00E6196C /* AudioPlayer */ = {
@@ -576,9 +592,9 @@
 		C66106D82C6022D200E6196C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C653B3262C6770740049A922 /* AudioPlayerView.swift */,
-				C68453DF2C62BA4D00C457EA /* AudioPlayerViewController.swift */,
+				C653B3292C67810C0049A922 /* Controller */,
 				C634B71E2C66B7D500459D1F /* Subviews */,
+				C653B3282C6780C30049A922 /* CustomViews */,
 			);
 			path = View;
 			sourceTree = "<group>";

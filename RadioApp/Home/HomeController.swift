@@ -61,7 +61,8 @@ private extension HomeController {
             //make.width.equalToSuperview()
             //make.height.equalTo(K.audioPlayerHeight)
             make.top.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(K.audioPlayerBottomIndent)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
+        audioPlayerVC.view.backgroundColor = .systemRed.withAlphaComponent(0.4)
     }
 }
