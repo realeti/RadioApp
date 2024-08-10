@@ -29,12 +29,30 @@ final class AudioPlayerView: UIView {
     private func setupUI() {
         addSubviews(playerView, volumeView)
     }
+    
+    // MARK: - Hit Test
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        guard !isHidden else {
+            return nil
+        }
+        
+        let interactiveAreas = [playerView, volumeView]
+        for area in interactiveAreas {
+            let convertedPoint = area.convert(point, from: self)
+            
+            if area.bounds.contains(convertedPoint) {
+                return area.hitTest(convertedPoint, with: event)
+            }
+        }
+        return nil
+    }
 }
 
 // MARK: - External Methods
 extension AudioPlayerView {
     func setDelegate(_ delegate: AudioPlayerViewProtocol) {
         playerView.delegate = delegate
+        volumeView.delegate = delegate
     }
     
     func updatePlayerImage(_ isPlaying: Bool, animated: Bool) {

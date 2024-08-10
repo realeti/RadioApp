@@ -12,12 +12,15 @@ protocol AudioPlayerViewProtocol: AnyObject {
     func didTapBackButton()
     func didTapNextButton()
     func didUpdatePlayerImage(_ isPlaying: Bool)
+    func updatePlayerVolume(_ volume: Float)
 }
 
 protocol AudioPlayerPresenterProtocol {
     func playPauseAudio()
     func previousStation()
     func nextStation()
+    func getPlayerVolume() -> Float
+    func updatePlayerVolume(_ volume: Float)
 }
 
 final class AudioPlayerPresenter: AudioPlayerPresenterProtocol {
@@ -27,7 +30,7 @@ final class AudioPlayerPresenter: AudioPlayerPresenterProtocol {
     // MARK: - Public Properties
     weak var view: AudioPlayerViewProtocol?
     
-    // MARK: - Delegate methods
+    // MARK: - AudioPlayer Methods
     func playPauseAudio() {
         audioPlayer.playPause()
         
@@ -41,5 +44,13 @@ final class AudioPlayerPresenter: AudioPlayerPresenterProtocol {
     
     func nextStation() {
         audioPlayer.playNext()
+    }
+    
+    func getPlayerVolume() -> Float {
+        audioPlayer.volume
+    }
+    
+    func updatePlayerVolume(_ volume: Float) {
+        audioPlayer.volume = volume
     }
 }

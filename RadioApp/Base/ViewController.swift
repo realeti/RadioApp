@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     let loadingView = LoadingView()
     let errorView = ErrorView()
     var playerIsHidden: Bool = false
+    var playerVolumeAxis: VolumeAxis = .vertical
     
     private lazy var profileView: UIImageView = {
         let image = getUserImage()
@@ -30,6 +31,10 @@ class ViewController: UIViewController {
         if playerIsHidden,
             let homeController = tabBarController as? HomeController {
             homeController.playerIsHidden = true
+        }
+        
+        if let homeController = tabBarController as? HomeController {
+            homeController.playerVolumeAxis = playerVolumeAxis
         }
         updateUserImage()
     }

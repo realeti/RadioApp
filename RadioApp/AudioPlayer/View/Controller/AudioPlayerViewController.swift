@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AVFAudio
 
 final class AudioPlayerViewController: UIViewController {
     // MARK: - Private Properties
@@ -86,23 +85,16 @@ extension AudioPlayerViewController: AudioPlayerViewProtocol {
     func didUpdatePlayerImage(_ isPlaying: Bool) {
         audioPlayerView.updatePlayerImage(isPlaying, animated: true)
     }
+    
+    func updatePlayerVolume(_ volume: Float) {
+        presenter.updatePlayerVolume(volume)
+    }
 }
 
-// MARK: - Set VolumeProgress
+// MARK: - Set Volume Value
 extension AudioPlayerViewController {
     func setVolumeValue() {
-        let volume = getSystemVolume()
+        let volume = presenter.getPlayerVolume()
         audioPlayerView.updateVolume(volume)
-    }
-    
-    private func getSystemVolume() -> Float {
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setActive(true)
-            return audioSession.outputVolume
-        } catch {
-            print("Error activating audio session: \(error)")
-            return 0
-        }
     }
 }

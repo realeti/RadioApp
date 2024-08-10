@@ -27,11 +27,22 @@ final class VolumeView: UIView {
         contentMode: .scaleAspectFit
     )
     
+    // MARK: - Public Properties
+    var axis: VolumeAxis = .vertical {
+        didSet {
+            //print("volume axis change")
+        }
+    }
+    
+    // MARK: - Delegate
+    weak var delegate: AudioPlayerViewProtocol?
+    
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         setupUI()
+        setupActions()
         setupConstraints()
     }
     
@@ -60,9 +71,29 @@ final class VolumeView: UIView {
 // MARK: - External Methods
 extension VolumeView {
     func update(_ volume: Float) {
+        volumeSlider.value = volume
+        updateVolumeLabel(volume)
+    }
+}
+
+// MARK: - Setup Actions
+private extension VolumeView {
+    func setupActions() {
+        volumeSlider.addTarget(self, action: #selector(volumeSliderChanged), for: .valueChanged)
+    }
+    
+    // Actions
+    @objc private func volumeSliderChanged(_ sender: UISlider) {
+        updateVolumeLabel(sender.value)
+        delegate?.updatePlayerVolume(sender.value)
+    }
+}
+
+// MARK: - Update Volume Label
+private extension VolumeView {
+    func updateVolumeLabel(_ volume: Float) {
         let volumeValue = String(format: "%.0f", volume * 100.0)
         volumeLabel.text = volumeValue + "%"
-        volumeSlider.value = volume
     }
 }
 

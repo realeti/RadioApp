@@ -8,6 +8,11 @@
 import UIKit
 import SnapKit
 
+enum VolumeAxis {
+    case horizontal
+    case vertical
+}
+
 final class HomeController: UITabBarController {
     private let presenter: HomePresenter
     private let audioPlayerVC = Builder.createAudioPlayer()
@@ -15,6 +20,20 @@ final class HomeController: UITabBarController {
     var playerIsHidden: Bool {
         get { audioPlayerVC.view.isHidden }
         set { audioPlayerVC.view.isHidden = newValue }
+    }
+    
+    var playerVolumeAxis: VolumeAxis {
+        get {
+            if let volumeView = audioPlayerVC.view.subviews.first(where: { $0 is VolumeView }) as? VolumeView {
+                return volumeView.axis
+            }
+            return .vertical
+        }
+        set {
+            if let volumeView = audioPlayerVC.view.subviews.first(where: { $0 is VolumeView }) as? VolumeView {
+               volumeView.axis = newValue
+            }
+        }
     }
     
     init(presenter: HomePresenter) {
@@ -58,11 +77,8 @@ private extension HomeController {
         audioPlayerVC.didMove(toParent: self)
         
         audioPlayerVC.view.snp.makeConstraints { make in
-            //make.width.equalToSuperview()
-            //make.height.equalTo(K.audioPlayerHeight)
             make.top.leading.trailing.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
-        audioPlayerVC.view.backgroundColor = .systemRed.withAlphaComponent(0.4)
     }
 }
