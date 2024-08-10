@@ -13,6 +13,15 @@
 		113FE50D2C61396B00B2AC8B /* EqualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FE5062C61396A00B2AC8B /* EqualizerView.swift */; };
 		113FE50E2C61396B00B2AC8B /* StationDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FE5072C61396A00B2AC8B /* StationDetailsController.swift */; };
 		113FE50F2C61396B00B2AC8B /* StationDetailsAssembly .swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FE5092C61396A00B2AC8B /* StationDetailsAssembly .swift */; };
+		B6E8FDFB2C670359008FF38C /* AllStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8FDEF2C670359008FF38C /* AllStations.swift */; };
+		B6E8FDFC2C670359008FF38C /* AllStationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8FDF12C670359008FF38C /* AllStationsCell.swift */; };
+		B6E8FDFD2C670359008FF38C /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8FDF22C670359008FF38C /* StationView.swift */; };
+		B6E8FDFE2C670359008FF38C /* AllStationsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8FDF42C670359008FF38C /* AllStationsAssembly.swift */; };
+		B6E8FDFF2C670359008FF38C /* AllStationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8FDF52C670359008FF38C /* AllStationsController.swift */; };
+		B6E8FE002C670359008FF38C /* AllStationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8FDF62C670359008FF38C /* AllStationsPresenter.swift */; };
+		B6E8FE012C670359008FF38C /* AllStationsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8FDF72C670359008FF38C /* AllStationsProtocols.swift */; };
+		B6E8FE022C670359008FF38C /* AllStationsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8FDF82C670359008FF38C /* AllStationsRouter.swift */; };
+		B6E8FE032C670359008FF38C /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8FDF92C670359008FF38C /* SearchPresenter.swift */; };
 		B949AE442C5F804100E2A338 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE432C5F804100E2A338 /* StorageManager.swift */; };
 		B949AE512C5F805600E2A338 /* FavStationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE452C5F805600E2A338 /* FavStationModel.swift */; };
 		B949AE522C5F805600E2A338 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE472C5F805600E2A338 /* FavoritesPresenter.swift */; };
@@ -23,7 +32,6 @@
 		B949AE572C5F805600E2A338 /* FavoritesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE4E2C5F805600E2A338 /* FavoritesProtocol.swift */; };
 		B949AE582C5F805600E2A338 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE4F2C5F805600E2A338 /* FavoritesRouter.swift */; };
 		B949AE5A2C5F808600E2A338 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE592C5F808600E2A338 /* TableCell.swift */; };
-		B9EB02D42C62186B0012A03D /* PlayShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EB02D32C62186B0012A03D /* PlayShapeView.swift */; };
 		BECF66132C58D6C30068160D /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66122C58D6C30068160D /* ProfileRouter.swift */; };
 		BECF66152C58D6FA0068160D /* ProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66142C58D6FA0068160D /* ProfileBuilder.swift */; };
 		BECF66172C58D7410068160D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66162C58D7410068160D /* ProfileViewController.swift */; };
@@ -135,6 +143,15 @@
 		113FE5062C61396A00B2AC8B /* EqualizerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualizerView.swift; sourceTree = "<group>"; };
 		113FE5072C61396A00B2AC8B /* StationDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationDetailsController.swift; sourceTree = "<group>"; };
 		113FE5092C61396A00B2AC8B /* StationDetailsAssembly .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StationDetailsAssembly .swift"; sourceTree = "<group>"; };
+		B6E8FDEF2C670359008FF38C /* AllStations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStations.swift; sourceTree = "<group>"; };
+		B6E8FDF12C670359008FF38C /* AllStationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStationsCell.swift; sourceTree = "<group>"; };
+		B6E8FDF22C670359008FF38C /* StationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationView.swift; sourceTree = "<group>"; };
+		B6E8FDF42C670359008FF38C /* AllStationsAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStationsAssembly.swift; sourceTree = "<group>"; };
+		B6E8FDF52C670359008FF38C /* AllStationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStationsController.swift; sourceTree = "<group>"; };
+		B6E8FDF62C670359008FF38C /* AllStationsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStationsPresenter.swift; sourceTree = "<group>"; };
+		B6E8FDF72C670359008FF38C /* AllStationsProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStationsProtocols.swift; sourceTree = "<group>"; };
+		B6E8FDF82C670359008FF38C /* AllStationsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStationsRouter.swift; sourceTree = "<group>"; };
+		B6E8FDF92C670359008FF38C /* SearchPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		B949AE432C5F804100E2A338 /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		B949AE452C5F805600E2A338 /* FavStationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavStationModel.swift; sourceTree = "<group>"; };
 		B949AE472C5F805600E2A338 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
@@ -145,7 +162,6 @@
 		B949AE4E2C5F805600E2A338 /* FavoritesProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesProtocol.swift; sourceTree = "<group>"; };
 		B949AE4F2C5F805600E2A338 /* FavoritesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		B949AE592C5F808600E2A338 /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
-		B9EB02D32C62186B0012A03D /* PlayShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayShapeView.swift; sourceTree = "<group>"; };
 		BECF66122C58D6C30068160D /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		BECF66142C58D6FA0068160D /* ProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBuilder.swift; sourceTree = "<group>"; };
 		BECF66162C58D7410068160D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -310,6 +326,38 @@
 			name = StationDetails;
 			path = RadioApp/StationDetails;
 			sourceTree = SOURCE_ROOT;
+		};
+		B6E8FDF02C670359008FF38C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B6E8FDEF2C670359008FF38C /* AllStations.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B6E8FDF32C670359008FF38C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B6E8FDF12C670359008FF38C /* AllStationsCell.swift */,
+				B6E8FDF22C670359008FF38C /* StationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B6E8FDFA2C670359008FF38C /* AllStations */ = {
+			isa = PBXGroup;
+			children = (
+				B6E8FDF02C670359008FF38C /* Model */,
+				B6E8FDF32C670359008FF38C /* Views */,
+				B6E8FDF42C670359008FF38C /* AllStationsAssembly.swift */,
+				B6E8FDF52C670359008FF38C /* AllStationsController.swift */,
+				B6E8FDF62C670359008FF38C /* AllStationsPresenter.swift */,
+				B6E8FDF72C670359008FF38C /* AllStationsProtocols.swift */,
+				B6E8FDF82C670359008FF38C /* AllStationsRouter.swift */,
+				B6E8FDF92C670359008FF38C /* SearchPresenter.swift */,
+			);
+			path = AllStations;
+			sourceTree = "<group>";
 		};
 		B949AE462C5F805600E2A338 /* Model */ = {
 			isa = PBXGroup;
@@ -610,6 +658,7 @@
 				CB2C8CC12C57BC4200D280FE /* Home */,
 				B949AE502C5F805600E2A338 /* Favorites */,
 				C62348512C5E8A4900F536E7 /* Popular */,
+				B6E8FDFA2C670359008FF38C /* AllStations */,
 				BECF660C2C58D3930068160D /* Profile */,
 				113FE50A2C61396A00B2AC8B /* StationDetails */,
 				113FE5002C61395C00B2AC8B /* Common */,
@@ -636,7 +685,6 @@
 				CBB20CE12C626C0000B35416 /* RootRouter.swift */,
 				CBB20CE32C626C4700B35416 /* RootBuilder.swift */,
 				CB2C8CB22C5768CB00D280FE /* NavigationController.swift */,
-				B9EB02D32C62186B0012A03D /* PlayShapeView.swift */,
 				CB2C8CB42C576A5C00D280FE /* ViewController.swift */,
 				CB2C8CB82C57AAEA00D280FE /* Protocols */,
 				CBF57B572C58359D006237E8 /* Views */,
@@ -849,6 +897,7 @@
 			files = (
 				C623485A2C5E8AD300F536E7 /* PopularViewModel.swift in Sources */,
 				C623484A2C5E88D100F536E7 /* ColorFactory.swift in Sources */,
+				B6E8FE032C670359008FF38C /* SearchPresenter.swift in Sources */,
 				C6908FDA2C65584700208F0F /* Notification + Extensions.swift in Sources */,
 				C66106D72C60224E00E6196C /* AudioPlayerController.swift in Sources */,
 				CBCA8D992C5D3965003B01B9 /* AuthorizationBuilder.swift in Sources */,
@@ -858,6 +907,8 @@
 				CBCA8D7A2C5D38AB003B01B9 /* OnboardingController.swift in Sources */,
 				CBB20CE42C626C4700B35416 /* RootBuilder.swift in Sources */,
 				BECF66442C5A1FBF0068160D /* UILabel+.swift in Sources */,
+				B6E8FE002C670359008FF38C /* AllStationsPresenter.swift in Sources */,
+				B6E8FDFD2C670359008FF38C /* StationView.swift in Sources */,
 				BECF666D2C60D1FE0068160D /* CustomSwitchSettingsView.swift in Sources */,
 				BECF66152C58D6FA0068160D /* ProfileBuilder.swift in Sources */,
 				CBCA8D7C2C5D38AB003B01B9 /* OnboardingAssembly.swift in Sources */,
@@ -868,6 +919,7 @@
 				BECF663F2C5A1D750068160D /* String+.swift in Sources */,
 				B949AE562C5F805600E2A338 /* FavoritesBuilder.swift in Sources */,
 				BECF66422C5A1E300068160D /* UDService.swift in Sources */,
+				B6E8FDFB2C670359008FF38C /* AllStations.swift in Sources */,
 				BECF66482C5A22A70068160D /* EditProfileViewController.swift in Sources */,
 				B949AE582C5F805600E2A338 /* FavoritesRouter.swift in Sources */,
 				BECF66252C5A06470068160D /* PrivacyViewController.swift in Sources */,
@@ -897,6 +949,7 @@
 				CBB20CEA2C627A7100B35416 /* HomeAssembly.swift in Sources */,
 				CBB20CD12C6213BF00B35416 /* UserApp.swift in Sources */,
 				C62348632C5E8B2100F536E7 /* PopularViewController.swift in Sources */,
+				B6E8FE022C670359008FF38C /* AllStationsRouter.swift in Sources */,
 				CB2C8C962C5698E400D280FE /* AppDelegate.swift in Sources */,
 				CBB20CE62C62792800B35416 /* HomeRouter.swift in Sources */,
 				113FE50B2C61396B00B2AC8B /* RadioStation.swift in Sources */,
@@ -907,6 +960,7 @@
 				113FE50F2C61396B00B2AC8B /* StationDetailsAssembly .swift in Sources */,
 				C68453E42C62BBE000C457EA /* AudioPlayerPresenter.swift in Sources */,
 				BECF665A2C5A4F740068160D /* NotificationService.swift in Sources */,
+				B6E8FE012C670359008FF38C /* AllStationsProtocols.swift in Sources */,
 				BECF661B2C5A055C0068160D /* GeneralView.swift in Sources */,
 				BECF662E2C5A0D7E0068160D /* AboutUsPresenter.swift in Sources */,
 				CBCA8D972C5D3965003B01B9 /* AuthorizationPresenter.swift in Sources */,
@@ -916,13 +970,14 @@
 				BECF66352C5A10AA0068160D /* UIView+.swift in Sources */,
 				CBB20CD32C62141900B35416 /* LoadingView.swift in Sources */,
 				BECF66582C5A36340068160D /* LanguageCell.swift in Sources */,
+				B6E8FDFC2C670359008FF38C /* AllStationsCell.swift in Sources */,
 				B949AE442C5F804100E2A338 /* StorageManager.swift in Sources */,
 				CB2C8C982C5698E400D280FE /* SceneDelegate.swift in Sources */,
 				BECF66272C5A06670068160D /* PrivacyInfo.swift in Sources */,
 				C623484E2C5E899800F536E7 /* UIImageView + Extensions.swift in Sources */,
 				BECF662C2C5A0D570068160D /* AboutUsViewController.swift in Sources */,
-				B9EB02D42C62186B0012A03D /* PlayShapeView.swift in Sources */,
 				BECF664F2C5A35AE0068160D /* NotificationsViewController.swift in Sources */,
+				B6E8FDFF2C670359008FF38C /* AllStationsController.swift in Sources */,
 				CBCA8D9C2C5D3965003B01B9 /* UpdatePasswordController.swift in Sources */,
 				BECF66192C5A05360068160D /* UserView.swift in Sources */,
 				C62348612C5E8B1300F536E7 /* PopularView.swift in Sources */,
@@ -946,6 +1001,7 @@
 				CBCA8D9E2C5D3965003B01B9 /* ForgotPasswordController.swift in Sources */,
 				C62348652C5E8B2D00F536E7 /* PopularCollectionViewCell.swift in Sources */,
 				BECF66562C5A361B0068160D /* LanguagePresenter.swift in Sources */,
+				B6E8FDFE2C670359008FF38C /* AllStationsAssembly.swift in Sources */,
 				CBB20CCF2C6213A000B35416 /* AuthenticationService.swift in Sources */,
 				C62348582C5E8ABB00F536E7 /* PopularRouter.swift in Sources */,
 				CBCA8DA12C5D39AD003B01B9 /* UITextField+Padding.swift in Sources */,
