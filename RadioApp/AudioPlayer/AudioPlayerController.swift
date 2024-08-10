@@ -119,12 +119,4 @@ private extension AudioPlayerController {
             userInfo: [K.UserInfoKey.stationIndex: currentIndex]
         )
     }
-    
-    func postVolumeChangeNotification() {
-        NotificationCenter.default.post(
-            name: .playerVolumeDidChange,
-            object: nil,
-            userInfo: [K.UserInfoKey.playerVolume: currentVolume]
-        )
-    }
 }

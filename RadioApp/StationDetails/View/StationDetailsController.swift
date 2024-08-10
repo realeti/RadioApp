@@ -77,12 +77,16 @@ final class StationDetailsController: ViewController {
         presenter.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setVolumeValue()
+    }
+    
     private func setupUI() {
         title = "Playing now"
         
         addSubviews()
         setDelegates()
-        setVolumeValue()
         setupConstraints()
     }
     
@@ -169,6 +173,7 @@ final class StationDetailsController: ViewController {
 extension StationDetailsController {
     func setVolumeValue() {
         let volume = presenter.getPlayerVolume()
+        
         volumeView.update(volume)
     }
 }
@@ -177,6 +182,15 @@ extension StationDetailsController {
 extension StationDetailsController: VolumePlayerProtocol {
     func updatePlayerVolume(_ volume: Float) {
         presenter.updatePlayerVolume(volume)
+        postVolumeChangeNotification(volume)
+    }
+    
+    private func postVolumeChangeNotification(_ volume: Float) {
+        NotificationCenter.default.post(
+            name: .playerVolumeDidChange,
+            object: nil,
+            userInfo: [K.UserInfoKey.playerVolume: volume]
+        )
     }
 }
 

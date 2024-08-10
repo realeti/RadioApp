@@ -51,6 +51,13 @@ final class AudioPlayerViewController: UIViewController {
             name: .playerStatusDidChange,
             object: nil
         )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handlePlayerVolumeChange),
+            name: .playerVolumeDidChange,
+            object: nil
+        )
     }
     
     // MARK: - Deinit
@@ -64,6 +71,12 @@ private extension AudioPlayerViewController {
     @objc func handlePlayerStatusChange(_ notification: Notification) {
         if let isPlaying = notification.userInfo?[K.UserInfoKey.isPlaying] as? Bool {
             audioPlayerView.updatePlayerImage(isPlaying, animated: false)
+        }
+    }
+    
+    @objc func handlePlayerVolumeChange(_ notification: Notification) {
+        if let volume = notification.userInfo?[K.UserInfoKey.playerVolume] as? Float {
+            audioPlayerView.updateVolume(volume)
         }
     }
 }
