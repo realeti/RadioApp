@@ -11,7 +11,7 @@ import SnapKit
 final class AudioPlayerView: UIView {
     // MARK: - UI
     private let playerView = PlayerView()
-    private let volumeView = VolumeView()
+    private let volumeView = VerticalVolumeView()
     
     // MARK: - Init
     override init(frame: CGRect) {
@@ -50,7 +50,7 @@ final class AudioPlayerView: UIView {
 
 // MARK: - External Methods
 extension AudioPlayerView {
-    func setDelegate(_ delegate: AudioPlayerViewProtocol) {
+    func setDelegate(_ delegate: AudioPlayerViewProtocol & VolumePlayerProtocol) {
         playerView.delegate = delegate
         volumeView.delegate = delegate
     }
@@ -65,7 +65,7 @@ extension AudioPlayerView {
 }
 
 // MARK: - Setup Constraints
-private extension AudioPlayerView {
+ private extension AudioPlayerView {
     func setupConstraints() {
         setupPlayerViewConstraints()
         setupVolumeViewConstraints()
@@ -86,6 +86,11 @@ private extension AudioPlayerView {
             make.leading.equalToSuperview().inset(K.volumeContainerLeadingIndent)
             make.width.equalTo(K.volumeContainerWidth)
             make.height.equalTo(K.volumeContainerHeight)
+            
+            /*make.centerX.equalToSuperview()
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
+            make.width.equalTo(K.volumeContainerHeight)
+            make.height.equalTo(K.volumeContainerWidth)*/
         }
     }
 }

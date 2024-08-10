@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     let loadingView = LoadingView()
     let errorView = ErrorView()
     var playerIsHidden: Bool = false
-    var playerVolumeAxis: VolumeAxis = .vertical
+    var playerVolumeIsHidden: Bool = false
     
     private lazy var profileView: UIImageView = {
         let image = getUserImage()
@@ -28,22 +28,31 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if playerIsHidden,
-            let homeController = tabBarController as? HomeController {
-            homeController.playerIsHidden = true
-        }
         
         if let homeController = tabBarController as? HomeController {
-            homeController.playerVolumeAxis = playerVolumeAxis
+            if playerIsHidden {
+                homeController.playerIsHidden = true
+            }
+            
+            if playerVolumeIsHidden {
+                homeController.volumeIsHidden = true
+            }
         }
+        
         updateUserImage()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if playerIsHidden,
-           let homeController = tabBarController as? HomeController {
-            homeController.playerIsHidden = false
+        
+        if let homeController = tabBarController as? HomeController {
+            if playerIsHidden {
+                homeController.playerIsHidden = false
+            }
+            
+            if playerVolumeIsHidden {
+                homeController.volumeIsHidden = false
+            }
         }
     }
     

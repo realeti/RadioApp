@@ -13,7 +13,7 @@ final class StationDetailsAssembly {
         let view = StationDetailsController()
         let presenter = StationDetailsPresenter(view: view, station: station)
         view.presenter = presenter
-        view.playerVolumeAxis = .horizontal
+        view.playerVolumeIsHidden = true
         
         return view
     }

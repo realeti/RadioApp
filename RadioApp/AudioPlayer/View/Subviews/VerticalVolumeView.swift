@@ -1,5 +1,5 @@
 //
-//  VolumeView.swift
+//  VerticalVolumeView.swift
 //  RadioApp
 //
 //  Created by realeti on 10.08.2024.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class VolumeView: UIView {
+final class VerticalVolumeView: UIView {
     // MARK: - UI
     private lazy var volumeContainer: UIView = {
         let view = UIView()
@@ -27,15 +27,8 @@ final class VolumeView: UIView {
         contentMode: .scaleAspectFit
     )
     
-    // MARK: - Public Properties
-    var axis: VolumeAxis = .vertical {
-        didSet {
-            //print("volume axis change")
-        }
-    }
-    
     // MARK: - Delegate
-    weak var delegate: AudioPlayerViewProtocol?
+    weak var delegate: VolumePlayerProtocol?
     
     // MARK: - Init
     override init(frame: CGRect) {
@@ -53,6 +46,7 @@ final class VolumeView: UIView {
     // MARK: - Rotate Volume Slider
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         volumeSlider.transform = CGAffineTransform(rotationAngle: .pi / -2)
     }
     
@@ -69,7 +63,7 @@ final class VolumeView: UIView {
 }
 
 // MARK: - External Methods
-extension VolumeView {
+extension VerticalVolumeView {
     func update(_ volume: Float) {
         volumeSlider.value = volume
         updateVolumeLabel(volume)
@@ -77,7 +71,7 @@ extension VolumeView {
 }
 
 // MARK: - Setup Actions
-private extension VolumeView {
+private extension VerticalVolumeView {
     func setupActions() {
         volumeSlider.addTarget(self, action: #selector(volumeSliderChanged), for: .valueChanged)
     }
@@ -90,7 +84,7 @@ private extension VolumeView {
 }
 
 // MARK: - Update Volume Label
-private extension VolumeView {
+private extension VerticalVolumeView {
     func updateVolumeLabel(_ volume: Float) {
         let volumeValue = String(format: "%.0f", volume * 100.0)
         volumeLabel.text = volumeValue + "%"
@@ -98,7 +92,7 @@ private extension VolumeView {
 }
 
 // MARK: - Setup Constraints
-private extension VolumeView {
+private extension VerticalVolumeView {
     func setupConstraints() {
         setupVolumeContainerConstraints()
         setupVolumeSliderConstraints()
@@ -114,12 +108,12 @@ private extension VolumeView {
             make.height.equalTo(K.volumeContainerHeight)
         }
     }
-    
+       
     func setupVolumeSliderConstraints() {
         volumeSlider.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.width.equalTo(volumeContainer.snp.height)
-            make.height.equalTo(volumeContainer.snp.width)
+            make.width.equalTo(K.volumeContainerHeight)
+            make.height.equalTo(K.volumeContainerWidth)
         }
     }
     

@@ -12,6 +12,9 @@ protocol AudioPlayerViewProtocol: AnyObject {
     func didTapBackButton()
     func didTapNextButton()
     func didUpdatePlayerImage(_ isPlaying: Bool)
+}
+
+protocol VolumePlayerProtocol: AnyObject {
     func updatePlayerVolume(_ volume: Float)
 }
 

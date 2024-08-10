@@ -85,7 +85,9 @@ extension AudioPlayerViewController: AudioPlayerViewProtocol {
     func didUpdatePlayerImage(_ isPlaying: Bool) {
         audioPlayerView.updatePlayerImage(isPlaying, animated: true)
     }
-    
+}
+
+extension AudioPlayerViewController: VolumePlayerProtocol {
     func updatePlayerVolume(_ volume: Float) {
         presenter.updatePlayerVolume(volume)
     }

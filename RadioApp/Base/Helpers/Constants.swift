@@ -29,12 +29,14 @@ struct K {
     struct Notification {
         static let playerStatusDidChange = "PlayerStatusDidChange"
         static let playerCurrentIndexDidChange = "PlayerCurrentIndexDidChange"
+        static let playerVolumeDidChange = "PlayerVolumeDidChange"
         static let favoriteRemoved = "FavoriteRemoved"
     }
 
     struct UserInfoKey {
         static let isPlaying = "isPlaying"
         static let stationIndex = "stationIndex"
+        static let playerVolume = "playerVolume"
         static let removedStationIndex = "removedStationIndex"
     }
     

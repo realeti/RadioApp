@@ -20,7 +20,7 @@ final class VolumeSlider: UISlider {
     
     // MARK: - Set Custom Height
     override func trackRect(forBounds bounds: CGRect) -> CGRect {
-        let customHeight: CGFloat = Metrics.trackHeight
+        let customHeight: CGFloat = Metrics.trackSize
         let customRect = CGRect(
             x: bounds.origin.x,
             y: (bounds.size.height - customHeight) / 2,
@@ -63,7 +63,7 @@ final class VolumeSlider: UISlider {
 }
 
 fileprivate struct Metrics {
-    static let trackHeight: CGFloat = 3.0
+    static let trackSize: CGFloat = 3.0
     static let thumbSize: CGFloat = 10.0
     
     private init() {}
