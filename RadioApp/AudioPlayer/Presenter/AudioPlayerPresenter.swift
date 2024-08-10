@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol AudioViewProtocol: AnyObject {
+protocol AudioPlayerViewProtocol: AnyObject {
     func didTapPlayPauseButton()
     func didTapBackButton()
     func didTapNextButton()
@@ -25,7 +25,7 @@ final class AudioPlayerPresenter: AudioPlayerPresenterProtocol {
     private let audioPlayer = AudioPlayerController.shared
     
     // MARK: - Public Properties
-    weak var view: AudioViewProtocol?
+    weak var view: AudioPlayerViewProtocol?
     
     // MARK: - Delegate methods
     func playPauseAudio() {

@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import AVFAudio
 
 final class AudioPlayerViewController: UIViewController {
     // MARK: - Private Properties
     private let presenter: AudioPlayerPresenterProtocol
-    private var audioView: AudioPlayerView!
+    private var audioPlayerView: AudioPlayerView!
     
     // MARK: - Init
     init(presenter: AudioPlayerPresenterProtocol) {
@@ -26,20 +27,21 @@ final class AudioPlayerViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
-        audioView = AudioPlayerView()
-        view = audioView
+        audioPlayerView = AudioPlayerView()
+        view = audioPlayerView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setDelegates()
+        setVolumeValue()
         setNotification()
     }
     
     // MARK: - Set Delegates
     private func setDelegates() {
-        audioView.delegate = self
+        audioPlayerView.setDelegate(self)
     }
     
     // MARK: - Set Notification
@@ -62,13 +64,13 @@ final class AudioPlayerViewController: UIViewController {
 private extension AudioPlayerViewController {
     @objc func handlePlayerStatusChange(_ notification: Notification) {
         if let isPlaying = notification.userInfo?[K.UserInfoKey.isPlaying] as? Bool {
-            audioView.updatePlayerImage(isPlaying, animated: false)
+            audioPlayerView.updatePlayerImage(isPlaying, animated: false)
         }
     }
 }
 
-// MARK: - AudioView Delegate methods
-extension AudioPlayerViewController: AudioViewProtocol {
+// MARK: - AudioView Delegate Methods
+extension AudioPlayerViewController: AudioPlayerViewProtocol {
     func didTapPlayPauseButton() {
         presenter.playPauseAudio()
     }
@@ -82,6 +84,25 @@ extension AudioPlayerViewController: AudioViewProtocol {
     }
     
     func didUpdatePlayerImage(_ isPlaying: Bool) {
-        audioView.updatePlayerImage(isPlaying, animated: true)
+        audioPlayerView.updatePlayerImage(isPlaying, animated: true)
+    }
+}
+
+// MARK: - Set VolumeProgress
+extension AudioPlayerViewController {
+    func setVolumeValue() {
+        let volume = getSystemVolume()
+        audioPlayerView.updateVolume(volume)
+    }
+    
+    private func getSystemVolume() -> Float {
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setActive(true)
+            return audioSession.outputVolume
+        } catch {
+            print("Error activating audio session: \(error)")
+            return 0
+        }
     }
 }
