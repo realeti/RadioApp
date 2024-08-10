@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
+        setTabBarAttributes()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,6 +88,18 @@ class ViewController: UIViewController {
         profileView.addGestureRecognizer(tapGesture)
         let rightBarButtonItem = UIBarButtonItem(customView: profileView)
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+    
+    private func setTabBarAttributes() {
+        guard let homeController = tabBarController as? HomeController else {
+            return
+        }
+        let appearance = UITabBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = homeController.normalTabBarAttributes
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = homeController.selectedTabBarAttributes
+        homeController.tabBar.standardAppearance = appearance
+        homeController.tabBar.scrollEdgeAppearance = appearance
     }
     
     func updateUserImage() {

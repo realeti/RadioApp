@@ -12,10 +12,30 @@ final class HomeController: UITabBarController {
     private let presenter: HomePresenter
     private let audioPlayerVC = Builder.createAudioPlayer()
     
+    private let bar = UIView()
+    private var buttons = [UIButton]()
+    
+    let normalTabBarAttributes: [NSAttributedString.Key: Any] = [
+        .font: UIFont.systemFont(ofSize: 20, weight: .medium),
+        .foregroundColor: UIColor.gray
+    ]
+    
+    let selectedTabBarAttributes: [NSAttributedString.Key: Any] = [
+        .font: UIFont.systemFont(ofSize: 20, weight: .medium),
+        .foregroundColor: UIColor.white
+    ]
+    
     var playerIsHidden: Bool {
         get { audioPlayerVC.view.isHidden }
         set { audioPlayerVC.view.isHidden = newValue }
     }
+    
+    let indicator: UIImageView = {
+        let view = UIImageView(image: .highlight, contentMode: .scaleAspectFit, renderingMode: .alwaysOriginal, isHidden: false)
+        view.frame.size = CGSize(width: 15, height: 15)
+        
+        return view
+    }()
     
     init(presenter: HomePresenter) {
         self.presenter = presenter
@@ -28,6 +48,8 @@ final class HomeController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBar.addSubview(indicator)
+        self.delegate = self
         
         configure()
         setupAudioPlayer()
@@ -37,7 +59,7 @@ final class HomeController: UITabBarController {
         let popularVC = NavigationController(rootViewController: Builder.createPopular())
         popularVC.tabBarItem.title = "Popular".localized
         popularVC.view.backgroundColor = .darkBlueApp
-
+        
         let favoriteVC = NavigationController(rootViewController: Builder.createFavorite())
         favoriteVC.tabBarItem.title = "Favorites".localized
         favoriteVC.view.backgroundColor = .darkBlueApp
@@ -47,6 +69,36 @@ final class HomeController: UITabBarController {
         allStationsVC.view.backgroundColor = .darkBlueApp
         
         viewControllers = [popularVC, favoriteVC, allStationsVC]
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        animate(index: selectedIndex)
+    }
+    
+    private func animate(index: Int) {
+        let buttons = tabBar.subviews
+            .filter({ String(describing: $0).contains("Button") })
+        
+        guard index < buttons.count else {
+            return
+        }
+        
+        let selectedButton = buttons[index]
+        UIView.animate(
+            withDuration: 0.25,
+            delay: 0,
+            options: .curveEaseInOut,
+            animations: {
+                let point = CGPoint(
+                    x: selectedButton.center.x,
+                    y: selectedButton.frame.maxY - 1
+                )
+                
+                self.indicator.center = point
+            },
+            completion: nil
+        )
     }
 }
 
@@ -62,5 +114,18 @@ private extension HomeController {
             make.height.equalTo(K.audioPlayerHeight)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(K.audioPlayerBottomIndent)
         }
+    }
+}
+
+extension HomeController: UITabBarControllerDelegate {
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        guard
+            let items = tabBar.items,
+            let index = items.firstIndex(of: item)
+        else {
+            return
+        }
+
+        animate(index: index)
     }
 }
