@@ -118,6 +118,9 @@ The information is processed to complete transactions, provide customer support 
 "Close" = "Закрыть";
 "OpenSettings" = "Открыть Настройки";
 "Log Out" = "Выйти";
+
+"All Stations" = "Все станции";
+"Playing now" = "Играет сейчас";
 "Do you want to Log Out?" = "Выйти из приложения?";
 "Cancel" = "Отмена";
 "To update password you need to Sign In again" = "Чтобы обновить пароль вам нужно перезайти в аккаунт";

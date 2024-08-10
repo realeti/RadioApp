@@ -7,20 +7,42 @@
 
 import UIKit
 import SnapKit
+import FirebaseAuth
 
 class ViewController: UIViewController {
     let loadingView = LoadingView()
     let errorView = ErrorView()
+    var playerIsHidden: Bool = false
     let nameTitle = UILabel()
+    
+    private lazy var profileView: UIImageView = {
+        let image = getUserImage()
+        let view = UIImageView(image: image)
+        return view
+    }()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureItems()
+        setTabBarAttributes()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setName()
+        if playerIsHidden,
+            let homeController = tabBarController as? HomeController {
+            homeController.playerIsHidden = true
+        }
+        updateUserImage()
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureItems()
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if playerIsHidden,
+           let homeController = tabBarController as? HomeController {
+            homeController.playerIsHidden = false
+        }
     }
     
     private func setName() {
@@ -38,12 +60,8 @@ class ViewController: UIViewController {
     
     private func configureItems() {
         //right
-        navigationItem.rightBarButtonItem = .init(
-            image: .mockPic.withRenderingMode(.alwaysOriginal),
-            style: .plain,
-            target: self,
-            action: #selector(didTapProfilePic)
-        )
+        setRightBarButtonItem()
+        
         //left
         if navigationController?.viewControllers.first != self {
             navigationItem.leftBarButtonItem = .init(
@@ -55,6 +73,63 @@ class ViewController: UIViewController {
         } else {
             navigationItem.leftBarButtonItem = createCustomItem()
         }
+    }
+    
+    private func getUserImage() -> UIImage {
+        var userImage: UIImage
+        if
+            let id = Auth.auth().currentUser?.uid,
+            let userEntity = StorageManager.shared.fetchUser(id: id),
+            let imageData = userEntity.imageData,
+            let image = UIImage(data: imageData)
+        {
+            userImage = image
+        } else {
+            userImage = .person
+        }
+        let maskedImage = setMask(for: userImage)
+        return maskedImage
+    }
+    
+    
+    private func setRightBarButtonItem() {
+        profileView.snp.makeConstraints { make in
+            make.width.equalTo(40)
+        }
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(self.didTapProfilePic)
+        )
+        profileView.addGestureRecognizer(tapGesture)
+        let rightBarButtonItem = UIBarButtonItem(customView: profileView)
+        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+    
+    private func setTabBarAttributes() {
+        guard let homeController = tabBarController as? HomeController else {
+            return
+        }
+        let appearance = UITabBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = homeController.normalTabBarAttributes
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = homeController.selectedTabBarAttributes
+        homeController.tabBar.standardAppearance = appearance
+        homeController.tabBar.scrollEdgeAppearance = appearance
+    }
+    
+    func updateUserImage() {
+        profileView.image = getUserImage()
+    }
+    
+    private func setMask(for image: UIImage) -> UIImage {
+        let mask: UIImage = .mask
+        let size = image.size
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let newImage = renderer.image { context in
+            image.draw(in: CGRect(origin: .zero, size: size), blendMode: .normal, alpha: 1)
+            mask.draw(in: CGRect(origin: .zero, size: size), blendMode: .destinationIn, alpha: 1)
+        }
+        return newImage
     }
     
     private func createCustomItem() -> UIBarButtonItem {

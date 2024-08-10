@@ -38,10 +38,10 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
     }
     
     func saveUserData(user: UserApp) {
+        StorageManager.shared.saveUser(user)
+        view?.updateRightBarButtonImage()
         if !user.login.isEmpty {
             AuthenticationManager.shared.updateUsername(name: user.login)
-        }
-        if !user.email.isEmpty {
         }
     }
     
@@ -49,7 +49,7 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
         Task {
             do {
                 let authUser = try await AuthenticationManager.shared.getAuthenticatedUser()
-                currentUser = .init(login: authUser.name ?? "Unknown", email: authUser.email ?? "-")
+                currentUser = .init(id: "", login: authUser.name ?? "Unknown", email: authUser.email ?? "-")
                 fetchUser()
             }
             catch {

@@ -115,6 +115,9 @@ The information is processed to complete transactions, provide customer support 
 "Close" = "Close";
 "OpenSettings" = "OpenSettings";
 "Log Out" = "Log Out";
+
+"All Stations" = "All Stations";
+"Playing now" = "Playing now";
 "Do you want to Log Out?" = "Do you want to Log Out?";
 "Cancel" = "Cancel";
 "To update password you need to Sign In again" = "To update password you need to Sign In again";

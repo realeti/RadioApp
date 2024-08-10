@@ -12,4 +12,5 @@ struct PopularViewModel {
     let title: String
     let subtitle: String
     let voteCount: Int
+    let url: String
 }

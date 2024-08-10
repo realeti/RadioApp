@@ -21,7 +21,7 @@ struct ColorFactory {
         return circleColors[index % circleColors.count]
     }
     
-    static func getRandomCircleColor() -> UIColor {
-        return circleColors.randomElement() ?? .clear
+    static func getRandomCircleColor() -> UIColor? {
+        return circleColors.randomElement()
     }
 }

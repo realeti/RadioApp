@@ -15,6 +15,8 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
         self.presenter = presenter
         presenter.getCurrentUser()
         super.init(nibName: nil, bundle: nil)
+        
+        playerIsHidden = true
     }
     
     required init?(coder: NSCoder) {
