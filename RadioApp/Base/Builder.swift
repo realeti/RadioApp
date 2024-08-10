@@ -16,9 +16,13 @@ final class Builder {
         FavoritesAssembly().build(router: FavoritesRouter())
     }
 
-//    static func createAllStations() -> ViewController {
-//        AllStationsAssembly().build(router: AllStationsRouter())
-//    }
+    static func createAllStations() -> UIViewController {
+        let navigation = NavigationController()
+        let builder = AllStationsAssembly()
+        let router = AllStationsRouter(builder: builder, navigation: navigation)
+        router.showAllStations()
+        return navigation
+    }
     
     static func createProfile() -> UIViewController {
         ProfileAssembly().build(router: ProfileRouter())

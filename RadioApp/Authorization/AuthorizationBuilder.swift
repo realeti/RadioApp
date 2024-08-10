@@ -8,9 +8,9 @@
 import UIKit
 
 extension Builder {
-    static func createForgotPasswordVC(router: AuthorizationRouterProtocol) -> UIViewController  {
+    static func createForgotPasswordVC(router: AuthorizationRouterProtocol, mode: ForgotMode) -> UIViewController  {
         let view = ForgotPasswordController()
-        let presenter = ForgotPasswordPresenter(view: view, router: router)
+        let presenter = ForgotPasswordPresenter(view: view, router: router, mode: mode)
         view.presenter = presenter
         return view
     }

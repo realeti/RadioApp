@@ -20,9 +20,22 @@ final class AuthorizationRouter: Router, AuthorizationRouterProtocol {
     }
     
     func showAuthorization(on window: UIWindow) {
-        let vc = builder.build(router: self)
+        let vc = builder.build(router: self, mode: .signIn)
         navigation.viewControllers = [vc]
         window.rootViewController = navigation
+    }
+    
+    func reauthenticate(on router: Router, with mode: ReauthenticateMode) {
+        switch mode {
+        case .email:
+            let vc = builder.build(router: self, mode: .reauthenticateEmail)
+            navigation.viewControllers = [vc]
+        case .password:
+            let vc = builder.build(router: self, mode: .reauthenticatePassword)
+            navigation.viewControllers = [vc]
+        }
+        navigation.modalPresentationStyle = .fullScreen
+        router.presentScreen(navigation)
     }
     
     func goHome() {
@@ -30,7 +43,7 @@ final class AuthorizationRouter: Router, AuthorizationRouterProtocol {
     }
     
     func showForgotPasswordVC() {
-        let vc = Builder.createForgotPasswordVC(router: self)
+        let vc = Builder.createForgotPasswordVC(router: self, mode: .forgotPassword)
         pushScreen(vc)
     }
     
@@ -39,7 +52,16 @@ final class AuthorizationRouter: Router, AuthorizationRouterProtocol {
         pushScreen(vc)
     }
     
+    func showUpdateEmailVC() {
+        let vc = Builder.createForgotPasswordVC(router: self, mode: .updateEmail)
+        pushScreen(vc)
+    }
+    
     func proceedToSignIn() {
         controller?.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func backToEditProfile() {
+        navigation.dismiss(animated: true)
     }
 }

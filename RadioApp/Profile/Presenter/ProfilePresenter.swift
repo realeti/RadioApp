@@ -8,24 +8,44 @@
 import Foundation
 
 protocol ProfileViewProtocol: AnyObject {
-  
+    func update(with user: UserApp?)
 }
 
 protocol ProfilePresenterProtocol: AnyObject {
+    var currentUser: UserApp? { get }
     func showEditProfileVC()
     func showPolicyVC()
     func showAboutUsVC()
     func showLanguageVC()
+    func getCurrentUser()
     init(router: ProfileRouterProtocol)
 }
 
 final class ProfilePresenter: ProfilePresenterProtocol {
-    
+    var currentUser: UserApp? {
+        didSet {
+            DispatchQueue.main.sync { [weak self] in
+                self?.view?.update(with: self?.currentUser)
+            }
+        }
+    }
     weak var view: ProfileViewProtocol?
     private let router: ProfileRouterProtocol
     
     required init(router: ProfileRouterProtocol) {
         self.router = router
+    }
+    
+    func getCurrentUser() {
+        Task {
+            do {
+                let user = try await AuthenticationManager.shared.getAuthenticatedUser()
+                currentUser = .init(id: "", login: user.name ?? "Unknown", email: user.email ?? "-")
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+        }
     }
    
     func showEditProfileVC() {

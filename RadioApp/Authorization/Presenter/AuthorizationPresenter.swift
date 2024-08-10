@@ -29,6 +29,8 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
             mode = .signUp
         case .signUp:
             mode = .signIn
+        case .reauthenticateEmail, .reauthenticatePassword:
+            break
         }
         view?.update(with: .init(mode: mode))
     }
@@ -51,7 +53,17 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
                 guard let userEmail = data.email else { return }
                 print("successfuly signed in")
                 DispatchQueue.main.async { [weak self] in
-                    self?.router.goHome()
+                    switch self?.mode {
+                    case .signIn:
+                        self?.router.goHome()
+                    case .reauthenticatePassword:
+                        self?.router.showUpdatePasswordVC()
+                    case .reauthenticateEmail:
+                        self?.router.showUpdateEmailVC()
+                    default:
+                        break
+                    }
+                    
                 }
             } catch {
                 print("Error: \(error)")
@@ -75,6 +87,7 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
                 let data = try await AuthenticationManager.shared.createUser(name: name, email: email, password: password)
                 guard let userEmail = data.email else { return }
                 print("successfuly signed up")
+                AuthenticationManager.shared.updateUsername(name: name)
                 DispatchQueue.main.async { [weak self] in
                     self?.router.goHome()
                 }
