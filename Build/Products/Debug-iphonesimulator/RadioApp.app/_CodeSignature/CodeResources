@@ -4,6 +4,14 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>AppIcon60x60@2x.png</key>
+		<data>
+		lIQbiQwLNinYWGlRJeu6FNTlmQU=
+		</data>
+		<key>AppIcon76x76@2x~ipad.png</key>
+		<data>
+		cXE1QqUGP7Q9EJ2xHTeRuWR3+5A=
+		</data>
 		<key>Assets.car</key>
 		<data>
 		Nc8GJW47+UbMq0mtl+BXeROqFXo=
@@ -606,6 +614,20 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>AppIcon60x60@2x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			nQdKerdu3Fr32z6V/aRXDdFgJXvmNZs3KomwvckWhTI=
+			</data>
+		</dict>
+		<key>AppIcon76x76@2x~ipad.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			FwdumpvqSljqr2fFVOgivVLwm+2+Kk5QT9bIVluPNMQ=
+			</data>
+		</dict>
 		<key>Assets.car</key>
 		<dict>
 			<key>hash2</key>

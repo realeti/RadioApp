@@ -10,6 +10,7 @@ import UIKit
 final class ProfileViewController: ViewController, ProfileViewProtocol {
     private let presenter: ProfilePresenterProtocol
     private let userView = UserView()
+    private let customSwitchSettingsView = CustomSwitchSettingsView()
     
     init(presenter: ProfilePresenterProtocol) {
         self.presenter = presenter
@@ -58,6 +59,11 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
         super.viewDidLoad()
         setupView()
         setupButtons()
+        
+        //TODO: - настроить
+        NotificationManager.shared.requestNotificationPermission()
+        let notificationsEnabled = NotificationManager.shared.notificationsAreEnabled()
+        customSwitchSettingsView.configure(title: "Enable Notifications", isOn: notificationsEnabled, icon: nil)
     }
         
     private func setupView() {

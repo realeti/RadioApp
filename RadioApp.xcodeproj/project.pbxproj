@@ -23,6 +23,7 @@
 		B949AE572C5F805600E2A338 /* FavoritesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE4E2C5F805600E2A338 /* FavoritesProtocol.swift */; };
 		B949AE582C5F805600E2A338 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE4F2C5F805600E2A338 /* FavoritesRouter.swift */; };
 		B949AE5A2C5F808600E2A338 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE592C5F808600E2A338 /* TableCell.swift */; };
+		BE9581462C66AA7C00A1D1B7 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9581452C66AA7C00A1D1B7 /* NotificationManager.swift */; };
 		BECF66112C58D5D90068160D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66102C58D5D90068160D /* User.swift */; };
 		BECF66132C58D6C30068160D /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66122C58D6C30068160D /* ProfileRouter.swift */; };
 		BECF66152C58D6FA0068160D /* ProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66142C58D6FA0068160D /* ProfileBuilder.swift */; };
@@ -125,6 +126,7 @@
 		B949AE4E2C5F805600E2A338 /* FavoritesProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesProtocol.swift; sourceTree = "<group>"; };
 		B949AE4F2C5F805600E2A338 /* FavoritesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		B949AE592C5F808600E2A338 /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		BE9581452C66AA7C00A1D1B7 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		BECF66102C58D5D90068160D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BECF66122C58D6C30068160D /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		BECF66142C58D6FA0068160D /* ProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBuilder.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 			children = (
 				BECF664E2C5A35AE0068160D /* NotificationsViewController.swift */,
 				BECF66502C5A35C50068160D /* NotificationsPresenter.swift */,
+				BE9581452C66AA7C00A1D1B7 /* NotificationManager.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -781,6 +784,7 @@
 				BECF66252C5A06470068160D /* PrivacyViewController.swift in Sources */,
 				BECF661D2C5A05750068160D /* CustomSettingsView.swift in Sources */,
 				CB2C8CB02C5767DF00D280FE /* Router.swift in Sources */,
+				BE9581462C66AA7C00A1D1B7 /* NotificationManager.swift in Sources */,
 				113FE50C2C61396B00B2AC8B /* StationDetailsPresenter.swift in Sources */,
 				BECF66132C58D6C30068160D /* ProfileRouter.swift in Sources */,
 				CBCA8D7B2C5D38AB003B01B9 /* OnboardingRouter.swift in Sources */,

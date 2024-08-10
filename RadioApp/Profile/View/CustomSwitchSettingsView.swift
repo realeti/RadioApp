@@ -12,6 +12,7 @@ protocol ConfigurableView: UIView {
 }
 
 final class CustomSwitchSettingsView: UIView {
+    
     private var iconBackgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .darkGray
@@ -47,6 +48,7 @@ final class CustomSwitchSettingsView: UIView {
         super.init(frame: .zero)
         setViews()
         setupConstraints()
+        switchControl.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
     }
     
     required init?(coder: NSCoder) {
@@ -95,11 +97,19 @@ final class CustomSwitchSettingsView: UIView {
             make.right.equalToSuperview()
         }
     }
+    
+    @objc private func switchValueChanged(_ sender: UISwitch) {
+        if sender.isOn {
+            NotificationManager.shared.scheduleNotification()
+        } else {
+            NotificationManager.shared.cancelNotifications()
+        }
+    }
 }
 
-//MARK: - ConfigurableView
+// MARK: - ConfigurableView
 extension CustomSwitchSettingsView: ConfigurableView {
     func configure(title: String, image: UIImage?) {
-        self.configure(title: title, isOn: false, icon: image)
+        self.configure(title: title, isOn: NotificationManager.shared.notificationsAreEnabled(), icon: image)
     }
 }
