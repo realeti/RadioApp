@@ -41,7 +41,7 @@ final class PopularViewController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if presenter.isStationsLoaded {
+        if presenter.isDataLoaded {
             presenter.setStations()
         }
     }
@@ -119,6 +119,14 @@ extension PopularViewController: PopularViewProtocol {
         }
     }
     
+    func insertItems(at indexPaths: [IndexPath]) {
+        DispatchQueue.main.async {
+            self.popularView.radioCollection.performBatchUpdates({
+                self.popularView.radioCollection.insertItems(at: indexPaths)
+            }, completion: nil)
+        }
+    }
+    
     func voteForStation(at indexPath: IndexPath?) {
         guard let indexPath else { return }
         
@@ -165,6 +173,20 @@ extension PopularViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let stationId = indexPath.row
         presenter.changeStation(stationId)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        /// update collection when 20% until the end
+        if offsetY > contentHeight - height * 1.2 {
+            guard !presenter.isLoadingData else { return }
+            Task {
+                await presenter.loadStations()
+            }
+        }
     }
 }
 

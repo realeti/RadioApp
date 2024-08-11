@@ -11,12 +11,14 @@ import RadioBrowser
 protocol PopularViewProtocol: AnyObject {
     func didUpdateStations()
     func voteForStation(at: IndexPath?)
+    func insertItems(at indexPaths: [IndexPath])
 }
 
 protocol PopularPresenterProtocol {
     init(router: PopularRouterProtocol)
     var getStations: [PopularViewModel] { get }
-    var isStationsLoaded: Bool { get }
+    var isLoadingData: Bool { get }
+    var isDataLoaded: Bool { get }
     
     func loadStations() async
     func setStations()
@@ -44,7 +46,8 @@ final class PopularPresenter: PopularPresenterProtocol {
         get { stations }
     }
     
-    var isStationsLoaded: Bool = false
+    var isLoadingData = false
+    var isDataLoaded = false
     
     // MARK: - Init
     init(router: PopularRouterProtocol) {
@@ -55,14 +58,19 @@ final class PopularPresenter: PopularPresenterProtocol {
 // MARK: - Load Popular Stations
 extension PopularPresenter {
     func loadStations() async {
-        let result = await radioBrowser.getPopularStation()
+        guard !isLoadingData else { return }
+        isLoadingData = true
+        
+        let result = await radioBrowser.getPopularStation(offset: stations.count)
         
         switch result {
         case .success(let fetctedStations):
-            stations = fetctedStations.map({ station in
+            /// get new stations
+            let newStations = fetctedStations.map({ station in
                 let title: String
                 let subtitle: String
                 
+                /// check names of stations
                 if let tag = station.tags.first, !tag.isEmpty {
                     title = tag
                     subtitle = station.name
@@ -71,6 +79,7 @@ extension PopularPresenter {
                     subtitle = ""
                 }
                 
+                /// update vote status for station
                 loadVotedStation(with: station.stationUUID)
                 
                 return PopularViewModel(
@@ -81,13 +90,29 @@ extension PopularPresenter {
                     url: station.urlResolved
                 )
             })
+            
+            if stations.isEmpty {
+                /// if stations loaded first time
+                view?.didUpdateStations()
+            } else {
+                /// if stations loaded after scroll
+                let startIndex = stations.count
+                let endIndex = startIndex + newStations.count - 1
+                let indexPaths = (startIndex...endIndex).map { IndexPath(item: $0, section: 0) }
+                view?.insertItems(at: indexPaths)
+            }
+            
+            /// update array of stations
+            stations.append(contentsOf: newStations)
+            
+            /// update array of stations in audio player
+            setStations()
         case .failure(let error):
             print(error)
         }
         
-        isStationsLoaded = true
-        setStations()
-        view?.didUpdateStations()
+        isDataLoaded = true
+        isLoadingData = false
     }
 }
 
