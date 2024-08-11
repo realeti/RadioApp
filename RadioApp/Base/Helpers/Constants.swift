@@ -20,10 +20,10 @@ struct K {
     // MARK: - Audio Player
     static let audioPlayerWidth: CGFloat = 111.0
     static let audioPlayerHeight: CGFloat = 122.0
-    static let audioPlayerBottomIndent: CGFloat = 25.0
-    static let volumeContainerWidth: CGFloat = 3.0
+    static let audioPlayerBottomIndent: CGFloat = 80.0
+    static let volumeContainerWidth: CGFloat = 14.0
     static let volumeContainerHeight: CGFloat = 200.0
-    static let volumeContainerLeadingIndent: CGFloat = 23.5
+    static let volumeContainerLeadingIndent: CGFloat = 16.0
     
     // MARK: - Notification & UserInfoKeys
     struct Notification {
