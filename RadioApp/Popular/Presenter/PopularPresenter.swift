@@ -20,6 +20,7 @@ protocol PopularPresenterProtocol {
     
     func loadStations() async
     func setStations()
+    func removeVoteStatus(_ stationId: Int)
     func changeStation(_ stationId: Int)
     func toggleVoteState(for stationId: Int)
     func isStationVoted(_ stationId: Int) -> Bool
@@ -98,6 +99,13 @@ private extension PopularPresenter {
         } else {
             votedStations.append(false)
         }
+    }
+}
+
+// MARK: - Remove Vote Status
+extension PopularPresenter {
+    func removeVoteStatus(_ stationId: Int) {
+        votedStations[stationId] = false
     }
 }
 

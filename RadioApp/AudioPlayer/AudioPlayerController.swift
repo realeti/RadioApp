@@ -23,18 +23,26 @@ final class AudioPlayerController: AudioPlayerProtocol {
     // MARK: - Singleton Instance
     static let shared = AudioPlayerController()
     
-    // MARK: - Private properties
+    // MARK: - Private Properties
     private var audioPlayer: AVPlayer?
     private var stations: [PlayerStation] = []
+    private var currentVolume: Float = 0.5
     
     // MARK: - Public Properties
     var currentIndex: Int = 0
     var isPlaying: Bool = false
+    var volume: Float {
+        get { currentVolume }
+        set {
+            currentVolume = newValue
+            audioPlayer?.volume = currentVolume
+        }
+    }
     
     private init() {}
 }
 
-// MARK: - AudioPlayer methods
+// MARK: - AudioPlayer Methods
 extension AudioPlayerController {
     private func playStream(url: URL) {
         stopStream()
@@ -42,6 +50,7 @@ extension AudioPlayerController {
         let playerItem = AVPlayerItem(url: url)
         audioPlayer = AVPlayer(playerItem: playerItem)
         audioPlayer?.play()
+        audioPlayer?.volume = currentVolume
         
         isPlaying = true
         postStatusNotification()

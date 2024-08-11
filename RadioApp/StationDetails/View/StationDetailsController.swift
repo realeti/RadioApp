@@ -57,6 +57,8 @@ final class StationDetailsController: ViewController {
     
     private let equalizerView = EqualizerView()
     
+    private lazy var volumeView = HorizontalVolumeView()
+    
     var presenter: StationDetailsPresenterProtocol!
     
     //MARK: - Lifecycle
@@ -68,10 +70,16 @@ final class StationDetailsController: ViewController {
         presenter.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setVolumeValue()
+    }
+    
     private func setupUI() {
         title = "Playing now"
         
         addSubviews()
+        setDelegates()
         setupConstraints()
     }
     
@@ -82,6 +90,11 @@ final class StationDetailsController: ViewController {
         view.addSubview(stationImageView)
         view.addSubview(equalizerView)
         view.addSubview(favoriteButton)
+        view.addSubview(volumeView)
+    }
+    
+    private func setDelegates() {
+        volumeView.delegate = self
     }
     
     private func setupConstraints() {
@@ -115,6 +128,13 @@ final class StationDetailsController: ViewController {
             make.trailing.equalTo(stationImageView.snp.trailing)
             make.height.width.equalTo(20)
         }
+        
+        volumeView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.width.equalTo(K.volumeContainerHeight)
+            make.height.equalTo(K.volumeContainerWidth)
+        }
     }
     
     @objc private func favoriteButtonTapped() {
@@ -125,6 +145,31 @@ final class StationDetailsController: ViewController {
         } else {
             presenter.removeStationFromFavorites()
         }
+    }
+}
+
+// MARK: - Set Volume Value
+extension StationDetailsController {
+    func setVolumeValue() {
+        let volume = presenter.getPlayerVolume()
+        
+        volumeView.update(volume)
+    }
+}
+
+// MARK: - Update Player Volume
+extension StationDetailsController: VolumePlayerProtocol {
+    func updatePlayerVolume(_ volume: Float) {
+        presenter.updatePlayerVolume(volume)
+        postVolumeChangeNotification(volume)
+    }
+    
+    private func postVolumeChangeNotification(_ volume: Float) {
+        NotificationCenter.default.post(
+            name: .playerVolumeDidChange,
+            object: nil,
+            userInfo: [K.UserInfoKey.playerVolume: volume]
+        )
     }
 }
 

@@ -12,11 +12,14 @@ protocol StationDetailsPresenterProtocol {
     func didTapPlayButton()
     func addStationToFavorites()
     func removeStationFromFavorites()
+    func getPlayerVolume() -> Float
+    func updatePlayerVolume(_ volume: Float)
 }
 
 final class StationDetailsPresenter: StationDetailsPresenterProtocol {
     private let audioPlayer = AudioPlayerController.shared
     private weak var view: StationDetailsView?
+    private let audioPlayer = AudioPlayerController.shared
     private let station: RadioStation
     private var isPlaying = false
     
@@ -57,6 +60,13 @@ final class StationDetailsPresenter: StationDetailsPresenterProtocol {
         print("Remove from favorites")
     }
     
+    func getPlayerVolume() -> Float {
+        audioPlayer.volume
+    }
+    
+    func updatePlayerVolume(_ volume: Float) {
+        audioPlayer.volume = volume
+    }
     // MARK: - Set Notification
     private func setNotification() {
         NotificationCenter.default.addObserver(

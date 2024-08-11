@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     let loadingView = LoadingView()
     let errorView = ErrorView()
     var playerIsHidden: Bool = false
+    var playerVolumeIsHidden: Bool = false
     let nameTitle = UILabel()
     
     private lazy var profileView: UIImageView = {
@@ -30,19 +31,31 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setName()
-        if playerIsHidden,
-            let homeController = tabBarController as? HomeController {
-            homeController.playerIsHidden = true
+        
+        if let homeController = tabBarController as? HomeController {
+            if playerIsHidden {
+                homeController.playerIsHidden = true
+            }
+            
+            if playerVolumeIsHidden {
+                homeController.volumeIsHidden = true
+            }
         }
+        setName()
         updateUserImage()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if playerIsHidden,
-           let homeController = tabBarController as? HomeController {
-            homeController.playerIsHidden = false
+        
+        if let homeController = tabBarController as? HomeController {
+            if playerIsHidden {
+                homeController.playerIsHidden = false
+            }
+            
+            if playerVolumeIsHidden {
+                homeController.volumeIsHidden = false
+            }
         }
     }
     

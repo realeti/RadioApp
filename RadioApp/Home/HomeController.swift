@@ -30,6 +30,19 @@ final class HomeController: UITabBarController {
         set { audioPlayerVC.view.isHidden = newValue }
     }
     
+    var volumeIsHidden: Bool {
+        get {
+            if let volumeView = audioPlayerVC.view.subviews.first(where: { $0 is VerticalVolumeView }) as? VerticalVolumeView {
+                return volumeView.isHidden
+            }
+            return false
+        }
+        set {
+            if let volumeView = audioPlayerVC.view.subviews.first(where: { $0 is VerticalVolumeView }) as? VerticalVolumeView {
+                volumeView.isHidden = newValue
+            }
+        }
+    }
     let indicator: UIImageView = {
         let view = UIImageView(image: .highlight, contentMode: .scaleAspectFit, renderingMode: .alwaysOriginal, isHidden: false)
         view.frame.size = CGSize(width: 15, height: 15)
@@ -110,9 +123,8 @@ private extension HomeController {
         audioPlayerVC.didMove(toParent: self)
         
         audioPlayerVC.view.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-            make.height.equalTo(K.audioPlayerHeight)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(K.audioPlayerBottomIndent)
+            make.top.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
 }
