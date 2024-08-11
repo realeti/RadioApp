@@ -18,18 +18,6 @@ final class VolumeSlider: UISlider {
         super.init(coder: coder)
     }
     
-    // MARK: - Set Custom Height
-    override func trackRect(forBounds bounds: CGRect) -> CGRect {
-        let customHeight: CGFloat = Metrics.trackSize
-        let customRect = CGRect(
-            x: bounds.origin.x,
-            y: (bounds.size.height - customHeight) / 2,
-            width: bounds.size.width,
-            height: customHeight
-        )
-        return customRect
-    }
-    
     // MARK: - Setup Slider Properties
     private func setupSlider() {
         minimumTrackTintColor = .neonBlueApp
@@ -63,8 +51,7 @@ final class VolumeSlider: UISlider {
 }
 
 fileprivate struct Metrics {
-    static let trackSize: CGFloat = 3.0
-    static let thumbSize: CGFloat = 10.0
+    static let thumbSize: CGFloat = 14.0
     
     private init() {}
 }

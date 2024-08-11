@@ -131,7 +131,7 @@ final class StationDetailsController: ViewController {
         
         volumeView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(5.0)
             make.width.equalTo(K.volumeContainerHeight)
             make.height.equalTo(K.volumeContainerWidth)
         }

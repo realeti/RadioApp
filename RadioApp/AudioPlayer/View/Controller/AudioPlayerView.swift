@@ -86,11 +86,6 @@ extension AudioPlayerView {
             make.leading.equalToSuperview().inset(K.volumeContainerLeadingIndent)
             make.width.equalTo(K.volumeContainerWidth)
             make.height.equalTo(K.volumeContainerHeight)
-            
-            /*make.centerX.equalToSuperview()
-            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
-            make.width.equalTo(K.volumeContainerHeight)
-            make.height.equalTo(K.volumeContainerWidth)*/
         }
     }
 }
