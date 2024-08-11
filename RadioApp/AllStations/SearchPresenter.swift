@@ -94,7 +94,7 @@ extension SearchPresenter: SearchPresenterProtocol {
 	func didStationSelected(at indexPath: IndexPath) {
 		router.showStationDetails(with: stations[indexPath.row])
 	}
-	
+
 	/// Проголосовали за радиостанцию.
 	/// - Parameter indexPath: индекс радиостанции.
 	///
@@ -153,10 +153,16 @@ private extension SearchPresenter {
 
 	func makeStationModel(from data: Station) -> AllStations.Model.Station {
 		let station = storageManager.fetchStation(with: data.stationUUID)
-		
+
+		var tag = data.tags.first ?? "Not known".localized
+		tag = tag.isEmpty ? "Not known".localized : tag
+
+		var title = data.name.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .newlines)
+		title = title.isEmpty ? "Not known".localized : title
+
 		return AllStations.Model.Station(
-			tag: data.tags.first ?? "nil",
-			title: data.name.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .newlines),
+			tag: tag,
+			title: title,
 			votes: data.votes,
 			isPlayingNow: false,
 			isFavorite: station != nil ? true : false
