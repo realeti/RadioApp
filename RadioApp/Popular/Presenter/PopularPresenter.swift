@@ -10,8 +10,8 @@ import RadioBrowser
 
 protocol PopularViewProtocol: AnyObject {
     func didUpdateStations()
-    func voteForStation(at: IndexPath?)
     func insertItems(at indexPaths: [IndexPath])
+    func voteForStation(at: IndexPath?)
 }
 
 protocol PopularPresenterProtocol {
@@ -141,7 +141,7 @@ extension PopularPresenter {
     }
 }
 
-// MARK: - Set Stations
+// MARK: - Set Stations for Audio Player
 extension PopularPresenter {
     func setStations() {
         let audioStations: [PlayerStation] = stations.map { station in
