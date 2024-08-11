@@ -15,7 +15,7 @@ protocol StationDetailsPresenterProtocol {
 }
 
 final class StationDetailsPresenter: StationDetailsPresenterProtocol {
-    
+    private let audioPlayer = AudioPlayerController.shared
     private weak var view: StationDetailsView?
     private let station: RadioStation
     private var isPlaying = false
@@ -23,6 +23,16 @@ final class StationDetailsPresenter: StationDetailsPresenterProtocol {
     init(view: StationDetailsView, station: RadioStation) {
         self.view = view
         self.station = station
+//        audioPlayer.setStations([PlayerStation.init(id: station.id, url: station.url)])
+        setNotification()
+        if audioPlayer.isPlaying {
+            self.view?.startEqualizerAnimation()
+        }
+    }
+    
+    // MARK: - Deinit
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func viewDidLoad() {
@@ -45,6 +55,26 @@ final class StationDetailsPresenter: StationDetailsPresenterProtocol {
     
     func removeStationFromFavorites() {
         print("Remove from favorites")
+    }
+    
+    // MARK: - Set Notification
+    private func setNotification() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handlePlayerStatusChange),
+            name: .playerStatusDidChange,
+            object: nil
+        )
+    }
+    
+    @objc func handlePlayerStatusChange(_ notification: Notification) {
+        if let isPlaying = notification.userInfo?[K.UserInfoKey.isPlaying] as? Bool {
+            if isPlaying {
+                view?.startEqualizerAnimation()
+            } else {
+                view?.stopEqualizerAnimation()
+            }
+        }
     }
     
 }

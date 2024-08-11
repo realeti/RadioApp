@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     private lazy var profileView: UIImageView = {
         let image = getUserImage()
         let view = UIImageView(image: image)
+        view.contentMode = .scaleAspectFill
         return view
     }()
 

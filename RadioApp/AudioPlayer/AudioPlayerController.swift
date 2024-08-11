@@ -55,6 +55,7 @@ extension AudioPlayerController {
         }
         
         isPlaying.toggle()
+        postStatusNotification()
     }
     
     func playPrevious() {
