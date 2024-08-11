@@ -65,27 +65,17 @@ extension PopularPresenter {
         
         switch result {
         case .success(let fetctedStations):
-            /// get new stations
             let newStations = fetctedStations.map({ station in
-                let title: String
-                let subtitle: String
-                
-                /// check names of stations
-                if let tag = station.tags.first, !tag.isEmpty {
-                    title = tag
-                    subtitle = station.name
-                } else {
-                    title = station.name
-                    subtitle = ""
-                }
+                /// format station names
+                let stationNames = formatStationNames(station)
                 
                 /// update vote status for station
                 loadVotedStation(with: station.stationUUID)
                 
                 return PopularViewModel(
                     id: station.stationUUID,
-                    title: title,
-                    subtitle: subtitle,
+                    title: stationNames.title,
+                    subtitle: stationNames.subtitle,
                     voteCount: station.votes,
                     url: station.urlResolved
                 )
@@ -93,17 +83,16 @@ extension PopularPresenter {
             
             if stations.isEmpty {
                 /// if stations loaded first time
+                stations.append(contentsOf: newStations)
                 view?.didUpdateStations()
             } else {
                 /// if stations loaded after scroll
                 let startIndex = stations.count
                 let endIndex = startIndex + newStations.count - 1
                 let indexPaths = (startIndex...endIndex).map { IndexPath(item: $0, section: 0) }
+                stations.append(contentsOf: newStations)
                 view?.insertItems(at: indexPaths)
             }
-            
-            /// update array of stations
-            stations.append(contentsOf: newStations)
             
             /// update array of stations in audio player
             setStations()
@@ -113,6 +102,24 @@ extension PopularPresenter {
         
         isDataLoaded = true
         isLoadingData = false
+    }
+}
+
+// MARK: - Format Station Names
+private extension PopularPresenter {
+    func formatStationNames(_ station: Station) -> (title: String, subtitle: String) {
+        let title: String
+        let subtitle: String
+        
+        if let tag = station.tags.first, !tag.isEmpty {
+            title = tag
+            subtitle = station.name
+        } else {
+            title = station.name
+            subtitle = ""
+        }
+        
+        return (title: title, subtitle: subtitle)
     }
 }
 
