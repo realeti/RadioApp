@@ -8,10 +8,6 @@
 import UIKit
 
 final class AllStationsController: ViewController {
-	
-	// MARK: - Outlets
-	
-	// MARK: - Public properties
 
 	// MARK: - Dependencies
 
@@ -37,10 +33,8 @@ final class AllStationsController: ViewController {
 		}
 	}
 
-	// MARK: - Initialization
-	
 	// MARK: - Lifecycle
-	
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupUI()
@@ -54,15 +48,11 @@ final class AllStationsController: ViewController {
 			presenter.activate()
 		}
 	}
-	
-	// MARK: - Public methods
 
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 		layout()
 	}
-
-	// MARK: - Private methods
 }
 
 // MARK: - UITextFieldDelegate
@@ -146,7 +136,11 @@ extension AllStationsController: UICollectionViewDataSource {
 extension AllStationsController: UICollectionViewDelegate {
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		// TODO: - реализовать событие перехода на другой экран
+		if isActiveSearch {
+			searchPresenter.didStationSelected(at: indexPath)
+		} else {
+			presenter.didStationSelected(at: indexPath)
+		}
 	}
 
 	func collectionView(

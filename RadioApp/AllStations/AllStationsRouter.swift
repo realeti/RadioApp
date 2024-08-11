@@ -24,6 +24,7 @@ final class AllStationsRouter: AllStationsRouterProtocol {
 	}
 
 	func showStationDetails(with stationData: Station) {
-		
+		let controller = StationDetailsAssembly().build()
+		navigation.pushViewController(controller, animated: true)
 	}
 }

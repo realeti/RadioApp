@@ -118,6 +118,8 @@ The information is processed to complete transactions, provide customer support 
 
 "All Stations" = "All Stations";
 "Playing now" = "Playing now";
+"Not known" = "Not known";
+
 "Do you want to Log Out?" = "Do you want to Log Out?";
 "Cancel" = "Cancel";
 "To update password you need to Sign In again" = "To update password you need to Sign In again";
@@ -129,3 +131,4 @@ The information is processed to complete transactions, provide customer support 
 "Your new email" = "Your new email";
 "to update email" = "to update email";
 "to update password" = "to update password";
+
