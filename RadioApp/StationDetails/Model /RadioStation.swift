@@ -8,6 +8,8 @@
 import Foundation
 
 struct RadioStation {
+    let id: UUID
+    let url: String
     let frequency: String
     let name: String
     let imageName: String
