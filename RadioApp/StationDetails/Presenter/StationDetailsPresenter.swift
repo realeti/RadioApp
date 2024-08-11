@@ -19,7 +19,6 @@ protocol StationDetailsPresenterProtocol {
 final class StationDetailsPresenter: StationDetailsPresenterProtocol {
     private let audioPlayer = AudioPlayerController.shared
     private weak var view: StationDetailsView?
-    private let audioPlayer = AudioPlayerController.shared
     private let station: RadioStation
     private var isPlaying = false
     
