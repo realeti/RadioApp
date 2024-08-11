@@ -316,7 +316,7 @@ private extension StationView {
 			titleStack.topAnchor.constraint(equalTo: topAnchor, constant: 18),
 			titleStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
 			titleStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-			titleStack.trailingAnchor.constraint(equalTo: centerXAnchor),
+			titleStack.trailingAnchor.constraint(equalTo: waveCirclesImage.leadingAnchor, constant: -5),
 
 			voteStack.topAnchor.constraint(equalTo: topAnchor, constant: 18),
 			voteStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),

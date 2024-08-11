@@ -86,6 +86,7 @@
 		C6908FDA2C65584700208F0F /* Notification + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6908FD92C65584700208F0F /* Notification + Extensions.swift */; };
 		C6DF00C62C5FA62E0011EA5D /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DF00C52C5FA62E0011EA5D /* PlayerView.swift */; };
 		C6DF00C82C5FAA4B0011EA5D /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DF00C72C5FAA4B0011EA5D /* UIButton + Extensions.swift */; };
+		CB148A2F2C68BEFF008BF50C /* wave.json in Resources */ = {isa = PBXBuildFile; fileRef = CB148A2E2C68BEFF008BF50C /* wave.json */; };
 		CB28CF5E2C63CCED00E55A95 /* LoadingPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28CF5D2C63CCED00E55A95 /* LoadingPresenting.swift */; };
 		CB28CF602C63CD0E00E55A95 /* ErrorPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28CF5F2C63CD0E00E55A95 /* ErrorPresenting.swift */; };
 		CB28CF622C63CD9C00E55A95 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28CF612C63CD9C00E55A95 /* ErrorView.swift */; };
@@ -222,6 +223,7 @@
 		C6908FD92C65584700208F0F /* Notification + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification + Extensions.swift"; sourceTree = "<group>"; };
 		C6DF00C52C5FA62E0011EA5D /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C6DF00C72C5FAA4B0011EA5D /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
+		CB148A2E2C68BEFF008BF50C /* wave.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wave.json; sourceTree = "<group>"; };
 		CB28CF5D2C63CCED00E55A95 /* LoadingPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPresenting.swift; sourceTree = "<group>"; };
 		CB28CF5F2C63CD0E00E55A95 /* ErrorPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenting.swift; sourceTree = "<group>"; };
 		CB28CF612C63CD9C00E55A95 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -755,6 +757,7 @@
 			children = (
 				CBB20CCC2C62139400B35416 /* loading.json */,
 				CB28CF632C63D6F800E55A95 /* error.json */,
+				CB148A2E2C68BEFF008BF50C /* wave.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -919,6 +922,7 @@
 				CBB20CBA2C61501300B35416 /* GoogleService-Info.plist in Resources */,
 				CB2C8CC82C57C8AB00D280FE /* Assets.xcassets in Resources */,
 				CB28CF642C63D6F800E55A95 /* error.json in Resources */,
+				CB148A2F2C68BEFF008BF50C /* wave.json in Resources */,
 				CB2C8CA52C5698E600D280FE /* LaunchScreen.storyboard in Resources */,
 				CBB20CCD2C62139500B35416 /* loading.json in Resources */,
 			);

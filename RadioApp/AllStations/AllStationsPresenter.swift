@@ -24,7 +24,7 @@ final class AllStationsPresenter {
 	private var stations: [Station] = []
 
 	// MARK: - Initialization
-	
+
 	/// Инициализатор презентера.
 	/// - Parameters:
 	///   - router: роутер, для осуществления перехода на другие экраны.
@@ -57,7 +57,7 @@ extension AllStationsPresenter: AllStationsPresenterProtocol {
 				await render()
 				return
 			}
-		
+
 			let result = await radioBrowser.getAllStations(offset: stations.count)
 
 			switch result {
@@ -69,7 +69,7 @@ extension AllStationsPresenter: AllStationsPresenterProtocol {
 			}
 		}
 	}
-	
+
 	/// Загрузка радиостанций.
 	///
 	/// При вызове подгружает 20 станций и обновляет экран.
@@ -94,7 +94,7 @@ extension AllStationsPresenter: AllStationsPresenterProtocol {
 	func didStationSelected(at indexPath: IndexPath) {
 		router.showStationDetails(with: stations[indexPath.row])
 	}
-	
+
 	/// Проголосовали за радиостанцию.
 	/// - Parameter indexPath: индекс радиостанции.
 	///
@@ -150,13 +150,19 @@ private extension AllStationsPresenter {
 		let radioStations = stations.map { makeStationModel(from: $0) }
 		return AllStations.Model(stations: radioStations)
 	}
-	
+
 	func makeStationModel(from data: Station) -> AllStations.Model.Station {
 		let station = storageManager.fetchStation(with: data.stationUUID)
 
+		var tag = data.tags.first ?? "Not known".localized
+		tag = tag.isEmpty ? "Not known".localized : tag
+
+		var title = data.name.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .newlines)
+		title = title.isEmpty ? "Not known".localized : title
+
 		return AllStations.Model.Station(
-			tag: data.tags.first ?? "nil",
-			title: data.name.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .newlines),
+			tag: tag,
+			title: title,
 			votes: data.votes,
 			isPlayingNow: false,
 			isFavorite: station != nil ? true : false

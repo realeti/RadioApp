@@ -121,6 +121,8 @@ The information is processed to complete transactions, provide customer support 
 
 "All Stations" = "Все станции";
 "Playing now" = "Играет сейчас";
+"Not known" = "Неизвестно";
+
 "Do you want to Log Out?" = "Выйти из приложения?";
 "Cancel" = "Отмена";
 "To update password you need to Sign In again" = "Чтобы обновить пароль вам нужно перезайти в аккаунт";
@@ -132,3 +134,4 @@ The information is processed to complete transactions, provide customer support 
 "Your new email" = "Ваша новая почта";
 "to update email" = "чтобы обновить почту";
 "to update password" = "чтобы обновить пароль";
+

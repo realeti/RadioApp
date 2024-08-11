@@ -47,13 +47,6 @@ final class StationDetailsController: ViewController {
         return imageView
     }()
     
-    /*private lazy var playButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Play", for: .normal)
-        button.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
-        return button
-    }()*/
-    
     private lazy var favoriteButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "favOff"), for: .normal)
@@ -95,7 +88,6 @@ final class StationDetailsController: ViewController {
         view.addSubview(radioFrequencyLabel)
         view.addSubview(radioNameLabel)
         view.addSubview(stationImageView)
-        //view.addSubview(playButton)
         view.addSubview(equalizerView)
         view.addSubview(favoriteButton)
         view.addSubview(volumeView)
@@ -120,22 +112,15 @@ final class StationDetailsController: ViewController {
             make.centerX.equalToSuperview().offset(-20)
         }
         
+        equalizerView.snp.makeConstraints { make in
+            make.top.equalTo(radioNameLabel.snp.bottom).inset(-30)
+            make.leading.trailing.equalToSuperview()
+        }
+        
         stationImageView.snp.makeConstraints { make in
             make.top.equalTo(radioFrequencyLabel.snp.top)
             make.leading.equalTo(radioNameLabel.snp.trailing).offset(5)
             make.height.width.equalTo(80)
-        }
-        
-        /*playButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-50)
-            make.centerX.equalToSuperview()
-        }*/
-        
-        equalizerView.snp.makeConstraints { make in
-            make.top.equalTo(radioNameLabel.snp.bottom).offset(50)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(200)
-            make.height.equalTo(100)
         }
         
         favoriteButton.snp.makeConstraints { make in
@@ -150,12 +135,6 @@ final class StationDetailsController: ViewController {
             make.width.equalTo(K.volumeContainerHeight)
             make.height.equalTo(K.volumeContainerWidth)
         }
-    }
-    
-    //MARK: - Play button Tapped
-    
-    @objc func playButtonTapped() {
-        presenter.didTapPlayButton()
     }
     
     @objc private func favoriteButtonTapped() {
@@ -212,3 +191,4 @@ extension StationDetailsController: StationDetailsView {
         equalizerView.stopAnimating()
     }
 }
+
