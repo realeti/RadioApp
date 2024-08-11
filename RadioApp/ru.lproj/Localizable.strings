@@ -68,6 +68,7 @@ The information is processed to complete transactions, provide customer support 
 "Or Sign In" = "Или войдите";
 "to start play" = "и начать прослушивание";
 
+"Update Password" = "Обновить пароль";
 "Update\nPassword" = "Обновить\nпароль";
 "Confirm password" = "Подтвердить пароль";
 "Change password" = "Изменить пароль";
@@ -121,3 +122,16 @@ The information is processed to complete transactions, provide customer support 
 "All Stations" = "Все станции";
 "Playing now" = "Играет сейчас";
 "Not known" = "Неизвестно";
+
+"Do you want to Log Out?" = "Выйти из приложения?";
+"Cancel" = "Отмена";
+"To update password you need to Sign In again" = "Чтобы обновить пароль вам нужно перезайти в аккаунт";
+"To update email you need to Sign In again" = "Чтобы обновить почту вам нужно перезайти в аккаунт";
+"Password successfully updated" = "Пароль успешно обновлен";
+"Update email" = "Обновить почту";
+"Update\nEmail" = "Обновить\nПочту";
+"New email" = "Новая почта";
+"Your new email" = "Ваша новая почта";
+"to update email" = "чтобы обновить почту";
+"to update password" = "чтобы обновить пароль";
+

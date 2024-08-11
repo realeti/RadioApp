@@ -13,32 +13,62 @@ class ViewController: UIViewController {
     let loadingView = LoadingView()
     let errorView = ErrorView()
     var playerIsHidden: Bool = false
+    var playerVolumeIsHidden: Bool = false
+    let nameTitle = UILabel()
     
     private lazy var profileView: UIImageView = {
         let image = getUserImage()
         let view = UIImageView(image: image)
+        view.contentMode = .scaleAspectFill
         return view
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
+        setTabBarAttributes()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if playerIsHidden,
-            let homeController = tabBarController as? HomeController {
-            homeController.playerIsHidden = true
+        
+        if let homeController = tabBarController as? HomeController {
+            if playerIsHidden {
+                homeController.playerIsHidden = true
+            }
+            
+            if playerVolumeIsHidden {
+                homeController.volumeIsHidden = true
+            }
         }
+        setName()
         updateUserImage()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if playerIsHidden,
-           let homeController = tabBarController as? HomeController {
-            homeController.playerIsHidden = false
+        
+        if let homeController = tabBarController as? HomeController {
+            if playerIsHidden {
+                homeController.playerIsHidden = false
+            }
+            
+            if playerVolumeIsHidden {
+                homeController.volumeIsHidden = false
+            }
+        }
+    }
+    
+    private func setName() {
+        Task {
+            do {
+                let user = try await AuthenticationManager.shared.getAuthenticatedUser()
+                nameTitle.text = user.name
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+            
         }
     }
     
@@ -89,6 +119,18 @@ class ViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
+    private func setTabBarAttributes() {
+        guard let homeController = tabBarController as? HomeController else {
+            return
+        }
+        let appearance = UITabBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = homeController.normalTabBarAttributes
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = homeController.selectedTabBarAttributes
+        homeController.tabBar.standardAppearance = appearance
+        homeController.tabBar.scrollEdgeAppearance = appearance
+    }
+    
     func updateUserImage() {
         profileView.image = getUserImage()
     }
@@ -113,8 +155,6 @@ class ViewController: UIViewController {
         greetingTitle.textColor = .white
         greetingTitle.font = .systemFont(ofSize: 25, weight: .medium)
         
-        let nameTitle = UILabel()
-        nameTitle.text = "Mark".localized
         nameTitle.textColor = .pinkApp
         nameTitle.font = .systemFont(ofSize: 30, weight: .medium)
         
@@ -129,7 +169,7 @@ class ViewController: UIViewController {
         
         greetingTitle.snp.makeConstraints { make in
             make.leading.equalTo(icon.snp.trailing).offset(8)
-            make.bottom.equalTo(icon.snp.bottom).inset(1.8)
+            make.bottom.equalTo(icon.snp.bottom).inset(1)
         }
         
         nameTitle.snp.makeConstraints { make in

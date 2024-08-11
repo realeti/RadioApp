@@ -18,19 +18,25 @@ struct K {
     static let popularRadioCell = "popularCell"
     
     // MARK: - Audio Player
-    static let audioPlayerHeight: CGFloat = 122.0
     static let audioPlayerWidth: CGFloat = 111.0
+    static let audioPlayerHeight: CGFloat = 122.0
     static let audioPlayerBottomIndent: CGFloat = 25.0
+    static let volumeContainerWidth: CGFloat = 3.0
+    static let volumeContainerHeight: CGFloat = 200.0
+    static let volumeContainerLeadingIndent: CGFloat = 23.5
     
+    // MARK: - Notification & UserInfoKeys
     struct Notification {
         static let playerStatusDidChange = "PlayerStatusDidChange"
         static let playerCurrentIndexDidChange = "PlayerCurrentIndexDidChange"
+        static let playerVolumeDidChange = "PlayerVolumeDidChange"
         static let favoriteRemoved = "FavoriteRemoved"
     }
 
     struct UserInfoKey {
         static let isPlaying = "isPlaying"
         static let stationIndex = "stationIndex"
+        static let playerVolume = "playerVolume"
         static let removedStationIndex = "removedStationIndex"
     }
     

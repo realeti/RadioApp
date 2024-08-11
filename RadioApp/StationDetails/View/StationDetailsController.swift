@@ -47,13 +47,6 @@ final class StationDetailsController: ViewController {
         return imageView
     }()
     
-    private lazy var playButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Play", for: .normal)
-        button.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
-        return button
-    }()
-    
     private lazy var favoriteButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "favOff"), for: .normal)
@@ -63,6 +56,8 @@ final class StationDetailsController: ViewController {
     }()
     
     private let equalizerView = EqualizerView()
+    
+    private lazy var volumeView = HorizontalVolumeView()
     
     var presenter: StationDetailsPresenterProtocol!
     
@@ -75,10 +70,16 @@ final class StationDetailsController: ViewController {
         presenter.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setVolumeValue()
+    }
+    
     private func setupUI() {
         title = "Playing now"
         
         addSubviews()
+        setDelegates()
         setupConstraints()
     }
     
@@ -87,9 +88,13 @@ final class StationDetailsController: ViewController {
         view.addSubview(radioFrequencyLabel)
         view.addSubview(radioNameLabel)
         view.addSubview(stationImageView)
-        view.addSubview(playButton)
         view.addSubview(equalizerView)
         view.addSubview(favoriteButton)
+        view.addSubview(volumeView)
+    }
+    
+    private func setDelegates() {
+        volumeView.delegate = self
     }
     
     private func setupConstraints() {
@@ -107,22 +112,15 @@ final class StationDetailsController: ViewController {
             make.centerX.equalToSuperview().offset(-20)
         }
         
+        equalizerView.snp.makeConstraints { make in
+            make.top.equalTo(radioNameLabel.snp.bottom).inset(-30)
+            make.leading.trailing.equalToSuperview()
+        }
+        
         stationImageView.snp.makeConstraints { make in
             make.top.equalTo(radioFrequencyLabel.snp.top)
             make.leading.equalTo(radioNameLabel.snp.trailing).offset(5)
             make.height.width.equalTo(80)
-        }
-        
-        playButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-50)
-            make.centerX.equalToSuperview()
-        }
-        
-        equalizerView.snp.makeConstraints { make in
-            make.top.equalTo(radioNameLabel.snp.bottom).offset(50)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(200)
-            make.height.equalTo(100)
         }
         
         favoriteButton.snp.makeConstraints { make in
@@ -130,12 +128,13 @@ final class StationDetailsController: ViewController {
             make.trailing.equalTo(stationImageView.snp.trailing)
             make.height.width.equalTo(20)
         }
-    }
-    
-    //MARK: - Play button Tapped
-    
-    @objc func playButtonTapped() {
-        presenter.didTapPlayButton()
+        
+        volumeView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.width.equalTo(K.volumeContainerHeight)
+            make.height.equalTo(K.volumeContainerWidth)
+        }
     }
     
     @objc private func favoriteButtonTapped() {
@@ -146,6 +145,31 @@ final class StationDetailsController: ViewController {
         } else {
             presenter.removeStationFromFavorites()
         }
+    }
+}
+
+// MARK: - Set Volume Value
+extension StationDetailsController {
+    func setVolumeValue() {
+        let volume = presenter.getPlayerVolume()
+        
+        volumeView.update(volume)
+    }
+}
+
+// MARK: - Update Player Volume
+extension StationDetailsController: VolumePlayerProtocol {
+    func updatePlayerVolume(_ volume: Float) {
+        presenter.updatePlayerVolume(volume)
+        postVolumeChangeNotification(volume)
+    }
+    
+    private func postVolumeChangeNotification(_ volume: Float) {
+        NotificationCenter.default.post(
+            name: .playerVolumeDidChange,
+            object: nil,
+            userInfo: [K.UserInfoKey.playerVolume: volume]
+        )
     }
 }
 
@@ -167,3 +191,4 @@ extension StationDetailsController: StationDetailsView {
         equalizerView.stopAnimating()
     }
 }
+

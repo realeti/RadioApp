@@ -93,11 +93,13 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         didSet {
             if isSelected {
                 playImageView.isHidden = false
+                voteLabel.isHidden = true
                 containerView.layer.borderColor = nil
                 containerView.backgroundColor = .pinkApp
                 waveImageView.setWaveTint(with: .white)
             } else {
                 playImageView.isHidden = true
+                voteLabel.isHidden = false
                 containerView.backgroundColor = nil
                 containerView.layer.borderColor = UIColor.stormyBlue.cgColor
                 waveImageView.setWaveTint(with: .white.withAlphaComponent(0.3))

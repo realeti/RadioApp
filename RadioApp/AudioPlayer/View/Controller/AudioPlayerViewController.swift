@@ -10,7 +10,7 @@ import UIKit
 final class AudioPlayerViewController: UIViewController {
     // MARK: - Private Properties
     private let presenter: AudioPlayerPresenterProtocol
-    private var audioView: AudioPlayerView!
+    private var audioPlayerView: AudioPlayerView!
     
     // MARK: - Init
     init(presenter: AudioPlayerPresenterProtocol) {
@@ -26,20 +26,21 @@ final class AudioPlayerViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
-        audioView = AudioPlayerView()
-        view = audioView
+        audioPlayerView = AudioPlayerView()
+        view = audioPlayerView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setDelegates()
+        setVolumeValue()
         setNotification()
     }
     
     // MARK: - Set Delegates
     private func setDelegates() {
-        audioView.delegate = self
+        audioPlayerView.setDelegate(self)
     }
     
     // MARK: - Set Notification
@@ -48,6 +49,13 @@ final class AudioPlayerViewController: UIViewController {
             self,
             selector: #selector(handlePlayerStatusChange),
             name: .playerStatusDidChange,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handlePlayerVolumeChange),
+            name: .playerVolumeDidChange,
             object: nil
         )
     }
@@ -62,13 +70,19 @@ final class AudioPlayerViewController: UIViewController {
 private extension AudioPlayerViewController {
     @objc func handlePlayerStatusChange(_ notification: Notification) {
         if let isPlaying = notification.userInfo?[K.UserInfoKey.isPlaying] as? Bool {
-            audioView.updatePlayerImage(isPlaying, animated: false)
+            audioPlayerView.updatePlayerImage(isPlaying, animated: false)
+        }
+    }
+    
+    @objc func handlePlayerVolumeChange(_ notification: Notification) {
+        if let volume = notification.userInfo?[K.UserInfoKey.playerVolume] as? Float {
+            audioPlayerView.updateVolume(volume)
         }
     }
 }
 
-// MARK: - AudioView Delegate methods
-extension AudioPlayerViewController: AudioViewProtocol {
+// MARK: - AudioView Delegate Methods
+extension AudioPlayerViewController: AudioPlayerViewProtocol {
     func didTapPlayPauseButton() {
         presenter.playPauseAudio()
     }
@@ -82,6 +96,20 @@ extension AudioPlayerViewController: AudioViewProtocol {
     }
     
     func didUpdatePlayerImage(_ isPlaying: Bool) {
-        audioView.updatePlayerImage(isPlaying, animated: true)
+        audioPlayerView.updatePlayerImage(isPlaying, animated: true)
+    }
+}
+
+extension AudioPlayerViewController: VolumePlayerProtocol {
+    func updatePlayerVolume(_ volume: Float) {
+        presenter.updatePlayerVolume(volume)
+    }
+}
+
+// MARK: - Set Volume Value
+extension AudioPlayerViewController {
+    func setVolumeValue() {
+        let volume = presenter.getPlayerVolume()
+        audioPlayerView.updateVolume(volume)
     }
 }

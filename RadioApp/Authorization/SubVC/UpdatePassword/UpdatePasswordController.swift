@@ -14,7 +14,7 @@ protocol UpdatePasswordControllerProtocol: AnyObject {
 
 final class UpdatePasswordController: UIViewController {
     var presenter: (any UpdatePasswordPresenterProtocol)?
-    private var password: String?
+    private var passwordField: AuthorizationField?
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -28,7 +28,7 @@ extension UpdatePasswordController: UpdatePasswordControllerProtocol {
     }
     
     func update(with model: Model) {
-        password = model.password
+        passwordField?.textField.text = model.password
         setupUI()
     }
 }
@@ -36,14 +36,8 @@ extension UpdatePasswordController: UpdatePasswordControllerProtocol {
 //UI
 private extension UpdatePasswordController {
     func setupUI() {
-        
         let bg = UIImageView(image: .bgNontransparent)
         bg.contentMode = .scaleAspectFill
-        
-        let backButton = UIButton()
-        backButton.setImage(.backButton.withRenderingMode(.alwaysOriginal), for: .normal)
-        backButton.contentMode = .scaleAspectFit
-        backButton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
         
         let mainLabel = UILabel()
         mainLabel.font = .systemFont(ofSize: 50, weight: .bold)
@@ -51,20 +45,21 @@ private extension UpdatePasswordController {
         mainLabel.numberOfLines = 2
         mainLabel.text = "Update\nPassword".localized
         
-        let passwordField = AuthorizationField(delegate: self, title: "Password".localized, placeholder: "Your password".localized, isSecure: true)
+        passwordField = AuthorizationField(delegate: self, title: "Password".localized, placeholder: "Your password".localized, isSecure: true)
         
         let confirmPasswordField = AuthorizationField(delegate: self, title: "Confirm password".localized, placeholder: "Your password".localized, isSecure: true)
         
         let sendButton = UIButton()
-        sendButton.setTitle("Change password".localized, for: .normal)
+        sendButton.setTitle("Update password".localized, for: .normal)
         sendButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
         sendButton.backgroundColor = .neonBlueApp
         sendButton.tintColor = .white
         sendButton.layer.cornerRadius = 10
         sendButton.addTarget(self, action: #selector(changePasswordTapped), for: .touchUpInside)
         
+        guard let passwordField else { return }
+        
         view.addSubview(bg)
-        view.addSubview(backButton)
         view.addSubview(mainLabel)
         view.addSubview(passwordField)
         view.addSubview(confirmPasswordField)
@@ -74,16 +69,9 @@ private extension UpdatePasswordController {
             make.leading.top.trailing.bottom.equalToSuperview()
         }
         
-        backButton.snp.makeConstraints { make in
-            make.width.equalTo(36)
-            make.height.equalTo(27)
-            make.top.equalToSuperview().inset(112)
-            make.leading.equalToSuperview().inset(43)
-        }
-        
         mainLabel.snp.makeConstraints { make in
-            make.leading.equalTo(backButton)
-            make.top.equalTo(backButton.snp.bottom).inset(-35)
+            make.leading.equalToSuperview().inset(43)
+            make.top.equalToSuperview().inset(140)
         }
         
         passwordField.snp.makeConstraints { make in
@@ -103,21 +91,15 @@ private extension UpdatePasswordController {
         }
     }
     
-    
-    @objc func backTapped() {
-        print("back tapped")
-        navigationController?.popViewController(animated: true)
-    }
-    
     @objc func changePasswordTapped() {
         print("change password tapped")
-        presenter?.updatePassword(password: password)
+        presenter?.updatePassword(password: passwordField?.textField.text)
     }
 }
 
 extension UpdatePasswordController: UITextFieldDelegate {
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        password = textField.text
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
         return true
     }
 }

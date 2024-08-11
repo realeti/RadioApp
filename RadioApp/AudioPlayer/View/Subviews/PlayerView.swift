@@ -1,5 +1,5 @@
 //
-//  AudioPlayerView.swift
+//  PlayerView.swift
 //  RadioApp
 //
 //  Created by realeti on 04.08.2024.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class AudioPlayerView: UIView {
+final class PlayerView: UIView {
     // MARK: - UI
     private let playerStackView = UIStackView(
         axis: .horizontal,
@@ -22,7 +22,7 @@ final class AudioPlayerView: UIView {
     private let nextButton = UIButton(backgroundImage: .playerNext)
     
     // MARK: - Delegate
-    weak var delegate: AudioViewProtocol?
+    weak var delegate: AudioPlayerViewProtocol?
     
     // MARK: - Init
     override init(frame: CGRect) {
@@ -50,7 +50,7 @@ final class AudioPlayerView: UIView {
 }
 
 // MARK: - External methods
-extension AudioPlayerView {
+extension PlayerView {
     func updatePlayerImage(_ isPlaying: Bool, animated: Bool) {
         let playerImage: UIImage = isPlaying ? .playerPause : .playerPlay
         
@@ -73,7 +73,7 @@ extension AudioPlayerView {
 }
 
 // MARK: - Setup Actions
-private extension AudioPlayerView {
+private extension PlayerView {
     func setupActions() {
         playerButton.addTarget(self, action: #selector(playerButtonTapped), for: .touchUpInside)
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
@@ -95,7 +95,7 @@ private extension AudioPlayerView {
 }
 
 // MARK: - Setup Constraints
-private extension AudioPlayerView {
+private extension PlayerView {
     func setupConstraints() {
         setupPlayerStackViewConstraints()
         setupPlayerButtonConstraints()
