@@ -23,6 +23,7 @@ protocol PopularPresenterProtocol {
     func setPlayerStations()
     func removeVoteStatus(_ stationId: Int)
     func changeStation(_ stationId: Int)
+    func updateLastStationId(_ stationId: Int)
     func toggleVoteState(for stationId: Int)
     func isStationVoted(_ stationId: Int) -> Bool
     func showDetail(_ stationId: Int)
@@ -47,6 +48,7 @@ final class PopularPresenter: PopularPresenterProtocol {
     }
     
     var isLoadingData = false
+    var lastStationId: Int = 0
     
     // MARK: - Init
     init(router: PopularRouterProtocol) {
@@ -171,7 +173,7 @@ extension PopularPresenter {
         let audioStations: [PlayerStation] = stations.map { station in
             PlayerStation(id: station.id, url: station.url)
         }
-        audioPlayer.setStations(audioStations)
+        audioPlayer.setStations(audioStations, startIndex: lastStationId)
     }
 }
 
@@ -182,7 +184,15 @@ extension PopularPresenter {
         
         if stationId != currentStationId {
             audioPlayer.playStation(at: stationId)
+            //updateLastStationId(stationId)
         }
+    }
+}
+
+// MARK: - Update LastStationId
+extension PopularPresenter {
+    func updateLastStationId(_ stationId: Int) {
+        lastStationId = stationId
     }
 }
 

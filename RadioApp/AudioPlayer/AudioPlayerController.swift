@@ -9,7 +9,7 @@ import Foundation
 import AVFoundation
 
 protocol AudioPlayerProtocol {
-	var currentId: UUID? { get }
+	var currentUUID: UUID? { get }
     var currentIndex: Int { get }
     var isPlaying: Bool { get }
     
@@ -17,7 +17,7 @@ protocol AudioPlayerProtocol {
     func playPrevious()
     func playNext()
     func playStation(at index: Int)
-    func setStations(_ stations: [PlayerStation])
+    func setStations(_ stations: [PlayerStation], startIndex: Int)
 }
 
 final class AudioPlayerController: AudioPlayerProtocol {
@@ -30,9 +30,12 @@ final class AudioPlayerController: AudioPlayerProtocol {
     private var currentVolume: Float = 0.5
     
     // MARK: - Public Properties
-	var currentId: UUID?
-    var currentIndex: Int = -1
-    var isPlaying: Bool = false
+	var currentUUID: UUID?
+    
+    var currentIndex: Int = 0 {
+        didSet { currentUUID = stations[currentIndex].id }
+    }
+    
     var volume: Float {
         get { currentVolume }
         set {
@@ -40,6 +43,8 @@ final class AudioPlayerController: AudioPlayerProtocol {
             audioPlayer?.volume = currentVolume
         }
     }
+    
+    var isPlaying: Bool = false
     
     private init() {}
 }
@@ -90,15 +95,13 @@ extension AudioPlayerController {
         
         if let url = URL(string: station.url) {
             currentIndex = index
-			currentId = station.id
             playStream(url: url)
         }
     }
     
-    func setStations(_ stations: [PlayerStation]) {
+    func setStations(_ stations: [PlayerStation], startIndex: Int) {
         self.stations = stations
-
-		currentIndex = stations.firstIndex { $0.id == currentId } ?? -1
+        currentIndex = startIndex
     }
 }
 
@@ -121,9 +124,17 @@ private extension AudioPlayerController {
         )
         
         NotificationCenter.default.post(
+            name: .playerCurrentIndexDidChange,
+            object: nil,
+            userInfo: [K.UserInfoKey.stationIndex: currentIndex]
+        )
+        
+        guard let currentUUID else { return }
+        
+        NotificationCenter.default.post(
             name: .playerStationDidChange,
             object: nil,
-            userInfo: [K.UserInfoKey.stationIndex: stations[currentIndex].id]
+            userInfo: [K.UserInfoKey.stationUUID: currentUUID]
         )
     }
 }

@@ -102,11 +102,12 @@ private extension PopularViewController {
     }
     
     @objc func handleStationChange(_ notification: Notification) {
-        guard let stationUUID = notification.userInfo?[K.UserInfoKey.stationIndex] as? UUID,
+        guard let stationUUID = notification.userInfo?[K.UserInfoKey.stationUUID] as? UUID,
               let stationId = presenter.getStations.firstIndex(where: { $0.id == stationUUID })
         else {
             return
         }
+        presenter.updateLastStationId(stationId)
         
         let indexPath = IndexPath(item: stationId, section: 0)
         popularView.radioCollection.selectItem(

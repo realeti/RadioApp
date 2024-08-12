@@ -155,7 +155,7 @@ private extension SearchPresenter {
 
 	func setupAudioPlayer() {
 		let playList = stations.map { PlayerStation(id: $0.stationUUID, url: $0.url) }
-		audioPlayer.setStations(playList)
+		audioPlayer.setStations(playList, startIndex: -1)
 	}
 
 	func mapStationsData() -> AllStations.Model {
@@ -177,7 +177,7 @@ private extension SearchPresenter {
 			tag: tag,
 			title: title,
 			votes: data.votes,
-			isPlayingNow: data.stationUUID == audioPlayer.currentId,
+			isPlayingNow: data.stationUUID == audioPlayer.currentUUID,
 			isFavorite: station != nil ? true : false
 		)
 	}

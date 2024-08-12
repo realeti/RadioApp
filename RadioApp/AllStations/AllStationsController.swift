@@ -182,11 +182,11 @@ private extension AllStationsController {
 
 	@objc
 	func handleIndexChange(_ notification: Notification) {
-		if isActiveSearch {
+		/*if isActiveSearch {
 			searchPresenter.activate()
 		} else {
 			presenter.activate()
-		}
+		}*/
 	}
 }
 
