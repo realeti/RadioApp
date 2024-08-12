@@ -40,14 +40,8 @@ final class PopularViewController: ViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        /*if presenter.isDataLoaded {
-            print("set stations")
-            presenter.setStations()
-        }*/
         
         if !presenter.isLoadingData {
-            print("set stations")
             presenter.setStations()
         }
     }
