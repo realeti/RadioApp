@@ -176,6 +176,15 @@ private extension AllStationsController {
 			isActiveSearch.toggle()
 		}
 	}
+
+	@objc
+	func handleIndexChange(_ notification: Notification) {
+		if isActiveSearch {
+			searchPresenter.activate()
+		} else {
+			presenter.activate()
+		}
+	}
 }
 
 // MARK: - Setup UI
@@ -187,6 +196,8 @@ private extension AllStationsController {
 
 		addSubviews()
 		addActions()
+
+		setupNotification()
 	}
 
 	func makeFlowLayout() -> UICollectionViewFlowLayout {
@@ -288,6 +299,14 @@ private extension AllStationsController {
 
 	func addActions() {
 		activateSearchButton.addAction(UIAction(handler: activateSearchHandler), for: .touchUpInside)
+	}
+
+	private func setupNotification() {
+		NotificationCenter.default.addObserver(
+			self, selector: #selector(handleIndexChange),
+			name: .playerCurrentIndexDidChange,
+			object: nil
+		)
 	}
 }
 
