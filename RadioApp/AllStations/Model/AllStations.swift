@@ -15,6 +15,8 @@ enum AllStations {
 
 		/// Содержит в себе список всех радиостанций.
 		let stations: [Station]
+		/// Индекс текущей радиостанции.
+		let indexPlayingNow: IndexPath
 
 		/// Структура, описывающая радиостанцию
 		struct Station {

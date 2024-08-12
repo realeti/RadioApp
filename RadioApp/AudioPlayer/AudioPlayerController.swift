@@ -9,6 +9,7 @@ import Foundation
 import AVFoundation
 
 protocol AudioPlayerProtocol {
+	var currentId: UUID? { get }
     var currentIndex: Int { get }
     var isPlaying: Bool { get }
     
@@ -29,6 +30,7 @@ final class AudioPlayerController: AudioPlayerProtocol {
     private var currentVolume: Float = 0.5
     
     // MARK: - Public Properties
+	var currentId: UUID?
     var currentIndex: Int = -1
     var isPlaying: Bool = false
     var volume: Float {
@@ -88,12 +90,15 @@ extension AudioPlayerController {
         
         if let url = URL(string: station.url) {
             currentIndex = index
+			currentId = station.id
             playStream(url: url)
         }
     }
     
     func setStations(_ stations: [PlayerStation]) {
         self.stations = stations
+
+		currentIndex = stations.firstIndex { $0.id == currentId } ?? -1
     }
 }
 

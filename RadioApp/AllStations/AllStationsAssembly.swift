@@ -16,13 +16,15 @@ final class AllStationsAssembly: ModuleAssembly {
 			router: router,
 			view: controller,
 			radioBrowser: RadioBrowser.default,
-			storageManager: StorageManager.shared
+			storageManager: StorageManager.shared,
+			audioPlayer: AudioPlayerController.shared
 		)
 		let searchPresenter = SearchPresenter(
 			router: router,
 			view: controller,
 			radioBrowser: RadioBrowser.default,
-			storageManager: StorageManager.shared
+			storageManager: StorageManager.shared,
+			audioPlayer: AudioPlayerController.shared
 		)
 		controller.presenter = presenter
 		controller.searchPresenter = searchPresenter
