@@ -18,9 +18,8 @@ protocol PopularPresenterProtocol {
     init(router: PopularRouterProtocol)
     var getStations: [PopularViewModel] { get }
     var isLoadingData: Bool { get }
-    var isDataLoaded: Bool { get }
     
-    func loadStations() async
+    func loadStations()
     func setStations()
     func removeVoteStatus(_ stationId: Int)
     func changeStation(_ stationId: Int)
@@ -47,7 +46,6 @@ final class PopularPresenter: PopularPresenterProtocol {
     }
     
     var isLoadingData = false
-    var isDataLoaded = false
     
     // MARK: - Init
     init(router: PopularRouterProtocol) {
@@ -57,51 +55,75 @@ final class PopularPresenter: PopularPresenterProtocol {
 
 // MARK: - Load Popular Stations
 extension PopularPresenter {
-    func loadStations() async {
+    func loadStations() {
         guard !isLoadingData else { return }
         isLoadingData = true
         
-        let result = await radioBrowser.getPopularStation(offset: stations.count)
-        
-        switch result {
-        case .success(let fetctedStations):
-            let newStations = fetctedStations.map({ station in
-                /// format station names
-                let stationNames = formatStationNames(station)
-                
-                /// update vote status for station
-                loadVotedStation(with: station.stationUUID)
-                
-                return PopularViewModel(
-                    id: station.stationUUID,
-                    title: stationNames.title,
-                    subtitle: stationNames.subtitle,
-                    voteCount: station.votes,
-                    url: station.urlResolved
-                )
-            })
+        Task {
+            let result = await radioBrowser.getPopularStation(offset: stations.count)
             
-            if stations.isEmpty {
-                /// if stations loaded first time
+            switch result {
+            case .success(let fetchedStations):
+                let newStations = fetchedStations.map { station in
+                    createStationViewModel(from: station)
+                }
+                
+                /// update array of stations
                 stations.append(contentsOf: newStations)
-                view?.didUpdateStations()
-            } else {
-                /// if stations loaded after scroll
-                let startIndex = stations.count
-                let endIndex = startIndex + newStations.count - 1
-                let indexPaths = (startIndex...endIndex).map { IndexPath(item: $0, section: 0) }
-                stations.append(contentsOf: newStations)
-                view?.insertItems(at: indexPaths)
+                
+                /// update view
+                updateView(with: newStations)
+                
+                /// update array of stations in audio player
+                setStations()
+            case .failure(let error):
+                handleError(error)
             }
-            
-            /// update array of stations in audio player
-            setStations()
-        case .failure(let error):
-            print(error)
+            isLoadingData = false
         }
+    }
+}
+
+// MARK: - Update View
+private extension PopularPresenter {
+    func updateView(with newStations: [PopularViewModel]) {
+        if stations.count == newStations.count {
+            /// if stations load first
+            view?.didUpdateStations()
+        } else {
+            /// if station load after scroll
+            let startIndex = stations.count - newStations.count
+            let endIndex = stations.count - 1
+            let indexPaths = (startIndex...endIndex).map {
+                IndexPath(item: $0, section: 0)
+            }
+            view?.insertItems(at: indexPaths)
+        }
+    }
+}
+
+// MARK: - Handle Error
+private extension PopularPresenter {
+    func handleError(_ error: Error) {
+        print("Failed to load stations: \(error.localizedDescription)")
+    }
+}
+
+// MARK: - Create Station View Model
+private extension PopularPresenter {
+    func createStationViewModel(from station: Station) -> PopularViewModel {
+        let stationNames = formatStationNames(station)
         
-        isDataLoaded = true
-        isLoadingData = false
+        /// set vote status for station
+        loadVotedStation(with: station.stationUUID)
+        
+        return PopularViewModel(
+            id: station.stationUUID,
+            title: stationNames.title,
+            subtitle: stationNames.subtitle,
+            voteCount: station.votes,
+            url: station.urlResolved
+        )
     }
 }
 

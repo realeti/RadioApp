@@ -41,7 +41,13 @@ final class PopularViewController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if presenter.isDataLoaded {
+        /*if presenter.isDataLoaded {
+            print("set stations")
+            presenter.setStations()
+        }*/
+        
+        if !presenter.isLoadingData {
+            print("set stations")
             presenter.setStations()
         }
     }
@@ -69,9 +75,7 @@ final class PopularViewController: ViewController {
     
     // MARK: - Load Stations
     private func loadStations() {
-        Task {
-            await presenter.loadStations()
-        }
+        presenter.loadStations()
     }
     
     // MARK: - Deinit
@@ -180,12 +184,13 @@ extension PopularViewController: UICollectionViewDelegate {
         let contentHeight = scrollView.contentSize.height
         let height = scrollView.frame.size.height
         
+        /// check offset
+        guard offsetY > 0 else { return }
+        
         /// update collection when 20% until the end
         if offsetY > contentHeight - height * 1.2 {
             guard !presenter.isLoadingData else { return }
-            Task {
-                await presenter.loadStations()
-            }
+            presenter.loadStations()
         }
     }
 }
