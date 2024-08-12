@@ -14,7 +14,7 @@ protocol ImageSelectionDelegate: AnyObject {
 
 final class ImageSelectionViewController: UIViewController {
     
-    private var profileImageNames = ["ridebyhorse", "realeti", "dr4gons1ayer01", "ShapovalovIlya", "AML1708"]
+    private var profileImageNames = ["1", "2", "3", "4", "5", "6", "7", "8"]
     
     private let scrollView = UIScrollView()
     private var imagePicker = UIImagePickerController()
