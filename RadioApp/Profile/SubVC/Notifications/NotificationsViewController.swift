@@ -60,6 +60,10 @@ final class NotificationsViewController: ViewController, NotificationsVCProtocol
         presenter.activate()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true
+    }
+    
     // MARK: - NotificationsVCProtocol
     
     func update(isNotificationEnabled: Bool) {

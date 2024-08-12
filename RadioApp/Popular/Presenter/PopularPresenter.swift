@@ -20,7 +20,7 @@ protocol PopularPresenterProtocol {
     var isLoadingData: Bool { get }
     
     func loadStations()
-    func setStations()
+    func setPlayerStations()
     func removeVoteStatus(_ stationId: Int)
     func changeStation(_ stationId: Int)
     func toggleVoteState(for stationId: Int)
@@ -75,7 +75,7 @@ extension PopularPresenter {
                 updateView(with: newStations)
                 
                 /// update array of stations in audio player
-                setStations()
+                setPlayerStations()
             case .failure(let error):
                 handleError(error)
             }
@@ -165,7 +165,7 @@ extension PopularPresenter {
 
 // MARK: - Set Stations for Audio Player
 extension PopularPresenter {
-    func setStations() {
+    func setPlayerStations() {
         let audioStations: [PlayerStation] = stations.map { station in
             PlayerStation(id: station.id, url: station.url)
         }

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Kingfisher
+import RadioBrowser
 
 protocol StationDetailsView: AnyObject {
     func displayStationDetails(_ station: RadioStation)
@@ -26,15 +28,14 @@ final class StationDetailsController: ViewController {
     
     private let radioFrequencyLabel: UILabel = {
         let label = UILabel()
-//        label.text = "90.5"
-        label.font = UIFont.systemFont(ofSize: 54, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        label.numberOfLines = 0
         label.textColor = UIColor.white
         return label
     }()
     
     private let radioNameLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Radio Divelement"
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         label.textColor = UIColor.white
         return label
@@ -42,8 +43,7 @@ final class StationDetailsController: ViewController {
     
     private let stationImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-//        imageView.image = UIImage(named: "googlePlus")
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -54,6 +54,8 @@ final class StationDetailsController: ViewController {
         button.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
         return button
     }()
+    
+    private let radioBrowser = RadioBrowser.default
     
     private let equalizerView = EqualizerView()
     
@@ -73,8 +75,13 @@ final class StationDetailsController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setVolumeValue()
+        tabBarController?.tabBar.isHidden = true
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
     private func setupUI() {
         title = "Playing now"
         
@@ -119,12 +126,13 @@ final class StationDetailsController: ViewController {
         
         stationImageView.snp.makeConstraints { make in
             make.top.equalTo(radioFrequencyLabel.snp.top)
-            make.leading.equalTo(radioNameLabel.snp.trailing).offset(5)
-            make.height.width.equalTo(80)
+            make.trailing.equalToSuperview().offset(-30)
+//            make.leading.equalTo(radioNameLabel.snp.trailing).offset(10)
+            make.height.width.equalTo(50)
         }
         
         favoriteButton.snp.makeConstraints { make in
-            make.bottom.equalTo(stationImageView.snp.top).offset(-10)
+            make.bottom.equalTo(stationImageView.snp.top).offset(-20)
             make.trailing.equalTo(stationImageView.snp.trailing)
             make.height.width.equalTo(20)
         }
@@ -178,8 +186,17 @@ extension StationDetailsController: VolumePlayerProtocol {
 extension StationDetailsController: StationDetailsView {
     
     func displayStationDetails(_ station: RadioStation) {
-        stationImageView.image = UIImage(named: "\(station.imageName)")
-        radioFrequencyLabel.text = station.frequency
+        
+        let placeholderImage = UIImage(named: "signal-tower")
+
+        if let imageUrlString = station.imageName, let imageUrl = URL(string: imageUrlString) {
+               stationImageView.kf.setImage(with: imageUrl, placeholder: placeholderImage)
+           } else {
+               stationImageView.image = placeholderImage
+           }
+       
+//        stationImageView.image = UIImage(named: "\(station.imageName)")
+        radioFrequencyLabel.text = "\(station.frequency)"
         radioNameLabel.text = station.name
     }
     

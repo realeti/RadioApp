@@ -196,7 +196,6 @@ class ViewController: UIViewController {
     @objc private func didTapProfilePic() {
         //go to ProfileVC
         let profileVC = Builder.createProfile()
-        profileVC.hidesBottomBarWhenPushed = true
         guard let topVC = navigationController?.topViewController else { return }
         if topVC as? ProfileViewController == nil {
             navigationController?.pushViewController(profileVC, animated: true)

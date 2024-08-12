@@ -16,5 +16,5 @@ protocol FavoritesPresenterProtocol {
 }
 
 protocol FavoritesRouterProtocol: Router {
-    func showDetails()
+    func showDetails(with station: RadioStation)
 }

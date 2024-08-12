@@ -61,10 +61,10 @@ final class HomeController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
         tabBar.addSubview(indicator)
         self.delegate = self
-        
-        configure()
+        additionalSafeAreaInsets.bottom = 30
         setupAudioPlayer()
     }
     
@@ -84,8 +84,9 @@ final class HomeController: UITabBarController {
         viewControllers = [popularVC, favoriteVC, allStationsVC]
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
         animate(index: selectedIndex)
     }
     
@@ -93,10 +94,7 @@ final class HomeController: UITabBarController {
         let buttons = tabBar.subviews
             .filter({ String(describing: $0).contains("Button") })
         
-        guard index < buttons.count else {
-            return
-        }
-        
+        guard index < buttons.count else { return }
         let selectedButton = buttons[index]
         UIView.animate(
             withDuration: 0.25,
@@ -105,9 +103,9 @@ final class HomeController: UITabBarController {
             animations: {
                 let point = CGPoint(
                     x: selectedButton.center.x,
-                    y: selectedButton.frame.maxY - 1
+                    y: selectedButton.frame.maxY + 20
                 )
-                
+                print(point)
                 self.indicator.center = point
             },
             completion: nil
@@ -123,7 +121,8 @@ private extension HomeController {
         audioPlayerVC.didMove(toParent: self)
         
         audioPlayerVC.view.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.leading.trailing.top.equalToSuperview()
+            make.bottom.equalToSuperview().inset(24)
         }
     }
 }

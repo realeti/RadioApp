@@ -13,6 +13,7 @@
 		113FE50D2C61396B00B2AC8B /* EqualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FE5062C61396A00B2AC8B /* EqualizerView.swift */; };
 		113FE50E2C61396B00B2AC8B /* StationDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FE5072C61396A00B2AC8B /* StationDetailsController.swift */; };
 		113FE50F2C61396B00B2AC8B /* StationDetailsAssembly .swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FE5092C61396A00B2AC8B /* StationDetailsAssembly .swift */; };
+		11A1C67C2C69765F00C86B91 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 11A1C67B2C69765F00C86B91 /* Kingfisher */; };
 		B6E8FDFB2C670359008FF38C /* AllStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8FDEF2C670359008FF38C /* AllStations.swift */; };
 		B6E8FDFC2C670359008FF38C /* AllStationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8FDF12C670359008FF38C /* AllStationsCell.swift */; };
 		B6E8FDFD2C670359008FF38C /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8FDF22C670359008FF38C /* StationView.swift */; };
@@ -282,6 +283,7 @@
 				CBB20CDD2C62171700B35416 /* Lottie in Frameworks */,
 				CBB20CC42C61542A00B35416 /* SnapKit in Frameworks */,
 				CBB20CBF2C61540E00B35416 /* FirebaseAuth in Frameworks */,
+				11A1C67C2C69765F00C86B91 /* Kingfisher in Frameworks */,
 				CBB20CDA2C6216B400B35416 /* GoogleSignInSwift in Frameworks */,
 				CBB20CC12C61540E00B35416 /* FirebaseFirestore in Frameworks */,
 				CBB20CC72C61566300B35416 /* RadioBrowser in Frameworks */,
@@ -867,6 +869,7 @@
 				CBB20CD72C6216B400B35416 /* GoogleSignIn */,
 				CBB20CD92C6216B400B35416 /* GoogleSignInSwift */,
 				CBB20CDC2C62171700B35416 /* Lottie */,
+				11A1C67B2C69765F00C86B91 /* Kingfisher */,
 			);
 			productName = RadioApp;
 			productReference = CB2C8C922C5698E400D280FE /* RadioApp.app */;
@@ -903,6 +906,7 @@
 				CBB20CC52C61566300B35416 /* XCRemoteSwiftPackageReference "RadioBrowser" */,
 				CBB20CD62C6216B400B35416 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				CBB20CDB2C62171700B35416 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				11A1C67A2C69765F00C86B91 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = CB2C8C932C5698E400D280FE /* Products */;
 			projectDirPath = "";
@@ -1287,6 +1291,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		11A1C67A2C69765F00C86B91 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
 		CBB20CBD2C61540E00B35416 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1330,6 +1342,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		11A1C67B2C69765F00C86B91 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11A1C67A2C69765F00C86B91 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		CBB20CBE2C61540E00B35416 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CBB20CBD2C61540E00B35416 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

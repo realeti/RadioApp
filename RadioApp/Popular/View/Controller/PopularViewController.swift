@@ -42,7 +42,7 @@ final class PopularViewController: ViewController {
         super.viewWillAppear(animated)
         
         if !presenter.isLoadingData {
-            presenter.setStations()
+            presenter.setPlayerStations()
         }
     }
     

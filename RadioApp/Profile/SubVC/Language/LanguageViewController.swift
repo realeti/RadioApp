@@ -47,6 +47,11 @@ final class LanguageViewController: ViewController, LanguageVCProtocol {
         setupTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if presenter.isShouldReloadRootController {
