@@ -9,7 +9,6 @@ import Foundation
 
 protocol StationDetailsPresenterProtocol {
     func viewDidLoad()
-    func didTapPlayButton()
     func toggleFavorite()
     func getPlayerVolume() -> Float
     func updatePlayerVolume(_ volume: Float)
@@ -24,7 +23,10 @@ final class StationDetailsPresenter: StationDetailsPresenterProtocol {
     init(view: StationDetailsView, station: RadioStation) {
         self.view = view
         self.station = station
-//        audioPlayer.setStations([PlayerStation.init(id: station.id, url: station.url)])
+        if audioPlayer.currentId != station.id {
+            audioPlayer.setStations([PlayerStation.init(id: station.id, url: station.url)])
+            audioPlayer.playNext()
+        }
         setNotification()
         if audioPlayer.isPlaying {
             self.view?.startEqualizerAnimation()
@@ -39,16 +41,6 @@ final class StationDetailsPresenter: StationDetailsPresenterProtocol {
     func viewDidLoad() {
         view?.displayStationDetails(station)
         loadFavStation(with: station.id)
-    }
-    
-    func didTapPlayButton() {
-        if isPlaying {
-            view?.stopEqualizerAnimation()
-        } else {
-            view?.startEqualizerAnimation()
-        }
-        
-        isPlaying.toggle()
     }
     
     func toggleFavorite() {
