@@ -158,7 +158,8 @@ private extension SearchPresenter {
 
 	func mapStationsData() -> AllStations.Model {
 		let radioStations = stations.map { makeStationModel(from: $0) }
-		return AllStations.Model(stations: radioStations)
+		let indexPlayingNow = IndexPath(row: audioPlayer.currentIndex, section: 0)
+		return AllStations.Model(stations: radioStations, indexPlayingNow: indexPlayingNow)
 	}
 
 	func makeStationModel(from data: Station) -> AllStations.Model.Station {

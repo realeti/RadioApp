@@ -24,7 +24,7 @@ final class AllStationsController: ViewController {
 
 	private lazy var collectionView = makeCollectionView()
 
-	private var model = AllStations.Model(stations: [])
+	private var model = AllStations.Model(stations: [], indexPlayingNow: IndexPath(row: 0, section: 0))
 	private var isActiveSearch: Bool = false {
 		didSet {
 			let image = isActiveSearch ? UIImage.closeSearch : .goSearch
@@ -42,6 +42,7 @@ final class AllStationsController: ViewController {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		showLoading()
 		if isActiveSearch {
 			searchPresenter.activate()
 		} else {
@@ -61,6 +62,7 @@ extension AllStationsController: UITextFieldDelegate {
 
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		if let text = textField.text, !text.isEmpty {
+			showLoading()
 			searchPresenter.searchStations(with: text)
 			textField.resignFirstResponder()
 			collectionView.setContentOffset(CGPoint(x:0 ,y:0), animated: true)
@@ -90,6 +92,8 @@ extension AllStationsController: AllStationsControllerProtocol {
 	func update(with model: AllStations.Model) {
 		self.model = model
 		collectionView.reloadData()
+		hideLoading()
+		collectionView.scrollToItem(at: model.indexPlayingNow, at: .centeredVertically, animated: true)
 	}
 }
 
@@ -168,7 +172,6 @@ private extension AllStationsController {
 				searchTextField.text = ""
 				searchTextField.resignFirstResponder()
 				presenter.activate()
-				collectionView.setContentOffset(CGPoint(x:0 ,y:0), animated: true)
 			} else {
 				searchPresenter.activate()
 				searchTextField.becomeFirstResponder()
@@ -319,7 +322,7 @@ private extension AllStationsController {
 			mainStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
 			mainStack.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
 			mainStack.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-			mainStack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -130),
+			mainStack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -120),
 
 			titleLabel.leadingAnchor.constraint(equalTo: mainStack.leadingAnchor, constant: 44.18),
 

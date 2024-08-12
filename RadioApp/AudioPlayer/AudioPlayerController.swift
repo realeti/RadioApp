@@ -97,6 +97,8 @@ extension AudioPlayerController {
     
     func setStations(_ stations: [PlayerStation]) {
         self.stations = stations
+
+		currentIndex = stations.firstIndex { $0.id == currentId } ?? -1
     }
 }
 
