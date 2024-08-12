@@ -24,7 +24,12 @@ final class AllStationsRouter: AllStationsRouterProtocol {
 	}
 
 	func showStationDetails(with stationData: Station) {
-		let controller = StationDetailsAssembly().build()
+        let station = RadioStation(id: stationData.stationUUID,
+                                   url: stationData.url,
+                                   frequency: stationData.tags[0],
+                                   name: stationData.name,
+                                   imageName: stationData.favicon)
+        let controller = StationDetailsAssembly().build(with: station)
 		navigation.pushViewController(controller, animated: true)
 	}
 }
