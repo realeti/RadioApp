@@ -182,7 +182,7 @@ extension StationDetailsController: StationDetailsView {
     
     func displayStationDetails(_ station: RadioStation) {
         
-        let placeholderImage = UIImage(named: "googlePlus")
+        let placeholderImage = UIImage(named: "signal-tower")
 
         if let imageUrlString = station.imageName, let imageUrl = URL(string: imageUrlString) {
                stationImageView.kf.setImage(with: imageUrl, placeholder: placeholderImage)

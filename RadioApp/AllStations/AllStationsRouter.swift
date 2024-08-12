@@ -29,7 +29,6 @@ final class AllStationsRouter: AllStationsRouterProtocol {
                                    frequency: stationData.tags[0],
                                    name: stationData.name,
                                    imageName: stationData.favicon)
-        print(stationData.favicon + "FAVICON!!!")
         let controller = StationDetailsAssembly().build(with: station)
 		navigation.pushViewController(controller, animated: true)
 	}
