@@ -13,4 +13,5 @@ struct PopularViewModel {
     let subtitle: String
     let voteCount: Int
     let url: String
+    let imageURL: String
 }

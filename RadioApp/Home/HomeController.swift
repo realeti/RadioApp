@@ -121,8 +121,7 @@ private extension HomeController {
         audioPlayerVC.didMove(toParent: self)
         
         audioPlayerVC.view.snp.makeConstraints { make in
-            make.leading.trailing.top.equalToSuperview()
-            make.bottom.equalToSuperview().inset(24)
+            make.edges.equalToSuperview()
         }
     }
 }
