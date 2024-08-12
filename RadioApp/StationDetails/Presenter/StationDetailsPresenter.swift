@@ -22,6 +22,8 @@ final class StationDetailsPresenter: StationDetailsPresenterProtocol {
     private let station: RadioStation
     private var isPlaying = false
     
+    private var favoriteStations: Set<UUID> = []
+    
     init(view: StationDetailsView, station: RadioStation) {
         self.view = view
         self.station = station
@@ -52,10 +54,12 @@ final class StationDetailsPresenter: StationDetailsPresenterProtocol {
     }
     
     func addStationToFavorites() {
+        favoriteStations.insert(station.id)
         print("Add to favorites")
     }
     
     func removeStationFromFavorites() {
+        favoriteStations.remove(station.id)
         print("Remove from favorites")
     }
     
