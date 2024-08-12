@@ -166,6 +166,7 @@ final class EditProfileViewController: ViewController, EditProfileViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.fetchUser()
+        tabBarController?.tabBar.isHidden = true
     }
     
     // MARK: - Life Cycle Methods

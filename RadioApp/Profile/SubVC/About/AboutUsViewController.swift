@@ -29,6 +29,11 @@ final class AboutUsViewController: ViewController, AboutViewControllerProtocol {
         setViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
     //MARK: - Private Methods
     private func setViews() {
         view.backgroundColor = .darkBlueApp

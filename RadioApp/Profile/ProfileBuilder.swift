@@ -43,7 +43,6 @@ extension Builder {
     }
     
     static func configureViewForTabBar(_ view: ViewController) {
-        view.hidesBottomBarWhenPushed = true
         view.playerIsHidden = true
     }
 }

@@ -21,6 +21,11 @@ final class PrivacyViewController: ViewController, PrivacyViewProtocol {
         setupConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
     // MARK: - Private Methods
     private func makeSection(with title: String, description: String) -> UIStackView {
         let titleLabel = UILabel.makeLabel(
