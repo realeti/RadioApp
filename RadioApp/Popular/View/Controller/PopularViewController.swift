@@ -35,6 +35,7 @@ final class PopularViewController: ViewController {
         
         setDelegates()
         setNotification()
+        setTapGesutre()
         loadStations()
     }
     
@@ -67,6 +68,16 @@ final class PopularViewController: ViewController {
         )
     }
     
+    // MARK: - Set Tap Gesture
+    private func setTapGesutre() {
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(handleDoubleTap)
+        )
+        tapGesture.numberOfTapsRequired = 2
+        popularView.radioCollection.addGestureRecognizer(tapGesture)
+    }
+    
     // MARK: - Load Stations
     private func loadStations() {
         presenter.loadStations()
@@ -78,8 +89,18 @@ final class PopularViewController: ViewController {
     }
 }
 
-// MARK: - Notification handle
+// MARK: - Actions
 private extension PopularViewController {
+    @objc func handleDoubleTap(_ gesture: UITapGestureRecognizer) {
+        let collectionView = popularView.radioCollection
+        let point = gesture.location(in: collectionView)
+        
+        if let indexPath = collectionView.indexPathForItem(at: point) {
+            let stationId = indexPath.row
+            presenter.showDetail(stationId)
+        }
+    }
+    
     @objc func handleIndexChange(_ notification: Notification) {
         guard let stationId = notification.userInfo?[K.UserInfoKey.stationIndex] as? Int else {
             return
