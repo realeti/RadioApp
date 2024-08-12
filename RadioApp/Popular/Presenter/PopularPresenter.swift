@@ -184,7 +184,7 @@ extension PopularPresenter {
         
         if stationId != currentStationId {
             audioPlayer.playStation(at: stationId)
-            //updateLastStationId(stationId)
+            updateLastStationId(stationId)
         }
     }
 }

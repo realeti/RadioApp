@@ -36,6 +36,10 @@ final class AudioPlayerController: AudioPlayerProtocol {
         didSet { currentUUID = stations[currentIndex].id }
     }
     
+    var isPlaying: Bool = false {
+        didSet { postStatusNotification() }
+    }
+    
     var volume: Float {
         get { currentVolume }
         set {
@@ -44,27 +48,17 @@ final class AudioPlayerController: AudioPlayerProtocol {
         }
     }
     
-    var isPlaying: Bool = false
-    
     private init() {}
 }
 
-// MARK: - AudioPlayer Methods
+// MARK: - Methods
 extension AudioPlayerController {
-    private func playStream(url: URL) {
-        stopStream()
-        
-        let playerItem = AVPlayerItem(url: url)
-        audioPlayer = AVPlayer(playerItem: playerItem)
-        audioPlayer?.play()
-        audioPlayer?.volume = currentVolume
-        
-        isPlaying = true
-        postStatusNotification()
-    }
-    
+    /// play & pause button action
     func playPause() {
-        guard let audioPlayer else { return }
+        guard let audioPlayer else {
+            playStation(at: currentIndex)
+            return
+        }
         
         if (isPlaying) {
             audioPlayer.pause()
@@ -73,9 +67,9 @@ extension AudioPlayerController {
         }
         
         isPlaying.toggle()
-        postStatusNotification()
     }
     
+    /// previous button action
     func playPrevious() {
         guard !stations.isEmpty else { return }
         
@@ -83,6 +77,7 @@ extension AudioPlayerController {
         playStation(at: currentIndex)
     }
     
+    /// next button action
     func playNext() {
         guard !stations.isEmpty else { return }
         
@@ -90,6 +85,7 @@ extension AudioPlayerController {
         playStation(at: currentIndex)
     }
     
+    /// play selected station
     func playStation(at index: Int) {
         let station = stations[index]
         
@@ -99,13 +95,28 @@ extension AudioPlayerController {
         }
     }
     
+    /// setup & play audio player
+    private func playStream(url: URL) {
+        stopStream()
+        
+        let playerItem = AVPlayerItem(url: url)
+        audioPlayer = AVPlayer(playerItem: playerItem)
+        audioPlayer?.play()
+        audioPlayer?.volume = currentVolume
+        
+        isPlaying = true
+    }
+}
+
+// MARK: - Set Stations
+extension AudioPlayerController {
     func setStations(_ stations: [PlayerStation], startIndex: Int) {
         self.stations = stations
         currentIndex = startIndex
     }
 }
 
-// MARK: - AudioPlayer Stop Stream
+// MARK: - Stop Stream
 private extension AudioPlayerController {
     func stopStream() {
         audioPlayer?.pause()
@@ -114,7 +125,7 @@ private extension AudioPlayerController {
     }
 }
 
-// MARK: - AudioPlayer Notifications
+// MARK: - Notifications
 private extension AudioPlayerController {
     func postStatusNotification() {
         NotificationCenter.default.post(
