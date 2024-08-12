@@ -13,6 +13,7 @@ protocol StationDetailsView: AnyObject {
     func displayStationDetails(_ station: RadioStation)
     func startEqualizerAnimation()
     func stopEqualizerAnimation()
+    func updateFavButton(isFav: Bool)
 }
 
 final class StationDetailsController: ViewController {
@@ -31,6 +32,7 @@ final class StationDetailsController: ViewController {
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         label.numberOfLines = 0
         label.textColor = UIColor.white
+        label.textAlignment = .center
         return label
     }()
     
@@ -38,19 +40,18 @@ final class StationDetailsController: ViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         label.textColor = UIColor.white
+        label.textAlignment = .center
         return label
     }()
     
     private let stationImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
     private lazy var favoriteButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "favOff"), for: .normal)
-        button.setImage(UIImage(named: "favOn"), for: .selected)
         button.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -78,10 +79,25 @@ final class StationDetailsController: ViewController {
         tabBarController?.tabBar.isHidden = true
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        stationImageView.clipsToBounds = true
+        stationImageView.layer.cornerRadius = stationImageView.frame.width / 2
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         tabBarController?.tabBar.isHidden = false
     }
+
+    func updateFavButton(isFav: Bool) {
+        if isFav {
+            favoriteButton.setImage(UIImage.voteOn, for: .normal)
+        } else {
+            favoriteButton.setImage(UIImage.voteOff, for: .normal)
+        }
+    }
+    
     private func setupUI() {
         title = "Playing now"
         
@@ -111,12 +127,15 @@ final class StationDetailsController: ViewController {
         
         radioFrequencyLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(200)
-            make.centerX.equalToSuperview().offset(-20)
+            make.centerX.equalToSuperview()
+            make.leading.equalToSuperview().inset(60)
+            make.trailing.equalToSuperview().inset(85)
         }
         
         radioNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(radioFrequencyLabel.snp.bottom).offset(5)
-            make.centerX.equalToSuperview().offset(-20)
+            make.top.equalTo(radioFrequencyLabel.snp.bottom).offset(10)
+            make.centerX.equalToSuperview()
+            make.leading.trailing.equalTo(radioFrequencyLabel)
         }
         
         equalizerView.snp.makeConstraints { make in
@@ -126,14 +145,14 @@ final class StationDetailsController: ViewController {
         
         stationImageView.snp.makeConstraints { make in
             make.top.equalTo(radioFrequencyLabel.snp.top)
-            make.trailing.equalToSuperview().offset(-30)
+            make.leading.equalTo(radioFrequencyLabel.snp.trailing).inset(-5)
 //            make.leading.equalTo(radioNameLabel.snp.trailing).offset(10)
             make.height.width.equalTo(50)
         }
         
         favoriteButton.snp.makeConstraints { make in
             make.bottom.equalTo(stationImageView.snp.top).offset(-20)
-            make.trailing.equalTo(stationImageView.snp.trailing)
+            make.trailing.equalTo(stationImageView)
             make.height.width.equalTo(20)
         }
         
@@ -146,13 +165,7 @@ final class StationDetailsController: ViewController {
     }
     
     @objc private func favoriteButtonTapped() {
-        favoriteButton.isSelected.toggle()
-        
-        if favoriteButton.isSelected {
-            presenter.addStationToFavorites()
-        } else {
-            presenter.removeStationFromFavorites()
-        }
+        presenter.toggleFavorite()
     }
 }
 

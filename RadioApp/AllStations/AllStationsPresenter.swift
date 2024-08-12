@@ -147,7 +147,9 @@ private extension AllStationsPresenter {
 		storageManager.toggleFavorite(
 			id: station.stationUUID,
 			title: station.name.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .newlines),
-			genre: station.tags.first ?? ""
+			genre: station.tags.first ?? "",
+            url: station.url,
+            favicon: station.favicon
 		)
 	}
 

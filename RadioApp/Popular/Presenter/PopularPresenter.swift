@@ -194,7 +194,7 @@ extension PopularPresenter {
         
         /// save to storage
         let selectedStation = stations[stationId]
-        storage.toggleFavorite(id: selectedStation.id, title: selectedStation.title, genre: selectedStation.subtitle)
+        storage.toggleFavorite(id: selectedStation.id, title: selectedStation.title, genre: selectedStation.subtitle, url: selectedStation.url, favicon: selectedStation.imageURL)
     }
     
     func isStationVoted(_ stationId: Int) -> Bool {

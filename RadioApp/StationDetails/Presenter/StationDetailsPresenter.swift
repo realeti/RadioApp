@@ -10,8 +10,7 @@ import Foundation
 protocol StationDetailsPresenterProtocol {
     func viewDidLoad()
     func didTapPlayButton()
-    func addStationToFavorites()
-    func removeStationFromFavorites()
+    func toggleFavorite()
     func getPlayerVolume() -> Float
     func updatePlayerVolume(_ volume: Float)
 }
@@ -21,8 +20,6 @@ final class StationDetailsPresenter: StationDetailsPresenterProtocol {
     private weak var view: StationDetailsView?
     private let station: RadioStation
     private var isPlaying = false
-    
-    private var favoriteStations: Set<UUID> = []
     
     init(view: StationDetailsView, station: RadioStation) {
         self.view = view
@@ -41,6 +38,7 @@ final class StationDetailsPresenter: StationDetailsPresenterProtocol {
     
     func viewDidLoad() {
         view?.displayStationDetails(station)
+        loadFavStation(with: station.id)
     }
     
     func didTapPlayButton() {
@@ -53,14 +51,18 @@ final class StationDetailsPresenter: StationDetailsPresenterProtocol {
         isPlaying.toggle()
     }
     
-    func addStationToFavorites() {
-        favoriteStations.insert(station.id)
-        print("Add to favorites")
+    func toggleFavorite() {
+        StorageManager.shared.toggleFavorite(id: station.id, title: station.frequency, genre: station.name, url: station.url, favicon: station.url)
+        loadFavStation(with: station.id)
     }
     
-    func removeStationFromFavorites() {
-        favoriteStations.remove(station.id)
-        print("Remove from favorites")
+    
+    func loadFavStation(with stationUniqueId: UUID) {
+        if let _ = StorageManager.shared.fetchStation(with: stationUniqueId) {
+            view?.updateFavButton(isFav: true)
+        } else {
+            view?.updateFavButton(isFav: false)
+        }
     }
     
     func getPlayerVolume() -> Float {
