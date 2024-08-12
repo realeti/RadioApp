@@ -83,6 +83,7 @@ final class HomeController: UITabBarController {
         
         viewControllers = [popularVC, favoriteVC, allStationsVC]
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 

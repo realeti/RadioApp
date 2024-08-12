@@ -25,7 +25,6 @@ final class AllStationsRouter: AllStationsRouterProtocol {
 
 	func showStationDetails(with stationData: Station) {
 		let controller = StationDetailsAssembly().build()
-        controller.hidesBottomBarWhenPushed = true
 		navigation.pushViewController(controller, animated: true)
 	}
 }
