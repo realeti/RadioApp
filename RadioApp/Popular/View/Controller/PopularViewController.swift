@@ -56,8 +56,8 @@ final class PopularViewController: ViewController {
     // MARK: - Set Notification
     private func setNotification() {
         NotificationCenter.default.addObserver(
-            self, selector: #selector(handleIndexChange),
-            name: .playerCurrentIndexDidChange,
+            self, selector: #selector(handleStationChange),
+            name: .playerStationDidChange,
             object: nil
         )
         
@@ -101,8 +101,10 @@ private extension PopularViewController {
         }
     }
     
-    @objc func handleIndexChange(_ notification: Notification) {
-        guard let stationId = notification.userInfo?[K.UserInfoKey.stationIndex] as? Int else {
+    @objc func handleStationChange(_ notification: Notification) {
+        guard let stationUUID = notification.userInfo?[K.UserInfoKey.stationIndex] as? UUID,
+              let stationId = presenter.getStations.firstIndex(where: { $0.id == stationUUID })
+        else {
             return
         }
         

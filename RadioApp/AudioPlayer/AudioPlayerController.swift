@@ -116,9 +116,9 @@ private extension AudioPlayerController {
         )
         
         NotificationCenter.default.post(
-            name: .playerCurrentIndexDidChange,
+            name: .playerStationDidChange,
             object: nil,
-            userInfo: [K.UserInfoKey.stationIndex: currentIndex]
+            userInfo: [K.UserInfoKey.stationIndex: stations[currentIndex].id]
         )
     }
 }
