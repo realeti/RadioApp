@@ -93,7 +93,7 @@ extension AudioPlayerController {
     }
     
     func setStations(_ stations: [PlayerStation], startIndex: Int = -1) {
-        self.stations = stations
+        self.stations.append(contentsOf: stations)
         self.currentIndex = startIndex
     }
 }
