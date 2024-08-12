@@ -7,29 +7,55 @@
 
 import Foundation
 
+enum ReauthenticateMode {
+    case email
+    case password
+}
+
 protocol EditProfilePresenterProtocol {
-    func saveUserData(user: User)
+    func saveUserData(user: UserApp)
     func fetchUser()
     func isLoginBooked(login: String) -> Bool
     func isEmailBooked(email: String) -> Bool
-    func isPasswordBooked(password: String) -> Bool
+    func reathenticate(mode: ReauthenticateMode)
 }
 
 final class EditProfilePresenter: EditProfilePresenterProtocol {
-    
     weak var view: EditProfileViewControllerProtocol?
     private var router: ProfileRouterProtocol
+    private var currentUser: UserApp? {
+        didSet {
+            guard let currentUser else { return }
+            DispatchQueue.main.sync { [weak self] in
+                self?.view?.fetchUser(currentUser)
+            }
+        }
+    }
+    
     init(view: EditProfileViewControllerProtocol, router: ProfileRouterProtocol) {
         self.view = view
         self.router = router
     }
     
-    func saveUserData(user: User) {
-
+    func saveUserData(user: UserApp) {
+        StorageManager.shared.saveUser(user)
+        view?.updateRightBarButtonImage()
+        if !user.login.isEmpty {
+            AuthenticationManager.shared.updateUsername(name: user.login)
+        }
     }
     
     func fetchUser() {
-
+        Task {
+            do {
+                let authUser = try await AuthenticationManager.shared.getAuthenticatedUser()
+                currentUser = .init(id: "", login: authUser.name ?? "Unknown", email: authUser.email ?? "-")
+                fetchUser()
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func isLoginBooked(login: String) -> Bool {
@@ -42,9 +68,10 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
         return false
     }
     
-    func isPasswordBooked(password: String) -> Bool {
-        
-        return false
+    func reathenticate(mode: ReauthenticateMode) {
+        router.showReauthenticate(mode: mode)
     }
+    
+    
 }
 

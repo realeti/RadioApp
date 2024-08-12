@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Lottie
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var router: RootRouter?
+
     var window: UIWindow?
-    
-    
+    private var isShowingHomeVC: Bool = false
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 

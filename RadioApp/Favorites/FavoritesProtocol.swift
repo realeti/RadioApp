@@ -11,11 +11,10 @@ protocol FavoritesControllerProtocol: AnyObject {
     func update(with model: FavoritesController.Model)
 }
 
-
 protocol FavoritesPresenterProtocol {
     func activate()
 }
 
 protocol FavoritesRouterProtocol: Router {
-    func showDetails()
+    func showDetails(with station: RadioStation)
 }

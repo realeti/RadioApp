@@ -65,10 +65,11 @@ The information is processed to complete transactions, provide customer support 
 "Or Sign In" = "Or Sign In";
 "to start play" = "to start play";
 
-"Update\nPassword" = "Update Password";
+"Update Password" = "Update Password";
+"Update\nPassword" = "Update\nPassword";
 "Confirm password" = "Confirm password";
 "Change password" = "Change password";
-"Forgot\nPassword" = "Forgot Password";
+"Forgot\nPassword" = "Forgot\nPassword";
 "Send" = "Send";
 "votes" = "votes";
 
@@ -114,3 +115,20 @@ The information is processed to complete transactions, provide customer support 
 "Close" = "Close";
 "OpenSettings" = "OpenSettings";
 "Log Out" = "Log Out";
+
+"All Stations" = "All Stations";
+"Playing now" = "Playing now";
+"Not known" = "Not known";
+
+"Do you want to Log Out?" = "Do you want to Log Out?";
+"Cancel" = "Cancel";
+"To update password you need to Sign In again" = "To update password you need to Sign In again";
+"To update email you need to Sign In again" = "To update email you need to Sign In again";
+"Password successfully updated" = "Password successfully updated";
+"Update email" = "Update email";
+"Update\nEmail" = "Update\nEmail";
+"New email" = "New email";
+"Your new email" = "Your new email";
+"to update email" = "to update email";
+"to update password" = "to update password";
+

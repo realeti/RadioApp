@@ -15,6 +15,8 @@ protocol ForgotPasswordControllerProtocol: AnyObject {
 final class ForgotPasswordController: UIViewController {
     var presenter: (any ForgotPasswordPresenterProtocol)?
     private var email: String?
+    private var mode: ForgotMode?
+    private var emailField: AuthorizationField?
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -25,10 +27,12 @@ final class ForgotPasswordController: UIViewController {
 extension ForgotPasswordController: ForgotPasswordControllerProtocol {
     struct Model {
         var email: String?
+        let mode: ForgotMode
     }
     
     func update(with model: Model) {
         email = model.email
+        mode = model.mode
         setupUI()
     }
 }
@@ -51,7 +55,7 @@ private extension ForgotPasswordController {
         mainLabel.numberOfLines = 2
         mainLabel.text = "Forgot\nPassword".localized
         
-        let emailField = AuthorizationField(delegate: self, title: "Email".localized, placeholder: "Your email".localized, isSecure: false)
+        
         
         let sendButton = UIButton()
         sendButton.setTitle("Send".localized, for: .normal)
@@ -61,6 +65,21 @@ private extension ForgotPasswordController {
         sendButton.layer.cornerRadius = 10
         sendButton.addTarget(self, action: #selector(sendTapped), for: .touchUpInside)
         
+        
+        guard let mode else { return }
+        switch mode {
+        case .forgotPassword:
+            mainLabel.text = "Forgot\nPassword".localized
+            sendButton.setTitle("Send".localized, for: .normal)
+            emailField = AuthorizationField(delegate: self, title: "Email".localized, placeholder: "Your email".localized, isSecure: false)
+        case .updateEmail:
+            mainLabel.text = "Update\nEmail".localized
+            sendButton.setTitle("Update".localized, for: .normal)
+            emailField = AuthorizationField(delegate: self, title: "New email".localized, placeholder: "Your new email".localized, isSecure: false)
+        }
+        
+        guard let emailField else { return }
+        emailField.textField.text = email
         view.addSubview(bg)
         view.addSubview(backButton)
         view.addSubview(mainLabel)
@@ -80,6 +99,7 @@ private extension ForgotPasswordController {
         
         mainLabel.snp.makeConstraints { make in
             make.leading.equalTo(backButton)
+            make.leading.equalToSuperview().inset(43)
             make.top.equalTo(backButton.snp.bottom).inset(-35)
         }
         
@@ -103,13 +123,19 @@ private extension ForgotPasswordController {
     
     @objc func sendTapped() {
         print("send tapped")
-        presenter?.requestUpdatePassword(email: email)
+        guard let mode else { return }
+        switch mode {
+        case .forgotPassword:
+            presenter?.requestUpdatePassword(email: emailField?.textField.text)
+        case .updateEmail:
+            presenter?.requestUpdateEmail(email: emailField?.textField.text)
+        }
     }
 }
 
 extension ForgotPasswordController: UITextFieldDelegate {
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        email = textField.text
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
         return true
     }
 }

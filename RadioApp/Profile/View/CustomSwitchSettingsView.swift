@@ -12,6 +12,7 @@ protocol ConfigurableView: UIView {
 }
 
 final class CustomSwitchSettingsView: UIView {
+    private let notificationManager = NotificationManager.shared
     
     private var iconBackgroundView: UIView = {
         let view = UIView()
@@ -48,7 +49,7 @@ final class CustomSwitchSettingsView: UIView {
         super.init(frame: .zero)
         setViews()
         setupConstraints()
-        switchControl.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
+        setupActions()
     }
     
     required init?(coder: NSCoder) {
@@ -98,18 +99,45 @@ final class CustomSwitchSettingsView: UIView {
         }
     }
     
-    @objc private func switchValueChanged(_ sender: UISwitch) {
+    private func setupActions() {
+        switchControl.addTarget(self, action: #selector(didToggleSwitch(_:)), for: .valueChanged)
+    }
+    
+    // MARK: - Actions
+    @objc private func didToggleSwitch(_ sender: UISwitch) {
+        print("Switch toggled. Current state: \(sender.isOn)")
         if sender.isOn {
-            NotificationManager.shared.scheduleNotification()
+            notificationManager.requestAuthorization { [weak self] granted in
+                DispatchQueue.main.async {
+                    if granted {
+                        self?.notificationManager.enableNotifications()
+                        print("Notifications enabled.")
+                    } else {
+                        self?.showSettingsAlert()
+                        sender.setOn(false, animated: true)
+                    }
+                }
+            }
         } else {
-            NotificationManager.shared.cancelNotifications()
+            notificationManager.disableNotifications()
+            print("Notifications disabled.")
         }
+    }
+    
+    private func showSettingsAlert() {
+        guard let viewController = self.findViewController() else { return }
+        let alert = UIAlertController(
+            title: "Notifications Disabled",
+            message: "Please enable notifications in Settings",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Settings", style: .default) { _ in
+            if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(settingsUrl)
+            }
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        viewController.present(alert, animated: true)
     }
 }
 
-// MARK: - ConfigurableView
-extension CustomSwitchSettingsView: ConfigurableView {
-    func configure(title: String, image: UIImage?) {
-        self.configure(title: title, isOn: NotificationManager.shared.notificationsAreEnabled(), icon: image)
-    }
-}

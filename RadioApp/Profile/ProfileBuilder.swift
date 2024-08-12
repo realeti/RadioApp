@@ -8,33 +8,41 @@
 import UIKit
 
 extension Builder {
-    static func createPrivacyPolicyVC() -> UIViewController  {
-        let view = PrivacyViewController()
+    static func createPrivacyPolicyVC() -> ViewController  {
+        let view = PrivacyViewController(nibName: nil, bundle: nil)
         let presenter = PrivacyPresenter(view: view)
         view.presenter = presenter
+        configureViewForTabBar(view)
         return view
     }
     
-    static func createEditProfileVC() -> UIViewController {
+    static func createEditProfileVC() -> ViewController {
         let view = EditProfileViewController()
         let router = ProfileRouter()
         router.controller = view
         let presenter = EditProfilePresenter(view: view, router: router)
         view.presenter = presenter
+        configureViewForTabBar(view)
         return view
     }
 
-    static func createLanguageVC() -> UIViewController {
+    static func createLanguageVC() -> ViewController {
         let view = LanguageViewController()
         let presenter = LanguagePresenter(view: view)
         view.presenter = presenter
+        configureViewForTabBar(view)
         return view
     }
     
-    static func createAboutUsVC() -> UIViewController {
+    static func createAboutUsVC() -> ViewController {
         let view = AboutUsViewController()
         let presenter = AboutUsPresenter(view: view)
         view.presenter = presenter
+        configureViewForTabBar(view)
         return view
+    }
+    
+    static func configureViewForTabBar(_ view: ViewController) {
+        view.playerIsHidden = true
     }
 }

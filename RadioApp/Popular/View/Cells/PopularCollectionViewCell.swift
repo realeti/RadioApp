@@ -72,7 +72,6 @@ final class PopularCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Private Properties
     private var votes: Int = 0
-    private var stationUniqueID: UUID?
     
     // MARK: - Public Properties
     weak var delegate: PopularViewProtocol?
@@ -94,11 +93,13 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         didSet {
             if isSelected {
                 playImageView.isHidden = false
+                voteLabel.isHidden = true
                 containerView.layer.borderColor = nil
                 containerView.backgroundColor = .pinkApp
                 waveImageView.setWaveTint(with: .white)
             } else {
                 playImageView.isHidden = true
+                voteLabel.isHidden = false
                 containerView.backgroundColor = nil
                 containerView.layer.borderColor = UIColor.stormyBlue.cgColor
                 waveImageView.setWaveTint(with: .white.withAlphaComponent(0.3))
@@ -152,9 +153,8 @@ extension PopularCollectionViewCell {
     func configure(with model: PopularViewModel, _ isStationVoted: Bool, and indexPath: IndexPath) {
         radioTitleLabel.text = model.title
         radioSubtitleLabel.text = model.subtitle
-        voteCountLabel.text = "\(model.voteCount) "
+        voteCountLabel.text = model.voteCount.formatVoteCount() + " "
         
-        stationUniqueID = model.id
         votes = model.voteCount
         self.indexPath = indexPath
         
@@ -176,9 +176,13 @@ extension PopularCollectionViewCell {
         updateVoteImage(isStationVoted)
     }
     
+    func clearVoteImage() {
+        voteButton.setBackgroundImage(.voteOff, for: .normal)
+    }
+    
     private func updateVoteCount(_ isStationVoted: Bool) {
         votes += isStationVoted ? 1 : -1
-        let votesText = "\(votes) "
+        let votesText = votes.formatVoteCount() + " "
         
         UIView.transition(with: voteCountLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
             self.voteCountLabel.text = votesText
@@ -200,7 +204,7 @@ extension PopularCollectionViewCell {
 private extension PopularCollectionViewCell {
     @objc func voteButtonPressed(_ sender: UIButton) {
         voteButton.isUserInteractionEnabled = false
-        delegate?.voteForStation(at: indexPath, stationUniqueID: stationUniqueID)
+        delegate?.voteForStation(at: indexPath)
     }
 }
 

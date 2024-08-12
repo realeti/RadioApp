@@ -13,15 +13,12 @@ final class AuthorizationField: UIView {
     private var isSecure: Bool
     
     private let titleLabel = UILabel()
-    private let textField = UITextField()
+    let textField = UITextField()
     
-    init(delegate: (any UITextFieldDelegate)?, title: String, placeholder: String, isSecure: Bool, tag: Int? = nil) {
+    init(delegate: (any UITextFieldDelegate)?, title: String, placeholder: String, isSecure: Bool) {
         self.title = title
         self.placeholder = placeholder
         self.isSecure = isSecure
-        if let tag {
-            textField.tag = tag
-        }
         super.init(frame: .zero)
         textField.delegate = delegate
         configure()

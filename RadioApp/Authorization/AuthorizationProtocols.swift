@@ -10,6 +10,8 @@ import UIKit
 enum AuthorizationMode {
     case signIn
     case signUp
+    case reauthenticatePassword
+    case reauthenticateEmail
 }
 
 protocol AuthorizationControllerProtocol: AnyObject {
@@ -19,7 +21,8 @@ protocol AuthorizationControllerProtocol: AnyObject {
 protocol AuthorizationPresenterProtocol: AnyObject {
     func activate()
     func switchMode()
-    func finishAuthorization()
+    func signIn(email: String?, password: String?)
+    func signUp(name: String?, email: String?, password: String?)
     func didTapGoogleButton()
     func didTapForgotPasswordButton()
 }
@@ -30,4 +33,6 @@ protocol AuthorizationRouterProtocol: AnyObject, Router {
     func showForgotPasswordVC()
     func showUpdatePasswordVC()
     func proceedToSignIn()
+    func backToEditProfile()
+    func showUpdateEmailVC()
 }

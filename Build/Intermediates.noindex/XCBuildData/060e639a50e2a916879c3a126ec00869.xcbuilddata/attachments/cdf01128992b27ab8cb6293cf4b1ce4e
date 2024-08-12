@@ -1,0 +1,108 @@
+{
+  "" : {
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/SwiftFP-master.dia",
+    "emit-module-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/SwiftFP-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/SwiftFP-master-emit-module.dia",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/SwiftFP-master.swiftdeps"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SwiftFP/Sources/SwiftFP/Monad/AsyncSequence.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/AsyncSequence.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/AsyncSequence.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/AsyncSequence.dia",
+    "index-unit-output-path" : "/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/AsyncSequence.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/AsyncSequence.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/AsyncSequence.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/AsyncSequence.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/AsyncSequence~partial.swiftmodule"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SwiftFP/Sources/SwiftFP/Monad/Either.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Either.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Either.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Either.dia",
+    "index-unit-output-path" : "/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Either.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Either.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Either.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Either.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Either~partial.swiftmodule"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SwiftFP/Sources/SwiftFP/Monad/Monad.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Monad.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Monad.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Monad.dia",
+    "index-unit-output-path" : "/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Monad.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Monad.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Monad.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Monad.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Monad~partial.swiftmodule"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SwiftFP/Sources/SwiftFP/Monad/Optional.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Optional.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Optional.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Optional.dia",
+    "index-unit-output-path" : "/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Optional.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Optional.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Optional.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Optional.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Optional~partial.swiftmodule"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SwiftFP/Sources/SwiftFP/Monad/Result.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Result.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Result.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Result.dia",
+    "index-unit-output-path" : "/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Result.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Result.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Result.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Result.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Result~partial.swiftmodule"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SwiftFP/Sources/SwiftFP/Monad/Sequence.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Sequence.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Sequence.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Sequence.dia",
+    "index-unit-output-path" : "/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Sequence.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Sequence.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Sequence.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Sequence.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Sequence~partial.swiftmodule"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SwiftFP/Sources/SwiftFP/ObjectFactory/ObjectFactory.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/ObjectFactory.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/ObjectFactory.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/ObjectFactory.dia",
+    "index-unit-output-path" : "/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/ObjectFactory.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/ObjectFactory.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/ObjectFactory.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/ObjectFactory.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/ObjectFactory~partial.swiftmodule"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SwiftFP/Sources/SwiftFP/ObjectFactory/RefObjectFactory.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/RefObjectFactory.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/RefObjectFactory.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/RefObjectFactory.dia",
+    "index-unit-output-path" : "/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/RefObjectFactory.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/RefObjectFactory.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/RefObjectFactory.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/RefObjectFactory.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/RefObjectFactory~partial.swiftmodule"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SwiftFP/Sources/SwiftFP/Tools/Compose.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Compose.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Compose.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Compose.dia",
+    "index-unit-output-path" : "/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Compose.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Compose.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Compose.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Compose.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Compose~partial.swiftmodule"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/SwiftFP/Sources/SwiftFP/Tools/Composition.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Composition.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Composition.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Composition.dia",
+    "index-unit-output-path" : "/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Composition.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Composition.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Composition.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Composition.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/SwiftFP.build/Debug-iphonesimulator/SwiftFP.build/Objects-normal/x86_64/Composition~partial.swiftmodule"
+  }
+}

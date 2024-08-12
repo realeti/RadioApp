@@ -10,13 +10,10 @@ import SnapKit
 
 final class PopularView: UIView {
     // MARK: - UI
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = K.Popular.title.rawValue.localized
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 30.0, weight: .light)
-        return label
-    }()
+    private let titleLabel = UILabel(
+        text: K.Popular.title.rawValue.localized,
+        font: .systemFont(ofSize: 30.0, weight: .light)
+    )
     
     private lazy var radioCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -30,8 +27,6 @@ final class PopularView: UIView {
         collectionView.register(PopularCollectionViewCell.self, forCellWithReuseIdentifier: K.popularRadioCell)
         return collectionView
     }()
-    
-    private let volumeProgressView = VolumeProgressView()
     
     // MARK: - Public Properties
     var radioCollection: UICollectionView {
@@ -52,14 +47,7 @@ final class PopularView: UIView {
     
     // MARK: - Set Views
     private func setupUI() {
-        addSubviews(titleLabel, radioCollectionView, volumeProgressView)
-    }
-}
-
-// MARK: - External methods
-extension PopularView {
-    func updateVolumeProgress(_ progress: Float) {
-        volumeProgressView.update(progress)
+        addSubviews(titleLabel, radioCollectionView)
     }
 }
 
@@ -68,7 +56,6 @@ private extension PopularView {
     func setupConstraints() {
         setupTitleLabelConstraints()
         setupRadioCollectionConstraints()
-        setupVolumeProgressViewConstraints()
     }
     
     func setupTitleLabelConstraints() {
@@ -83,14 +70,7 @@ private extension PopularView {
             make.top.equalTo(titleLabel.snp.bottom).offset(Metrics.radioCollectionTopIndent)
             make.leading.equalToSuperview().inset(Metrics.radioCollectionLeadingIndent)
             make.trailing.equalToSuperview().inset(Metrics.radioCollectionTrailingIndent)
-            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
-        }
-    }
-    
-    func setupVolumeProgressViewConstraints() {
-        volumeProgressView.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(Metrics.volumeProgressLeadingOffset)
+            make.bottom.equalToSuperview().inset(K.audioPlayerHeight + K.audioPlayerBottomIndent)
         }
     }
 }
@@ -105,9 +85,6 @@ fileprivate struct Metrics {
     static let radioCollectionTopIndent: CGFloat = 25.8
     static let radioCollectionLeadingIndent: CGFloat = 50.0
     static let radioCollectionTrailingIndent: CGFloat = 50.0
-    
-    /// volume progress
-    static let volumeProgressLeadingOffset: CGFloat = 25.0
     
     private init() {}
 }

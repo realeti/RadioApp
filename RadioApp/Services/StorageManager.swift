@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import UIKit
 
 final class StorageManager {
     
@@ -37,6 +38,33 @@ final class StorageManager {
         }
     }
     
+    func fetchUser(id: String) -> UserEntity? {
+        let fetchRequest: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
+        do {
+            let result = try viewContext.fetch(fetchRequest)
+            let user = result.first(where: { $0.id == id })
+            return user
+        } catch let error {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+    
+    func saveUser(_ user: UserApp) {
+        var userEnttity: UserEntity
+        if let entity = fetchUser(id: user.id) {
+            userEnttity = entity
+        } else {
+            userEnttity = UserEntity(context: viewContext)
+        }
+        userEnttity.id = user.id
+        userEnttity.imageData = user.image
+        userEnttity.email = user.email
+        userEnttity.login = user.login
+        saveContext()
+    }
+    
     func toggleFavorite(id: UUID, title: String, genre: String) {
         if let station = fetchStation(with: id) {
             deleteStation(station)
@@ -46,6 +74,8 @@ final class StorageManager {
     }
     
     func deleteStation(_ station: StationEntity) {
+        setNotification(station.id)
+        
         viewContext.delete(station)
         saveContext()
     }
@@ -75,5 +105,18 @@ final class StorageManager {
         station.genre = genre
         
         saveContext()
+    }
+}
+
+// MARK: - Notification
+private extension StorageManager {
+    func setNotification(_ stationId: UUID?) {
+        guard let stationId else { return }
+        
+        NotificationCenter.default.post(
+            name: .favoriteRemoved,
+            object: nil,
+            userInfo: [K.UserInfoKey.removedStationIndex: stationId]
+        )
     }
 }

@@ -1,0 +1,18 @@
+{
+  "" : {
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Lottie.build/Debug-iphonesimulator/_LottieStub.build/Objects-normal/x86_64/_LottieStub-master.dia",
+    "emit-module-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Lottie.build/Debug-iphonesimulator/_LottieStub.build/Objects-normal/x86_64/_LottieStub-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Lottie.build/Debug-iphonesimulator/_LottieStub.build/Objects-normal/x86_64/_LottieStub-master-emit-module.dia",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Lottie.build/Debug-iphonesimulator/_LottieStub.build/Objects-normal/x86_64/_LottieStub-master.swiftdeps"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/lottie-spm/Sources/_LottieStub/Stub.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Lottie.build/Debug-iphonesimulator/_LottieStub.build/Objects-normal/x86_64/Stub.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Lottie.build/Debug-iphonesimulator/_LottieStub.build/Objects-normal/x86_64/Stub.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Lottie.build/Debug-iphonesimulator/_LottieStub.build/Objects-normal/x86_64/Stub.dia",
+    "index-unit-output-path" : "/Lottie.build/Debug-iphonesimulator/_LottieStub.build/Objects-normal/x86_64/Stub.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Lottie.build/Debug-iphonesimulator/_LottieStub.build/Objects-normal/x86_64/Stub.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Lottie.build/Debug-iphonesimulator/_LottieStub.build/Objects-normal/x86_64/Stub.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Lottie.build/Debug-iphonesimulator/_LottieStub.build/Objects-normal/x86_64/Stub.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Lottie.build/Debug-iphonesimulator/_LottieStub.build/Objects-normal/x86_64/Stub~partial.swiftmodule"
+  }
+}

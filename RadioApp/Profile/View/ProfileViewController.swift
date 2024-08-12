@@ -14,7 +14,10 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
     
     init(presenter: ProfilePresenterProtocol) {
         self.presenter = presenter
+        presenter.getCurrentUser()
         super.init(nibName: nil, bundle: nil)
+        
+        playerIsHidden = true
     }
     
     required init?(coder: NSCoder) {
@@ -48,31 +51,59 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
 
         
         let action = UIAction() {_ in
-
-            print("LogOut")
+            //self.saveButtonAction()
+            let alertController = UIAlertController(title: "Do you want to Log Out?".localized, message: nil, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel))
+            alertController.addAction(UIAlertAction(title: "Log Out".localized, style: .destructive
+                                                    , handler: { _ in
+                do {
+                    try AuthenticationManager.shared.signOut()
+                    //go to ondoarding + login flow
+                    guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                          let windowDelegate = windowScene.delegate as? SceneDelegate else { return }
+                    windowDelegate.router?.startFlow()
+                        print("Logged Out")
+                    
+                } catch {
+                    print("Can't sign out")
+                }
+            }))
+            self.present(alertController, animated: true, completion: nil)
         }
         button.addAction(action, for: .primaryActionTriggered)
         return button
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.getCurrentUser()
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupButtons()
-        
-        //TODO: - настроить
-        NotificationManager.shared.requestNotificationPermission()
-        let notificationsEnabled = NotificationManager.shared.notificationsAreEnabled()
-        customSwitchSettingsView.configure(title: "Enable Notifications", isOn: notificationsEnabled, icon: nil)
     }
-        
+    
+    func update(with user: UserApp?) {
+        guard let user else { return }
+        userView.setViews(with: user)
+    }
+    
+    // MARK: - Private Methods
+    
     private func setupView() {
         view.addSubviews(userView, generalView, moreView, LogOutButton)
         setupConstraints()
         view.backgroundColor = .darkBlueApp
     }
     
-    // MARK: - Private Methods
     private func setupEditButton() {
         userView.editButtonTap = {
             self.presenter.showEditProfileVC()

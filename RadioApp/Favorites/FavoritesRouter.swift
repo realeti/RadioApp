@@ -8,9 +8,8 @@
 import Foundation
 
 final class FavoritesRouter: Router, FavoritesRouterProtocol {
-    func showDetails() {
-        let vc = StationDetailsAssembly().build()
-        vc.hidesBottomBarWhenPushed = true
+    func showDetails(with station: RadioStation) {
+        let vc = StationDetailsAssembly().build(with: station)
         vc.title = "Playing now"
         pushScreen(vc)
     }

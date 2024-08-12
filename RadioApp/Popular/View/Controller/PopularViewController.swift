@@ -6,16 +6,13 @@
 //
 
 import UIKit
-import AVFoundation
 
 final class PopularViewController: ViewController {
-    // MARK: - Public Properties
-    private let presenter: PopularPresenterProtocol
-    
     // MARK: - Private Properties
+    private let presenter: PopularPresenterProtocol
     private var popularView: PopularView!
     
-    
+    // MARK: - Init
     init(presenter: PopularPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -37,8 +34,16 @@ final class PopularViewController: ViewController {
         super.viewDidLoad()
         
         setDelegates()
+        setNotification()
         loadStations()
-        setupVolumeProgress()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if !presenter.isLoadingData {
+            presenter.setPlayerStations()
+        }
     }
     
     // MARK: - Set Delegates
@@ -47,30 +52,60 @@ final class PopularViewController: ViewController {
         popularView.radioCollection.delegate = self
     }
     
+    // MARK: - Set Notification
+    private func setNotification() {
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(handleIndexChange),
+            name: .playerCurrentIndexDidChange,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(handleFavoritesChanged),
+            name: .favoriteRemoved,
+            object: nil
+        )
+    }
+    
     // MARK: - Load Stations
     private func loadStations() {
-        Task {
-            await presenter.loadStations()
-        }
+        presenter.loadStations()
+    }
+    
+    // MARK: - Deinit
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
-// MARK: - Set VolumeProgress
+// MARK: - Notification handle
 private extension PopularViewController {
-    func setupVolumeProgress() {
-        let volume = getSystemVolume()
-        popularView.updateVolumeProgress(volume)
+    @objc func handleIndexChange(_ notification: Notification) {
+        guard let stationId = notification.userInfo?[K.UserInfoKey.stationIndex] as? Int else {
+            return
+        }
+        
+        let indexPath = IndexPath(item: stationId, section: 0)
+        popularView.radioCollection.selectItem(
+            at: indexPath,
+            animated: true,
+            scrollPosition: .centeredVertically
+        )
     }
     
-    private func getSystemVolume() -> Float {
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setActive(true)
-            return audioSession.outputVolume
-        } catch {
-            print("Error activating audio session: \(error)")
-            return 0
+    @objc func handleFavoritesChanged(_ notification: Notification) {
+        guard let stationUniqueId = notification.userInfo?[K.UserInfoKey.removedStationIndex] as? UUID,
+              let stationId = presenter.getStations.firstIndex(where: { $0.id == stationUniqueId }) else {
+            return
         }
+        
+        let indexPath = IndexPath(item: stationId, section: 0)
+        guard let cell = popularView.radioCollection.cellForItem(at: indexPath) as? PopularCollectionViewCell else {
+            return
+        }
+        
+        cell.clearVoteImage()
+        presenter.removeVoteStatus(stationId)
     }
 }
 
@@ -82,17 +117,19 @@ extension PopularViewController: PopularViewProtocol {
         }
     }
     
-    /*func didUpdateVotedStation() {
+    func insertItems(at indexPaths: [IndexPath]) {
         DispatchQueue.main.async {
-            self.popularView.radioCollection.reloadData()
+            self.popularView.radioCollection.performBatchUpdates({
+                self.popularView.radioCollection.insertItems(at: indexPaths)
+            }, completion: nil)
         }
-    }*/
+    }
     
-    func voteForStation(at indexPath: IndexPath?, stationUniqueID: UUID?) {
-        guard let indexPath, let stationUniqueID else { return }
+    func voteForStation(at indexPath: IndexPath?) {
+        guard let indexPath else { return }
         
         let stationId = indexPath.row
-        presenter.toggleVoteState(for: stationId, stationUniqueID: stationUniqueID)
+        presenter.toggleVoteState(for: stationId)
         
         let isStationVoted = presenter.isStationVoted(stationId)
         updateStationVotes(at: indexPath, isStationVoted)
@@ -134,6 +171,21 @@ extension PopularViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let stationId = indexPath.row
         presenter.changeStation(stationId)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        /// check offset
+        guard offsetY > 0 else { return }
+        
+        /// update collection when 20% until the end
+        if offsetY > contentHeight - height * 1.2 {
+            guard !presenter.isLoadingData else { return }
+            presenter.loadStations()
+        }
     }
 }
 

@@ -280,6 +280,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import Foundation;
 @import UIKit;
 @import UserNotifications;
+@import WebKit;
 #endif
 
 #endif
@@ -307,6 +308,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 SWIFT_CLASS("_TtC8RadioApp14ViewController")
 @interface ViewController : UIViewController
 - (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewWillDisappear:(BOOL)animated;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -315,6 +318,7 @@ SWIFT_CLASS("_TtC8RadioApp14ViewController")
 SWIFT_CLASS("_TtC8RadioApp21AboutUsViewController")
 @interface AboutUsViewController : ViewController
 - (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -330,6 +334,55 @@ SWIFT_CLASS("_TtC8RadioApp21AboutUsViewController")
 - (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
+SWIFT_CLASS("_TtC8RadioApp15AllStationsCell")
+@interface AllStationsCell : UICollectionViewCell
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)prepareForReuse;
+- (void)layoutSubviews;
+@end
+
+
+
+
+
+
+SWIFT_CLASS("_TtC8RadioApp21AllStationsController")
+@interface AllStationsController : ViewController
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewDidLayoutSubviews;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+
+
+
+
+@interface AllStationsController (SWIFT_EXTENSION(RadioApp)) <UICollectionViewDataSource>
+- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface AllStationsController (SWIFT_EXTENSION(RadioApp)) <UICollectionViewDelegate>
+- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)collectionView:(UICollectionView * _Nonnull)collectionView willDisplayCell:(UICollectionViewCell * _Nonnull)cell forItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+@class UITextField;
+
+@interface AllStationsController (SWIFT_EXTENSION(RadioApp)) <UITextFieldDelegate>
+- (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)textField:(UITextField * _Nonnull)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString * _Nonnull)string SWIFT_WARN_UNUSED_RESULT;
+- (void)textFieldDidBeginEditing:(UITextField * _Nonnull)textField;
+@end
+
 
 @class UIApplication;
 @class UISceneSession;
@@ -351,6 +404,30 @@ SWIFT_CLASS("_TtC8RadioApp11AppDelegate")
 - (void)userNotificationCenter:(UNUserNotificationCenter * _Nonnull)center willPresentNotification:(UNNotification * _Nonnull)notification withCompletionHandler:(void (^ _Nonnull)(UNNotificationPresentationOptions))completionHandler;
 @end
 
+@class UIEvent;
+
+SWIFT_CLASS("_TtC8RadioApp15AudioPlayerView")
+@interface AudioPlayerView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (UIView * _Nullable)hitTest:(CGPoint)point withEvent:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+
+
+SWIFT_CLASS("_TtC8RadioApp25AudioPlayerViewController")
+@interface AudioPlayerViewController : UIViewController
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)loadView;
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+
+
+
+
 
 SWIFT_CLASS("_TtC8RadioApp23AuthorizationController")
 @interface AuthorizationController : UIViewController
@@ -360,9 +437,10 @@ SWIFT_CLASS("_TtC8RadioApp23AuthorizationController")
 @end
 
 
-@interface AuthorizationController (SWIFT_EXTENSION(RadioApp)) <UITextFieldDelegate>
-@end
 
+@interface AuthorizationController (SWIFT_EXTENSION(RadioApp)) <UITextFieldDelegate>
+- (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
 
@@ -372,6 +450,15 @@ SWIFT_CLASS("_TtC8RadioApp18AuthorizationField")
 @interface AuthorizationField : UIView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC8RadioApp17BrowserController")
+@interface BrowserController : UIViewController <WKNavigationDelegate>
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)loadView;
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
 
@@ -392,9 +479,9 @@ SWIFT_CLASS("_TtC8RadioApp24CustomSwitchSettingsView")
 @end
 
 
-
 SWIFT_CLASS("_TtC8RadioApp25EditProfileViewController")
 @interface EditProfileViewController : ViewController
+- (void)viewWillAppear:(BOOL)animated;
 - (void)viewDidLoad;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
@@ -402,7 +489,6 @@ SWIFT_CLASS("_TtC8RadioApp25EditProfileViewController")
 
 
 
-@class UITextField;
 
 @interface EditProfileViewController (SWIFT_EXTENSION(RadioApp)) <UITextFieldDelegate>
 - (void)textFieldDidChangeSelection:(UITextField * _Nonnull)textField;
@@ -412,8 +498,17 @@ SWIFT_CLASS("_TtC8RadioApp25EditProfileViewController")
 
 SWIFT_CLASS("_TtC8RadioApp13EqualizerView")
 @interface EqualizerView : UIView
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC8RadioApp9ErrorView")
+@interface ErrorView : UIView
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
 
@@ -438,13 +533,13 @@ SWIFT_CLASS("_TtC8RadioApp19FavoritesController")
 - (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @end
 
-
 @class UITableViewCell;
 
 @interface FavoritesController (SWIFT_EXTENSION(RadioApp)) <UITableViewDataSource>
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 SWIFT_CLASS("_TtC8RadioApp24ForgotPasswordController")
@@ -456,7 +551,7 @@ SWIFT_CLASS("_TtC8RadioApp24ForgotPasswordController")
 
 
 @interface ForgotPasswordController (SWIFT_EXTENSION(RadioApp)) <UITextFieldDelegate>
-- (BOOL)textFieldShouldEndEditing:(UITextField * _Nonnull)textField SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -474,8 +569,28 @@ SWIFT_CLASS("_TtC8RadioApp14HomeController")
 @interface HomeController : UITabBarController
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)viewDidLoad;
+- (void)viewDidAppear:(BOOL)animated;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
+
+
+@class UITabBar;
+@class UITabBarItem;
+
+@interface HomeController (SWIFT_EXTENSION(RadioApp)) <UITabBarControllerDelegate>
+- (void)tabBar:(UITabBar * _Nonnull)tabBar didSelectItem:(UITabBarItem * _Nonnull)item;
+@end
+
+
+SWIFT_CLASS("_TtC8RadioApp20HorizontalVolumeView")
+@interface HorizontalVolumeView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+
 
 @class UITapGestureRecognizer;
 
@@ -508,6 +623,7 @@ SWIFT_CLASS("_TtC8RadioApp12LanguageCell")
 SWIFT_CLASS("_TtC8RadioApp22LanguageViewController")
 @interface LanguageViewController : ViewController
 - (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
@@ -523,6 +639,14 @@ SWIFT_CLASS("_TtC8RadioApp22LanguageViewController")
 @interface LanguageViewController (SWIFT_EXTENSION(RadioApp)) <UITableViewDelegate>
 - (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+
+SWIFT_CLASS("_TtC8RadioApp11LoadingView")
+@interface LoadingView : UIView
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
 
@@ -542,6 +666,16 @@ SWIFT_CLASS("_TtC8RadioApp20OnboardingController")
 - (void)viewDidLoad;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
+
+
+
+SWIFT_CLASS("_TtC8RadioApp10PlayerView")
+@interface PlayerView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 
 
 
@@ -567,12 +701,12 @@ SWIFT_CLASS("_TtC8RadioApp11PopularView")
 
 
 
-
 SWIFT_CLASS("_TtC8RadioApp21PopularViewController")
 @interface PopularViewController : ViewController
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)loadView;
 - (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
@@ -582,15 +716,17 @@ SWIFT_CLASS("_TtC8RadioApp21PopularViewController")
 @end
 
 
-@interface PopularViewController (SWIFT_EXTENSION(RadioApp)) <UICollectionViewDelegate>
-- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-@end
-
-
 
 @interface PopularViewController (SWIFT_EXTENSION(RadioApp)) <UICollectionViewDataSource>
 - (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class UIScrollView;
+
+@interface PopularViewController (SWIFT_EXTENSION(RadioApp)) <UICollectionViewDelegate>
+- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 @end
 
 
@@ -598,6 +734,7 @@ SWIFT_CLASS("_TtC8RadioApp21PopularViewController")
 SWIFT_CLASS("_TtC8RadioApp21PrivacyViewController")
 @interface PrivacyViewController : ViewController
 - (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -606,6 +743,8 @@ SWIFT_CLASS("_TtC8RadioApp21PrivacyViewController")
 SWIFT_CLASS("_TtC8RadioApp21ProfileViewController")
 @interface ProfileViewController : ViewController
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewWillDisappear:(BOOL)animated;
 - (void)viewDidLoad;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
@@ -629,10 +768,13 @@ SWIFT_CLASS("_TtC8RadioApp13SceneDelegate")
 SWIFT_CLASS("_TtC8RadioApp24StationDetailsController")
 @interface StationDetailsController : ViewController
 - (void)viewDidLoad;
-- (void)playButtonTapped;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewWillDisappear:(BOOL)animated;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
+
+
 
 
 @class NSEntityDescription;
@@ -651,6 +793,21 @@ SWIFT_CLASS_NAMED("StationEntity")
 @property (nonatomic, copy) NSUUID * _Nullable id;
 @property (nonatomic, copy) NSString * _Nullable title;
 @end
+
+
+/// Представление радиостанции для экрана AllStations
+SWIFT_CLASS("_TtC8RadioApp11StationView")
+@interface StationView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)layoutSubviews;
+@end
+
+
+
+
+
+
 
 
 SWIFT_CLASS("_TtC8RadioApp12TeamViewCell")
@@ -675,6 +832,12 @@ SWIFT_CLASS("_TtC8RadioApp12TeamViewCell")
 
 
 
+
+@interface UIView (SWIFT_EXTENSION(RadioApp))
+- (UIViewController * _Nullable)findViewController SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 SWIFT_CLASS("_TtC8RadioApp24UpdatePasswordController")
 @interface UpdatePasswordController : UIViewController
 - (void)viewWillAppear:(BOOL)animated;
@@ -684,10 +847,26 @@ SWIFT_CLASS("_TtC8RadioApp24UpdatePasswordController")
 
 
 @interface UpdatePasswordController (SWIFT_EXTENSION(RadioApp)) <UITextFieldDelegate>
-- (BOOL)textFieldShouldEndEditing:(UITextField * _Nonnull)textField SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
+
+
+SWIFT_CLASS_NAMED("UserEntity")
+@interface UserEntity : NSManagedObject
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@class NSData;
+
+@interface UserEntity (SWIFT_EXTENSION(RadioApp))
+@property (nonatomic, copy) NSString * _Nullable email;
+@property (nonatomic, copy) NSString * _Nullable id;
+@property (nonatomic, copy) NSData * _Nullable imageData;
+@property (nonatomic, copy) NSString * _Nullable login;
+@end
 
 
 SWIFT_CLASS("_TtC8RadioApp8UserView")
@@ -699,9 +878,8 @@ SWIFT_CLASS("_TtC8RadioApp8UserView")
 
 
 
-
-SWIFT_CLASS("_TtC8RadioApp18VolumeProgressView")
-@interface VolumeProgressView : UIView
+SWIFT_CLASS("_TtC8RadioApp18VerticalVolumeView")
+@interface VerticalVolumeView : UIView
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)layoutSubviews;
@@ -709,6 +887,17 @@ SWIFT_CLASS("_TtC8RadioApp18VolumeProgressView")
 
 
 
+
+
+
+
+
+
+SWIFT_CLASS("_TtC8RadioApp12VolumeSlider")
+@interface VolumeSlider : UISlider
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
 SWIFT_CLASS("_TtC8RadioApp8WaveView")

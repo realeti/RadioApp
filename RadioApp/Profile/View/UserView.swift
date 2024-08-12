@@ -26,7 +26,6 @@ final class UserView: UIView {
             color: .white,
             numberOfLines: 1,
             alignment: .left)
-        label.text = "Mark"
         return label
     }()
     
@@ -36,7 +35,6 @@ final class UserView: UIView {
             color: .white,
             numberOfLines: 1,
             alignment: .left)
-        label.text = "mark@gmail.com"
         return label
     }()
     
@@ -70,8 +68,8 @@ final class UserView: UIView {
     }
     
     // MARK: - Public Methods
-    func setViews(with user: User) {
-        profileImageView.image = UIImage(data: user.image)
+    func setViews(with user: UserApp) {
+//        profileImageView.image = UIImage(data: user.image)
         userNameLabel.text = user.login
         userEmailLabel.text = user.email
     }

@@ -39,6 +39,9 @@ static NSString * const ACColorNameOrangeCircle AC_SWIFT_PRIVATE = @"orangeCircl
 /// The "pinkApp" asset catalog color resource.
 static NSString * const ACColorNamePinkApp AC_SWIFT_PRIVATE = @"pinkApp";
 
+/// The "searchApp" asset catalog color resource.
+static NSString * const ACColorNameSearchApp AC_SWIFT_PRIVATE = @"searchApp";
+
 /// The "stormyBlue" asset catalog color resource.
 static NSString * const ACColorNameStormyBlue AC_SWIFT_PRIVATE = @"stormyBlue";
 
@@ -93,6 +96,9 @@ static NSString * const ACImageNameCalendar AC_SWIFT_PRIVATE = @"calendar";
 /// The "clock" asset catalog image resource.
 static NSString * const ACImageNameClock AC_SWIFT_PRIVATE = @"clock";
 
+/// The "closeSearch" asset catalog image resource.
+static NSString * const ACImageNameCloseSearch AC_SWIFT_PRIVATE = @"closeSearch";
+
 /// The "close_1" asset catalog image resource.
 static NSString * const ACImageNameClose1 AC_SWIFT_PRIVATE = @"close_1";
 
@@ -135,6 +141,9 @@ static NSString * const ACImageNameFullscreen AC_SWIFT_PRIVATE = @"fullscreen";
 /// The "globe" asset catalog image resource.
 static NSString * const ACImageNameGlobe AC_SWIFT_PRIVATE = @"globe";
 
+/// The "goSearch" asset catalog image resource.
+static NSString * const ACImageNameGoSearch AC_SWIFT_PRIVATE = @"goSearch";
+
 /// The "googlePlus" asset catalog image resource.
 static NSString * const ACImageNameGooglePlus AC_SWIFT_PRIVATE = @"googlePlus";
 
@@ -152,6 +161,9 @@ static NSString * const ACImageNameHome AC_SWIFT_PRIVATE = @"home";
 
 /// The "iconNoBg" asset catalog image resource.
 static NSString * const ACImageNameIconNoBg AC_SWIFT_PRIVATE = @"iconNoBg";
+
+/// The "mask" asset catalog image resource.
+static NSString * const ACImageNameMask AC_SWIFT_PRIVATE = @"mask";
 
 /// The "mockPic" asset catalog image resource.
 static NSString * const ACImageNameMockPic AC_SWIFT_PRIVATE = @"mockPic";
@@ -210,6 +222,9 @@ static NSString * const ACImageNameRidebyhorse AC_SWIFT_PRIVATE = @"ridebyhorse"
 /// The "search" asset catalog image resource.
 static NSString * const ACImageNameSearch AC_SWIFT_PRIVATE = @"search";
 
+/// The "searchApp" asset catalog image resource.
+static NSString * const ACImageNameSearchApp AC_SWIFT_PRIVATE = @"searchApp";
+
 /// The "settings" asset catalog image resource.
 static NSString * const ACImageNameSettings AC_SWIFT_PRIVATE = @"settings";
 
@@ -221,6 +236,9 @@ static NSString * const ACImageNameShare AC_SWIFT_PRIVATE = @"share";
 
 /// The "shield" asset catalog image resource.
 static NSString * const ACImageNameShield AC_SWIFT_PRIVATE = @"shield";
+
+/// The "signal-tower" asset catalog image resource.
+static NSString * const ACImageNameSignalTower AC_SWIFT_PRIVATE = @"signal-tower";
 
 /// The "star" asset catalog image resource.
 static NSString * const ACImageNameStar AC_SWIFT_PRIVATE = @"star";
@@ -242,6 +260,9 @@ static NSString * const ACImageNameWave AC_SWIFT_PRIVATE = @"wave";
 
 /// The "waveCircle" asset catalog image resource.
 static NSString * const ACImageNameWaveCircle AC_SWIFT_PRIVATE = @"waveCircle";
+
+/// The "waveCircles" asset catalog image resource.
+static NSString * const ACImageNameWaveCircles AC_SWIFT_PRIVATE = @"waveCircles";
 
 /// The "wishlist" asset catalog image resource.
 static NSString * const ACImageNameWishlist AC_SWIFT_PRIVATE = @"wishlist";

@@ -22,7 +22,33 @@ final class UpdatePasswordPresenter: UpdatePasswordPresenterProtocol {
     }
     
     func updatePassword(password: String?) {
-        router?.proceedToSignIn()
+        guard let password else { return }
+        Task {
+            do {
+                let result = try await AuthenticationManager.shared.updatePassword(newPassword: password)
+                if result {
+                    print("password successfully updated")
+                    let alertController =  await UIAlertController(title: "Password successfully updated".localized, message: nil, preferredStyle: .alert)
+                    await alertController.addAction(UIAlertAction(title: "OK".localized, style: .default
+                                                                  , handler: { _ in
+                        //go back to edit profile
+                        
+                        self.router?.backToEditProfile()
+                        
+                    }))
+                    DispatchQueue.main.async { [weak self] in
+                        self?.view?.present(alertController, animated: true, completion: nil)
+                    }
+                    
+                    
+                } else {
+                    print("can't update password")
+                }
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func activate() {
