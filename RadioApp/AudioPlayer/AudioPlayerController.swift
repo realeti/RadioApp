@@ -16,7 +16,7 @@ protocol AudioPlayerProtocol {
     func playPrevious()
     func playNext()
     func playStation(at index: Int)
-    func setStations(_ stations: [PlayerStation], startIndex: Int)
+    func setStations(_ stations: [PlayerStation])
 }
 
 final class AudioPlayerController: AudioPlayerProtocol {
@@ -92,9 +92,8 @@ extension AudioPlayerController {
         }
     }
     
-    func setStations(_ stations: [PlayerStation], startIndex: Int = -1) {
-        self.stations.append(contentsOf: stations)
-        self.currentIndex = startIndex
+    func setStations(_ stations: [PlayerStation]) {
+        self.stations = stations
     }
 }
 
