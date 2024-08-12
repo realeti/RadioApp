@@ -40,9 +40,10 @@ final class PopularViewController: ViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        if presenter.isStationsLoaded {
-            presenter.setStations()
+        
+        if !presenter.isLoadingData {
+            let stations = presenter.getStations
+            presenter.setPlayerStations(with: stations)
         }
     }
     
@@ -69,9 +70,7 @@ final class PopularViewController: ViewController {
     
     // MARK: - Load Stations
     private func loadStations() {
-        Task {
-            await presenter.loadStations()
-        }
+        presenter.loadStations()
     }
     
     // MARK: - Deinit
@@ -116,6 +115,14 @@ extension PopularViewController: PopularViewProtocol {
     func didUpdateStations() {
         DispatchQueue.main.async {
             self.popularView.radioCollection.reloadData()
+        }
+    }
+    
+    func insertItems(at indexPaths: [IndexPath]) {
+        DispatchQueue.main.async {
+            self.popularView.radioCollection.performBatchUpdates({
+                self.popularView.radioCollection.insertItems(at: indexPaths)
+            }, completion: nil)
         }
     }
     
@@ -165,6 +172,21 @@ extension PopularViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let stationId = indexPath.row
         presenter.changeStation(stationId)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        /// check offset
+        guard offsetY > 0 else { return }
+        
+        /// update collection when 20% until the end
+        if offsetY > contentHeight - height * 1.2 {
+            guard !presenter.isLoadingData else { return }
+            presenter.loadStations()
+        }
     }
 }
 
