@@ -16,6 +16,12 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconNoBg" translatesAutoresizingMaskIntoConstraints="NO" id="nuF-rE-Ejy">
+                                <rect key="frame" x="156" y="386" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="darkBlueApp"/>
                     </view>
@@ -26,6 +32,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="iconNoBg" width="59" height="59"/>
         <namedColor name="darkBlueApp">
             <color red="0.0039215686274509803" green="0.0039215686274509803" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -36,11 +36,11 @@ final class FavoritesPresenter: FavoritesPresenterProtocol {
                     self?.removeFromFavorites(stationEntity)
                 },
                 didSelectHandler: { [weak self] in
-                    let station = RadioStation(id: UUID(),
-                                               url: "",
+                    let station = RadioStation(id: stationEntity.id ?? UUID(),
+                                               url: stationEntity.url ?? "",
                                                frequency: stationEntity.genre ?? "Genre",
-                                               name: stationEntity.title ?? "",
-                                               imageName: "")
+                                               name: stationEntity.title ?? "Not known",
+                                               imageName: stationEntity.favicon)
                     self?.router.showDetails(with: station)
                 }
             )

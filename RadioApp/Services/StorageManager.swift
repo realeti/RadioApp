@@ -65,11 +65,11 @@ final class StorageManager {
         saveContext()
     }
     
-    func toggleFavorite(id: UUID, title: String, genre: String) {
+    func toggleFavorite(id: UUID, title: String, genre: String, url: String, favicon: String) {
         if let station = fetchStation(with: id) {
             deleteStation(station)
         } else {
-            saveStation(id: id, title: title, genre: genre)
+            saveStation(id: id, title: title, genre: genre, url: url, favicon: favicon)
         }
     }
     
@@ -98,11 +98,13 @@ final class StorageManager {
         return station
     }
     
-    private func saveStation(id: UUID, title: String, genre: String) {
+    private func saveStation(id: UUID, title: String, genre: String, url: String, favicon: String) {
         let station = StationEntity(context: viewContext)
         station.id = id
         station.title = title
         station.genre = genre
+        station.url = url
+        station.favicon = favicon
         
         saveContext()
     }

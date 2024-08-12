@@ -18,6 +18,7 @@ final class AllStationsPresenter {
 
 	private let radioBrowser: RadioBrowser
 	private let storageManager: StorageManager
+	private let audioPlayer: AudioPlayerProtocol
 
 	// MARK: - Private properties
 
@@ -31,16 +32,19 @@ final class AllStationsPresenter {
 	///   - view: view, на которой будет отображаться информация.
 	///   - radioBrowser: сервис для работы с `API all.api.radio-browser`.
 	///   - storageManager: менеджер, управляющий хранилищем радиостанций.
+	///   - audioPlayer: аудиоплеер.
 	init(
 		router: AllStationsRouterProtocol,
 		view: AllStationsControllerProtocol,
 		radioBrowser: RadioBrowser,
-		storageManager: StorageManager
+		storageManager: StorageManager,
+		audioPlayer: AudioPlayerController
 	) {
 		self.router = router
 		self.view = view
 		self.radioBrowser = radioBrowser
 		self.storageManager = storageManager
+		self.audioPlayer = audioPlayer
 	}
 }
 
@@ -124,6 +128,7 @@ private extension AllStationsPresenter {
 
 	@MainActor
 	func render() {
+		setupAudioPlayer()
 		view.update(with: mapStationsData())
 	}
 
@@ -142,13 +147,21 @@ private extension AllStationsPresenter {
 		storageManager.toggleFavorite(
 			id: station.stationUUID,
 			title: station.name.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .newlines),
-			genre: station.tags.first ?? ""
+			genre: station.tags.first ?? "",
+            url: station.url,
+            favicon: station.favicon
 		)
+	}
+
+	func setupAudioPlayer() {
+		let playList = stations.map { PlayerStation(id: $0.stationUUID, url: $0.url) }
+		audioPlayer.setStations(playList)
 	}
 
 	func mapStationsData() -> AllStations.Model {
 		let radioStations = stations.map { makeStationModel(from: $0) }
-		return AllStations.Model(stations: radioStations)
+		let indexPlayingNow = IndexPath(row: audioPlayer.currentIndex, section: 0)
+		return AllStations.Model(stations: radioStations, indexPlayingNow: indexPlayingNow)
 	}
 
 	func makeStationModel(from data: Station) -> AllStations.Model.Station {
@@ -164,7 +177,7 @@ private extension AllStationsPresenter {
 			tag: tag,
 			title: title,
 			votes: data.votes,
-			isPlayingNow: false,
+			isPlayingNow: data.stationUUID == audioPlayer.currentId,
 			isFavorite: station != nil ? true : false
 		)
 	}

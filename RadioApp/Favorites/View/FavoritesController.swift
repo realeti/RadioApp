@@ -64,7 +64,8 @@ final class FavoritesController: ViewController {
         
         tableView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(25)
-            $0.leading.trailing.bottom.equalToSuperview().inset(61)
+            $0.leading.trailing.equalToSuperview().inset(61)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(K.audioPlayerHeight)
         }
     }
 }
