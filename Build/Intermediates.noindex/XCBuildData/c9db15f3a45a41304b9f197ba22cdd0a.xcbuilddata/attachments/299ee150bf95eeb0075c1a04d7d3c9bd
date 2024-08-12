@@ -1,0 +1,98 @@
+{
+  "" : {
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioBrowser-master.dia",
+    "emit-module-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioBrowser-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioBrowser-master-emit-module.dia",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioBrowser-master.swiftdeps"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/RadioBrowser/Sources/RadioBrowser/Components/Endpoint.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Endpoint.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Endpoint.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Endpoint.dia",
+    "index-unit-output-path" : "/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Endpoint.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Endpoint.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Endpoint.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Endpoint.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Endpoint~partial.swiftmodule"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/RadioBrowser/Sources/RadioBrowser/Components/Request.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Request.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Request.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Request.dia",
+    "index-unit-output-path" : "/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Request.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Request.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Request.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Request.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Request~partial.swiftmodule"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/RadioBrowser/Sources/RadioBrowser/DTO/Country.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Country.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Country.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Country.dia",
+    "index-unit-output-path" : "/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Country.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Country.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Country.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Country.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Country~partial.swiftmodule"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/RadioBrowser/Sources/RadioBrowser/DTO/Language.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Language.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Language.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Language.dia",
+    "index-unit-output-path" : "/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Language.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Language.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Language.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Language.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Language~partial.swiftmodule"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/RadioBrowser/Sources/RadioBrowser/DTO/Station.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Station.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Station.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Station.dia",
+    "index-unit-output-path" : "/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Station.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Station.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Station.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Station.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Station~partial.swiftmodule"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/RadioBrowser/Sources/RadioBrowser/DTO/StationTag.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/StationTag.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/StationTag.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/StationTag.dia",
+    "index-unit-output-path" : "/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/StationTag.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/StationTag.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/StationTag.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/StationTag.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/StationTag~partial.swiftmodule"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/RadioBrowser/Sources/RadioBrowser/Endpoints.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Endpoints.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Endpoints.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Endpoints.dia",
+    "index-unit-output-path" : "/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Endpoints.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Endpoints.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Endpoints.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Endpoints.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/Endpoints~partial.swiftmodule"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/RadioBrowser/Sources/RadioBrowser/RadioBrowser.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioBrowser.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioBrowser.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioBrowser.dia",
+    "index-unit-output-path" : "/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioBrowser.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioBrowser.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioBrowser.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioBrowser.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioBrowser~partial.swiftmodule"
+  },
+  "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/RadioBrowser/Sources/RadioBrowser/RadioError.swift" : {
+    "const-values" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioError.swiftconstvalues",
+    "dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioError.d",
+    "diagnostics" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioError.dia",
+    "index-unit-output-path" : "/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioError.o",
+    "llvm-bc" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioError.bc",
+    "object" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioError.o",
+    "swift-dependencies" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioError.swiftdeps",
+    "swiftmodule" : "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/RadioBrowser.build/Debug-iphonesimulator/RadioBrowser.build/Objects-normal/x86_64/RadioError~partial.swiftmodule"
+  }
+}

@@ -1,0 +1,4 @@
+module AppAuth {
+umbrella "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/AppAuth-iOS/Sources/AppAuth"
+export *
+}

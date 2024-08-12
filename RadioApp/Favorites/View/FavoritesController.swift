@@ -17,7 +17,7 @@ final class FavoritesController: ViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Favorites"
+        label.text = "Favorites".localized
         label.textColor = .white
         label.font = .systemFont(ofSize: 30, weight: .light)
         return label

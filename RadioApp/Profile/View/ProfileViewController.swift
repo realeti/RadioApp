@@ -10,6 +10,7 @@ import UIKit
 final class ProfileViewController: ViewController, ProfileViewProtocol {
     private let presenter: ProfilePresenterProtocol
     private let userView = UserView()
+    private let customSwitchSettingsView = CustomSwitchSettingsView()
     
     init(presenter: ProfilePresenterProtocol) {
         self.presenter = presenter

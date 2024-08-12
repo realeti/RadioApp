@@ -12,3 +12,16 @@ extension UIView {
         subviews.forEach(addSubview)
     }
 }
+
+extension UIView {
+    @objc func findViewController() -> UIViewController? {
+        var nextResponder: UIResponder? = self
+        while let responder = nextResponder {
+            if let viewController = responder as? UIViewController {
+                return viewController
+            }
+            nextResponder = responder.next
+        }
+        return nil
+    }
+}

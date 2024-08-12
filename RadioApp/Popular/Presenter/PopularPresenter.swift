@@ -25,6 +25,7 @@ protocol PopularPresenterProtocol {
     func changeStation(_ stationId: Int)
     func toggleVoteState(for stationId: Int)
     func isStationVoted(_ stationId: Int) -> Bool
+    func showDetail(_ stationId: Int)
 }
 
 final class PopularPresenter: PopularPresenterProtocol {
@@ -122,7 +123,8 @@ private extension PopularPresenter {
             title: stationNames.title,
             subtitle: stationNames.subtitle,
             voteCount: station.votes,
-            url: station.urlResolved
+            url: station.urlResolved,
+            imageURL: station.favicon
         )
     }
 }
@@ -209,10 +211,26 @@ extension PopularPresenter {
             title: selectedStation.title,
             subtitle: selectedStation.subtitle,
             voteCount: selectedStation.voteCount + voteChange,
-            url: selectedStation.url
+            url: selectedStation.url,
+            imageURL: selectedStation.imageURL
         )
         
         // update array of popular stations
         stations[stationId] = selectedStation
+    }
+}
+
+// MARK: - Show Detail
+extension PopularPresenter {
+    func showDetail(_ stationId: Int) {
+        let selectedStation = stations[stationId]
+        let radioStation = RadioStation(
+            id: selectedStation.id,
+            url: selectedStation.url,
+            frequency: selectedStation.subtitle,
+            name: selectedStation.title,
+            imageName: selectedStation.imageURL
+        )
+        router.showDetail(with: radioStation)
     }
 }
