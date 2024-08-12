@@ -42,7 +42,8 @@ final class PopularViewController: ViewController {
         super.viewWillAppear(animated)
         
         if !presenter.isLoadingData {
-            presenter.setStations()
+            let stations = presenter.getStations
+            presenter.setPlayerStations(with: stations)
         }
     }
     
