@@ -1,0 +1,4 @@
+module SwiftFP {
+header "SwiftFP-Swift.h"
+export *
+}

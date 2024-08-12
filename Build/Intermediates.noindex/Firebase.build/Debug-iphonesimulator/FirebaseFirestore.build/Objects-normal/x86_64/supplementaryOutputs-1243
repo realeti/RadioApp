@@ -1,0 +1,18 @@
+"/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseFirestore.build/DerivedSources/resource_bundle_accessor.swift":
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseFirestore.build/Objects-normal/x86_64/resource_bundle_accessor.swiftconstvalues"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseFirestore.build/Objects-normal/x86_64/resource_bundle_accessor.d"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseFirestore.build/Objects-normal/x86_64/resource_bundle_accessor.o"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseFirestore.build/Objects-normal/x86_64/resource_bundle_accessor.swiftdeps"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseFirestore.build/Objects-normal/x86_64/resource_bundle_accessor.dia"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/AsyncAwait/Firestore+AsyncAwait.swift":
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseFirestore.build/Objects-normal/x86_64/Firestore+AsyncAwait.swiftconstvalues"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseFirestore.build/Objects-normal/x86_64/Firestore+AsyncAwait.dia"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseFirestore.build/Objects-normal/x86_64/Firestore+AsyncAwait.d"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseFirestore.build/Objects-normal/x86_64/Firestore+AsyncAwait.o"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseFirestore.build/Objects-normal/x86_64/Firestore+AsyncAwait.swiftdeps"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/AsyncAwait/CollectionReference+AsyncAwait.swift":
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseFirestore.build/Objects-normal/x86_64/CollectionReference+AsyncAwait.swiftdeps"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseFirestore.build/Objects-normal/x86_64/CollectionReference+AsyncAwait.swiftconstvalues"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseFirestore.build/Objects-normal/x86_64/CollectionReference+AsyncAwait.dia"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseFirestore.build/Objects-normal/x86_64/CollectionReference+AsyncAwait.d"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseFirestore.build/Objects-normal/x86_64/CollectionReference+AsyncAwait.o"

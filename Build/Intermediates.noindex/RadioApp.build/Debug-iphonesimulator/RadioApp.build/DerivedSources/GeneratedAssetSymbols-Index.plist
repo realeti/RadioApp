@@ -108,6 +108,16 @@
 			<key>catalogPath</key>
 			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
 			<key>objcSymbol</key>
+			<string>ACColorNameSearchApp</string>
+			<key>relativePath</key>
+			<string>./AppColors/searchApp.colorset</string>
+			<key>swiftSymbol</key>
+			<string>searchApp</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
 			<string>ACColorNameStormyBlue</string>
 			<key>relativePath</key>
 			<string>./AppColors/stormyBlue.colorset</string>
@@ -291,6 +301,16 @@
 			<key>catalogPath</key>
 			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
 			<key>objcSymbol</key>
+			<string>ACImageNameCloseSearch</string>
+			<key>relativePath</key>
+			<string>./Common/closeSearch.imageset</string>
+			<key>swiftSymbol</key>
+			<string>closeSearch</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
 			<string>ACImageNameClose1</string>
 			<key>relativePath</key>
 			<string>./Icons/close_1.imageset</string>
@@ -431,6 +451,16 @@
 			<key>catalogPath</key>
 			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
 			<key>objcSymbol</key>
+			<string>ACImageNameGoSearch</string>
+			<key>relativePath</key>
+			<string>./Common/goSearch.imageset</string>
+			<key>swiftSymbol</key>
+			<string>goSearch</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
 			<string>ACImageNameGooglePlus</string>
 			<key>relativePath</key>
 			<string>./Login/googlePlus.imageset</string>
@@ -486,6 +516,16 @@
 			<string>./Common/iconNoBg.imageset</string>
 			<key>swiftSymbol</key>
 			<string>iconNoBg</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameMask</string>
+			<key>relativePath</key>
+			<string>./Icons/mask.imageset</string>
+			<key>swiftSymbol</key>
+			<string>mask</string>
 		</dict>
 		<dict>
 			<key>catalogPath</key>
@@ -681,6 +721,16 @@
 			<key>catalogPath</key>
 			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
 			<key>objcSymbol</key>
+			<string>ACImageNameSearchApp</string>
+			<key>relativePath</key>
+			<string>./Common/searchApp.imageset</string>
+			<key>swiftSymbol</key>
+			<string>searchApp</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
 			<string>ACImageNameSettings</string>
 			<key>relativePath</key>
 			<string>./Icons/settings.imageset</string>
@@ -716,6 +766,16 @@
 			<string>./Icons/shield.imageset</string>
 			<key>swiftSymbol</key>
 			<string>shield</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameSignalTower</string>
+			<key>relativePath</key>
+			<string>./Common/signal-tower.imageset</string>
+			<key>swiftSymbol</key>
+			<string>signalTower</string>
 		</dict>
 		<dict>
 			<key>catalogPath</key>
@@ -786,6 +846,16 @@
 			<string>./Common/waveCircle.imageset</string>
 			<key>swiftSymbol</key>
 			<string>waveCircle</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/ivansemenov/RadioApp/RadioApp/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameWaveCircles</string>
+			<key>relativePath</key>
+			<string>./Common/waveCircles.imageset</string>
+			<key>swiftSymbol</key>
+			<string>waveCircles</string>
 		</dict>
 		<dict>
 			<key>catalogPath</key>

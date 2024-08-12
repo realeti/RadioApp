@@ -1,0 +1,4 @@
+module GoogleSignIn {
+umbrella header "/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/GoogleSignIn-iOS/GoogleSignIn/Sources/Public/GoogleSignIn/GoogleSignIn.h"
+export *
+}

@@ -1,0 +1,30 @@
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/Kingfisher/Sources/Utility/ExtensionHelpers.swift":
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/ExtensionHelpers.o"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/ExtensionHelpers.swiftconstvalues"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/ExtensionHelpers.d"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/ExtensionHelpers.swiftdeps"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/ExtensionHelpers.dia"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/Kingfisher/Sources/Utility/CallbackQueue.swift":
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/CallbackQueue.dia"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/CallbackQueue.swiftdeps"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/CallbackQueue.d"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/CallbackQueue.o"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/CallbackQueue.swiftconstvalues"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/Kingfisher/Sources/Utility/DisplayLink.swift":
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/DisplayLink.d"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/DisplayLink.swiftdeps"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/DisplayLink.swiftconstvalues"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/DisplayLink.dia"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/DisplayLink.o"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/Kingfisher/Sources/Utility/Result.swift":
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/Result.d"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/Result.o"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/Result.dia"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/Result.swiftdeps"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/Result.swiftconstvalues"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/Kingfisher/Sources/Utility/Delegate.swift":
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/Delegate.swiftconstvalues"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/Delegate.o"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/Delegate.dia"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/Delegate.d"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/Delegate.swiftdeps"

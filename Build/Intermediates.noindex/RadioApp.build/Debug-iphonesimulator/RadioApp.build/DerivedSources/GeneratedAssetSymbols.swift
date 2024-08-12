@@ -54,6 +54,9 @@ extension ColorResource {
     /// The "pinkApp" asset catalog color resource.
     static let pinkApp = ColorResource(name: "pinkApp", bundle: resourceBundle)
 
+    /// The "searchApp" asset catalog color resource.
+    static let searchApp = ColorResource(name: "searchApp", bundle: resourceBundle)
+
     /// The "stormyBlue" asset catalog color resource.
     static let stormyBlue = ColorResource(name: "stormyBlue", bundle: resourceBundle)
 
@@ -115,6 +118,9 @@ extension ImageResource {
     /// The "clock" asset catalog image resource.
     static let clock = ImageResource(name: "clock", bundle: resourceBundle)
 
+    /// The "closeSearch" asset catalog image resource.
+    static let closeSearch = ImageResource(name: "closeSearch", bundle: resourceBundle)
+
     /// The "close_1" asset catalog image resource.
     static let close1 = ImageResource(name: "close_1", bundle: resourceBundle)
 
@@ -157,6 +163,9 @@ extension ImageResource {
     /// The "globe" asset catalog image resource.
     static let globe = ImageResource(name: "globe", bundle: resourceBundle)
 
+    /// The "goSearch" asset catalog image resource.
+    static let goSearch = ImageResource(name: "goSearch", bundle: resourceBundle)
+
     /// The "googlePlus" asset catalog image resource.
     static let googlePlus = ImageResource(name: "googlePlus", bundle: resourceBundle)
 
@@ -174,6 +183,9 @@ extension ImageResource {
 
     /// The "iconNoBg" asset catalog image resource.
     static let iconNoBg = ImageResource(name: "iconNoBg", bundle: resourceBundle)
+
+    /// The "mask" asset catalog image resource.
+    static let mask = ImageResource(name: "mask", bundle: resourceBundle)
 
     /// The "mockPic" asset catalog image resource.
     static let mockPic = ImageResource(name: "mockPic", bundle: resourceBundle)
@@ -232,6 +244,9 @@ extension ImageResource {
     /// The "search" asset catalog image resource.
     static let search = ImageResource(name: "search", bundle: resourceBundle)
 
+    /// The "searchApp" asset catalog image resource.
+    static let searchApp = ImageResource(name: "searchApp", bundle: resourceBundle)
+
     /// The "settings" asset catalog image resource.
     static let settings = ImageResource(name: "settings", bundle: resourceBundle)
 
@@ -243,6 +258,9 @@ extension ImageResource {
 
     /// The "shield" asset catalog image resource.
     static let shield = ImageResource(name: "shield", bundle: resourceBundle)
+
+    /// The "signal-tower" asset catalog image resource.
+    static let signalTower = ImageResource(name: "signal-tower", bundle: resourceBundle)
 
     /// The "star" asset catalog image resource.
     static let star = ImageResource(name: "star", bundle: resourceBundle)
@@ -264,6 +282,9 @@ extension ImageResource {
 
     /// The "waveCircle" asset catalog image resource.
     static let waveCircle = ImageResource(name: "waveCircle", bundle: resourceBundle)
+
+    /// The "waveCircles" asset catalog image resource.
+    static let waveCircles = ImageResource(name: "waveCircles", bundle: resourceBundle)
 
     /// The "wishlist" asset catalog image resource.
     static let wishlist = ImageResource(name: "wishlist", bundle: resourceBundle)
@@ -365,6 +386,15 @@ extension AppKit.NSColor {
     static var pinkApp: AppKit.NSColor {
 #if !targetEnvironment(macCatalyst)
         .init(resource: .pinkApp)
+#else
+        .init()
+#endif
+    }
+
+    /// The "searchApp" asset catalog color.
+    static var searchApp: AppKit.NSColor {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .searchApp)
 #else
         .init()
 #endif
@@ -495,6 +525,15 @@ extension UIKit.UIColor {
 #endif
     }
 
+    /// The "searchApp" asset catalog color.
+    static var searchApp: UIKit.UIColor {
+#if !os(watchOS)
+        .init(resource: .searchApp)
+#else
+        .init()
+#endif
+    }
+
     /// The "stormyBlue" asset catalog color.
     static var stormyBlue: UIKit.UIColor {
 #if !os(watchOS)
@@ -559,6 +598,9 @@ extension SwiftUI.Color {
     /// The "pinkApp" asset catalog color.
     static var pinkApp: SwiftUI.Color { .init(.pinkApp) }
 
+    /// The "searchApp" asset catalog color.
+    static var searchApp: SwiftUI.Color { .init(.searchApp) }
+
     /// The "stormyBlue" asset catalog color.
     static var stormyBlue: SwiftUI.Color { .init(.stormyBlue) }
 
@@ -602,6 +644,9 @@ extension SwiftUI.ShapeStyle where Self == SwiftUI.Color {
 
     /// The "pinkApp" asset catalog color.
     static var pinkApp: SwiftUI.Color { .init(.pinkApp) }
+
+    /// The "searchApp" asset catalog color.
+    static var searchApp: SwiftUI.Color { .init(.searchApp) }
 
     /// The "stormyBlue" asset catalog color.
     static var stormyBlue: SwiftUI.Color { .init(.stormyBlue) }
@@ -757,6 +802,15 @@ extension AppKit.NSImage {
 #endif
     }
 
+    /// The "closeSearch" asset catalog image.
+    static var closeSearch: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .closeSearch)
+#else
+        .init()
+#endif
+    }
+
     /// The "close_1" asset catalog image.
     static var close1: AppKit.NSImage {
 #if !targetEnvironment(macCatalyst)
@@ -883,6 +937,15 @@ extension AppKit.NSImage {
 #endif
     }
 
+    /// The "goSearch" asset catalog image.
+    static var goSearch: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .goSearch)
+#else
+        .init()
+#endif
+    }
+
     /// The "googlePlus" asset catalog image.
     static var googlePlus: AppKit.NSImage {
 #if !targetEnvironment(macCatalyst)
@@ -932,6 +995,15 @@ extension AppKit.NSImage {
     static var iconNoBg: AppKit.NSImage {
 #if !targetEnvironment(macCatalyst)
         .init(resource: .iconNoBg)
+#else
+        .init()
+#endif
+    }
+
+    /// The "mask" asset catalog image.
+    static var mask: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .mask)
 #else
         .init()
 #endif
@@ -1108,6 +1180,15 @@ extension AppKit.NSImage {
 #endif
     }
 
+    /// The "searchApp" asset catalog image.
+    static var searchApp: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .searchApp)
+#else
+        .init()
+#endif
+    }
+
     /// The "settings" asset catalog image.
     static var settings: AppKit.NSImage {
 #if !targetEnvironment(macCatalyst)
@@ -1139,6 +1220,15 @@ extension AppKit.NSImage {
     static var shield: AppKit.NSImage {
 #if !targetEnvironment(macCatalyst)
         .init(resource: .shield)
+#else
+        .init()
+#endif
+    }
+
+    /// The "signal-tower" asset catalog image.
+    static var signalTower: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .signalTower)
 #else
         .init()
 #endif
@@ -1202,6 +1292,15 @@ extension AppKit.NSImage {
     static var waveCircle: AppKit.NSImage {
 #if !targetEnvironment(macCatalyst)
         .init(resource: .waveCircle)
+#else
+        .init()
+#endif
+    }
+
+    /// The "waveCircles" asset catalog image.
+    static var waveCircles: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .waveCircles)
 #else
         .init()
 #endif
@@ -1368,6 +1467,15 @@ extension UIKit.UIImage {
 #endif
     }
 
+    /// The "closeSearch" asset catalog image.
+    static var closeSearch: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .closeSearch)
+#else
+        .init()
+#endif
+    }
+
     /// The "close_1" asset catalog image.
     static var close1: UIKit.UIImage {
 #if !os(watchOS)
@@ -1494,6 +1602,15 @@ extension UIKit.UIImage {
 #endif
     }
 
+    /// The "goSearch" asset catalog image.
+    static var goSearch: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .goSearch)
+#else
+        .init()
+#endif
+    }
+
     /// The "googlePlus" asset catalog image.
     static var googlePlus: UIKit.UIImage {
 #if !os(watchOS)
@@ -1543,6 +1660,15 @@ extension UIKit.UIImage {
     static var iconNoBg: UIKit.UIImage {
 #if !os(watchOS)
         .init(resource: .iconNoBg)
+#else
+        .init()
+#endif
+    }
+
+    /// The "mask" asset catalog image.
+    static var mask: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .mask)
 #else
         .init()
 #endif
@@ -1719,6 +1845,15 @@ extension UIKit.UIImage {
 #endif
     }
 
+    /// The "searchApp" asset catalog image.
+    static var searchApp: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .searchApp)
+#else
+        .init()
+#endif
+    }
+
     /// The "settings" asset catalog image.
     static var settings: UIKit.UIImage {
 #if !os(watchOS)
@@ -1750,6 +1885,15 @@ extension UIKit.UIImage {
     static var shield: UIKit.UIImage {
 #if !os(watchOS)
         .init(resource: .shield)
+#else
+        .init()
+#endif
+    }
+
+    /// The "signal-tower" asset catalog image.
+    static var signalTower: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .signalTower)
 #else
         .init()
 #endif
@@ -1813,6 +1957,15 @@ extension UIKit.UIImage {
     static var waveCircle: UIKit.UIImage {
 #if !os(watchOS)
         .init(resource: .waveCircle)
+#else
+        .init()
+#endif
+    }
+
+    /// The "waveCircles" asset catalog image.
+    static var waveCircles: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .waveCircles)
 #else
         .init()
 #endif

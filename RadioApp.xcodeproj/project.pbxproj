@@ -33,6 +33,7 @@
 		B949AE572C5F805600E2A338 /* FavoritesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE4E2C5F805600E2A338 /* FavoritesProtocol.swift */; };
 		B949AE582C5F805600E2A338 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE4F2C5F805600E2A338 /* FavoritesRouter.swift */; };
 		B949AE5A2C5F808600E2A338 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949AE592C5F808600E2A338 /* TableCell.swift */; };
+		BE9581482C6A2D8800A1D1B7 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9581472C6A2D8800A1D1B7 /* NotificationManager.swift */; };
 		BECF66132C58D6C30068160D /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66122C58D6C30068160D /* ProfileRouter.swift */; };
 		BECF66152C58D6FA0068160D /* ProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66142C58D6FA0068160D /* ProfileBuilder.swift */; };
 		BECF66172C58D7410068160D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66162C58D7410068160D /* ProfileViewController.swift */; };
@@ -55,12 +56,9 @@
 		BECF66482C5A22A70068160D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66472C5A22A70068160D /* EditProfileViewController.swift */; };
 		BECF664A2C5A22C90068160D /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66492C5A22C90068160D /* EditProfilePresenter.swift */; };
 		BECF664C2C5A22EA0068160D /* ImageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF664B2C5A22EA0068160D /* ImageSelectionViewController.swift */; };
-		BECF664F2C5A35AE0068160D /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF664E2C5A35AE0068160D /* NotificationsViewController.swift */; };
-		BECF66512C5A35C50068160D /* NotificationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66502C5A35C50068160D /* NotificationsPresenter.swift */; };
 		BECF66542C5A36030068160D /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66532C5A36030068160D /* LanguageViewController.swift */; };
 		BECF66562C5A361B0068160D /* LanguagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66552C5A361B0068160D /* LanguagePresenter.swift */; };
 		BECF66582C5A36340068160D /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66572C5A36340068160D /* LanguageCell.swift */; };
-		BECF665A2C5A4F740068160D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66592C5A4F740068160D /* NotificationService.swift */; };
 		BECF66652C5D22240068160D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BECF66672C5D22240068160D /* Localizable.strings */; };
 		BECF666D2C60D1FE0068160D /* CustomSwitchSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF666C2C60D1FE0068160D /* CustomSwitchSettingsView.swift */; };
 		C62348482C5E88BD00F536E7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62348472C5E88BD00F536E7 /* Constants.swift */; };
@@ -168,6 +166,7 @@
 		B949AE4E2C5F805600E2A338 /* FavoritesProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesProtocol.swift; sourceTree = "<group>"; };
 		B949AE4F2C5F805600E2A338 /* FavoritesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		B949AE592C5F808600E2A338 /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		BE9581472C6A2D8800A1D1B7 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		BECF66122C58D6C30068160D /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		BECF66142C58D6FA0068160D /* ProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBuilder.swift; sourceTree = "<group>"; };
 		BECF66162C58D7410068160D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -190,12 +189,9 @@
 		BECF66472C5A22A70068160D /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		BECF66492C5A22C90068160D /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
 		BECF664B2C5A22EA0068160D /* ImageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectionViewController.swift; sourceTree = "<group>"; };
-		BECF664E2C5A35AE0068160D /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
-		BECF66502C5A35C50068160D /* NotificationsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPresenter.swift; sourceTree = "<group>"; };
 		BECF66532C5A36030068160D /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		BECF66552C5A361B0068160D /* LanguagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePresenter.swift; sourceTree = "<group>"; };
 		BECF66572C5A36340068160D /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
-		BECF66592C5A4F740068160D /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		BECF66662C5D22240068160D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BECF666A2C5D22DC0068160D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		BECF666B2C5D22F20068160D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -457,7 +453,6 @@
 			children = (
 				BECF662A2C5A0CF20068160D /* About */,
 				BECF66522C5A35F50068160D /* Language */,
-				BECF664D2C5A359E0068160D /* Notifications */,
 				BECF66462C5A22980068160D /* EditProfile */,
 				BECF66212C5A060D0068160D /* PrivacyPolicy */,
 			);
@@ -507,8 +502,8 @@
 			children = (
 				BECF66412C5A1E300068160D /* UDService.swift */,
 				B949AE432C5F804100E2A338 /* StorageManager.swift */,
-				BECF66592C5A4F740068160D /* NotificationService.swift */,
 				CBB20CCE2C6213A000B35416 /* AuthenticationService.swift */,
+				BE9581472C6A2D8800A1D1B7 /* NotificationManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -521,15 +516,6 @@
 				BECF664B2C5A22EA0068160D /* ImageSelectionViewController.swift */,
 			);
 			path = EditProfile;
-			sourceTree = "<group>";
-		};
-		BECF664D2C5A359E0068160D /* Notifications */ = {
-			isa = PBXGroup;
-			children = (
-				BECF664E2C5A35AE0068160D /* NotificationsViewController.swift */,
-				BECF66502C5A35C50068160D /* NotificationsPresenter.swift */,
-			);
-			path = Notifications;
 			sourceTree = "<group>";
 		};
 		BECF66522C5A35F50068160D /* Language */ = {
@@ -957,6 +943,7 @@
 				BECF66152C58D6FA0068160D /* ProfileBuilder.swift in Sources */,
 				CBCA8D7C2C5D38AB003B01B9 /* OnboardingAssembly.swift in Sources */,
 				C653B32D2C67E30C0049A922 /* HorizontalVolumeView.swift in Sources */,
+				BE9581482C6A2D8800A1D1B7 /* NotificationManager.swift in Sources */,
 				B949AE552C5F805600E2A338 /* FavoritesAssembly.swift in Sources */,
 				CBCA8D7D2C5D38AB003B01B9 /* OnboardingPresenter.swift in Sources */,
 				CB2C8CA02C5698E400D280FE /* RadioApp.xcdatamodeld in Sources */,
@@ -991,7 +978,6 @@
 				B949AE542C5F805600E2A338 /* FavoritesController.swift in Sources */,
 				BECF66542C5A36030068160D /* LanguageViewController.swift in Sources */,
 				CB2C8CBA2C57AB5800D280FE /* Configurable.swift in Sources */,
-				BECF66512C5A35C50068160D /* NotificationsPresenter.swift in Sources */,
 				CBB20CEA2C627A7100B35416 /* HomeAssembly.swift in Sources */,
 				CBB20CD12C6213BF00B35416 /* UserApp.swift in Sources */,
 				C62348632C5E8B2100F536E7 /* PopularViewController.swift in Sources */,
@@ -1006,7 +992,6 @@
 				CBF57B562C58319D006237E8 /* Builder.swift in Sources */,
 				113FE50F2C61396B00B2AC8B /* StationDetailsAssembly .swift in Sources */,
 				C68453E42C62BBE000C457EA /* AudioPlayerPresenter.swift in Sources */,
-				BECF665A2C5A4F740068160D /* NotificationService.swift in Sources */,
 				B6E8FE012C670359008FF38C /* AllStationsProtocols.swift in Sources */,
 				BECF661B2C5A055C0068160D /* GeneralView.swift in Sources */,
 				BECF662E2C5A0D7E0068160D /* AboutUsPresenter.swift in Sources */,
@@ -1023,7 +1008,6 @@
 				BECF66272C5A06670068160D /* PrivacyInfo.swift in Sources */,
 				C623484E2C5E899800F536E7 /* UIImageView + Extensions.swift in Sources */,
 				BECF662C2C5A0D570068160D /* AboutUsViewController.swift in Sources */,
-				BECF664F2C5A35AE0068160D /* NotificationsViewController.swift in Sources */,
 				B6E8FDFF2C670359008FF38C /* AllStationsController.swift in Sources */,
 				CBCA8D9C2C5D3965003B01B9 /* UpdatePasswordController.swift in Sources */,
 				BECF66192C5A05360068160D /* UserView.swift in Sources */,

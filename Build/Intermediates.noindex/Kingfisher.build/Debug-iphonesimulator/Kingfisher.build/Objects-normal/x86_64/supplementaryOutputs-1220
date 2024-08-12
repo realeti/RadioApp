@@ -1,0 +1,36 @@
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/Kingfisher/Sources/Extensions/TVMonogramView+Kingfisher.swift":
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/TVMonogramView+Kingfisher.d"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/TVMonogramView+Kingfisher.dia"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/TVMonogramView+Kingfisher.swiftconstvalues"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/TVMonogramView+Kingfisher.swiftdeps"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/TVMonogramView+Kingfisher.o"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/Kingfisher/Sources/Extensions/ImageView+Kingfisher.swift":
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/ImageView+Kingfisher.d"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/ImageView+Kingfisher.dia"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/ImageView+Kingfisher.swiftdeps"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/ImageView+Kingfisher.o"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/ImageView+Kingfisher.swiftconstvalues"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/Kingfisher/Sources/Extensions/NSTextAttachment+Kingfisher.swift":
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/NSTextAttachment+Kingfisher.d"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/NSTextAttachment+Kingfisher.swiftdeps"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/NSTextAttachment+Kingfisher.dia"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/NSTextAttachment+Kingfisher.swiftconstvalues"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/NSTextAttachment+Kingfisher.o"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/Kingfisher/Sources/Extensions/CPListItem+Kingfisher.swift":
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/CPListItem+Kingfisher.swiftdeps"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/CPListItem+Kingfisher.d"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/CPListItem+Kingfisher.swiftconstvalues"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/CPListItem+Kingfisher.dia"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/CPListItem+Kingfisher.o"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/Kingfisher/Sources/Cache/Storage.swift":
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/Storage.swiftdeps"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/Storage.o"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/Storage.d"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/Storage.swiftconstvalues"
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/Storage.dia"
+"/Users/ivansemenov/Library/Developer/Xcode/DerivedData/RadioApp-ascnxwolmquxpvcijtuambsevjkf/SourcePackages/checkouts/Kingfisher/Sources/Extensions/NSButton+Kingfisher.swift":
+  diagnostics: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/NSButton+Kingfisher.dia"
+  const-values: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/NSButton+Kingfisher.swiftconstvalues"
+  swift-dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/NSButton+Kingfisher.swiftdeps"
+  object: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/NSButton+Kingfisher.o"
+  dependencies: "/Users/ivansemenov/RadioApp/Build/Intermediates.noindex/Kingfisher.build/Debug-iphonesimulator/Kingfisher.build/Objects-normal/x86_64/NSButton+Kingfisher.d"
