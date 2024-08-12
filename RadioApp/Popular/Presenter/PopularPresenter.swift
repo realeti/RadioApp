@@ -10,15 +10,16 @@ import RadioBrowser
 
 protocol PopularViewProtocol: AnyObject {
     func didUpdateStations()
+    func insertItems(at indexPaths: [IndexPath])
     func voteForStation(at: IndexPath?)
 }
 
 protocol PopularPresenterProtocol {
     init(router: PopularRouterProtocol)
     var getStations: [PopularViewModel] { get }
-    var isStationsLoaded: Bool { get }
+    var isLoadingData: Bool { get }
     
-    func loadStations() async
+    func loadStations()
     func setStations()
     func removeVoteStatus(_ stationId: Int)
     func changeStation(_ stationId: Int)
@@ -44,7 +45,7 @@ final class PopularPresenter: PopularPresenterProtocol {
         get { stations }
     }
     
-    var isStationsLoaded: Bool = false
+    var isLoadingData = false
     
     // MARK: - Init
     init(router: PopularRouterProtocol) {
@@ -54,40 +55,93 @@ final class PopularPresenter: PopularPresenterProtocol {
 
 // MARK: - Load Popular Stations
 extension PopularPresenter {
-    func loadStations() async {
-        let result = await radioBrowser.getPopularStation()
+    func loadStations() {
+        guard !isLoadingData else { return }
+        isLoadingData = true
         
-        switch result {
-        case .success(let fetctedStations):
-            stations = fetctedStations.map({ station in
-                let title: String
-                let subtitle: String
-                
-                if let tag = station.tags.first, !tag.isEmpty {
-                    title = tag
-                    subtitle = station.name
-                } else {
-                    title = station.name
-                    subtitle = ""
+        Task {
+            let result = await radioBrowser.getPopularStation(offset: stations.count)
+            
+            switch result {
+            case .success(let fetchedStations):
+                let newStations = fetchedStations.map { station in
+                    createStationViewModel(from: station)
                 }
                 
-                loadVotedStation(with: station.stationUUID)
+                /// update array of stations
+                stations.append(contentsOf: newStations)
                 
-                return PopularViewModel(
-                    id: station.stationUUID,
-                    title: title,
-                    subtitle: subtitle,
-                    voteCount: station.votes,
-                    url: station.urlResolved
-                )
-            })
-        case .failure(let error):
-            print(error)
+                /// update view
+                updateView(with: newStations)
+                
+                /// update array of stations in audio player
+                setStations()
+            case .failure(let error):
+                handleError(error)
+            }
+            isLoadingData = false
+        }
+    }
+}
+
+// MARK: - Update View
+private extension PopularPresenter {
+    func updateView(with newStations: [PopularViewModel]) {
+        if stations.count == newStations.count {
+            /// if stations load first
+            view?.didUpdateStations()
+        } else {
+            /// if station load after scroll
+            let startIndex = stations.count - newStations.count
+            let endIndex = stations.count - 1
+            let indexPaths = (startIndex...endIndex).map {
+                IndexPath(item: $0, section: 0)
+            }
+            view?.insertItems(at: indexPaths)
+        }
+    }
+}
+
+// MARK: - Handle Error
+private extension PopularPresenter {
+    func handleError(_ error: Error) {
+        print("Failed to load stations: \(error.localizedDescription)")
+    }
+}
+
+// MARK: - Create Station View Model
+private extension PopularPresenter {
+    func createStationViewModel(from station: Station) -> PopularViewModel {
+        let stationNames = formatStationNames(station)
+        
+        /// set vote status for station
+        loadVotedStation(with: station.stationUUID)
+        
+        return PopularViewModel(
+            id: station.stationUUID,
+            title: stationNames.title,
+            subtitle: stationNames.subtitle,
+            voteCount: station.votes,
+            url: station.urlResolved
+        )
+    }
+}
+
+// MARK: - Format Station Names
+private extension PopularPresenter {
+    func formatStationNames(_ station: Station) -> (title: String, subtitle: String) {
+        let title: String
+        let subtitle: String
+        
+        if let tag = station.tags.first, !tag.isEmpty {
+            title = tag
+            subtitle = station.name
+        } else {
+            title = station.name
+            subtitle = ""
         }
         
-        isStationsLoaded = true
-        setStations()
-        view?.didUpdateStations()
+        return (title: title, subtitle: subtitle)
     }
 }
 
@@ -109,7 +163,7 @@ extension PopularPresenter {
     }
 }
 
-// MARK: - Set Stations
+// MARK: - Set Stations for Audio Player
 extension PopularPresenter {
     func setStations() {
         let audioStations: [PlayerStation] = stations.map { station in

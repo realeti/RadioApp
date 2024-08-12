@@ -29,7 +29,7 @@ final class AudioPlayerController: AudioPlayerProtocol {
     private var currentVolume: Float = 0.5
     
     // MARK: - Public Properties
-    var currentIndex: Int = 0
+    var currentIndex: Int = -1
     var isPlaying: Bool = false
     var volume: Float {
         get { currentVolume }
@@ -57,10 +57,12 @@ extension AudioPlayerController {
     }
     
     func playPause() {
+        guard let audioPlayer else { return }
+        
         if (isPlaying) {
-            audioPlayer?.pause()
+            audioPlayer.pause()
         } else {
-            audioPlayer?.play()
+            audioPlayer.play()
         }
         
         isPlaying.toggle()
@@ -90,7 +92,7 @@ extension AudioPlayerController {
         }
     }
     
-    func setStations(_ stations: [PlayerStation], startIndex: Int = 0) {
+    func setStations(_ stations: [PlayerStation], startIndex: Int = -1) {
         self.stations = stations
         self.currentIndex = startIndex
     }
