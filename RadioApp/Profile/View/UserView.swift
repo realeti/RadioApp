@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 final class UserView: UIView {
     
@@ -13,9 +14,9 @@ final class UserView: UIView {
     var editButtonTap: (() -> Void)?
     
     // MARK: - Private UI Properties
-    private lazy var profileImageView: UIImageView = {
+    lazy var profileImageView: UIImageView = {
         var imageView = UIImageView()
-        imageView.image = .mockPic
+//        imageView.image = .mockPic
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -55,6 +56,7 @@ final class UserView: UIView {
         setupMainView()
         setViews()
         setupConstraints()
+        profileImageView.image = getUserImage()
     }
     
     required init?(coder: NSCoder) {
@@ -72,6 +74,21 @@ final class UserView: UIView {
 //        profileImageView.image = UIImage(data: user.image)
         userNameLabel.text = user.login
         userEmailLabel.text = user.email
+    }
+    
+    private func getUserImage() -> UIImage {
+        var userImage: UIImage
+        if
+            let id = Auth.auth().currentUser?.uid,
+            let userEntity = StorageManager.shared.fetchUser(id: id),
+            let imageData = userEntity.imageData,
+            let image = UIImage(data: imageData)
+        {
+            userImage = image
+        } else {
+            userImage = .person
+        }
+        return userImage
     }
     
     // MARK: - Private Actions

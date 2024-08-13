@@ -38,7 +38,6 @@ final class RootRouter {
                 }
             }
         }
-        
     }
 
     func startAuthorization() {

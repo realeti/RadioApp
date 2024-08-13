@@ -40,7 +40,7 @@ final class ProfilePresenter: ProfilePresenterProtocol {
         Task {
             do {
                 let user = try await AuthenticationManager.shared.getAuthenticatedUser()
-                currentUser = .init(id: "", login: user.name ?? "Unknown", email: user.email ?? "-")
+                currentUser = .init(id: user.uid, login: user.name ?? "Unknown", email: user.email ?? "-")
             }
             catch {
                 print(error.localizedDescription)
