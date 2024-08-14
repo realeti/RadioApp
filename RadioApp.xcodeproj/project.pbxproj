@@ -49,10 +49,10 @@
 		BECF662E2C5A0D7E0068160D /* AboutUsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF662D2C5A0D7E0068160D /* AboutUsPresenter.swift */; };
 		BECF66302C5A0D9A0068160D /* TeamViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF662F2C5A0D9A0068160D /* TeamViewCell.swift */; };
 		BECF66322C5A0DB70068160D /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66312C5A0DB70068160D /* Team.swift */; };
-		BECF66352C5A10AA0068160D /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66342C5A10AA0068160D /* UIView+.swift */; };
-		BECF663F2C5A1D750068160D /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF663E2C5A1D750068160D /* String+.swift */; };
+		BECF66352C5A10AA0068160D /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66342C5A10AA0068160D /* UIView + Extensions.swift */; };
+		BECF663F2C5A1D750068160D /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF663E2C5A1D750068160D /* String + Extensions.swift */; };
 		BECF66422C5A1E300068160D /* UDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66412C5A1E300068160D /* UDService.swift */; };
-		BECF66442C5A1FBF0068160D /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66432C5A1FBF0068160D /* UILabel+.swift */; };
+		BECF66442C5A1FBF0068160D /* UILabel + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66432C5A1FBF0068160D /* UILabel + Extensions.swift */; };
 		BECF66482C5A22A70068160D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66472C5A22A70068160D /* EditProfileViewController.swift */; };
 		BECF664A2C5A22C90068160D /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66492C5A22C90068160D /* EditProfilePresenter.swift */; };
 		BECF664C2C5A22EA0068160D /* ImageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF664B2C5A22EA0068160D /* ImageSelectionViewController.swift */; };
@@ -135,7 +135,7 @@
 		CBCA8D9D2C5D3965003B01B9 /* UpdatePasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D912C5D3965003B01B9 /* UpdatePasswordPresenter.swift */; };
 		CBCA8D9E2C5D3965003B01B9 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D932C5D3965003B01B9 /* ForgotPasswordController.swift */; };
 		CBCA8D9F2C5D3965003B01B9 /* ForgotPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D942C5D3965003B01B9 /* ForgotPasswordPresenter.swift */; };
-		CBCA8DA12C5D39AD003B01B9 /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8DA02C5D39AD003B01B9 /* UITextField+Padding.swift */; };
+		CBCA8DA12C5D39AD003B01B9 /* UITextField + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8DA02C5D39AD003B01B9 /* UITextField + Extensions.swift */; };
 		CBF57B562C58319D006237E8 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B552C58319D006237E8 /* Builder.swift */; };
 		CBF57B592C5835AC006237E8 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B582C5835AC006237E8 /* CollectionCell.swift */; };
 /* End PBXBuildFile section */
@@ -182,10 +182,10 @@
 		BECF662D2C5A0D7E0068160D /* AboutUsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsPresenter.swift; sourceTree = "<group>"; };
 		BECF662F2C5A0D9A0068160D /* TeamViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewCell.swift; sourceTree = "<group>"; };
 		BECF66312C5A0DB70068160D /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
-		BECF66342C5A10AA0068160D /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
-		BECF663E2C5A1D750068160D /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		BECF66342C5A10AA0068160D /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
+		BECF663E2C5A1D750068160D /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		BECF66412C5A1E300068160D /* UDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDService.swift; sourceTree = "<group>"; };
-		BECF66432C5A1FBF0068160D /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		BECF66432C5A1FBF0068160D /* UILabel + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extensions.swift"; sourceTree = "<group>"; };
 		BECF66472C5A22A70068160D /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		BECF66492C5A22C90068160D /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
 		BECF664B2C5A22EA0068160D /* ImageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectionViewController.swift; sourceTree = "<group>"; };
@@ -265,7 +265,7 @@
 		CBCA8D912C5D3965003B01B9 /* UpdatePasswordPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePasswordPresenter.swift; sourceTree = "<group>"; };
 		CBCA8D932C5D3965003B01B9 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		CBCA8D942C5D3965003B01B9 /* ForgotPasswordPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresenter.swift; sourceTree = "<group>"; };
-		CBCA8DA02C5D39AD003B01B9 /* UITextField+Padding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
+		CBCA8DA02C5D39AD003B01B9 /* UITextField + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField + Extensions.swift"; sourceTree = "<group>"; };
 		CBF57B552C58319D006237E8 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		CBF57B582C5835AC006237E8 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -484,10 +484,10 @@
 		BECF66332C5A10810068160D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				BECF66342C5A10AA0068160D /* UIView+.swift */,
-				BECF66432C5A1FBF0068160D /* UILabel+.swift */,
-				BECF663E2C5A1D750068160D /* String+.swift */,
-				CBCA8DA02C5D39AD003B01B9 /* UITextField+Padding.swift */,
+				BECF66342C5A10AA0068160D /* UIView + Extensions.swift */,
+				BECF66432C5A1FBF0068160D /* UILabel + Extensions.swift */,
+				BECF663E2C5A1D750068160D /* String + Extensions.swift */,
+				CBCA8DA02C5D39AD003B01B9 /* UITextField + Extensions.swift */,
 				C623484B2C5E88E700F536E7 /* UIStackView + Extensions.swift */,
 				C623484D2C5E899800F536E7 /* UIImageView + Extensions.swift */,
 				C6DF00C72C5FAA4B0011EA5D /* UIButton + Extensions.swift */,
@@ -936,7 +936,7 @@
 				CB2C8CB32C5768CB00D280FE /* NavigationController.swift in Sources */,
 				CBCA8D7A2C5D38AB003B01B9 /* OnboardingController.swift in Sources */,
 				CBB20CE42C626C4700B35416 /* RootBuilder.swift in Sources */,
-				BECF66442C5A1FBF0068160D /* UILabel+.swift in Sources */,
+				BECF66442C5A1FBF0068160D /* UILabel + Extensions.swift in Sources */,
 				B6E8FE002C670359008FF38C /* AllStationsPresenter.swift in Sources */,
 				B6E8FDFD2C670359008FF38C /* StationView.swift in Sources */,
 				BECF666D2C60D1FE0068160D /* CustomSwitchSettingsView.swift in Sources */,
@@ -948,7 +948,7 @@
 				CBCA8D7D2C5D38AB003B01B9 /* OnboardingPresenter.swift in Sources */,
 				CB2C8CA02C5698E400D280FE /* RadioApp.xcdatamodeld in Sources */,
 				CBCA8D9F2C5D3965003B01B9 /* ForgotPasswordPresenter.swift in Sources */,
-				BECF663F2C5A1D750068160D /* String+.swift in Sources */,
+				BECF663F2C5A1D750068160D /* String + Extensions.swift in Sources */,
 				B949AE562C5F805600E2A338 /* FavoritesBuilder.swift in Sources */,
 				BECF66422C5A1E300068160D /* UDService.swift in Sources */,
 				B6E8FDFB2C670359008FF38C /* AllStations.swift in Sources */,
@@ -999,7 +999,7 @@
 				CB28CF602C63CD0E00E55A95 /* ErrorPresenting.swift in Sources */,
 				113FE50D2C61396B00B2AC8B /* EqualizerView.swift in Sources */,
 				BECF66322C5A0DB70068160D /* Team.swift in Sources */,
-				BECF66352C5A10AA0068160D /* UIView+.swift in Sources */,
+				BECF66352C5A10AA0068160D /* UIView + Extensions.swift in Sources */,
 				CBB20CD32C62141900B35416 /* LoadingView.swift in Sources */,
 				BECF66582C5A36340068160D /* LanguageCell.swift in Sources */,
 				B6E8FDFC2C670359008FF38C /* AllStationsCell.swift in Sources */,
@@ -1035,7 +1035,7 @@
 				B6E8FDFE2C670359008FF38C /* AllStationsAssembly.swift in Sources */,
 				CBB20CCF2C6213A000B35416 /* AuthenticationService.swift in Sources */,
 				C62348582C5E8ABB00F536E7 /* PopularRouter.swift in Sources */,
-				CBCA8DA12C5D39AD003B01B9 /* UITextField+Padding.swift in Sources */,
+				CBCA8DA12C5D39AD003B01B9 /* UITextField + Extensions.swift in Sources */,
 				C653B3272C6770740049A922 /* AudioPlayerView.swift in Sources */,
 				CBF57B592C5835AC006237E8 /* CollectionCell.swift in Sources */,
 				BECF664A2C5A22C90068160D /* EditProfilePresenter.swift in Sources */,

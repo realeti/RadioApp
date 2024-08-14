@@ -105,6 +105,7 @@ extension AudioPlayerController {
         audioPlayer?.volume = currentVolume
         
         isPlaying = true
+        postChangeNotification()
     }
 }
 
@@ -134,12 +135,15 @@ private extension AudioPlayerController {
             userInfo: [K.UserInfoKey.isPlaying: isPlaying]
         )
         
+        /// remove it later
         NotificationCenter.default.post(
             name: .playerCurrentIndexDidChange,
             object: nil,
             userInfo: [K.UserInfoKey.stationIndex: currentIndex]
         )
-        
+    }
+    
+    func postChangeNotification() {
         guard let currentUUID else { return }
         
         NotificationCenter.default.post(

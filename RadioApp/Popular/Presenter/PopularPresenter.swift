@@ -10,7 +10,7 @@ import RadioBrowser
 
 protocol PopularViewProtocol: AnyObject {
     func didUpdateStations()
-    func insertItems(at indexPaths: [IndexPath])
+    func insertStations(at indexPaths: [IndexPath])
     func voteForStation(at: IndexPath?)
 }
 
@@ -38,6 +38,7 @@ final class PopularPresenter: PopularPresenterProtocol {
     private var stations: [PopularViewModel] = []
     private var mockStations: [PopularViewModel] = []
     private var votedStations: [Bool] = []
+    private var lastStationId: Int = 0
     
     weak var view: PopularViewProtocol?
     private let router: PopularRouterProtocol
@@ -48,7 +49,6 @@ final class PopularPresenter: PopularPresenterProtocol {
     }
     
     var isLoadingData = false
-    var lastStationId: Int = 0
     
     // MARK: - Init
     init(router: PopularRouterProtocol) {
@@ -100,7 +100,7 @@ private extension PopularPresenter {
             let indexPaths = (startIndex...endIndex).map {
                 IndexPath(item: $0, section: 0)
             }
-            view?.insertItems(at: indexPaths)
+            view?.insertStations(at: indexPaths)
         }
     }
 }
@@ -138,8 +138,8 @@ private extension PopularPresenter {
         let subtitle: String
         
         if let tag = station.tags.first, !tag.isEmpty {
-            title = tag
-            subtitle = station.name
+            title = station.name
+            subtitle = tag
         } else {
             title = station.name
             subtitle = ""
@@ -180,9 +180,9 @@ extension PopularPresenter {
 // MARK: - Change Station
 extension PopularPresenter {
     func changeStation(_ stationId: Int) {
-        let currentStationId = audioPlayer.currentIndex
-        
-        if stationId != currentStationId {
+        if stationId == lastStationId {
+            audioPlayer.playPause()
+        } else {
             audioPlayer.playStation(at: stationId)
             updateLastStationId(stationId)
         }

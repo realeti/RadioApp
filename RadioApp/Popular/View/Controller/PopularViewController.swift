@@ -54,7 +54,7 @@ final class PopularViewController: ViewController {
     }
     
     // MARK: - Set Notification
-    private func setNotification() {
+    private func setNotification() {        
         NotificationCenter.default.addObserver(
             self, selector: #selector(handleStationChange),
             name: .playerStationDidChange,
@@ -118,8 +118,8 @@ private extension PopularViewController {
     }
     
     @objc func handleFavoritesChanged(_ notification: Notification) {
-        guard let stationUniqueId = notification.userInfo?[K.UserInfoKey.removedStationIndex] as? UUID,
-              let stationId = presenter.getStations.firstIndex(where: { $0.id == stationUniqueId }) else {
+        guard let stationUUID = notification.userInfo?[K.UserInfoKey.removedStationIndex] as? UUID,
+              let stationId = presenter.getStations.firstIndex(where: { $0.id == stationUUID }) else {
             return
         }
         
@@ -141,7 +141,7 @@ extension PopularViewController: PopularViewProtocol {
         }
     }
     
-    func insertItems(at indexPaths: [IndexPath]) {
+    func insertStations(at indexPaths: [IndexPath]) {
         DispatchQueue.main.async {
             self.popularView.radioCollection.performBatchUpdates({
                 self.popularView.radioCollection.insertItems(at: indexPaths)
