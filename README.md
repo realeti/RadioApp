@@ -22,6 +22,8 @@
 <img src="https://img.shields.io/badge/AML1708-mediumslateblue"/></a>
 <a href="https://github.com/ShapovalovIlya">
 <img src="https://img.shields.io/badge/ShapovalovIlya-indianred"/></a>
+ <a href="https://github.com/NatalyaLuzyanina">
+<img src="https://img.shields.io/badge/NatalyaLuzyanina-goldenrod"/></a>
 </p>
 
 ### О приложении:
