@@ -17,7 +17,6 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
         self.presenter = presenter
         presenter.getCurrentUser()
         super.init(nibName: nil, bundle: nil)
-        
         playerIsHidden = true
     }
     
@@ -79,7 +78,6 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
         super.viewWillAppear(animated)
         presenter.getCurrentUser()
         tabBarController?.tabBar.isHidden = true
-        userView.profileImageView.image = getUserImage()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -104,21 +102,6 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
         view.addSubviews(userView, generalView, moreView, LogOutButton)
         setupConstraints()
         view.backgroundColor = .darkBlueApp
-    }
-    
-    private func getUserImage() -> UIImage {
-        var userImage: UIImage
-        if
-            let id = Auth.auth().currentUser?.uid,
-            let userEntity = StorageManager.shared.fetchUser(id: id),
-            let imageData = userEntity.imageData,
-            let image = UIImage(data: imageData)
-        {
-            userImage = image
-        } else {
-            userImage = .person
-        }
-        return userImage
     }
     
     private func setupEditButton() {

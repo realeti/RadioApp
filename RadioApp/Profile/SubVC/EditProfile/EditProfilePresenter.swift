@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 enum ReauthenticateMode {
     case email
@@ -26,9 +27,7 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
     private var currentUser: UserApp? {
         didSet {
             guard let currentUser else { return }
-            DispatchQueue.main.sync { [weak self] in
-                self?.view?.fetchUser(currentUser)
-            }
+            view?.fetchUser(currentUser)
         }
     }
     
@@ -46,32 +45,23 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
     }
     
     func fetchUser() {
-        Task {
-            do {
-                let authUser = try await AuthenticationManager.shared.getAuthenticatedUser()
-                currentUser = .init(id: "", login: authUser.name ?? "Unknown", email: authUser.email ?? "-")
-                fetchUser()
-            }
-            catch {
-                print(error.localizedDescription)
-            }
-        }
+        let user = Auth.auth().currentUser
+        guard let user else { return }
+        currentUser = .init(id: user.uid, login: user.displayName ?? "Unknown", email: user.email ?? "-")
     }
     
     func isLoginBooked(login: String) -> Bool {
-
+        
         return false
     }
     
     func isEmailBooked(email: String) -> Bool {
-
+        
         return false
     }
     
     func reathenticate(mode: ReauthenticateMode) {
         router.showReauthenticate(mode: mode)
     }
-    
-    
 }
 

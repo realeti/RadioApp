@@ -16,6 +16,7 @@ protocol EditProfileViewControllerProtocol: AnyObject {
 final class EditProfileViewController: ViewController, EditProfileViewControllerProtocol {
     // MARK: - Presenter
     var presenter: EditProfilePresenterProtocol!
+    private let storageManager = StorageManager.shared
     
     let imageSelectionVC = ImageSelectionViewController()
     
@@ -166,7 +167,7 @@ final class EditProfileViewController: ViewController, EditProfileViewController
         super.viewWillAppear(animated)
         presenter.fetchUser()
         tabBarController?.tabBar.isHidden = true
-        profileImage.image = getUserImage()
+        profileImage.image = storageManager.getUserImage()
     }
     
     // MARK: - Life Cycle Methods
@@ -175,22 +176,6 @@ final class EditProfileViewController: ViewController, EditProfileViewController
         setupViews()
         setupConstraints()
         nameTextField.delegate = self
-        profileImage.image = getUserImage()
-    }
-    
-    private func getUserImage() -> UIImage {
-        var userImage: UIImage
-        if
-            let id = Auth.auth().currentUser?.uid,
-            let userEntity = StorageManager.shared.fetchUser(id: id),
-            let imageData = userEntity.imageData,
-            let image = UIImage(data: imageData)
-        {
-            userImage = image
-        } else {
-            userImage = .person
-        }
-        return userImage
     }
     
     // MARK: - Private Methods
@@ -209,7 +194,7 @@ final class EditProfileViewController: ViewController, EditProfileViewController
     }
     
     func updateRightBarButtonImage() {
-        self.updateUserImage()
+        self.setUserData()
     }
     
     private func saveButtonAction() {

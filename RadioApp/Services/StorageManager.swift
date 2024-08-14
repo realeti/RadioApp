@@ -6,10 +6,10 @@
 //
 
 import CoreData
+import FirebaseAuth
 import UIKit
 
 final class StorageManager {
-    
     static let shared = StorageManager()
     
     private let persistentContainer: NSPersistentContainer = {
@@ -96,6 +96,22 @@ final class StorageManager {
         let stations = try? viewContext.fetch(fetchRequest)
         let station = stations?.first(where: { $0.id == id })
         return station
+    }
+    
+    func getUserImage() -> UIImage {
+        var userImage: UIImage
+        if
+            let id = Auth.auth().currentUser?.uid,
+            let userEntity = StorageManager.shared.fetchUser(id: id),
+            let imageData = userEntity.imageData,
+            let image = UIImage(data: imageData)
+        {
+            userImage = image
+        } else {
+            userImage = .person
+        }
+        
+        return userImage
     }
     
     private func saveStation(id: UUID, title: String, genre: String, url: String, favicon: String) {
