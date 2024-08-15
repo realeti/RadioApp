@@ -204,7 +204,6 @@ extension ViewController: ErrorPresenting {
         errorView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        errorView.backgroundColor = view.backgroundColor
         errorView.animation.play()
     }
     

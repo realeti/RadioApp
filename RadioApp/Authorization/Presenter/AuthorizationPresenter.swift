@@ -36,13 +36,7 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     }
         
     func signIn(email: String?, password: String?) {
-        
-        guard let email, let password else {
-            print("No email or password found!")
-            return
-        }
-        
-        guard !email.isEmpty, !password.isEmpty else {
+        guard let email, let password, !email.isEmpty, !password.isEmpty else {
             print("No email or password found!")
             return
         }
@@ -63,10 +57,15 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
                     default:
                         break
                     }
-                    
                 }
             } catch {
-                print("Error: \(error)")
+                print("Error: \(error.localizedDescription)")
+                await view?.showError(title: "Can't sign in", message: error.localizedDescription, actionTitle: "Try again", action: { _ in
+                    DispatchQueue.main.async { [weak self] in
+                        self?.view?.update(with: .init(mode: self?.mode ?? .signIn))
+                        self?.view?.hideError()
+                    }
+                })
             }
         }
     }

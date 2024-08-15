@@ -9,7 +9,6 @@ import UIKit
 import Lottie
 
 final class ErrorView: UIView {
-    
     var title: String = "" {
         didSet {
             titleLabel.text = title
@@ -51,6 +50,8 @@ final class ErrorView: UIView {
     }
     
     private func configure() {
+        backgroundColor = .darkBlueApp
+        
         animation.animation = .filepath(Bundle.main.path(forResource: "error", ofType: "json") ?? "")
         animation.contentMode = .scaleAspectFit
         animation.loopMode = .playOnce
@@ -66,7 +67,6 @@ final class ErrorView: UIView {
         messageLabel.numberOfLines = 0
         
         addSubview(animation)
-        
         animation.snp.makeConstraints {
             $0.size.equalTo(60)
             $0.center.equalToSuperview()
@@ -75,6 +75,7 @@ final class ErrorView: UIView {
         addSubview(textStack)
         textStack.axis = .vertical
         textStack.alignment = .center
+        textStack.spacing = 8
         textStack.snp.makeConstraints {
             $0.top.equalTo(animation.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview().inset(16)
