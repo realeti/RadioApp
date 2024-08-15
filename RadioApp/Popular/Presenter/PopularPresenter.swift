@@ -38,7 +38,7 @@ final class PopularPresenter: PopularPresenterProtocol {
     private var stations: [PopularViewModel] = []
     private var mockStations: [PopularViewModel] = []
     private var votedStations: [Bool] = []
-    private var lastStationId: Int = 0
+    private var lastStationId: Int = -1
     
     weak var view: PopularViewProtocol?
     private let router: PopularRouterProtocol
@@ -174,14 +174,15 @@ extension PopularPresenter {
         let playList: [PlayerStation] = stations.map { station in
             PlayerStation(id: station.id, url: station.url)
         }
-        audioPlayer.setStations(playList, startIndex: lastStationId)
+        let startIndex = lastStationId == -1 ? 0 : lastStationId
+        audioPlayer.setStations(playList, startIndex: startIndex)
     }
 }
 
 // MARK: - Change Station
 extension PopularPresenter {
     func changeStation(_ stationId: Int) {
-        if stationId != lastStationId {
+        if stationId != lastStationId || lastStationId == -1 {
             audioPlayer.playStation(at: stationId)
             updateLastStationId(stationId)
         }

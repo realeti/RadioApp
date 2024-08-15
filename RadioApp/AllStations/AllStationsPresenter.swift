@@ -23,7 +23,7 @@ final class AllStationsPresenter {
 	// MARK: - Private properties
 
 	private var stations: [Station] = []
-    private var lastStationId: Int = 0
+    private var lastStationId: Int = -1
     
     // MARK: - Public properties
     
@@ -114,7 +114,7 @@ extension AllStationsPresenter: AllStationsPresenterProtocol {
 	func didStationSelected(at indexPath: IndexPath) {
         let stationId = indexPath.row
         
-        if stationId != lastStationId {
+        if stationId != lastStationId || lastStationId == -1 {
             audioPlayer.playStation(at: stationId)
             updateLastStationId(stationId)
         }
@@ -164,7 +164,8 @@ private extension AllStationsPresenter {
         let playList: [PlayerStation] = stations.map { station in
             PlayerStation(id: station.stationUUID, url: station.url)
         }
-        audioPlayer.setStations(playList, startIndex: lastStationId)
+        let startIndex = lastStationId == -1 ? 0 : lastStationId
+        audioPlayer.setStations(playList, startIndex: startIndex)
     }
 
 	func getStation(withId id: UUID) async -> Station? {
@@ -190,7 +191,8 @@ private extension AllStationsPresenter {
 
 	func mapStationsData() -> AllStations.Model {
 		let radioStations = stations.map { makeStationModel(from: $0) }
-		let indexPlayingNow = IndexPath(row: audioPlayer.currentIndex, section: 0)
+        let rowIndex = lastStationId == -1 ? 0 : lastStationId
+		let indexPlayingNow = IndexPath(row: rowIndex, section: 0)
 		return AllStations.Model(stations: radioStations, indexPlayingNow: indexPlayingNow)
 	}
 

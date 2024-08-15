@@ -12,6 +12,7 @@ protocol AudioPlayerProtocol {
 	var currentUUID: UUID? { get }
     var currentIndex: Int { get }
     var isPlaying: Bool { get }
+    var volume: Float { get set }
     
     func playPause()
     func playPrevious()
