@@ -42,7 +42,9 @@ final class AllStationsController: ViewController {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+        
 		showLoading()
+        
 		if isActiveSearch {
 			searchPresenter.activate()
 		} else {
@@ -180,14 +182,29 @@ private extension AllStationsController {
 		}
 	}
 
-	@objc
-	func handleIndexChange(_ notification: Notification) {
-		/*if isActiveSearch {
-			searchPresenter.activate()
-		} else {
-			presenter.activate()
-		}*/
-	}
+    @objc func handleStationChange(_ notification: Notification) {
+        guard let stationUUID = notification.userInfo?[K.UserInfoKey.stationUUID] as? UUID,
+              let stationId = presenter.getStations.firstIndex(where: { $0.stationUUID == stationUUID })
+        else {
+            return
+        }
+        //presenter.updateLastStationId(stationId)
+        
+        let indexPath = IndexPath(item: stationId, section: 0)
+        collectionView.selectItem(
+            at: indexPath,
+            animated: true,
+            scrollPosition: .centeredVertically
+        )
+    }
+    
+    @objc func handleDoubleTap(_ gesture: UITapGestureRecognizer) {
+        let point = gesture.location(in: collectionView)
+        
+        if let indexPath = collectionView.indexPathForItem(at: point) {
+            presenter.showDetail(at: indexPath)
+        }
+    }
 }
 
 // MARK: - Setup UI
@@ -199,8 +216,8 @@ private extension AllStationsController {
 
 		addSubviews()
 		addActions()
-
-		setupNotification()
+        setTapGesutre()
+		setNotification()
 	}
 
 	func makeFlowLayout() -> UICollectionViewFlowLayout {
@@ -303,13 +320,22 @@ private extension AllStationsController {
 	func addActions() {
 		activateSearchButton.addAction(UIAction(handler: activateSearchHandler), for: .touchUpInside)
 	}
+    
+    private func setTapGesutre() {
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(handleDoubleTap)
+        )
+        tapGesture.numberOfTapsRequired = 2
+        collectionView.addGestureRecognizer(tapGesture)
+    }
 
-	private func setupNotification() {
-		NotificationCenter.default.addObserver(
-			self, selector: #selector(handleIndexChange),
-			name: .playerCurrentIndexDidChange,
-			object: nil
-		)
+	private func setNotification() {
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(handleStationChange),
+            name: .playerStationDidChange,
+            object: nil
+        )
 	}
 }
 
@@ -339,13 +365,4 @@ private extension AllStationsController {
 			collectionView.bottomAnchor.constraint(equalTo: mainStack.bottomAnchor)
 		])
 	}
-}
-
-@available(iOS 17.0, *)
-#Preview {
-	let navigation = UINavigationController()
-	let builder = AllStationsAssembly()
-	let router = AllStationsRouter(builder: builder, navigation: navigation)
-	router.showAllStations()
-	return navigation
 }

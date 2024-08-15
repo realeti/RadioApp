@@ -33,7 +33,11 @@ final class AudioPlayerController: AudioPlayerProtocol {
 	var currentUUID: UUID?
     
     var currentIndex: Int = 0 {
-        didSet { currentUUID = stations[currentIndex].id }
+        didSet {
+            if currentIndex >= 0, currentIndex < stations.count {
+                currentUUID = stations[currentIndex].id
+            }
+        }
     }
     
     var isPlaying: Bool = false {
@@ -132,14 +136,7 @@ private extension AudioPlayerController {
         NotificationCenter.default.post(
             name: .playerStatusDidChange,
             object: nil,
-            userInfo: [K.UserInfoKey.isPlaying: isPlaying]
-        )
-        
-        /// remove it later
-        NotificationCenter.default.post(
-            name: .playerCurrentIndexDidChange,
-            object: nil,
-            userInfo: [K.UserInfoKey.stationIndex: currentIndex]
+            userInfo: [K.UserInfoKey.isPlaying: isPlaying] 
         )
     }
     

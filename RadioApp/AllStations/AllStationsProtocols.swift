@@ -18,16 +18,25 @@ protocol AllStationsControllerProtocol: AnyObject {
 
 /// Протокол презентера для отображения всех радиостанций.
 protocol AllStationsPresenterProtocol: AnyObject {
+    
+    /// Получаем список загруженных станций
+    var getStations: [Station] { get }
 
 	/// Активация презентера для обновления информации на экране.
 	func activate()
 	
 	/// Загрузка радиостанций.
 	func fetchStations()
+    
+    /// Обновляем последнюю выбранную станцию
+    func updateLastStationId(_ stationId: Int)
 
 	/// Выбрана радиостанция.
 	/// - Parameter indexPath: индекс радиостанции.
 	func didStationSelected(at indexPath: IndexPath)
+    
+    /// Переход на детальный экран
+    func showDetail(at indexPath: IndexPath)
 	
 	/// Проголосовали за радиостанцию.
 	/// - Parameter indexPath: индекс радиостанции.

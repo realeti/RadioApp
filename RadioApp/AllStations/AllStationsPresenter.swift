@@ -23,6 +23,13 @@ final class AllStationsPresenter {
 	// MARK: - Private properties
 
 	private var stations: [Station] = []
+    private var lastStationId: Int = 0
+    
+    // MARK: - Public properties
+    
+    var getStations: [Station] {
+        get { stations }
+    }
 
 	// MARK: - Initialization
 
@@ -67,6 +74,7 @@ extension AllStationsPresenter: AllStationsPresenterProtocol {
 			switch result {
 			case .success(let data):
 				stations = data
+                setPlayerStations()
 				await render()
 			case .failure(let error):
 				print(error)
@@ -95,8 +103,21 @@ extension AllStationsPresenter: AllStationsPresenterProtocol {
 	/// - Parameter indexPath: индекс радиостанции.
 	///
 	/// Переход на экран с детальной информацией станции, которую выбрал пользователь.
+    func showDetail(at indexPath: IndexPath) {
+        router.showStationDetails(with: stations[indexPath.row])
+    }
+    
+    /// Выбрана радиостанция
+    /// - Parameter indexPath: индекс радиостанции
+    ///
+    /// Запуск плеера
 	func didStationSelected(at indexPath: IndexPath) {
-		router.showStationDetails(with: stations[indexPath.row])
+        let stationId = indexPath.row
+        
+        if stationId != lastStationId {
+            audioPlayer.playStation(at: stationId)
+            updateLastStationId(stationId)
+        }
 	}
 
 	/// Проголосовали за радиостанцию.
@@ -122,15 +143,29 @@ extension AllStationsPresenter: AllStationsPresenterProtocol {
 	}
 }
 
+// MARK: - Public methods
+
+extension AllStationsPresenter {
+    func updateLastStationId(_ stationId: Int) {
+        lastStationId = stationId
+    }
+}
+
 // MARK: - Private methods
 
 private extension AllStationsPresenter {
 
 	@MainActor
 	func render() {
-		setupAudioPlayer()
 		view.update(with: mapStationsData())
 	}
+    
+    func setPlayerStations() {
+        let playList: [PlayerStation] = stations.map { station in
+            PlayerStation(id: station.stationUUID, url: station.url)
+        }
+        audioPlayer.setStations(playList, startIndex: lastStationId)
+    }
 
 	func getStation(withId id: UUID) async -> Station? {
 		let result = await radioBrowser.getStation(withId: id)
@@ -151,11 +186,6 @@ private extension AllStationsPresenter {
             url: station.url,
             favicon: station.favicon
 		)
-	}
-
-	func setupAudioPlayer() {
-		let playList = stations.map { PlayerStation(id: $0.stationUUID, url: $0.url) }
-		audioPlayer.setStations(playList, startIndex: -1)
 	}
 
 	func mapStationsData() -> AllStations.Model {

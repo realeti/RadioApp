@@ -50,6 +50,18 @@ final class AllStationsCell: UICollectionViewCell {
 		super.layoutSubviews()
 		layout()
 	}
+    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                stationView.status = "Playing now"
+                stationView.setTheme(StationView.Theme.pink)
+            } else {
+                stationView.status = nil
+                stationView.setTheme(StationView.Theme.base)
+            }
+        }
+    }
 
 	// MARK: - Public methods
 
@@ -59,16 +71,14 @@ final class AllStationsCell: UICollectionViewCell {
 
 		stationView.title = model.tag
 		stationView.subtitle = model.title
-		stationView.status = model.isPlayingNow ? "Playing now" : nil
 
 		stationView.numberOfVotes = model.votes
 		stationView.isFavorite = model.isFavorite
 
 		let index = indexPath.row % StationView.ColorCircle.allCases.count
 		stationView.waveCirclesColor = StationView.ColorCircle(rawValue: index)
-
-		let theme = model.isPlayingNow ? StationView.Theme.pink : .base
-		stationView.setTheme(theme)
+        
+        stationView.setTheme(StationView.Theme.base)
 	}
 
 	// MARK: - Private methods

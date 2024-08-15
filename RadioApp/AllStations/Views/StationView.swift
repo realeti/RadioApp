@@ -335,12 +335,3 @@ private extension StationView {
 		])
 	}
 }
-
-@available(iOS 17.0, *)
-#Preview {
-	let navigation = UINavigationController()
-	let builder = AllStationsAssembly()
-	let router = AllStationsRouter(builder: builder, navigation: navigation)
-	router.showAllStations()
-	return navigation
-}

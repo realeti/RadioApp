@@ -29,7 +29,6 @@ struct K {
     struct Notification {
         static let playerStatusDidChange = "PlayerStatusDidChange"
         static let playerStationDidChange = "PlayerStationDidChange"
-        static let playerCurrentIndexDidChange = "PlayerCurrentIndexDidChange"
         static let playerVolumeDidChange = "PlayerVolumeDidChange"
         static let favoriteRemoved = "FavoriteRemoved"
     }

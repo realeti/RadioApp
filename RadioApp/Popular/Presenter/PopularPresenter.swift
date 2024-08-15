@@ -75,7 +75,7 @@ extension PopularPresenter {
                 stations.append(contentsOf: newStations)
                 
                 /// update view
-                updateView(with: newStations)
+                await updateView(with: newStations)
                 
                 /// update array of stations in audio player
                 setPlayerStations()
@@ -89,6 +89,7 @@ extension PopularPresenter {
 
 // MARK: - Update View
 private extension PopularPresenter {
+    @MainActor
     func updateView(with newStations: [PopularViewModel]) {
         if stations.count == newStations.count {
             /// if stations load first
@@ -167,22 +168,20 @@ extension PopularPresenter {
     }
 }
 
-// MARK: - Set Stations for Audio Player
+// MARK: - Set PlayList for Audio Player
 extension PopularPresenter {
     func setPlayerStations() {
-        let audioStations: [PlayerStation] = stations.map { station in
+        let playList: [PlayerStation] = stations.map { station in
             PlayerStation(id: station.id, url: station.url)
         }
-        audioPlayer.setStations(audioStations, startIndex: lastStationId)
+        audioPlayer.setStations(playList, startIndex: lastStationId)
     }
 }
 
 // MARK: - Change Station
 extension PopularPresenter {
     func changeStation(_ stationId: Int) {
-        if stationId == lastStationId {
-            audioPlayer.playPause()
-        } else {
+        if stationId != lastStationId {
             audioPlayer.playStation(at: stationId)
             updateLastStationId(stationId)
         }
