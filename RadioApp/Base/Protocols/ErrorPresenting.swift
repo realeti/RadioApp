@@ -9,6 +9,7 @@ import UIKit
 
 protocol ErrorPresenting {
     func showError(
+        isAlert: Bool,
         title: String,
         message: String?,
         actionTitle: String?,

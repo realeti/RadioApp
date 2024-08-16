@@ -190,6 +190,7 @@ extension ViewController: LoadingPresenting {
 
 extension ViewController: ErrorPresenting {
     func showError(
+        isAlert: Bool,
         title: String,
         message: String?,
         actionTitle: String?,
@@ -201,8 +202,17 @@ extension ViewController: ErrorPresenting {
         errorView.action = action
         
         view.addSubview(errorView)
-        errorView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+        if isAlert {
+            errorView.layer.cornerRadius = 24
+            errorView.snp.makeConstraints {
+                $0.center.equalToSuperview()
+                $0.leading.trailing.equalToSuperview().inset(30)
+                $0.height.equalToSuperview().dividedBy(3)
+            }
+        } else {
+            errorView.snp.makeConstraints {
+                $0.edges.equalToSuperview()
+            }
         }
         errorView.animation.play()
     }

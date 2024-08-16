@@ -9,7 +9,7 @@ import UIKit
 
 protocol UpdatePasswordPresenterProtocol {
     func activate()
-    func updatePassword(password: String?)
+    func updatePassword(password: String?, repeatedPassword: String?)
 }
 
 final class UpdatePasswordPresenter: UpdatePasswordPresenterProtocol {
@@ -21,8 +21,21 @@ final class UpdatePasswordPresenter: UpdatePasswordPresenterProtocol {
         self.router = router
     }
     
-    func updatePassword(password: String?) {
-        guard let password else { return }
+    func updatePassword(password: String?, repeatedPassword: String?) {
+        guard let password, let repeatedPassword, !password.isEmpty, !repeatedPassword.isEmpty else {
+            view?.showError(isAlert: true, title: "Some of the password fields are empty", message: "Please fill all the password fields", actionTitle: "Ok", action: { [weak self] _ in
+                self?.view?.hideError()
+            })
+            return
+        }
+        
+        guard password == repeatedPassword else {
+            view?.showError(isAlert: true, title: "Passwords doesn't match", message: "Please fill check your password fields", actionTitle: "Ok", action: { [weak self] _ in
+                self?.view?.hideError()
+            })
+            return
+        }
+        
         Task {
             do {
                 let result = try await AuthenticationManager.shared.updatePassword(newPassword: password)
@@ -47,6 +60,11 @@ final class UpdatePasswordPresenter: UpdatePasswordPresenterProtocol {
             }
             catch {
                 print(error.localizedDescription)
+                await view?.showError(isAlert: true, title: "Can't update password", message: error.localizedDescription, actionTitle: "Try again", action: { _ in
+                    DispatchQueue.main.async { [weak self] in
+                        self?.view?.hideError()
+                    }
+                })
             }
         }
     }

@@ -38,7 +38,7 @@ final class ErrorView: UIView {
     private let titleLabel = UILabel()
     private let messageLabel = UILabel()
     private let actionButton = UIButton()
-    private let textStack = UIStackView()
+    private let errorStack = UIStackView()
     
     init() {
         super.init(frame: .zero)
@@ -66,25 +66,18 @@ final class ErrorView: UIView {
         messageLabel.textAlignment = .center
         messageLabel.numberOfLines = 0
         
-        addSubview(animation)
         animation.snp.makeConstraints {
             $0.size.equalTo(60)
-            $0.center.equalToSuperview()
         }
         
-        addSubview(textStack)
+        let textStack = UIStackView()
         textStack.axis = .vertical
         textStack.alignment = .center
         textStack.spacing = 8
-        textStack.snp.makeConstraints {
-            $0.top.equalTo(animation.snp.bottom).offset(16)
-            $0.leading.trailing.equalToSuperview().inset(16)
-        }
         
         textStack.addArrangedSubview(titleLabel)
         textStack.addArrangedSubview(messageLabel)
         
-        addSubview(actionButton)
         var configuration = UIButton.Configuration.filled()
         configuration.baseBackgroundColor = .neonBlueApp
         configuration.baseForegroundColor = .white
@@ -93,10 +86,17 @@ final class ErrorView: UIView {
         actionButton.configuration = configuration
         actionButton.isHidden = true
         actionButton.addTarget(self, action: #selector(didTapActionButton), for: .touchUpInside)
-        actionButton.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(textStack.snp.bottom).offset(16)
+        
+        addSubviews(errorStack)
+        errorStack.axis = .vertical
+        errorStack.alignment = .center
+        errorStack.spacing = 24
+        errorStack.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
+        errorStack.addArrangedSubviews(animation, textStack, actionButton)
+        
     }
     
     @objc

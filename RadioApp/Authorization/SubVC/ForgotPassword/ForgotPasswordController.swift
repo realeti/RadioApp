@@ -8,11 +8,11 @@
 import UIKit
 import SnapKit
 
-protocol ForgotPasswordControllerProtocol: AnyObject {
+protocol ForgotPasswordControllerProtocol: AnyObject, ViewController {
     func update(with model: ForgotPasswordController.Model)
 }
 
-final class ForgotPasswordController: UIViewController {
+final class ForgotPasswordController: ViewController {
     var presenter: (any ForgotPasswordPresenterProtocol)?
     private var email: String?
     private var mode: ForgotMode?
