@@ -12,8 +12,11 @@ import RadioBrowser
 protocol AllStationsControllerProtocol: AnyObject {
 
 	/// Обновление информации на экране.
-	/// - Parameter model: модель с информацией для обновления на экране.
 	func update()
+    
+    /// Обновляем информацию на экране после подгрузки новых данных
+    /// - Parameter indexPath: массив индексов станции для обновления коллекции.
+    func insert(at indexPaths: [IndexPath])
 }
 
 /// Протокол презентера для отображения всех радиостанций.
@@ -36,6 +39,9 @@ protocol AllStationsPresenterProtocol: AnyObject {
     
     /// Сбрасываем последнюю выбранную станцию
     func resetLastStationId()
+    
+    /// Обновляем плейлист
+    func setPlayerStations()
 
 	/// Выбрана радиостанция.
 	/// - Parameter indexPath: индекс радиостанции.

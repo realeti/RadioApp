@@ -66,7 +66,10 @@ extension SearchPresenter: SearchPresenterProtocol {
 	/// Обновляет экран по поиску радиостанций. Для подгрузки радиостанций используйте `fetchStations()`.
 	func activate() {
 		Task {
-			await render()
+            if !stations.isEmpty {
+                setPlayerStations()
+            }
+            await render()
 		}
 	}
 
@@ -80,9 +83,16 @@ extension SearchPresenter: SearchPresenterProtocol {
 
 			switch result {
 			case .success(let data):
-				stations += data.map({ makeStationModel(from: $0) })
-				activate()
+                let newStations = data.map({ makeStationModel(from: $0) })
+                let oldStations = stations
+                stations.append(contentsOf: newStations)
                 setPlayerStations()
+                
+                if oldStations.isEmpty {
+                    await render()
+                } else {
+                    await updateView(with: newStations)
+                }
 			case .failure(let error):
 				print(error)
 			}
@@ -93,11 +103,9 @@ extension SearchPresenter: SearchPresenterProtocol {
 	///
 	/// Получает первые 20 радиостанций из api и обновляет экран по поиску. Для подгрузки радиостанций используйте `fetchStations()`.
 	func searchStations(with name: String) {
-		Task {
-			stations = []
-			searchText = name
-			fetchStations()
-		}
+        stations = []
+        searchText = name
+        fetchStations()
 	}
 
     /// Выбрана радиостанция.
@@ -173,12 +181,18 @@ private extension SearchPresenter {
 		view.update()
 	}
     
-    func setPlayerStations() {
-        let playList: [PlayerStation] = stations.map { station in
-            PlayerStation(id: station.id, url: station.url)
+    @MainActor
+    func updateView(with newStations: [AllStationViewModel]) {
+        guard !newStations.isEmpty else {
+            return
         }
-        let startIndex = lastStationId == K.invalidStationId ? 0 : lastStationId
-        audioPlayer.setStations(playList, startIndex: startIndex)
+        
+        let startIndex = stations.count - newStations.count
+        let endIndex = stations.count - 1
+        let indexPaths = (startIndex...endIndex).map {
+            IndexPath(item: $0, section: 0)
+        }
+        view.insert(at: indexPaths)
     }
 
     func getStation(withId id: UUID) async -> AllStationViewModel? {
@@ -215,5 +229,16 @@ private extension SearchPresenter {
             url: data.urlResolved,
             imageURL: data.favicon
         )
+    }
+}
+
+// MARK: - Set PlayList for Audio Player
+extension SearchPresenter {
+    func setPlayerStations() {
+        let playList: [PlayerStation] = stations.map { station in
+            PlayerStation(id: station.id, url: station.url)
+        }
+        let startIndex = lastStationId == K.invalidStationId ? 0 : lastStationId
+        audioPlayer.setStations(playList, startIndex: startIndex)
     }
 }

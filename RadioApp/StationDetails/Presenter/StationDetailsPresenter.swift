@@ -24,7 +24,7 @@ final class StationDetailsPresenter: StationDetailsPresenterProtocol {
         self.view = view
         self.station = station
         if audioPlayer.currentUUID != station.id {
-            audioPlayer.setStations([PlayerStation.init(id: station.id, url: station.url)], startIndex: -1)
+            audioPlayer.setStations([PlayerStation.init(id: station.id, url: station.url)], startIndex: K.invalidStationId)
             audioPlayer.playNext()
         }
         setNotification()

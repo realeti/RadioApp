@@ -68,13 +68,11 @@ final class AllStationsCell: UICollectionViewCell {
 		stationView.title = model.title
 		stationView.subtitle = model.subtitle
 
-		stationView.numberOfVotes = model.votes
+        stationView.numberOfVotes = model.votes
 		stationView.isFavorite = model.isFavorite
 
 		let index = indexPath.row % StationView.ColorCircle.allCases.count
 		stationView.waveCirclesColor = StationView.ColorCircle(rawValue: index)
-        
-        stationView.setTheme(StationView.Theme.base)
 	}
 
 	// MARK: - Private methods

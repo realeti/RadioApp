@@ -156,11 +156,8 @@ private extension PopularViewController {
             return
         }
         
-        guard let cell = getCollectionViewCell(for: stationId) else {
-            return
-        }
-        
-        cell.isSelected = false
+        let indexPath = IndexPath(item: stationId, section: 0)
+        popularView.radioCollection.deselectItem(at: indexPath, animated: false)
     }
 }
 

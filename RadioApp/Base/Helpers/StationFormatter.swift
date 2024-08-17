@@ -9,7 +9,6 @@ import Foundation
 import RadioBrowser
 
 struct StationFormatter {
-    // MARK: - Format Station Names
     static func formatNames(_ station: Station) -> (title: String, subtitle: String) {
         var title = station.name
             .trimmingCharacters(in: .whitespacesAndNewlines)

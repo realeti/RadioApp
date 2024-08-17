@@ -93,10 +93,10 @@ extension PopularPresenter {
 private extension PopularPresenter {
     @MainActor
     func updateView(with newStations: [PopularViewModel]) {
-        if stations.count == newStations.count {
+        if stations.isEmpty {
             /// if stations load first
             view?.didUpdateStations()
-        } else {
+        } else if !newStations.isEmpty {
             /// if station load after scroll
             let startIndex = stations.count - newStations.count
             let endIndex = stations.count - 1

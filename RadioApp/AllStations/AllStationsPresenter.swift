@@ -92,8 +92,10 @@ extension AllStationsPresenter: AllStationsPresenterProtocol {
 			
 			switch result {
 			case .success(let data):
-				stations += data.map({ makeStationModel(from: $0) })
-				activate()
+                let newStations = data.map({ makeStationModel(from: $0) })
+                stations.append(contentsOf: newStations)
+                setPlayerStations()
+                await updateView(with: newStations)
 			case .failure(let error):
 				print(error)
 			}
@@ -173,12 +175,18 @@ private extension AllStationsPresenter {
 		view.update()
 	}
     
-    func setPlayerStations() {
-        let playList: [PlayerStation] = stations.map { station in
-            PlayerStation(id: station.id, url: station.url)
+    @MainActor
+    func updateView(with newStations: [AllStationViewModel]) {
+        guard !newStations.isEmpty else {
+            return
         }
-        let startIndex = lastStationId == K.invalidStationId ? 0 : lastStationId
-        audioPlayer.setStations(playList, startIndex: startIndex)
+        
+        let startIndex = stations.count - newStations.count
+        let endIndex = stations.count - 1
+        let indexPaths = (startIndex...endIndex).map {
+            IndexPath(item: $0, section: 0)
+        }
+        view.insert(at: indexPaths)
     }
 
 	func getStation(withId id: UUID) async -> AllStationViewModel? {
@@ -216,4 +224,15 @@ private extension AllStationsPresenter {
             imageURL: data.favicon
 		)
 	}
+}
+
+// MARK: - Set PlayList for Audio Player
+extension AllStationsPresenter {
+    func setPlayerStations() {
+        let playList: [PlayerStation] = stations.map { station in
+            PlayerStation(id: station.id, url: station.url)
+        }
+        let startIndex = lastStationId == K.invalidStationId ? 0 : lastStationId
+        audioPlayer.setStations(playList, startIndex: startIndex)
+    }
 }

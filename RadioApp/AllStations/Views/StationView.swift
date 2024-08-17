@@ -48,7 +48,7 @@ final class StationView: UIView {
 	var numberOfVotes: Int? {
 		didSet {
 			if let numberOfVotes {
-				voteLabel.text = "\("votes".localized) \(numberOfVotes)"
+                voteLabel.text = "\("votes".localized) \(numberOfVotes.formatVoteCount())"
 			} else {
 				voteLabel.text = nil
 			}
@@ -95,18 +95,14 @@ final class StationView: UIView {
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+        
 		setupUI()
+        layout()
+        setTheme(StationView.Theme.base)
 	}
 
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
-	}
-
-	// MARK: - Lifecycle
-
-	override func layoutSubviews() {
-		super.layoutSubviews()
-		layout()
 	}
 
 	// MARK: - Public methods

@@ -25,7 +25,7 @@ final class AllStationsController: ViewController {
 
 	private var isActiveSearch: Bool = false {
 		didSet {
-			let image = isActiveSearch ? UIImage.closeSearch : .goSearch
+            let image: UIImage = isActiveSearch ? .closeSearch : .goSearch
 			activateSearchButton.setImage(image, for: .normal)
 			titleLabel.isHidden = isActiveSearch
 		}
@@ -35,6 +35,7 @@ final class AllStationsController: ViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        
 		setupUI()
         layout()
 	}
@@ -63,7 +64,7 @@ extension AllStationsController: UITextFieldDelegate {
 			showLoading()
 			searchPresenter.searchStations(with: text)
 			textField.resignFirstResponder()
-			collectionView.setContentOffset(CGPoint(x:0 ,y:0), animated: true)
+            collectionView.setContentOffset(CGPoint(x:0 ,y:0), animated: true)
 		}
 		return true
 	}
@@ -74,12 +75,12 @@ extension AllStationsController: UITextFieldDelegate {
 		replacementString string: String
 	) -> Bool {
 		isActiveSearch = true
-		searchPresenter.activate()
 		return true
 	}
 
 	func textFieldDidBeginEditing(_ textField: UITextField) {
 		isActiveSearch = true
+        searchPresenter.activate()
 	}
 }
 
@@ -91,6 +92,12 @@ extension AllStationsController: AllStationsControllerProtocol {
 		collectionView.reloadData()
 		hideLoading()
 	}
+    
+    func insert(at indexPaths: [IndexPath]) {
+        collectionView.performBatchUpdates({
+            collectionView.insertItems(at: indexPaths)
+        }, completion: nil)
+    }
 }
 
 // MARK: - StationViewDelegate
@@ -98,11 +105,8 @@ extension AllStationsController: AllStationsControllerProtocol {
 extension AllStationsController: StationViewDelegate {
 
 	func vote(at indexPath: IndexPath) {
-		if isActiveSearch {
-			searchPresenter.didStationVoted(at: indexPath)
-		} else {
-			presenter.didStationVoted(at: indexPath)
-		}
+        let presenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
+        presenter.didStationVoted(at: indexPath)
 	}
 }
 
@@ -111,7 +115,8 @@ extension AllStationsController: StationViewDelegate {
 extension AllStationsController: UICollectionViewDataSource {
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        presenter.getStations.count
+        let presenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
+        return presenter.getStations.count
 	}
 	
 	func collectionView(
@@ -123,9 +128,19 @@ extension AllStationsController: UICollectionViewDataSource {
 			for: indexPath
 		)
 		guard let cell = cell as? AllStationsCell else { return UICollectionViewCell() }
-		
+        
+        let presenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
         let station = presenter.getStations[indexPath.row]
+		
 		cell.configure(by: indexPath, with: station, and: self)
+        
+        if presenter.lastStationId == indexPath.row {
+            collectionView.selectItem(
+                at: indexPath,
+                animated: true,
+                scrollPosition: .centeredVertically
+            )
+        }
 		
 		return cell
 	}
@@ -136,11 +151,8 @@ extension AllStationsController: UICollectionViewDataSource {
 extension AllStationsController: UICollectionViewDelegate {
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		if isActiveSearch {
-			searchPresenter.didStationSelected(at: indexPath)
-		} else {
-			presenter.didStationSelected(at: indexPath)
-		}
+        let presenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
+        presenter.didStationSelected(at: indexPath)
 	}
 
 	func collectionView(
@@ -148,12 +160,9 @@ extension AllStationsController: UICollectionViewDelegate {
 		willDisplay cell: UICollectionViewCell,
 		forItemAt indexPath: IndexPath
 	) {
+        let presenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
         guard presenter.getStations.count - indexPath.row == 4 else { return }
-		if isActiveSearch {
-			searchPresenter.fetchStations()
-		} else {
-			presenter.fetchStations()
-		}
+        presenter.fetchStations()
 	}
 }
 
@@ -164,19 +173,25 @@ private extension AllStationsController {
 	var activateSearchHandler: UIActionHandler {
 		{ [weak self] _ in
 			guard let self else { return }
+            
+            isActiveSearch.toggle()
+            
 			if isActiveSearch {
-				searchTextField.text = ""
-				searchTextField.resignFirstResponder()
-				presenter.activate()
+                searchPresenter.setPlayerStations()
+                searchTextField.becomeFirstResponder()
+                collectionView.reloadData()
 			} else {
-				searchPresenter.activate()
-				searchTextField.becomeFirstResponder()
+                presenter.setPlayerStations()
+                searchTextField.text = ""
+                searchTextField.resignFirstResponder()
+                collectionView.reloadData()
 			}
-			isActiveSearch.toggle()
 		}
 	}
 
     @objc func handleStationChange(_ notification: Notification) {
+        let presenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
+        
         guard let stationUUID = notification.userInfo?[K.UserInfoKey.stationUUID] as? UUID,
               let stationId = presenter.getStations.firstIndex(where: { $0.id == stationUUID })
         else {
@@ -198,6 +213,7 @@ private extension AllStationsController {
         let point = gesture.location(in: collectionView)
         
         if let indexPath = collectionView.indexPathForItem(at: point) {
+            let presenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
             presenter.showDetail(at: indexPath)
         }
     }
@@ -219,15 +235,12 @@ private extension AllStationsController {
 // MARK: - Deselect CollectionView Cell
 private extension AllStationsController {
     func deselectItem(for stationId: Int) {
-        guard stationId != -1 else {
+        guard stationId != K.invalidStationId else {
             return
         }
         
-        guard let cell = getCollectionViewCell(for: stationId) else {
-            return
-        }
-        
-        cell.isSelected = false
+        let indexPath = IndexPath(item: stationId, section: 0)
+        collectionView.deselectItem(at: indexPath, animated: false)
     }
 }
 

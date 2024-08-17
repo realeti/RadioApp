@@ -1,5 +1,5 @@
 //
-//  AllStations.swift
+//  AllStationViewModel.swift
 //  RadioApp
 //
 //  Created by Дмитрий Лубов on 29.07.2024.
