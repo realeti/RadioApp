@@ -21,10 +21,8 @@ final class AllStationsController: ViewController {
 	private lazy var searchTextField = makeTextField()
 	private lazy var searchImageView = makeImageView()
 	private lazy var activateSearchButton = makeButton()
-
 	private lazy var collectionView = makeCollectionView()
 
-	private var model = AllStations.Model(stations: [], indexPlayingNow: IndexPath(row: 0, section: 0))
 	private var isActiveSearch: Bool = false {
 		didSet {
 			let image = isActiveSearch ? UIImage.closeSearch : .goSearch
@@ -38,24 +36,22 @@ final class AllStationsController: ViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupUI()
+        layout()
 	}
-
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-		showLoading()
+        if presenter.getStations.isEmpty {
+            showLoading()
+        }
         
-		if isActiveSearch {
-			searchPresenter.activate()
-		} else {
-			presenter.activate()
-		}
-	}
-
-	override func viewDidLayoutSubviews() {
-		super.viewDidLayoutSubviews()
-		layout()
-	}
+        if isActiveSearch {
+            searchPresenter.activate()
+        } else {
+            presenter.activate()
+        }
+    }
 }
 
 // MARK: - UITextFieldDelegate
@@ -91,11 +87,9 @@ extension AllStationsController: UITextFieldDelegate {
 
 extension AllStationsController: AllStationsControllerProtocol {
 
-	func update(with model: AllStations.Model) {
-		self.model = model
+	func update() {
 		collectionView.reloadData()
 		hideLoading()
-		collectionView.scrollToItem(at: model.indexPlayingNow, at: .centeredVertically, animated: true)
 	}
 }
 
@@ -117,7 +111,7 @@ extension AllStationsController: StationViewDelegate {
 extension AllStationsController: UICollectionViewDataSource {
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		model.stations.count
+        presenter.getStations.count
 	}
 	
 	func collectionView(
@@ -130,7 +124,7 @@ extension AllStationsController: UICollectionViewDataSource {
 		)
 		guard let cell = cell as? AllStationsCell else { return UICollectionViewCell() }
 		
-		let station = model.stations[indexPath.row]
+        let station = presenter.getStations[indexPath.row]
 		cell.configure(by: indexPath, with: station, and: self)
 		
 		return cell
@@ -154,7 +148,7 @@ extension AllStationsController: UICollectionViewDelegate {
 		willDisplay cell: UICollectionViewCell,
 		forItemAt indexPath: IndexPath
 	) {
-		guard model.stations.count - indexPath.row == 4 else { return }
+        guard presenter.getStations.count - indexPath.row == 4 else { return }
 		if isActiveSearch {
 			searchPresenter.fetchStations()
 		} else {
@@ -184,11 +178,12 @@ private extension AllStationsController {
 
     @objc func handleStationChange(_ notification: Notification) {
         guard let stationUUID = notification.userInfo?[K.UserInfoKey.stationUUID] as? UUID,
-              let stationId = presenter.getStations.firstIndex(where: { $0.stationUUID == stationUUID })
+              let stationId = presenter.getStations.firstIndex(where: { $0.id == stationUUID })
         else {
+            deselectItem(for: presenter.lastStationId)
+            presenter.resetLastStationId()
             return
         }
-        //presenter.updateLastStationId(stationId)
         
         let indexPath = IndexPath(item: stationId, section: 0)
         collectionView.selectItem(
@@ -196,6 +191,7 @@ private extension AllStationsController {
             animated: true,
             scrollPosition: .centeredVertically
         )
+        presenter.updateLastStationId(stationId)
     }
     
     @objc func handleDoubleTap(_ gesture: UITapGestureRecognizer) {
@@ -204,6 +200,34 @@ private extension AllStationsController {
         if let indexPath = collectionView.indexPathForItem(at: point) {
             presenter.showDetail(at: indexPath)
         }
+    }
+}
+
+// MARK: - Get CollectionView Cell
+private extension AllStationsController {
+    func getCollectionViewCell(for stationId: Int) -> AllStationsCell? {
+        let indexPath = IndexPath(item: stationId, section: 0)
+        
+        guard let cell = collectionView.cellForItem(at: indexPath) as? AllStationsCell else {
+            return nil
+        }
+        
+        return cell
+    }
+}
+
+// MARK: - Deselect CollectionView Cell
+private extension AllStationsController {
+    func deselectItem(for stationId: Int) {
+        guard stationId != -1 else {
+            return
+        }
+        
+        guard let cell = getCollectionViewCell(for: stationId) else {
+            return
+        }
+        
+        cell.isSelected = false
     }
 }
 
@@ -348,7 +372,7 @@ private extension AllStationsController {
 			mainStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
 			mainStack.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
 			mainStack.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-			mainStack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -120),
+			mainStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(K.audioPlayerHeight + K.audioPlayerBottomIndent)),
 
 			titleLabel.leadingAnchor.constraint(equalTo: mainStack.leadingAnchor, constant: 44.18),
 

@@ -41,5 +41,12 @@ struct K {
         static let removedStationIndex = "removedStationIndex"
     }
     
+    // MARK: - Invalid Station Identifier
+    static let invalidStationId = -1
+    
+    // MARK: - Unknown Station Names
+    static let unknownName = "Unknown name"
+    static let unknownTag = "#notag"
+    
     private init() {}
 }

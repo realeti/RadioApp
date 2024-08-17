@@ -7,30 +7,20 @@
 
 import Foundation
 
-/// AllStations является NameSpace для отделения модели различных экранов друг от друга.
-enum AllStations {
-
-	/// Структура, описывающая экран AllStations.
-	struct Model {
-
-		/// Содержит в себе список всех радиостанций.
-		let stations: [Station]
-		/// Индекс текущей радиостанции.
-		let indexPlayingNow: IndexPath
-
-		/// Структура, описывающая радиостанцию
-		struct Station {
-
-			/// Жанр.
-			let tag: String
-			/// Название радиостанции.
-			let title: String
-			/// Количество голосов.
-			let votes: Int
-			/// Статус проигрывания.
-			let isPlayingNow: Bool
-			/// Предпочтение.
-			let isFavorite: Bool
-		}
-	}
+/// Структура, описывающая экран AllStations.
+struct AllStationViewModel {
+    /// Идентификатор
+    let id: UUID
+    /// Название радиостанции.
+    let title: String
+    /// Жанр.
+    let subtitle: String
+    /// Количество голосов.
+    let votes: Int
+    /// Предпочтение.
+    let isFavorite: Bool
+    /// Ссылка
+    let url: String
+    /// Ссылка на изображение 
+    let imageURL: String
 }

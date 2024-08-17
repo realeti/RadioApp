@@ -109,9 +109,10 @@ private extension PopularViewController {
         guard let stationUUID = notification.userInfo?[K.UserInfoKey.stationUUID] as? UUID,
               let stationId = presenter.getStations.firstIndex(where: { $0.id == stationUUID })
         else {
+            deselectItem(for: presenter.lastStationId)
+            presenter.resetLastStationId()
             return
         }
-        presenter.updateLastStationId(stationId)
         
         let indexPath = IndexPath(item: stationId, section: 0)
         popularView.radioCollection.selectItem(
@@ -119,22 +120,47 @@ private extension PopularViewController {
             animated: true,
             scrollPosition: .centeredVertically
         )
+        presenter.updateLastStationId(stationId)
     }
     
     /// Station add or remove from Favorites
     @objc func handleFavoritesChanged(_ notification: Notification) {
         guard let stationUUID = notification.userInfo?[K.UserInfoKey.removedStationIndex] as? UUID,
-              let stationId = presenter.getStations.firstIndex(where: { $0.id == stationUUID }) else {
-            return
-        }
-        
-        let indexPath = IndexPath(item: stationId, section: 0)
-        guard let cell = popularView.radioCollection.cellForItem(at: indexPath) as? PopularCollectionViewCell else {
+              let stationId = presenter.getStations.firstIndex(where: { $0.id == stationUUID }),
+              let cell = getCollectionViewCell(for: stationId) else {
             return
         }
         
         cell.clearVoteImage()
         presenter.removeVoteStatus(stationId)
+    }
+}
+
+// MARK: - Get CollectionView Cell
+private extension PopularViewController {
+    func getCollectionViewCell(for stationId: Int) -> PopularCollectionViewCell? {
+        let indexPath = IndexPath(item: stationId, section: 0)
+        
+        guard let cell = popularView.radioCollection.cellForItem(at: indexPath) as? PopularCollectionViewCell else {
+            return nil
+        }
+        
+        return cell
+    }
+}
+
+// MARK: - Deselect CollectionView Cell
+private extension PopularViewController {
+    func deselectItem(for stationId: Int) {
+        guard stationId != K.invalidStationId else {
+            return
+        }
+        
+        guard let cell = getCollectionViewCell(for: stationId) else {
+            return
+        }
+        
+        cell.isSelected = false
     }
 }
 

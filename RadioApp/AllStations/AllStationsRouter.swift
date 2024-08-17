@@ -23,13 +23,9 @@ final class AllStationsRouter: AllStationsRouterProtocol {
 		navigation.viewControllers = [controller]
 	}
 
-	func showStationDetails(with stationData: Station) {
-        let station = RadioStation(id: stationData.stationUUID,
-                                   url: stationData.url,
-                                   frequency: stationData.tags[0],
-                                   name: stationData.name,
-                                   imageName: stationData.favicon)
-        let controller = StationDetailsAssembly().build(with: station)
-		navigation.pushViewController(controller, animated: true)
+	func showStationDetails(with station: RadioStation) {
+        let vc = StationDetailsAssembly().build(with: station)
+        vc.title = "Playing now"
+		navigation.pushViewController(vc, animated: true)
 	}
 }
