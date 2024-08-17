@@ -16,13 +16,13 @@ protocol EditProfileViewControllerProtocol: AnyObject {
 final class EditProfileViewController: ViewController, EditProfileViewControllerProtocol {
     // MARK: - Presenter
     var presenter: EditProfilePresenterProtocol!
+    private let storageManager = StorageManager.shared
     
     let imageSelectionVC = ImageSelectionViewController()
     
     // MARK: - UI
     private lazy var profileImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = .mockPic
         imageView.tintColor = .white
         imageView.layer.cornerRadius = 60
         imageView.clipsToBounds = true
@@ -167,6 +167,7 @@ final class EditProfileViewController: ViewController, EditProfileViewController
         super.viewWillAppear(animated)
         presenter.fetchUser()
         tabBarController?.tabBar.isHidden = true
+        profileImage.image = storageManager.getUserImage()
     }
     
     // MARK: - Life Cycle Methods
@@ -193,7 +194,7 @@ final class EditProfileViewController: ViewController, EditProfileViewController
     }
     
     func updateRightBarButtonImage() {
-        self.updateUserImage()
+        self.setUserData()
     }
     
     private func saveButtonAction() {

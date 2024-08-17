@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 final class ProfileViewController: ViewController, ProfileViewProtocol {
     private let presenter: ProfilePresenterProtocol
@@ -16,7 +17,6 @@ final class ProfileViewController: ViewController, ProfileViewProtocol {
         self.presenter = presenter
         presenter.getCurrentUser()
         super.init(nibName: nil, bundle: nil)
-        
         playerIsHidden = true
     }
     

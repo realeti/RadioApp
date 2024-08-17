@@ -10,16 +10,17 @@ import SnapKit
 import FirebaseAuth
 
 class ViewController: UIViewController {
-    let loadingView = LoadingView()
-    let errorView = ErrorView()
+    private let storageManager = StorageManager.shared
+    private let loadingView = LoadingView()
+    private let errorView = ErrorView()
     var playerIsHidden: Bool = false
     var playerVolumeIsHidden: Bool = false
-    let nameTitle = UILabel()
+    private let nameTitle = UILabel()
     
     private lazy var profileView: UIImageView = {
-        let image = getUserImage()
-        let view = UIImageView(image: image)
+        let view = UIImageView()
         view.contentMode = .scaleAspectFill
+        
         return view
     }()
 
@@ -41,8 +42,7 @@ class ViewController: UIViewController {
                 homeController.volumeIsHidden = true
             }
         }
-        setName()
-        updateUserImage()
+        setUserData()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -56,19 +56,6 @@ class ViewController: UIViewController {
             if playerVolumeIsHidden {
                 homeController.volumeIsHidden = false
             }
-        }
-    }
-    
-    private func setName() {
-        Task {
-            do {
-                let user = try await AuthenticationManager.shared.getAuthenticatedUser()
-                nameTitle.text = user.name
-            }
-            catch {
-                print(error.localizedDescription)
-            }
-            
         }
     }
     
@@ -89,23 +76,6 @@ class ViewController: UIViewController {
         }
     }
     
-    private func getUserImage() -> UIImage {
-        var userImage: UIImage
-        if
-            let id = Auth.auth().currentUser?.uid,
-            let userEntity = StorageManager.shared.fetchUser(id: id),
-            let imageData = userEntity.imageData,
-            let image = UIImage(data: imageData)
-        {
-            userImage = image
-        } else {
-            userImage = .person
-        }
-        let maskedImage = setMask(for: userImage)
-        return maskedImage
-    }
-    
-    
     private func setRightBarButtonItem() {
         profileView.snp.makeConstraints { make in
             make.width.equalTo(40)
@@ -120,9 +90,7 @@ class ViewController: UIViewController {
     }
     
     private func setTabBarAttributes() {
-        guard let homeController = tabBarController as? HomeController else {
-            return
-        }
+        guard let homeController = tabBarController as? HomeController else { return }
         let appearance = UITabBarAppearance()
         appearance.configureWithTransparentBackground()
         appearance.stackedLayoutAppearance.normal.titleTextAttributes = homeController.normalTabBarAttributes
@@ -131,8 +99,9 @@ class ViewController: UIViewController {
         homeController.tabBar.scrollEdgeAppearance = appearance
     }
     
-    func updateUserImage() {
-        profileView.image = getUserImage()
+    func setUserData() {
+        profileView.image = setMask(for: storageManager.getUserImage())
+        nameTitle.text = Auth.auth().currentUser?.displayName
     }
     
     private func setMask(for image: UIImage) -> UIImage {

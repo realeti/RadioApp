@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 protocol ProfileViewProtocol: AnyObject {
     func update(with user: UserApp?)
@@ -24,11 +25,10 @@ protocol ProfilePresenterProtocol: AnyObject {
 final class ProfilePresenter: ProfilePresenterProtocol {
     var currentUser: UserApp? {
         didSet {
-            DispatchQueue.main.sync { [weak self] in
-                self?.view?.update(with: self?.currentUser)
-            }
+            view?.update(with: currentUser)
         }
     }
+    
     weak var view: ProfileViewProtocol?
     private let router: ProfileRouterProtocol
     
@@ -37,21 +37,15 @@ final class ProfilePresenter: ProfilePresenterProtocol {
     }
     
     func getCurrentUser() {
-        Task {
-            do {
-                let user = try await AuthenticationManager.shared.getAuthenticatedUser()
-                currentUser = .init(id: "", login: user.name ?? "Unknown", email: user.email ?? "-")
-            }
-            catch {
-                print(error.localizedDescription)
-            }
-        }
+        let user = Auth.auth().currentUser
+        guard let user else { return }
+        currentUser = .init(id: user.uid, login: user.displayName ?? "Unknown", email: user.email ?? "")
     }
-   
+    
     func showEditProfileVC() {
         router.showEditProfile()
     }
-
+    
     func showPolicyVC() {
         router.showPrivacyPolicy()
     }

@@ -108,7 +108,7 @@
 		CBB20CC42C61542A00B35416 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CC32C61542A00B35416 /* SnapKit */; };
 		CBB20CC72C61566300B35416 /* RadioBrowser in Frameworks */ = {isa = PBXBuildFile; productRef = CBB20CC62C61566300B35416 /* RadioBrowser */; };
 		CBB20CCD2C62139500B35416 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = CBB20CCC2C62139400B35416 /* loading.json */; };
-		CBB20CCF2C6213A000B35416 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CCE2C6213A000B35416 /* AuthenticationService.swift */; };
+		CBB20CCF2C6213A000B35416 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CCE2C6213A000B35416 /* AuthenticationManager.swift */; };
 		CBB20CD12C6213BF00B35416 /* UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CD02C6213BF00B35416 /* UserApp.swift */; };
 		CBB20CD32C62141900B35416 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CD22C62141900B35416 /* LoadingView.swift */; };
 		CBB20CD52C62145000B35416 /* BrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB20CD42C62145000B35416 /* BrowserController.swift */; };
@@ -242,7 +242,7 @@
 		CB2C8CC72C57C8AB00D280FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBB20CB92C61501300B35416 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CBB20CCC2C62139400B35416 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
-		CBB20CCE2C6213A000B35416 /* AuthenticationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		CBB20CCE2C6213A000B35416 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		CBB20CD02C6213BF00B35416 /* UserApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserApp.swift; sourceTree = "<group>"; };
 		CBB20CD22C62141900B35416 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		CBB20CD42C62145000B35416 /* BrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrowserController.swift; path = RadioApp/Authorization/SubVC/ForgotPassword/BrowserController.swift; sourceTree = SOURCE_ROOT; };
@@ -504,7 +504,7 @@
 			children = (
 				BECF66412C5A1E300068160D /* UDService.swift */,
 				B949AE432C5F804100E2A338 /* StorageManager.swift */,
-				CBB20CCE2C6213A000B35416 /* AuthenticationService.swift */,
+				CBB20CCE2C6213A000B35416 /* AuthenticationManager.swift */,
 				BE9581472C6A2D8800A1D1B7 /* NotificationManager.swift */,
 			);
 			path = Services;
@@ -1037,7 +1037,7 @@
 				C62348652C5E8B2D00F536E7 /* PopularCollectionViewCell.swift in Sources */,
 				BECF66562C5A361B0068160D /* LanguagePresenter.swift in Sources */,
 				B6E8FDFE2C670359008FF38C /* AllStationsAssembly.swift in Sources */,
-				CBB20CCF2C6213A000B35416 /* AuthenticationService.swift in Sources */,
+				CBB20CCF2C6213A000B35416 /* AuthenticationManager.swift in Sources */,
 				C62348582C5E8ABB00F536E7 /* PopularRouter.swift in Sources */,
 				CBCA8DA12C5D39AD003B01B9 /* UITextField + Extensions.swift in Sources */,
 				C653B3272C6770740049A922 /* AudioPlayerView.swift in Sources */,
