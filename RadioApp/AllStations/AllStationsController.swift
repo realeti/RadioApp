@@ -151,8 +151,9 @@ extension AllStationsController: UICollectionViewDataSource {
 extension AllStationsController: UICollectionViewDelegate {
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let presenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
-        presenter.didStationSelected(at: indexPath)
+        let currentPresenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
+        currentPresenter.didStationSelected(at: indexPath)
+        refreshItemState()
 	}
 
 	func collectionView(
@@ -190,13 +191,14 @@ private extension AllStationsController {
 	}
 
     @objc func handleStationChange(_ notification: Notification) {
-        let presenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
+        let currentPresenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
+        refreshItemState()
         
         guard let stationUUID = notification.userInfo?[K.UserInfoKey.stationUUID] as? UUID,
-              let stationId = presenter.getStations.firstIndex(where: { $0.id == stationUUID })
+              let stationId = currentPresenter.getStations.firstIndex(where: { $0.id == stationUUID })
         else {
-            deselectItem(for: presenter.lastStationId)
-            presenter.resetLastStationId()
+            deselectItem(for: currentPresenter.lastStationId)
+            currentPresenter.resetLastStationId()
             return
         }
         
@@ -206,7 +208,7 @@ private extension AllStationsController {
             animated: true,
             scrollPosition: .centeredVertically
         )
-        presenter.updateLastStationId(stationId)
+        currentPresenter.updateLastStationId(stationId)
     }
     
     @objc func handleDoubleTap(_ gesture: UITapGestureRecognizer) {
@@ -215,6 +217,19 @@ private extension AllStationsController {
         if let indexPath = collectionView.indexPathForItem(at: point) {
             let presenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
             presenter.showDetail(at: indexPath)
+        }
+    }
+}
+
+// MARK: - Refresh CollectionItem State
+private extension AllStationsController {
+    func refreshItemState() {
+        if isActiveSearch {
+            deselectItem(for: presenter.lastStationId)
+            presenter.resetLastStationId()
+        } else {
+            deselectItem(for: searchPresenter.lastStationId)
+            searchPresenter.resetLastStationId()
         }
     }
 }
