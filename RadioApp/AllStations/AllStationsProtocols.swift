@@ -27,6 +27,9 @@ protocol AllStationsPresenterProtocol: AnyObject {
     
     /// Получаем последнюю выбранную станцию
     var lastStationId: Int { get }
+    
+    /// Уникальный идентификатор станции играющей в данный момент
+    var playingStationId: UUID? { get }
 
 	/// Активация презентера для обновления информации на экране.
 	func activate()

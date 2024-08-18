@@ -32,6 +32,7 @@ final class SearchPresenter {
     }
     
     var lastStationId: Int = K.invalidStationId
+    var playingStationId: UUID?
 
 	// MARK: - Initialization
 
@@ -68,6 +69,7 @@ extension SearchPresenter: SearchPresenterProtocol {
 		Task {
             if !stations.isEmpty {
                 setPlayerStations()
+                return
             }
             await render()
 		}
@@ -85,7 +87,15 @@ extension SearchPresenter: SearchPresenterProtocol {
 			case .success(let data):
                 let newStations = data.map({ makeStationModel(from: $0) })
                 let oldStations = stations
+                
+                guard !newStations.isEmpty else {
+                    return
+                }
+                
+                /// update array of stations
                 stations.append(contentsOf: newStations)
+                
+                /// update array of stations in audio player
                 setPlayerStations()
                 
                 if oldStations.isEmpty {
@@ -134,6 +144,7 @@ extension SearchPresenter: SearchPresenterProtocol {
         if stationId != lastStationId || lastStationId == K.invalidStationId {
             audioPlayer.playStation(at: stationId)
             updateLastStationId(stationId)
+            updatePlayingStationId(stations[stationId].id)
         }
     }
 
@@ -169,6 +180,10 @@ extension SearchPresenter {
     
     func resetLastStationId() {
         lastStationId = K.invalidStationId
+    }
+    
+    func updatePlayingStationId(_ stationId: UUID) {
+        playingStationId = stationId
     }
 }
 

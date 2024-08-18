@@ -73,14 +73,19 @@ extension PopularPresenter {
                     createStationViewModel(from: station)
                 }
                 
+                guard !newStations.isEmpty else {
+                    isLoadingData = false
+                    return
+                }
+                
                 /// update array of stations
                 stations.append(contentsOf: newStations)
                 
-                /// update view
-                await updateView(with: newStations)
-                
                 /// update array of stations in audio player
                 setPlayerStations()
+                
+                /// update view
+                await updateView(with: newStations)
             case .failure(let error):
                 handleError(error)
             }
@@ -93,10 +98,10 @@ extension PopularPresenter {
 private extension PopularPresenter {
     @MainActor
     func updateView(with newStations: [PopularViewModel]) {
-        if stations.isEmpty {
+        if stations.count == newStations.count {
             /// if stations load first
             view?.didUpdateStations()
-        } else if !newStations.isEmpty {
+        } else {
             /// if station load after scroll
             let startIndex = stations.count - newStations.count
             let endIndex = stations.count - 1

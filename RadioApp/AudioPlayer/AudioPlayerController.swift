@@ -9,7 +9,7 @@ import Foundation
 import AVFoundation
 
 protocol AudioPlayerProtocol {
-	var currentUUID: UUID? { get }
+	var playingStationUUID: UUID? { get }
     var currentIndex: Int { get }
     var isPlaying: Bool { get }
     var volume: Float { get set }
@@ -31,12 +31,12 @@ final class AudioPlayerController: AudioPlayerProtocol {
     private var currentVolume: Float = 0.5
     
     // MARK: - Public Properties
-	var currentUUID: UUID?
+	var playingStationUUID: UUID?
     
     var currentIndex: Int = 0 {
         didSet {
             if currentIndex >= 0, currentIndex < stations.count {
-                currentUUID = stations[currentIndex].id
+                playingStationUUID = stations[currentIndex].id
             }
         }
     }
@@ -142,12 +142,12 @@ private extension AudioPlayerController {
     }
     
     func postChangeNotification() {
-        guard let currentUUID else { return }
+        guard let playingStationUUID else { return }
         
         NotificationCenter.default.post(
             name: .playerStationDidChange,
             object: nil,
-            userInfo: [K.UserInfoKey.stationUUID: currentUUID]
+            userInfo: [K.UserInfoKey.stationUUID: playingStationUUID]
         )
     }
 }

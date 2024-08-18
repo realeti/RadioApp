@@ -50,18 +50,16 @@ final class AllStationsCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                stationView.status = "Playing now"
-                stationView.setTheme(StationView.Theme.pink)
+                selectItemState()
             } else {
-                stationView.status = nil
-                stationView.setTheme(StationView.Theme.base)
+                deselectItemState()
             }
         }
     }
 
 	// MARK: - Public methods
 
-	func configure(by indexPath: IndexPath, with model: AllStationViewModel, and delegate: StationViewDelegate) {
+    func configure(by indexPath: IndexPath, with model: AllStationViewModel, delegate: StationViewDelegate) {
 		stationView.delegate = delegate
 		stationView.indexPath = indexPath
 
@@ -74,14 +72,22 @@ final class AllStationsCell: UICollectionViewCell {
 		let index = indexPath.row % StationView.ColorCircle.allCases.count
 		stationView.waveCirclesColor = StationView.ColorCircle(rawValue: index)
 	}
-
-	// MARK: - Private methods
 }
 
-// MARK: - Actions
-
+// MARK: - Select Item State
 private extension AllStationsCell {
-	
+    func selectItemState() {
+        stationView.status = "Playing now"
+        stationView.setTheme(StationView.Theme.pink)
+    }
+}
+
+// MARK: - Deselect Item State
+private extension AllStationsCell {
+    func deselectItemState() {
+        stationView.status = nil
+        stationView.setTheme(StationView.Theme.base)
+    }
 }
 
 // MARK: - Setup UI
