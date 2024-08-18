@@ -131,16 +131,7 @@ extension AllStationsController: UICollectionViewDataSource {
         
         let presenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
         let station = presenter.getStations[indexPath.row]
-		
-		cell.configure(by: indexPath, with: station, and: self)
-        
-        if presenter.lastStationId == indexPath.row {
-            collectionView.selectItem(
-                at: indexPath,
-                animated: true,
-                scrollPosition: .centeredVertically
-            )
-        }
+		cell.configure(by: indexPath, with: station, delegate: self)
 		
 		return cell
 	}
@@ -153,7 +144,6 @@ extension AllStationsController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let currentPresenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
         currentPresenter.didStationSelected(at: indexPath)
-        refreshItemState()
 	}
 
 	func collectionView(
@@ -191,13 +181,16 @@ private extension AllStationsController {
 	}
 
     @objc func handleStationChange(_ notification: Notification) {
+        guard let stationUUID = notification.userInfo?[K.UserInfoKey.stationUUID] as? UUID else {
+            return
+        }
+        
         let currentPresenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
+        let lastStationId = currentPresenter.lastStationId
         refreshItemState()
         
-        guard let stationUUID = notification.userInfo?[K.UserInfoKey.stationUUID] as? UUID,
-              let stationId = currentPresenter.getStations.firstIndex(where: { $0.id == stationUUID })
-        else {
-            deselectItem(for: currentPresenter.lastStationId)
+        guard let stationId = currentPresenter.getStations.firstIndex(where: { $0.id == stationUUID }) else {
+            deselectItem(for: lastStationId)
             currentPresenter.resetLastStationId()
             return
         }

@@ -93,8 +93,17 @@ extension AllStationsPresenter: AllStationsPresenterProtocol {
 			switch result {
 			case .success(let data):
                 let newStations = data.map({ makeStationModel(from: $0) })
+                
+                guard !newStations.isEmpty else {
+                    return
+                }
+                
+                /// update array of stations
                 stations.append(contentsOf: newStations)
+                
+                /// update array of stations in audio player
                 setPlayerStations()
+                
                 await updateView(with: newStations)
 			case .failure(let error):
 				print(error)
@@ -127,7 +136,6 @@ extension AllStationsPresenter: AllStationsPresenterProtocol {
         
         if stationId != lastStationId || lastStationId == K.invalidStationId {
             audioPlayer.playStation(at: stationId)
-            updateLastStationId(stationId)
         }
 	}
 
@@ -177,10 +185,6 @@ private extension AllStationsPresenter {
     
     @MainActor
     func updateView(with newStations: [AllStationViewModel]) {
-        guard !newStations.isEmpty else {
-            return
-        }
-        
         let startIndex = stations.count - newStations.count
         let endIndex = stations.count - 1
         let indexPaths = (startIndex...endIndex).map {

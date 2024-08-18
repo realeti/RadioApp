@@ -23,7 +23,7 @@ final class StationDetailsPresenter: StationDetailsPresenterProtocol {
     init(view: StationDetailsView, station: RadioStation) {
         self.view = view
         self.station = station
-        if audioPlayer.currentUUID != station.id {
+        if audioPlayer.playingStationUUID != station.id {
             audioPlayer.setStations([PlayerStation.init(id: station.id, url: station.url)], startIndex: K.invalidStationId)
             audioPlayer.playNext()
         }
