@@ -32,7 +32,6 @@ final class SearchPresenter {
     }
     
     var lastStationId: Int = K.invalidStationId
-    var playingStationId: UUID?
 
 	// MARK: - Initialization
 

@@ -31,9 +31,6 @@ final class AllStationsPresenter {
     }
     
     var lastStationId: Int = K.invalidStationId
-    var playingStationId: UUID? {
-        get { audioPlayer.playingStationUUID }
-    }
 
 	// MARK: - Initialization
 

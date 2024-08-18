@@ -131,7 +131,6 @@ extension AllStationsController: UICollectionViewDataSource {
         
         let presenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
         let station = presenter.getStations[indexPath.row]
-        let isPlaying = presenter.playingStationId ?? UUID() == station.id
 		cell.configure(by: indexPath, with: station, delegate: self)
 		
 		return cell
