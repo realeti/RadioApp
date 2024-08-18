@@ -143,7 +143,6 @@ extension SearchPresenter: SearchPresenterProtocol {
         if stationId != lastStationId || lastStationId == K.invalidStationId {
             audioPlayer.playStation(at: stationId)
             updateLastStationId(stationId)
-            updatePlayingStationId(stations[stationId].id)
         }
     }
 
@@ -179,10 +178,6 @@ extension SearchPresenter {
     
     func resetLastStationId() {
         lastStationId = K.invalidStationId
-    }
-    
-    func updatePlayingStationId(_ stationId: UUID) {
-        playingStationId = stationId
     }
 }
 
