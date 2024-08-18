@@ -9,7 +9,7 @@ import Foundation
 
 extension Notification.Name {
     static let playerStatusDidChange = Notification.Name(K.Notification.playerStatusDidChange)
-    static let playerCurrentIndexDidChange = Notification.Name(K.Notification.playerCurrentIndexDidChange)
+    static let playerStationDidChange = Notification.Name(K.Notification.playerStationDidChange)
     static let playerVolumeDidChange = Notification.Name(K.Notification.playerVolumeDidChange)
     static let favoriteRemoved = Notification.Name(K.Notification.favoriteRemoved)
 }

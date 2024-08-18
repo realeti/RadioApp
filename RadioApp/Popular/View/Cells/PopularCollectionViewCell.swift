@@ -18,8 +18,8 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    private let playImageView = UIImageView(
-        image: .playS,
+    private let playPauseImageView = UIImageView(
+        image: .play,
         contentMode: .scaleAspectFit,
         isHidden: true
     )
@@ -51,7 +51,7 @@ final class PopularCollectionViewCell: UICollectionViewCell {
     )
     
     private let radioTitleLabel = UILabel(
-        font: .systemFont(ofSize: 30.0, weight: .bold),
+        font: .systemFont(ofSize: 25.0, weight: .bold),
         alignment: .center
     )
     
@@ -92,13 +92,13 @@ final class PopularCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                playImageView.isHidden = false
+                playPauseImageView.isHidden = false
                 voteLabel.isHidden = true
                 containerView.layer.borderColor = nil
                 containerView.backgroundColor = .pinkApp
                 waveImageView.setWaveTint(with: .white)
             } else {
-                playImageView.isHidden = true
+                playPauseImageView.isHidden = true
                 voteLabel.isHidden = false
                 containerView.backgroundColor = nil
                 containerView.layer.borderColor = UIColor.stormyBlue.cgColor
@@ -129,7 +129,7 @@ final class PopularCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(containerView)
         
         containerView.addSubviews(
-            playImageView,
+            playPauseImageView,
             voteStackView,
             radioTitleStackView,
             waveImageView
@@ -200,6 +200,13 @@ extension PopularCollectionViewCell {
     }
 }
 
+// MARK: - Update PlayPause Image
+extension PopularCollectionViewCell {
+    func updatePlayPauseImage(_ isPlaying: Bool) {
+        playPauseImageView.image = isPlaying ? .pause : .play
+    }
+}
+
 // MARK: - Actions
 private extension PopularCollectionViewCell {
     @objc func voteButtonPressed(_ sender: UIButton) {
@@ -226,7 +233,7 @@ private extension PopularCollectionViewCell {
     }
     
     func setupPlayImageConstraints() {
-        playImageView.snp.makeConstraints { make in
+        playPauseImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(Metrics.playImageTopIndent)
             make.leading.equalToSuperview().inset(Metrics.playImageLeadingIndent)
             make.width.height.equalToSuperview().multipliedBy(0.2)
@@ -248,7 +255,7 @@ private extension PopularCollectionViewCell {
     
     func setupRadioTitleStackViewConstraints() {
         radioTitleStackView.snp.makeConstraints { make in
-            make.top.equalTo(playImageView.snp.bottom)
+            make.top.equalTo(playPauseImageView.snp.bottom)
             make.leading.trailing.equalToSuperview().inset(Metrics.radioTitleStackIndent)
         }
     }

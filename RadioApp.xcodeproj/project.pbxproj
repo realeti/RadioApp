@@ -14,7 +14,7 @@
 		113FE50E2C61396B00B2AC8B /* StationDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FE5072C61396A00B2AC8B /* StationDetailsController.swift */; };
 		113FE50F2C61396B00B2AC8B /* StationDetailsAssembly .swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FE5092C61396A00B2AC8B /* StationDetailsAssembly .swift */; };
 		11A1C67C2C69765F00C86B91 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 11A1C67B2C69765F00C86B91 /* Kingfisher */; };
-		B6E8FDFB2C670359008FF38C /* AllStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8FDEF2C670359008FF38C /* AllStations.swift */; };
+		B6E8FDFB2C670359008FF38C /* AllStationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8FDEF2C670359008FF38C /* AllStationViewModel.swift */; };
 		B6E8FDFC2C670359008FF38C /* AllStationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8FDF12C670359008FF38C /* AllStationsCell.swift */; };
 		B6E8FDFD2C670359008FF38C /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8FDF22C670359008FF38C /* StationView.swift */; };
 		B6E8FDFE2C670359008FF38C /* AllStationsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8FDF42C670359008FF38C /* AllStationsAssembly.swift */; };
@@ -49,10 +49,10 @@
 		BECF662E2C5A0D7E0068160D /* AboutUsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF662D2C5A0D7E0068160D /* AboutUsPresenter.swift */; };
 		BECF66302C5A0D9A0068160D /* TeamViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF662F2C5A0D9A0068160D /* TeamViewCell.swift */; };
 		BECF66322C5A0DB70068160D /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66312C5A0DB70068160D /* Team.swift */; };
-		BECF66352C5A10AA0068160D /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66342C5A10AA0068160D /* UIView+.swift */; };
-		BECF663F2C5A1D750068160D /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF663E2C5A1D750068160D /* String+.swift */; };
+		BECF66352C5A10AA0068160D /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66342C5A10AA0068160D /* UIView + Extensions.swift */; };
+		BECF663F2C5A1D750068160D /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF663E2C5A1D750068160D /* String + Extensions.swift */; };
 		BECF66422C5A1E300068160D /* UDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66412C5A1E300068160D /* UDService.swift */; };
-		BECF66442C5A1FBF0068160D /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66432C5A1FBF0068160D /* UILabel+.swift */; };
+		BECF66442C5A1FBF0068160D /* UILabel + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66432C5A1FBF0068160D /* UILabel + Extensions.swift */; };
 		BECF66482C5A22A70068160D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66472C5A22A70068160D /* EditProfileViewController.swift */; };
 		BECF664A2C5A22C90068160D /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF66492C5A22C90068160D /* EditProfilePresenter.swift */; };
 		BECF664C2C5A22EA0068160D /* ImageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF664B2C5A22EA0068160D /* ImageSelectionViewController.swift */; };
@@ -85,6 +85,7 @@
 		C6908FDA2C65584700208F0F /* Notification + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6908FD92C65584700208F0F /* Notification + Extensions.swift */; };
 		C6DF00C62C5FA62E0011EA5D /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DF00C52C5FA62E0011EA5D /* PlayerView.swift */; };
 		C6DF00C82C5FAA4B0011EA5D /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DF00C72C5FAA4B0011EA5D /* UIButton + Extensions.swift */; };
+		C6E944B62C70E8330018E2E9 /* StationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E944B52C70E8330018E2E9 /* StationFormatter.swift */; };
 		CB148A2F2C68BEFF008BF50C /* wave.json in Resources */ = {isa = PBXBuildFile; fileRef = CB148A2E2C68BEFF008BF50C /* wave.json */; };
 		CB28CF5E2C63CCED00E55A95 /* LoadingPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28CF5D2C63CCED00E55A95 /* LoadingPresenting.swift */; };
 		CB28CF602C63CD0E00E55A95 /* ErrorPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28CF5F2C63CD0E00E55A95 /* ErrorPresenting.swift */; };
@@ -135,7 +136,7 @@
 		CBCA8D9D2C5D3965003B01B9 /* UpdatePasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D912C5D3965003B01B9 /* UpdatePasswordPresenter.swift */; };
 		CBCA8D9E2C5D3965003B01B9 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D932C5D3965003B01B9 /* ForgotPasswordController.swift */; };
 		CBCA8D9F2C5D3965003B01B9 /* ForgotPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8D942C5D3965003B01B9 /* ForgotPasswordPresenter.swift */; };
-		CBCA8DA12C5D39AD003B01B9 /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8DA02C5D39AD003B01B9 /* UITextField+Padding.swift */; };
+		CBCA8DA12C5D39AD003B01B9 /* UITextField + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA8DA02C5D39AD003B01B9 /* UITextField + Extensions.swift */; };
 		CBF57B562C58319D006237E8 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B552C58319D006237E8 /* Builder.swift */; };
 		CBF57B592C5835AC006237E8 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF57B582C5835AC006237E8 /* CollectionCell.swift */; };
 /* End PBXBuildFile section */
@@ -147,7 +148,7 @@
 		113FE5062C61396A00B2AC8B /* EqualizerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualizerView.swift; sourceTree = "<group>"; };
 		113FE5072C61396A00B2AC8B /* StationDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationDetailsController.swift; sourceTree = "<group>"; };
 		113FE5092C61396A00B2AC8B /* StationDetailsAssembly .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StationDetailsAssembly .swift"; sourceTree = "<group>"; };
-		B6E8FDEF2C670359008FF38C /* AllStations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStations.swift; sourceTree = "<group>"; };
+		B6E8FDEF2C670359008FF38C /* AllStationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStationViewModel.swift; sourceTree = "<group>"; };
 		B6E8FDF12C670359008FF38C /* AllStationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStationsCell.swift; sourceTree = "<group>"; };
 		B6E8FDF22C670359008FF38C /* StationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationView.swift; sourceTree = "<group>"; };
 		B6E8FDF42C670359008FF38C /* AllStationsAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStationsAssembly.swift; sourceTree = "<group>"; };
@@ -182,10 +183,10 @@
 		BECF662D2C5A0D7E0068160D /* AboutUsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsPresenter.swift; sourceTree = "<group>"; };
 		BECF662F2C5A0D9A0068160D /* TeamViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewCell.swift; sourceTree = "<group>"; };
 		BECF66312C5A0DB70068160D /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
-		BECF66342C5A10AA0068160D /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
-		BECF663E2C5A1D750068160D /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		BECF66342C5A10AA0068160D /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
+		BECF663E2C5A1D750068160D /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		BECF66412C5A1E300068160D /* UDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDService.swift; sourceTree = "<group>"; };
-		BECF66432C5A1FBF0068160D /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		BECF66432C5A1FBF0068160D /* UILabel + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extensions.swift"; sourceTree = "<group>"; };
 		BECF66472C5A22A70068160D /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		BECF66492C5A22C90068160D /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
 		BECF664B2C5A22EA0068160D /* ImageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectionViewController.swift; sourceTree = "<group>"; };
@@ -220,6 +221,7 @@
 		C6908FD92C65584700208F0F /* Notification + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification + Extensions.swift"; sourceTree = "<group>"; };
 		C6DF00C52C5FA62E0011EA5D /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C6DF00C72C5FAA4B0011EA5D /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
+		C6E944B52C70E8330018E2E9 /* StationFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationFormatter.swift; sourceTree = "<group>"; };
 		CB148A2E2C68BEFF008BF50C /* wave.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wave.json; sourceTree = "<group>"; };
 		CB28CF5D2C63CCED00E55A95 /* LoadingPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPresenting.swift; sourceTree = "<group>"; };
 		CB28CF5F2C63CD0E00E55A95 /* ErrorPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenting.swift; sourceTree = "<group>"; };
@@ -265,7 +267,7 @@
 		CBCA8D912C5D3965003B01B9 /* UpdatePasswordPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePasswordPresenter.swift; sourceTree = "<group>"; };
 		CBCA8D932C5D3965003B01B9 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		CBCA8D942C5D3965003B01B9 /* ForgotPasswordPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresenter.swift; sourceTree = "<group>"; };
-		CBCA8DA02C5D39AD003B01B9 /* UITextField+Padding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
+		CBCA8DA02C5D39AD003B01B9 /* UITextField + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField + Extensions.swift"; sourceTree = "<group>"; };
 		CBF57B552C58319D006237E8 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		CBF57B582C5835AC006237E8 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -338,7 +340,7 @@
 		B6E8FDF02C670359008FF38C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B6E8FDEF2C670359008FF38C /* AllStations.swift */,
+				B6E8FDEF2C670359008FF38C /* AllStationViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -484,10 +486,10 @@
 		BECF66332C5A10810068160D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				BECF66342C5A10AA0068160D /* UIView+.swift */,
-				BECF66432C5A1FBF0068160D /* UILabel+.swift */,
-				BECF663E2C5A1D750068160D /* String+.swift */,
-				CBCA8DA02C5D39AD003B01B9 /* UITextField+Padding.swift */,
+				BECF66342C5A10AA0068160D /* UIView + Extensions.swift */,
+				BECF66432C5A1FBF0068160D /* UILabel + Extensions.swift */,
+				BECF663E2C5A1D750068160D /* String + Extensions.swift */,
+				CBCA8DA02C5D39AD003B01B9 /* UITextField + Extensions.swift */,
 				C623484B2C5E88E700F536E7 /* UIStackView + Extensions.swift */,
 				C623484D2C5E899800F536E7 /* UIImageView + Extensions.swift */,
 				C6DF00C72C5FAA4B0011EA5D /* UIButton + Extensions.swift */,
@@ -534,6 +536,7 @@
 				BECF66332C5A10810068160D /* Extensions */,
 				C62348472C5E88BD00F536E7 /* Constants.swift */,
 				C62348492C5E88D100F536E7 /* ColorFactory.swift */,
+				C6E944B52C70E8330018E2E9 /* StationFormatter.swift */,
 			);
 			name = Helpers;
 			path = Base/Helpers;
@@ -925,6 +928,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6E944B62C70E8330018E2E9 /* StationFormatter.swift in Sources */,
 				C623485A2C5E8AD300F536E7 /* PopularViewModel.swift in Sources */,
 				C623484A2C5E88D100F536E7 /* ColorFactory.swift in Sources */,
 				B6E8FE032C670359008FF38C /* SearchPresenter.swift in Sources */,
@@ -936,7 +940,7 @@
 				CB2C8CB32C5768CB00D280FE /* NavigationController.swift in Sources */,
 				CBCA8D7A2C5D38AB003B01B9 /* OnboardingController.swift in Sources */,
 				CBB20CE42C626C4700B35416 /* RootBuilder.swift in Sources */,
-				BECF66442C5A1FBF0068160D /* UILabel+.swift in Sources */,
+				BECF66442C5A1FBF0068160D /* UILabel + Extensions.swift in Sources */,
 				B6E8FE002C670359008FF38C /* AllStationsPresenter.swift in Sources */,
 				B6E8FDFD2C670359008FF38C /* StationView.swift in Sources */,
 				BECF666D2C60D1FE0068160D /* CustomSwitchSettingsView.swift in Sources */,
@@ -948,10 +952,10 @@
 				CBCA8D7D2C5D38AB003B01B9 /* OnboardingPresenter.swift in Sources */,
 				CB2C8CA02C5698E400D280FE /* RadioApp.xcdatamodeld in Sources */,
 				CBCA8D9F2C5D3965003B01B9 /* ForgotPasswordPresenter.swift in Sources */,
-				BECF663F2C5A1D750068160D /* String+.swift in Sources */,
+				BECF663F2C5A1D750068160D /* String + Extensions.swift in Sources */,
 				B949AE562C5F805600E2A338 /* FavoritesBuilder.swift in Sources */,
 				BECF66422C5A1E300068160D /* UDService.swift in Sources */,
-				B6E8FDFB2C670359008FF38C /* AllStations.swift in Sources */,
+				B6E8FDFB2C670359008FF38C /* AllStationViewModel.swift in Sources */,
 				BECF66482C5A22A70068160D /* EditProfileViewController.swift in Sources */,
 				B949AE582C5F805600E2A338 /* FavoritesRouter.swift in Sources */,
 				BECF66252C5A06470068160D /* PrivacyViewController.swift in Sources */,
@@ -999,7 +1003,7 @@
 				CB28CF602C63CD0E00E55A95 /* ErrorPresenting.swift in Sources */,
 				113FE50D2C61396B00B2AC8B /* EqualizerView.swift in Sources */,
 				BECF66322C5A0DB70068160D /* Team.swift in Sources */,
-				BECF66352C5A10AA0068160D /* UIView+.swift in Sources */,
+				BECF66352C5A10AA0068160D /* UIView + Extensions.swift in Sources */,
 				CBB20CD32C62141900B35416 /* LoadingView.swift in Sources */,
 				BECF66582C5A36340068160D /* LanguageCell.swift in Sources */,
 				B6E8FDFC2C670359008FF38C /* AllStationsCell.swift in Sources */,
@@ -1035,7 +1039,7 @@
 				B6E8FDFE2C670359008FF38C /* AllStationsAssembly.swift in Sources */,
 				CBB20CCF2C6213A000B35416 /* AuthenticationManager.swift in Sources */,
 				C62348582C5E8ABB00F536E7 /* PopularRouter.swift in Sources */,
-				CBCA8DA12C5D39AD003B01B9 /* UITextField+Padding.swift in Sources */,
+				CBCA8DA12C5D39AD003B01B9 /* UITextField + Extensions.swift in Sources */,
 				C653B3272C6770740049A922 /* AudioPlayerView.swift in Sources */,
 				CBF57B592C5835AC006237E8 /* CollectionCell.swift in Sources */,
 				BECF664A2C5A22C90068160D /* EditProfilePresenter.swift in Sources */,
@@ -1196,7 +1200,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 69M929ZQ47;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RadioApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

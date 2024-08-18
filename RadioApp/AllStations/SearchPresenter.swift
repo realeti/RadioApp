@@ -22,8 +22,16 @@ final class SearchPresenter {
 
 	// MARK: - Private properties
 
-	private var stations: [Station] = []
+	private var stations: [AllStationViewModel] = []
 	private var searchText: String?
+    
+    // MARK: - Public properties
+    
+    var getStations: [AllStationViewModel] {
+        get { stations }
+    }
+    
+    var lastStationId: Int = K.invalidStationId
 
 	// MARK: - Initialization
 
@@ -58,7 +66,11 @@ extension SearchPresenter: SearchPresenterProtocol {
 	/// Обновляет экран по поиску радиостанций. Для подгрузки радиостанций используйте `fetchStations()`.
 	func activate() {
 		Task {
-			await render()
+            if !stations.isEmpty {
+                setPlayerStations()
+                return
+            }
+            await render()
 		}
 	}
 
@@ -72,8 +84,24 @@ extension SearchPresenter: SearchPresenterProtocol {
 
 			switch result {
 			case .success(let data):
-				stations += data
-				activate()
+                let newStations = data.map({ makeStationModel(from: $0) })
+                let oldStations = stations
+                
+                guard !newStations.isEmpty else {
+                    return
+                }
+                
+                /// update array of stations
+                stations.append(contentsOf: newStations)
+                
+                /// update array of stations in audio player
+                setPlayerStations()
+                
+                if oldStations.isEmpty {
+                    await render()
+                } else {
+                    await updateView(with: newStations)
+                }
 			case .failure(let error):
 				print(error)
 			}
@@ -84,42 +112,73 @@ extension SearchPresenter: SearchPresenterProtocol {
 	///
 	/// Получает первые 20 радиостанций из api и обновляет экран по поиску. Для подгрузки радиостанций используйте `fetchStations()`.
 	func searchStations(with name: String) {
-		Task {
-			stations = []
-			searchText = name
-			fetchStations()
-		}
+        stations = []
+        searchText = name
+        fetchStations()
 	}
 
-	/// Выбрана радиостанция.
-	/// - Parameter indexPath: индекс радиостанции.
-	///
-	/// Переход на экран с детальной информацией станции, которую выбрал пользователь.
-	func didStationSelected(at indexPath: IndexPath) {
-		router.showStationDetails(with: stations[indexPath.row])
-	}
+    /// Выбрана радиостанция.
+    /// - Parameter indexPath: индекс радиостанции.
+    ///
+    /// Переход на экран с детальной информацией станции, которую выбрал пользователь.
+    func showDetail(at indexPath: IndexPath) {
+        let selectedStation = stations[indexPath.row]
+        let radioStation = RadioStation(
+            id: selectedStation.id,
+            url: selectedStation.url,
+            frequency: selectedStation.subtitle,
+            name: selectedStation.title,
+            imageName: selectedStation.imageURL
+        )
+        router.showStationDetails(with: radioStation)
+    }
+    
+    /// Выбрана радиостанция
+    /// - Parameter indexPath: индекс радиостанции
+    ///
+    /// Запуск плеера
+    func didStationSelected(at indexPath: IndexPath) {
+        let stationId = indexPath.row
+        
+        if stationId != lastStationId || lastStationId == K.invalidStationId {
+            audioPlayer.playStation(at: stationId)
+            updateLastStationId(stationId)
+        }
+    }
 
 	/// Проголосовали за радиостанцию.
 	/// - Parameter indexPath: индекс радиостанции.
 	///
 	/// Метод добавляет радиостанцию в избранное или удаляет от туда. Также голосует за выбранную радиостанцию, но только один раз.
-	func didStationVoted(at indexPath: IndexPath) {
-		Task {
-			let station = stations[indexPath.row]
+    func didStationVoted(at indexPath: IndexPath) {
+        Task {
+            let station = stations[indexPath.row]
 
-			let result = await radioBrowser.voteForStation(withId: station.stationUUID)
-			switch result {
-			case .success:
-				let stationData = await getStation(withId: station.stationUUID)
-				stations[indexPath.row] = stationData ?? station
-			case .failure(let error):
-				print(error)
-			}
+            let result = await radioBrowser.voteForStation(withId: station.id)
+            switch result {
+            case .success:
+                let stationData = await getStation(withId: station.id)
+                stations[indexPath.row] = stationData ?? station
+            case .failure(let error):
+                print(error)
+            }
 
-			favorite(station: station)
-			await render()
-		}
-	}
+            favorite(station: station)
+            await render()
+        }
+    }
+}
+
+// MARK: - Public methods
+
+extension SearchPresenter {
+    func updateLastStationId(_ stationId: Int) {
+        lastStationId = stationId
+    }
+    
+    func resetLastStationId() {
+        lastStationId = K.invalidStationId
+    }
 }
 
 // MARK: - Private methods
@@ -128,57 +187,67 @@ private extension SearchPresenter {
 
 	@MainActor
 	func render() {
-		setupAudioPlayer()
-		view.update(with: mapStationsData())
+		view.update()
 	}
+    
+    @MainActor
+    func updateView(with newStations: [AllStationViewModel]) {
+        guard !newStations.isEmpty else {
+            return
+        }
+        
+        let startIndex = stations.count - newStations.count
+        let endIndex = stations.count - 1
+        let indexPaths = (startIndex...endIndex).map {
+            IndexPath(item: $0, section: 0)
+        }
+        view.insert(at: indexPaths)
+    }
 
-	func getStation(withId id: UUID) async -> Station? {
-		let result = await radioBrowser.getStation(withId: id)
-		switch result {
-		case .success(let data):
-			return data
-		case .failure(let error):
-			print(error)
-			return nil
-		}
-	}
+    func getStation(withId id: UUID) async -> AllStationViewModel? {
+        let result = await radioBrowser.getStation(withId: id)
+        switch result {
+        case .success(let data):
+            return data.map({ makeStationModel(from: $0) })
+        case .failure(let error):
+            print(error)
+            return nil
+        }
+    }
 
-	func favorite(station: Station) {
-		storageManager.toggleFavorite(
-			id: station.stationUUID,
-			title: station.name.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .newlines),
-			genre: station.tags.first ?? "",
+    func favorite(station: AllStationViewModel) {
+        storageManager.toggleFavorite(
+            id: station.id,
+            title: station.title.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .newlines),
+            genre: station.subtitle,
             url: station.url,
-            favicon: station.favicon
-		)
-	}
+            favicon: station.imageURL
+        )
+    }
 
-	func setupAudioPlayer() {
-		let playList = stations.map { PlayerStation(id: $0.stationUUID, url: $0.url) }
-		audioPlayer.setStations(playList)
-	}
+    func makeStationModel(from data: Station) -> AllStationViewModel {
+        let station = storageManager.fetchStation(with: data.stationUUID)
+        let stationNames = StationFormatter.formatNames(data)
 
-	func mapStationsData() -> AllStations.Model {
-		let radioStations = stations.map { makeStationModel(from: $0) }
-		let indexPlayingNow = IndexPath(row: audioPlayer.currentIndex, section: 0)
-		return AllStations.Model(stations: radioStations, indexPlayingNow: indexPlayingNow)
-	}
+        return AllStationViewModel(
+            id: data.stationUUID,
+            title: stationNames.title,
+            subtitle: stationNames.subtitle,
+            votes: data.votes,
+            isFavorite: station != nil ? true : false,
+            url: data.urlResolved,
+            imageURL: data.favicon
+        )
+    }
+}
 
-	func makeStationModel(from data: Station) -> AllStations.Model.Station {
-		let station = storageManager.fetchStation(with: data.stationUUID)
-
-		var tag = data.tags.first ?? "Not known".localized
-		tag = tag.isEmpty ? "Not known".localized : tag
-
-		var title = data.name.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .newlines)
-		title = title.isEmpty ? "Not known".localized : title
-
-		return AllStations.Model.Station(
-			tag: tag,
-			title: title,
-			votes: data.votes,
-			isPlayingNow: data.stationUUID == audioPlayer.currentId,
-			isFavorite: station != nil ? true : false
-		)
-	}
+// MARK: - Set PlayList for Audio Player
+extension SearchPresenter {
+    func setPlayerStations() {
+        let playList: [PlayerStation] = stations.map { station in
+            PlayerStation(id: station.id, url: station.url)
+        }
+        let startIndex = lastStationId == K.invalidStationId ? 0 : lastStationId
+        audioPlayer.setStations(playList, startIndex: startIndex)
+    }
 }

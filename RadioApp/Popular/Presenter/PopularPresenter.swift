@@ -10,19 +10,22 @@ import RadioBrowser
 
 protocol PopularViewProtocol: AnyObject {
     func didUpdateStations()
-    func insertItems(at indexPaths: [IndexPath])
+    func insertStations(at indexPaths: [IndexPath])
     func voteForStation(at: IndexPath?)
 }
 
 protocol PopularPresenterProtocol {
     init(router: PopularRouterProtocol)
     var getStations: [PopularViewModel] { get }
+    var lastStationId: Int { get }
     var isLoadingData: Bool { get }
     
     func loadStations()
     func setPlayerStations()
     func removeVoteStatus(_ stationId: Int)
     func changeStation(_ stationId: Int)
+    func updateLastStationId(_ stationId: Int)
+    func resetLastStationId()
     func toggleVoteState(for stationId: Int)
     func isStationVoted(_ stationId: Int) -> Bool
     func showDetail(_ stationId: Int)
@@ -46,6 +49,7 @@ final class PopularPresenter: PopularPresenterProtocol {
         get { stations }
     }
     
+    var lastStationId: Int = K.invalidStationId
     var isLoadingData = false
     
     // MARK: - Init
@@ -69,14 +73,19 @@ extension PopularPresenter {
                     createStationViewModel(from: station)
                 }
                 
+                guard !newStations.isEmpty else {
+                    isLoadingData = false
+                    return
+                }
+                
                 /// update array of stations
                 stations.append(contentsOf: newStations)
                 
-                /// update view
-                updateView(with: newStations)
-                
                 /// update array of stations in audio player
                 setPlayerStations()
+                
+                /// update view
+                await updateView(with: newStations)
             case .failure(let error):
                 handleError(error)
             }
@@ -87,6 +96,7 @@ extension PopularPresenter {
 
 // MARK: - Update View
 private extension PopularPresenter {
+    @MainActor
     func updateView(with newStations: [PopularViewModel]) {
         if stations.count == newStations.count {
             /// if stations load first
@@ -98,7 +108,7 @@ private extension PopularPresenter {
             let indexPaths = (startIndex...endIndex).map {
                 IndexPath(item: $0, section: 0)
             }
-            view?.insertItems(at: indexPaths)
+            view?.insertStations(at: indexPaths)
         }
     }
 }
@@ -113,7 +123,7 @@ private extension PopularPresenter {
 // MARK: - Create Station View Model
 private extension PopularPresenter {
     func createStationViewModel(from station: Station) -> PopularViewModel {
-        let stationNames = formatStationNames(station)
+        let stationNames = StationFormatter.formatNames(station)
         
         /// set vote status for station
         loadVotedStation(with: station.stationUUID)
@@ -126,24 +136,6 @@ private extension PopularPresenter {
             url: station.urlResolved,
             imageURL: station.favicon
         )
-    }
-}
-
-// MARK: - Format Station Names
-private extension PopularPresenter {
-    func formatStationNames(_ station: Station) -> (title: String, subtitle: String) {
-        let title: String
-        let subtitle: String
-        
-        if let tag = station.tags.first, !tag.isEmpty {
-            title = tag
-            subtitle = station.name
-        } else {
-            title = station.name
-            subtitle = ""
-        }
-        
-        return (title: title, subtitle: subtitle)
     }
 }
 
@@ -165,24 +157,38 @@ extension PopularPresenter {
     }
 }
 
-// MARK: - Set Stations for Audio Player
+// MARK: - Set PlayList for Audio Player
 extension PopularPresenter {
     func setPlayerStations() {
-        let audioStations: [PlayerStation] = stations.map { station in
+        let playList: [PlayerStation] = stations.map { station in
             PlayerStation(id: station.id, url: station.url)
         }
-        audioPlayer.setStations(audioStations)
+        let startIndex = lastStationId == K.invalidStationId ? 0 : lastStationId
+        audioPlayer.setStations(playList, startIndex: startIndex)
     }
 }
 
 // MARK: - Change Station
 extension PopularPresenter {
     func changeStation(_ stationId: Int) {
-        let currentStationId = audioPlayer.currentIndex
-        
-        if stationId != currentStationId {
+        if stationId != lastStationId || lastStationId == K.invalidStationId {
             audioPlayer.playStation(at: stationId)
+            updateLastStationId(stationId)
         }
+    }
+}
+
+// MARK: - Update LastStationId
+extension PopularPresenter {
+    func updateLastStationId(_ stationId: Int) {
+        lastStationId = stationId
+    }
+}
+
+// MARK: - Reset LastStationId
+extension PopularPresenter {
+    func resetLastStationId() {
+        lastStationId = K.invalidStationId
     }
 }
 
@@ -194,7 +200,13 @@ extension PopularPresenter {
         
         /// save to storage
         let selectedStation = stations[stationId]
-        storage.toggleFavorite(id: selectedStation.id, title: selectedStation.title, genre: selectedStation.subtitle, url: selectedStation.url, favicon: selectedStation.imageURL)
+        storage.toggleFavorite(
+            id: selectedStation.id,
+            title: selectedStation.title,
+            genre: selectedStation.subtitle,
+            url: selectedStation.url,
+            favicon: selectedStation.imageURL
+        )
     }
     
     func isStationVoted(_ stationId: Int) -> Bool {

@@ -28,17 +28,25 @@ struct K {
     // MARK: - Notification & UserInfoKeys
     struct Notification {
         static let playerStatusDidChange = "PlayerStatusDidChange"
-        static let playerCurrentIndexDidChange = "PlayerCurrentIndexDidChange"
+        static let playerStationDidChange = "PlayerStationDidChange"
         static let playerVolumeDidChange = "PlayerVolumeDidChange"
         static let favoriteRemoved = "FavoriteRemoved"
     }
 
     struct UserInfoKey {
         static let isPlaying = "isPlaying"
+        static let stationUUID = "stationUUID"
         static let stationIndex = "stationIndex"
         static let playerVolume = "playerVolume"
         static let removedStationIndex = "removedStationIndex"
     }
+    
+    // MARK: - Invalid Station Identifier
+    static let invalidStationId = -1
+    
+    // MARK: - Unknown Station Names
+    static let unknownName = "Unknown name"
+    static let unknownTag = "#notag"
     
     private init() {}
 }
