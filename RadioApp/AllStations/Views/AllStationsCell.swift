@@ -26,6 +26,7 @@ final class AllStationsCell: UICollectionViewCell {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		setupUI()
+        layout()
 	}
 
 	required init?(coder: NSCoder) {
@@ -45,30 +46,33 @@ final class AllStationsCell: UICollectionViewCell {
 		stationView.isFavorite = nil
 		stationView.waveCirclesColor = nil
 	}
-
-	override func layoutSubviews() {
-		super.layoutSubviews()
-		layout()
-	}
+    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                stationView.status = "Playing now"
+                stationView.setTheme(StationView.Theme.pink)
+            } else {
+                stationView.status = nil
+                stationView.setTheme(StationView.Theme.base)
+            }
+        }
+    }
 
 	// MARK: - Public methods
 
-	func configure(by indexPath: IndexPath, with model: AllStations.Model.Station, and delegate: StationViewDelegate) {
+	func configure(by indexPath: IndexPath, with model: AllStationViewModel, and delegate: StationViewDelegate) {
 		stationView.delegate = delegate
 		stationView.indexPath = indexPath
 
-		stationView.title = model.tag
-		stationView.subtitle = model.title
-		stationView.status = model.isPlayingNow ? "Playing now" : nil
+		stationView.title = model.title
+		stationView.subtitle = model.subtitle
 
-		stationView.numberOfVotes = model.votes
+        stationView.numberOfVotes = model.votes
 		stationView.isFavorite = model.isFavorite
 
 		let index = indexPath.row % StationView.ColorCircle.allCases.count
 		stationView.waveCirclesColor = StationView.ColorCircle(rawValue: index)
-
-		let theme = model.isPlayingNow ? StationView.Theme.pink : .base
-		stationView.setTheme(theme)
 	}
 
 	// MARK: - Private methods

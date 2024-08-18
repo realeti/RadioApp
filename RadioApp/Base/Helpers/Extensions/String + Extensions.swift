@@ -1,5 +1,5 @@
 //
-//  String+.swift
+//  String + Extensions.swift
 //  RadioApp
 //
 //  Created by Иван Семенов on 31.07.2024.

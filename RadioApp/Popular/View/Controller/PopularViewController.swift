@@ -34,8 +34,8 @@ final class PopularViewController: ViewController {
         super.viewDidLoad()
         
         setDelegates()
-        setNotification()
         setTapGesutre()
+        setNotification()
         loadStations()
     }
     
@@ -51,21 +51,6 @@ final class PopularViewController: ViewController {
     private func setDelegates() {
         popularView.radioCollection.dataSource = self
         popularView.radioCollection.delegate = self
-    }
-    
-    // MARK: - Set Notification
-    private func setNotification() {
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(handleIndexChange),
-            name: .playerCurrentIndexDidChange,
-            object: nil
-        )
-        
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(handleFavoritesChanged),
-            name: .favoriteRemoved,
-            object: nil
-        )
     }
     
     // MARK: - Set Tap Gesture
@@ -89,8 +74,26 @@ final class PopularViewController: ViewController {
     }
 }
 
+// MARK: - Set Notifications
+private extension PopularViewController {
+    func setNotification() {
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(handleStationChange),
+            name: .playerStationDidChange,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(handleFavoritesChanged),
+            name: .favoriteRemoved,
+            object: nil
+        )
+    }
+}
+
 // MARK: - Actions
 private extension PopularViewController {
+    /// Double tap on Item
     @objc func handleDoubleTap(_ gesture: UITapGestureRecognizer) {
         let collectionView = popularView.radioCollection
         let point = gesture.location(in: collectionView)
@@ -101,8 +104,13 @@ private extension PopularViewController {
         }
     }
     
-    @objc func handleIndexChange(_ notification: Notification) {
-        guard let stationId = notification.userInfo?[K.UserInfoKey.stationIndex] as? Int else {
+    /// Station did change
+    @objc func handleStationChange(_ notification: Notification) {
+        guard let stationUUID = notification.userInfo?[K.UserInfoKey.stationUUID] as? UUID,
+              let stationId = presenter.getStations.firstIndex(where: { $0.id == stationUUID })
+        else {
+            deselectItem(for: presenter.lastStationId)
+            presenter.resetLastStationId()
             return
         }
         
@@ -112,16 +120,14 @@ private extension PopularViewController {
             animated: true,
             scrollPosition: .centeredVertically
         )
+        presenter.updateLastStationId(stationId)
     }
     
+    /// Station add or remove from Favorites
     @objc func handleFavoritesChanged(_ notification: Notification) {
-        guard let stationUniqueId = notification.userInfo?[K.UserInfoKey.removedStationIndex] as? UUID,
-              let stationId = presenter.getStations.firstIndex(where: { $0.id == stationUniqueId }) else {
-            return
-        }
-        
-        let indexPath = IndexPath(item: stationId, section: 0)
-        guard let cell = popularView.radioCollection.cellForItem(at: indexPath) as? PopularCollectionViewCell else {
+        guard let stationUUID = notification.userInfo?[K.UserInfoKey.removedStationIndex] as? UUID,
+              let stationId = presenter.getStations.firstIndex(where: { $0.id == stationUUID }),
+              let cell = getCollectionViewCell(for: stationId) else {
             return
         }
         
@@ -130,20 +136,41 @@ private extension PopularViewController {
     }
 }
 
+// MARK: - Get CollectionView Cell
+private extension PopularViewController {
+    func getCollectionViewCell(for stationId: Int) -> PopularCollectionViewCell? {
+        let indexPath = IndexPath(item: stationId, section: 0)
+        
+        guard let cell = popularView.radioCollection.cellForItem(at: indexPath) as? PopularCollectionViewCell else {
+            return nil
+        }
+        
+        return cell
+    }
+}
+
+// MARK: - Deselect CollectionView Cell
+private extension PopularViewController {
+    func deselectItem(for stationId: Int) {
+        guard stationId != K.invalidStationId else {
+            return
+        }
+        
+        let indexPath = IndexPath(item: stationId, section: 0)
+        popularView.radioCollection.deselectItem(at: indexPath, animated: false)
+    }
+}
+
 // MARK: - PopularView Delegate methods
 extension PopularViewController: PopularViewProtocol {
     func didUpdateStations() {
-        DispatchQueue.main.async {
-            self.popularView.radioCollection.reloadData()
-        }
+        popularView.radioCollection.reloadData()
     }
     
-    func insertItems(at indexPaths: [IndexPath]) {
-        DispatchQueue.main.async {
-            self.popularView.radioCollection.performBatchUpdates({
-                self.popularView.radioCollection.insertItems(at: indexPaths)
-            }, completion: nil)
-        }
+    func insertStations(at indexPaths: [IndexPath]) {
+        popularView.radioCollection.performBatchUpdates({
+            popularView.radioCollection.insertItems(at: indexPaths)
+        }, completion: nil)
     }
     
     func voteForStation(at indexPath: IndexPath?) {
