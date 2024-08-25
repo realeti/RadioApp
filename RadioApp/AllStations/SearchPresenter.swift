@@ -152,18 +152,17 @@ extension SearchPresenter: SearchPresenterProtocol {
 	/// Метод добавляет радиостанцию в избранное или удаляет от туда. Также голосует за выбранную радиостанцию, но только один раз.
     func didStationVoted(at indexPath: IndexPath) {
         Task {
-            let station = stations[indexPath.row]
-
+            var station = stations[indexPath.row]
+            favorite(station: station)
             let result = await radioBrowser.voteForStation(withId: station.id)
             switch result {
             case .success:
-                let stationData = await getStation(withId: station.id)
-                stations[indexPath.row] = stationData ?? station
+                print("successfully voted")
             case .failure(let error):
                 print(error)
             }
-
-            favorite(station: station)
+            let stationData = await getStation(withId: station.id)
+            stations[indexPath.row] = stationData ?? station
             await render()
         }
     }
