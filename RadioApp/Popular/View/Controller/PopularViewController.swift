@@ -123,6 +123,8 @@ private extension PopularViewController {
         presenter.updateLastStationId(stationId)
     }
     
+    // view <- viewController <- presenter
+    
     /// Station add or remove from Favorites
     @objc func handleFavoritesChanged(_ notification: Notification) {
         guard let stationUUID = notification.userInfo?[K.UserInfoKey.removedStationIndex] as? UUID,

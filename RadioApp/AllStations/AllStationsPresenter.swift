@@ -26,9 +26,7 @@ final class AllStationsPresenter {
     
     // MARK: - Public properties
     
-    var getStations: [AllStationViewModel] {
-        get { stations }
-    }
+    var getStations: [AllStationViewModel] { stations }
     
     var lastStationId: Int = K.invalidStationId
 
@@ -70,9 +68,7 @@ extension AllStationsPresenter: AllStationsPresenterProtocol {
 				return
 			}
 
-			let result = await radioBrowser.getAllStations(offset: stations.count)
-
-			switch result {
+			switch await radioBrowser.getAllStations(offset: stations.count) {
 			case .success(let data):
                 stations = data.map({ makeStationModel(from: $0) })
                 setPlayerStations()
@@ -196,6 +192,7 @@ private extension AllStationsPresenter {
 		let result = await radioBrowser.getStation(withId: id)
 		switch result {
 		case .success(let data):
+            #warning("possible data race")
 			return data.map({ makeStationModel(from: $0) })
 		case .failure(let error):
 			print(error)
@@ -222,7 +219,7 @@ private extension AllStationsPresenter {
             title: stationNames.title,
             subtitle: stationNames.subtitle,
 			votes: data.votes,
-			isFavorite: station != nil ? true : false,
+			isFavorite: station != nil, // ? true : false, // <- necessary?
             url: data.urlResolved,
             imageURL: data.favicon
 		)

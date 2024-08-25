@@ -134,10 +134,17 @@ extension AllStationsController: UICollectionViewDataSource {
         #warning("computed property?")
         let presenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
         let station = presenter.getStations[indexPath.row]
+//        let posibleStation = presenter.getStations[safe: indexPath.row]
 		cell.configure(by: indexPath, with: station, delegate: self)
 		
 		return cell
 	}
+}
+
+extension Array {
+    subscript(safe index: Int) -> Element? {
+        self.indices.contains(index) ? self[index] : nil
+    }
 }
 
 // MARK: - Collection View Delegate
@@ -234,12 +241,13 @@ private extension AllStationsController {
 private extension AllStationsController {
     func getCollectionViewCell(for stationId: Int) -> AllStationsCell? {
         let indexPath = IndexPath(item: stationId, section: 0)
-#warning("verbose")
-        guard let cell = collectionView.cellForItem(at: indexPath) as? AllStationsCell else {
-            return nil
-        }
-        
-        return cell
+        return collectionView.cellForItem(at: indexPath) as? AllStationsCell
+//        #warning("verbose")
+//        guard let cell = collectionView.cellForItem(at: indexPath) as? AllStationsCell else {
+//            return nil
+//        }
+//        
+//        return cell
     }
 }
 
@@ -310,6 +318,31 @@ private extension AllStationsController {
 
 		return element
 	}
+    
+    func makeTextFieldDeclarative() -> UITextField {
+        Declarative(UITextField())
+            .backgroundColor(.searchApp)
+            .textColor(.white)
+            .leftViewMode(.always)
+            .obj
+        //            .leftView(UIView(frame: CGRect(x: 0, y: 0, width: 58, height: element.frame.height)))
+//            .layer.cornerRadius = 15
+//            .textColor = .white
+//            .leftView = UIView(frame: CGRect(x: 0, y: 0, width: 58, height: element.frame.height))
+//            .leftViewMode = .always
+//            .rightView = activateSearchButton
+//            .rightViewMode = .always
+//            .attributedPlaceholder = NSAttributedString(
+//            string: "Search radio station",
+//            attributes: [.foregroundColor: UIColor.white]
+//        )
+//        element.returnKeyType = .search
+//        element.delegate = self
+//        element.translatesAutoresizingMaskIntoConstraints = false
+
+//        return element
+    }
+
 
 	func makeTextField() -> UITextField {
 		let element = UITextField()
@@ -333,23 +366,55 @@ private extension AllStationsController {
 	}
 
 	func makeImageView() -> UIImageView {
-		let element = UIImageView()
-
-		element.image = .searchApp
-		element.translatesAutoresizingMaskIntoConstraints = false
-
-		return element
+        UIImageView()
+            .declarative
+            .image(.searchApp)
+            .translatesAutoresizingMaskIntoConstraints(false)
+            .obj
+//		let element = UIImageView()
+//
+//		element.image = .searchApp
+//		element.translatesAutoresizingMaskIntoConstraints = false
+//
+//		return element
 	}
 
 	func makeButton() -> UIButton {
 		let element = UIButton()
 
 		element.setImage(.goSearch, for: .normal)
-		element.translatesAutoresizingMaskIntoConstraints = false
+        element.translatesAutoresizingMaskIntoConstraints = false
 
 		return element
 	}
 }
+
+@dynamicMemberLookup
+struct Declarative<T: AnyObject> {
+    let obj: T
+    
+    init(_ obj: T) { self.obj = obj }
+    
+    subscript<U>(
+        dynamicMember keyPath: ReferenceWritableKeyPath<T, U>
+    ) -> (U) -> Self {
+        { newValue in
+            obj[keyPath: keyPath] = newValue
+            return self
+        }
+    }
+}
+
+protocol DeclarativeCompatible: AnyObject {
+    associatedtype ObjectType: AnyObject
+    var declarative: Declarative<ObjectType> { get }
+}
+
+extension DeclarativeCompatible {
+    var declarative: Declarative<Self> { Declarative(self) }
+}
+
+extension NSObject: DeclarativeCompatible {}
 
 // MARK: - Setting UI
 

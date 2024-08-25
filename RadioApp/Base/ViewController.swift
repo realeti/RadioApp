@@ -33,23 +33,23 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        #warning("nesting")
-        if let homeController = tabBarController as? HomeController {
-            if playerIsHidden {
-                homeController.playerIsHidden = true
-            }
-            
-            if playerVolumeIsHidden {
-                homeController.volumeIsHidden = true
-            }
-        }
-        #warning("defer")
-        setUserData()
+        
+        defer { setUserData() }
+        
+        guard let homeController = tabBarController as? HomeController else { return }
+        homeController.playerIsHidden = playerIsHidden
+        homeController.volumeIsHidden = playerVolumeIsHidden
+    }
+    
+    func updatePlayerState(playerIsHidden: Bool, playerVolumeIsHidden: Bool, inverted: Bool) {
+        guard let homeController = tabBarController as? HomeController else { return }
+        homeController.playerIsHidden = inverted ? !playerIsHidden : playerIsHidden
+        homeController.volumeIsHidden = inverted ? !playerVolumeIsHidden : playerVolumeIsHidden
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        #warning("duplication")
+        
         if let homeController = tabBarController as? HomeController {
             if playerIsHidden {
                 homeController.playerIsHidden = false
@@ -170,9 +170,8 @@ class ViewController: UIViewController {
         #warning("Нарушение границ ответственности")
         let profileVC = Builder.createProfile()
         guard let topVC = navigationController?.topViewController else { return }
-        if topVC as? ProfileViewController == nil {
-            navigationController?.pushViewController(profileVC, animated: true)
-        }
+        if topVC as? ProfileViewController != nil { return }
+        navigationController?.pushViewController(profileVC, animated: true)
     }
 }
 

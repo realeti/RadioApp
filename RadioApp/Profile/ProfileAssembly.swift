@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class ProfileAssembly: ModuleAssembly {
+enum ProfileAssembly {
     
-    func build(router: ProfileRouterProtocol) -> UIViewController {
+    static func build(router: ProfileRouterProtocol) -> UIViewController {
         let presenter = ProfilePresenter(router: router)
         let controller = ProfileViewController(presenter: presenter)
         presenter.view = controller
