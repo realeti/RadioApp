@@ -22,6 +22,7 @@ final class AllStationsController: ViewController {
 	private lazy var searchImageView = makeImageView()
 	private lazy var activateSearchButton = makeButton()
 	private lazy var collectionView = makeCollectionView()
+    private var selectedRow: Int?
 
 	private var isActiveSearch: Bool = false {
 		didSet {
@@ -89,6 +90,9 @@ extension AllStationsController: AllStationsControllerProtocol {
 
 	func update() {
 		collectionView.reloadData()
+        if let selectedRow {
+            collectionView.selectItem(at: IndexPath(row: selectedRow, section: 0), animated: false, scrollPosition: .centeredVertically)
+        }
 		hideLoading()
 	}
     
@@ -128,7 +132,6 @@ extension AllStationsController: UICollectionViewDataSource {
 		)
 		guard let cell = cell as? AllStationsCell else { return UICollectionViewCell() }
         let presenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
-        guard !presenter.getStations.isEmpty else { return cell }
         let station = presenter.getStations[indexPath.row]
 		cell.configure(by: indexPath, with: station, delegate: self)
 		
@@ -143,6 +146,7 @@ extension AllStationsController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let currentPresenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
         currentPresenter.didStationSelected(at: indexPath)
+        selectedRow = indexPath.row
 	}
 
 	func collectionView(
