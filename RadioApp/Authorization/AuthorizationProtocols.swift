@@ -14,7 +14,7 @@ enum AuthorizationMode {
     case reauthenticateEmail
 }
 
-protocol AuthorizationControllerProtocol: AnyObject {
+protocol AuthorizationControllerProtocol: AnyObject, ViewController {
     func update(with model: AuthorizationController.Model)
 }
 

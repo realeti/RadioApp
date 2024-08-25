@@ -8,7 +8,7 @@
 import Foundation
 import RadioBrowser
 
-protocol PopularViewProtocol: AnyObject {
+protocol PopularViewProtocol: AnyObject, LoadingPresenting {
     func didUpdateStations()
     func insertStations(at indexPaths: [IndexPath])
     func voteForStation(at: IndexPath?)
@@ -54,14 +54,16 @@ final class PopularPresenter: PopularPresenterProtocol {
     
     // MARK: - Init
     init(router: PopularRouterProtocol) {
-        self.router = router
-    }
+        self.router = router    }
 }
 
 // MARK: - Load Popular Stations
 extension PopularPresenter {
     func loadStations() {
         guard !isLoadingData else { return }
+        if stations.isEmpty {
+            view?.showLoading()
+        }
         isLoadingData = true
         
         Task {
@@ -98,6 +100,7 @@ extension PopularPresenter {
 private extension PopularPresenter {
     @MainActor
     func updateView(with newStations: [PopularViewModel]) {
+        view?.hideLoading()
         if stations.count == newStations.count {
             /// if stations load first
             view?.didUpdateStations()

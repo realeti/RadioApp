@@ -8,13 +8,14 @@
 import UIKit
 import SnapKit
 
-final class AuthorizationController: UIViewController {
+final class AuthorizationController: ViewController {
     private var mode: AuthorizationMode?
     private let presenter: AuthorizationPresenterProtocol
     
     init(presenter: AuthorizationPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
+        navigationController?.navigationBar.isHidden = true
     }
     
     required init?(coder: NSCoder) {
