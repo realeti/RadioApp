@@ -7,6 +7,7 @@
 
 import UIKit
 
+#warning("Why class?")
 final class PopularAssembly: ModuleAssembly {
     func build(router: PopularRouterProtocol) -> UIViewController {
         let presenter = PopularPresenter(router: router)

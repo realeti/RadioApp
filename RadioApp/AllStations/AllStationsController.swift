@@ -127,6 +127,7 @@ extension AllStationsController: UICollectionViewDataSource {
 			for: indexPath
 		)
 		guard let cell = cell as? AllStationsCell else { return UICollectionViewCell() }
+        #warning("computed property?")
         let presenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
         guard !presenter.getStations.isEmpty else { return cell }
         let station = presenter.getStations[indexPath.row]
@@ -229,7 +230,7 @@ private extension AllStationsController {
 private extension AllStationsController {
     func getCollectionViewCell(for stationId: Int) -> AllStationsCell? {
         let indexPath = IndexPath(item: stationId, section: 0)
-        
+#warning("verbose")
         guard let cell = collectionView.cellForItem(at: indexPath) as? AllStationsCell else {
             return nil
         }

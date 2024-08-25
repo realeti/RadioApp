@@ -130,7 +130,7 @@ private extension PopularViewController {
               let cell = getCollectionViewCell(for: stationId) else {
             return
         }
-        
+        #warning("unclear responsibility")
         cell.clearVoteImage()
         presenter.removeVoteStatus(stationId)
     }
@@ -183,6 +183,7 @@ extension PopularViewController: PopularViewProtocol {
         updateStationVotes(at: indexPath, isStationVoted)
     }
     
+    #warning("verbose naming")
     private func updateStationVotes(at indexPath: IndexPath, _ isStationVoted: Bool) {
         guard let cell = popularView.radioCollection.cellForItem(at: indexPath) as? PopularCollectionViewCell else {
             return
@@ -194,6 +195,7 @@ extension PopularViewController: PopularViewProtocol {
 // MARK: - RadioCollectionView DataSource methods
 extension PopularViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        #warning("verbose implementation")
         let stationsCount = presenter.getStations.count
         return stationsCount
     }
