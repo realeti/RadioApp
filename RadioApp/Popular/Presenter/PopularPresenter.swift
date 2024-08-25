@@ -33,6 +33,7 @@ protocol PopularPresenterProtocol {
 
 final class PopularPresenter: PopularPresenterProtocol {
     // MARK: - Private Properties
+    #warning("Неявные зависимости, отсутствие интерфейсов")
     private let radioBrowser = RadioBrowser.default
     private let storage = StorageManager.shared
     private let audioPlayer = AudioPlayerController.shared

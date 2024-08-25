@@ -10,6 +10,7 @@ import SnapKit
 import FirebaseAuth
 
 class ViewController: UIViewController {
+    #warning("Почему тут?")
     private let storageManager = StorageManager.shared
     private let loadingView = LoadingView()
     private let errorView = ErrorView()
@@ -101,6 +102,7 @@ class ViewController: UIViewController {
     
     func setUserData() {
         profileView.image = setMask(for: storageManager.getUserImage())
+#warning("Нарушение границ ответственности")
         nameTitle.text = Auth.auth().currentUser?.displayName
     }
     
@@ -164,6 +166,7 @@ class ViewController: UIViewController {
     
     @objc private func didTapProfilePic() {
         //go to ProfileVC
+        #warning("Нарушение границ ответственности")
         let profileVC = Builder.createProfile()
         guard let topVC = navigationController?.topViewController else { return }
         if topVC as? ProfileViewController == nil {

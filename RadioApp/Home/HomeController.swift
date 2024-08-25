@@ -10,6 +10,7 @@ import SnapKit
 
 final class HomeController: UITabBarController {
     private let presenter: HomePresenter
+#warning("Нарушение границ ответственности")
     private let audioPlayerVC = Builder.createAudioPlayer()
     
     private let bar = UIView()
@@ -70,6 +71,7 @@ final class HomeController: UITabBarController {
     
     private func configure() {
         let popularVC = NavigationController(rootViewController: Builder.createPopular())
+        #warning("Magic strings")
         popularVC.tabBarItem.title = "Popular".localized
         popularVC.view.backgroundColor = .darkBlueApp
         

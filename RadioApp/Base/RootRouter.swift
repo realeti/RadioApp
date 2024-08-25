@@ -27,8 +27,11 @@ final class RootRouter {
         loading.showLoading()
         window.rootViewController = loading
         window.makeKeyAndVisible()
-        Auth.auth().addStateDidChangeListener { auth, user in
+        #warning("Не ознакомились с документацией?")
+        _ = Auth.auth().addStateDidChangeListener { auth, user in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+                #warning("Сущность для контроля авторизации?")
+//                guard let self else { return }
                 if let user {
                     self?.startHome()
                 } else {
