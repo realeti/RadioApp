@@ -36,14 +36,11 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     }
         
     func signIn(email: String?, password: String?) {
-        
-        guard let email, let password else {
+        guard let email, let password, !email.isEmpty, !password.isEmpty else {
             print("No email or password found!")
-            return
-        }
-        
-        guard !email.isEmpty, !password.isEmpty else {
-            print("No email or password found!")
+            view?.showError(isAlert: true, title: "No email or password found", message: "Please fill all the fields", actionTitle: "Ok", action: { [weak self] _ in
+                self?.view?.hideError()
+            })
             return
         }
         
@@ -63,22 +60,24 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
                     default:
                         break
                     }
-                    
                 }
             } catch {
-                print("Error: \(error)")
+                print("Error: \(error.localizedDescription)")
+                await view?.showError(isAlert: true, title: "Can't sign in", message: error.localizedDescription, actionTitle: "Try again", action: { _ in
+                    DispatchQueue.main.async { [weak self] in
+                        self?.view?.hideError()
+                    }
+                })
             }
         }
     }
     
     func signUp(name: String?, email: String?, password: String?) {
-        guard let name, let email, let password else {
+        guard let name, let email, let password, !name.isEmpty, !email.isEmpty, !password.isEmpty else {
             print("No name, email or password found!")
-            return
-        }
-        
-        guard !name.isEmpty, !email.isEmpty, !password.isEmpty else {
-            print("No name, email or password found!")
+            view?.showError(isAlert: true, title: "No name, email or password found", message: "Please fill all the fields", actionTitle: "Ok", action: { [weak self] _ in
+                self?.view?.hideError()
+            })
             return
         }
         
@@ -92,7 +91,12 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
                     self?.router.goHome()
                 }
             } catch {
-                print("Error: \(error)")
+                print("Error: \(error.localizedDescription)")
+                await view?.showError(isAlert: true, title: "Can't sign up", message: error.localizedDescription, actionTitle: "Try again", action: { _ in
+                    DispatchQueue.main.async { [weak self] in
+                        self?.view?.hideError()
+                    }
+                })
             }
         }
     }
@@ -107,12 +111,11 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
                 }
                 
             case false:
-                let ac = await UIAlertController(title: "Something went wrong", message: nil, preferredStyle: .alert)
-                let submitAction = await UIAlertAction(title: "OK", style: .default)
-                await ac.addAction(submitAction)
-
-                let viewa = self.view as? UIViewController
-                await viewa?.present(ac, animated: true)
+                await view?.showError(isAlert: true, title: "Can't sign up with Google account", message: "Something went wrong during authorization", actionTitle: "Come back to Sign In", action: { _ in
+                    DispatchQueue.main.async { [weak self] in
+                        self?.view?.hideError()
+                    }
+                })
             }
         }
     }

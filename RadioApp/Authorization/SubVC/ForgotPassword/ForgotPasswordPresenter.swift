@@ -31,12 +31,7 @@ final class ForgotPasswordPresenter: ForgotPasswordPresenterProtocol {
     }
     
     func requestUpdatePassword(email: String?) {
-        guard let email else {
-            print("No email found!")
-            return
-        }
-        
-        guard !email.isEmpty else {
+        guard let email, !email.isEmpty else {
             print("No email found!")
             return
         }
@@ -68,13 +63,11 @@ final class ForgotPasswordPresenter: ForgotPasswordPresenterProtocol {
     }
     
     func requestUpdateEmail(email: String?) {
-        guard let email else {
+        guard let email, !email.isEmpty else {
             print("No email found!")
-            return
-        }
-        
-        guard !email.isEmpty else {
-            print("No email found!")
+            view?.showError(isAlert: true, title: "Email field is empty", message: "Please fill the password field", actionTitle: "Ok", action: { [weak self] _ in
+                self?.view?.hideError()
+            })
             return
         }
         
@@ -94,7 +87,12 @@ final class ForgotPasswordPresenter: ForgotPasswordPresenterProtocol {
                     self?.view?.present(ac, animated: true)
                 }
             } catch {
-                print("Error: \(error)")
+                print("Error: \(error.localizedDescription)")
+                await view?.showError(isAlert: true, title: "Can't update password", message: error.localizedDescription, actionTitle: "Try again", action: { _ in
+                    DispatchQueue.main.async { [weak self] in
+                        self?.view?.hideError()
+                    }
+                })
             }
         }
         

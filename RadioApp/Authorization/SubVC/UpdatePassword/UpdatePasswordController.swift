@@ -8,13 +8,14 @@
 import UIKit
 import SnapKit
 
-protocol UpdatePasswordControllerProtocol: AnyObject {
+protocol UpdatePasswordControllerProtocol: AnyObject, ViewController {
     func update(with model: UpdatePasswordController.Model)
 }
 
-final class UpdatePasswordController: UIViewController {
+final class UpdatePasswordController: ViewController {
     var presenter: (any UpdatePasswordPresenterProtocol)?
     private var passwordField: AuthorizationField?
+    private var confirmPasswordField: AuthorizationField?
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -47,7 +48,7 @@ private extension UpdatePasswordController {
         
         passwordField = AuthorizationField(delegate: self, title: "Password".localized, placeholder: "Your password".localized, isSecure: true)
         
-        let confirmPasswordField = AuthorizationField(delegate: self, title: "Confirm password".localized, placeholder: "Your password".localized, isSecure: true)
+        confirmPasswordField = AuthorizationField(delegate: self, title: "Confirm password".localized, placeholder: "Your password".localized, isSecure: true)
         
         let sendButton = UIButton()
         sendButton.setTitle("Update password".localized, for: .normal)
@@ -57,7 +58,7 @@ private extension UpdatePasswordController {
         sendButton.layer.cornerRadius = 10
         sendButton.addTarget(self, action: #selector(changePasswordTapped), for: .touchUpInside)
         
-        guard let passwordField else { return }
+        guard let passwordField, let confirmPasswordField else { return }
         
         view.addSubview(bg)
         view.addSubview(mainLabel)
@@ -93,7 +94,7 @@ private extension UpdatePasswordController {
     
     @objc func changePasswordTapped() {
         print("change password tapped")
-        presenter?.updatePassword(password: passwordField?.textField.text)
+        presenter?.updatePassword(password: passwordField?.textField.text, repeatedPassword: confirmPasswordField?.textField.text)
     }
 }
 
