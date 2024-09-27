@@ -1,6 +1,7 @@
 # RadioApp
 
-![RadioApp](RadioApp/Assets.xcassets/mockup.imageset/mockup.png)
+![Screenshot 2024-09-27 at 21 02 55](https://github.com/user-attachments/assets/e08f4c60-04ab-4f38-b27b-47dd958f328a)
+
 <p align="left"> 
 <a href="https://swift.org">
 <img src="https://img.shields.io/badge/Swift-5.10-mediumslateblue" alt="Swift Version 5.10" /></a>
@@ -10,43 +11,37 @@
 <img src="https://img.shields.io/badge/CoreData-mediumslateblue" alt="CoreData" /></a>
 </p>
 
-### В разработке участвовали:
+### 👨‍💻 Team:
 <p align="left"> 
-<a href="https://github.com/realeti">
-<img src="https://img.shields.io/badge/realeti-mediumslateblue"/></a>
-<a href="https://github.com/DmitriyLubov">
-<img src="https://img.shields.io/badge/DmitriyLubov-indianred"/></a>
-<a href="https://github.com/dr4gons1ayer01">
+<img src="https://img.shields.io/badge/Team Leader:-ridebyhorse-mediumslateblue"/></a>
+<img src="https://img.shields.io/badge/realeti-FF4191"/></a>
 <img src="https://img.shields.io/badge/dr4gons1ayer01-goldenrod"/></a>
-<a href="https://github.com/AML1708">
-<img src="https://img.shields.io/badge/AML1708-mediumslateblue"/></a>
-<a href="https://github.com/ShapovalovIlya">
-<img src="https://img.shields.io/badge/ShapovalovIlya-indianred"/></a>
- <a href="https://github.com/NatalyaLuzyanina">
-<img src="https://img.shields.io/badge/NatalyaLuzyanina-goldenrod"/></a>
+<img src="https://img.shields.io/badge/DmitriyLubov-36BA98"/></a>
+<img src="https://img.shields.io/badge/AML1708-DC5F00"/></a>
+<img src="https://img.shields.io/badge/ShapovalovIlya-FD5469"/></a>
 </p>
 
-### О приложении:
+### 📱 About the application:
+#### RadioApp - Listen to thousands of different stations around the world!
 
-#### RadioApp - приложение, которое позволяет прослушивать множество радиостанций мира.
-
-### Функционал:
-  * Авторизация - возможность регистрации и входа зарегистрированного пользователя через почту и пароль или через Google. Функция "забыл пароль" отправляет письмо для сброса пароля на почту пользователя, с возможностью перехода в браузер и изменения пароля через почтовый клиент.
-  * Popular - отображение коллекции популярных радиостанций с возможностью их прослушивания, голосования за станцию и добавления ее в избранное.
-  * Плеер - проигрыватель с возможностью переключения между радиостанциями и изменения громкомти воспроизведения.
-  * Favorites - отображение избранных станций с возможностью удаления из избранного и просмотра детального описания станции, хранение реализовано через Core Data.
-  * All stations - отображение всех радиостанций с возможностью просмотра детального описания станции, голосования за станцию и добавления ее в избранное. Реализована возможность поиска станций по названию.
-  * Настройки - отображение данных пользователя: персональное фото, имя и почта с возможностью их изменения и выхода из личного кабинета. Реализована смена языка. Вкладки: Положения и условия, About us.
-
-### Swift / UIKit / CoreData
+### 🪄 Functional:
+  * Authorization - The ability to register and log in a registered user via email and password or via Google. The "forgot password" function sends a password reset email to the user's email, with the ability to go to the browser and change the password via the email clien
+  * Popular - Display of a collection of popular radio stations with the ability to listen to them, vote for a station and add it to your favorites.
+  * AudioPlayer - Player with the ability to switch between radio stations and change the playback volume.
+  * Favorites - Display of favorite stations with the ability to remove from favorites and view a detailed description of the station, storage is implemented through Core Data.
+  * All stations - Display of all radio stations with the ability to view a detailed description of the station, vote for the station and add it to favorites. The ability to search for stations by name has been implemented.
+  * Settings - Display of user data: personal photo, name and email with the ability to change them and exit the personal account. Language change is implemented. Tabs: Terms and conditions, About us.
   
-### Архитектура: 
+### 🕹 Architecture: 
 MVP+Router
   
-### Фреймворки: 
+### ☕️ Frameworks: 
   * SnapKit
   * Firebase
   * Google SignIn
-  * RadioBrowser (*by [ShapovalovIlya](https://github.com/ShapovalovIlya)*)
+  * RadioBrowser
   * Kingfisher
   * Lottie
+
+### 🤝 Teamwork:
+![Screenshot 2024-09-27 at 19 49 10](https://github.com/user-attachments/assets/6b65799f-687a-4349-ae23-42db097266c8)
