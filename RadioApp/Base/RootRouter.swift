@@ -29,7 +29,7 @@ final class RootRouter {
         window.makeKeyAndVisible()
         Auth.auth().addStateDidChangeListener { auth, user in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
-                if let user {
+                if true/*let user*/ {
                     self?.startHome()
                 } else {
                     let onboarding = self?.builder.buildOnboarding()

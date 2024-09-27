@@ -130,9 +130,11 @@ extension AllStationsController: UICollectionViewDataSource {
 			withReuseIdentifier: AllStationsCell.reusableIdentifier,
 			for: indexPath
 		)
-		guard let cell = cell as? AllStationsCell else { return UICollectionViewCell() }
+		guard let cell = cell as? AllStationsCell,
+              let station = presenter.getStations[safe: indexPath.row] else {
+            return UICollectionViewCell()
+        }
         let presenter: AllStationsPresenterProtocol = isActiveSearch ? searchPresenter : presenter
-        let station = presenter.getStations[indexPath.row]
 		cell.configure(by: indexPath, with: station, delegate: self)
 		
 		return cell
@@ -405,8 +407,8 @@ private extension AllStationsController {
 			searchImageView.centerYAnchor.constraint(equalTo: searchTextField.centerYAnchor),
 			searchImageView.leadingAnchor.constraint(equalTo: searchTextField.layoutMarginsGuide.leadingAnchor),
 			
-			activateSearchButton.heightAnchor.constraint(equalToConstant: 32),
-			activateSearchButton.widthAnchor.constraint(equalToConstant: 50),
+			activateSearchButton.heightAnchor.constraint(equalToConstant: 32).withPriority(.defaultLow),
+			activateSearchButton.widthAnchor.constraint(equalToConstant: 50).withPriority(.defaultLow),
 
 			collectionView.widthAnchor.constraint(equalTo: mainStack.widthAnchor),
 			collectionView.bottomAnchor.constraint(equalTo: mainStack.bottomAnchor)

@@ -86,6 +86,8 @@
 		C6DF00C62C5FA62E0011EA5D /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DF00C52C5FA62E0011EA5D /* PlayerView.swift */; };
 		C6DF00C82C5FAA4B0011EA5D /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DF00C72C5FAA4B0011EA5D /* UIButton + Extensions.swift */; };
 		C6E944B62C70E8330018E2E9 /* StationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E944B52C70E8330018E2E9 /* StationFormatter.swift */; };
+		C6F8196C2CA7467800C44990 /* NSLayoutConstraint + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F8196B2CA7467800C44990 /* NSLayoutConstraint + Extensions.swift */; };
+		C6F8196E2CA7473200C44990 /* Array + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F8196D2CA7473200C44990 /* Array + Extensions.swift */; };
 		CB148A2F2C68BEFF008BF50C /* wave.json in Resources */ = {isa = PBXBuildFile; fileRef = CB148A2E2C68BEFF008BF50C /* wave.json */; };
 		CB28CF5E2C63CCED00E55A95 /* LoadingPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28CF5D2C63CCED00E55A95 /* LoadingPresenting.swift */; };
 		CB28CF602C63CD0E00E55A95 /* ErrorPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28CF5F2C63CD0E00E55A95 /* ErrorPresenting.swift */; };
@@ -222,6 +224,8 @@
 		C6DF00C52C5FA62E0011EA5D /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C6DF00C72C5FAA4B0011EA5D /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
 		C6E944B52C70E8330018E2E9 /* StationFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationFormatter.swift; sourceTree = "<group>"; };
+		C6F8196B2CA7467800C44990 /* NSLayoutConstraint + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint + Extensions.swift"; sourceTree = "<group>"; };
+		C6F8196D2CA7473200C44990 /* Array + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + Extensions.swift"; sourceTree = "<group>"; };
 		CB148A2E2C68BEFF008BF50C /* wave.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wave.json; sourceTree = "<group>"; };
 		CB28CF5D2C63CCED00E55A95 /* LoadingPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPresenting.swift; sourceTree = "<group>"; };
 		CB28CF5F2C63CD0E00E55A95 /* ErrorPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenting.swift; sourceTree = "<group>"; };
@@ -495,6 +499,8 @@
 				C6DF00C72C5FAA4B0011EA5D /* UIButton + Extensions.swift */,
 				C667FD722C64147300BB3320 /* Int + Extensions.swift */,
 				C6908FD92C65584700208F0F /* Notification + Extensions.swift */,
+				C6F8196B2CA7467800C44990 /* NSLayoutConstraint + Extensions.swift */,
+				C6F8196D2CA7473200C44990 /* Array + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -932,6 +938,7 @@
 				C623485A2C5E8AD300F536E7 /* PopularViewModel.swift in Sources */,
 				C623484A2C5E88D100F536E7 /* ColorFactory.swift in Sources */,
 				B6E8FE032C670359008FF38C /* SearchPresenter.swift in Sources */,
+				C6F8196E2CA7473200C44990 /* Array + Extensions.swift in Sources */,
 				C6908FDA2C65584700208F0F /* Notification + Extensions.swift in Sources */,
 				C66106D72C60224E00E6196C /* AudioPlayerController.swift in Sources */,
 				CBCA8D992C5D3965003B01B9 /* AuthorizationBuilder.swift in Sources */,
@@ -957,6 +964,7 @@
 				BECF66422C5A1E300068160D /* UDService.swift in Sources */,
 				B6E8FDFB2C670359008FF38C /* AllStationViewModel.swift in Sources */,
 				BECF66482C5A22A70068160D /* EditProfileViewController.swift in Sources */,
+				C6F8196C2CA7467800C44990 /* NSLayoutConstraint + Extensions.swift in Sources */,
 				B949AE582C5F805600E2A338 /* FavoritesRouter.swift in Sources */,
 				BECF66252C5A06470068160D /* PrivacyViewController.swift in Sources */,
 				BECF661D2C5A05750068160D /* CustomSettingsView.swift in Sources */,
