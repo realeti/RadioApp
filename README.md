@@ -26,7 +26,7 @@ _**English** | [Ukrainian](README.ua.md) | [Russian](README.ru.md)_
 #### RadioApp - Listen to thousands of different stations around the world!
 
 ### ⚒ Functional:
-  * Authorization - The ability to register and log in a registered user via email and password or via Google. The "forgot password" function sends a password reset email to the user's email, with the ability to go to the browser and change the password via the email clien
+  * Authorization - The ability to register and log in a registered user via email and password or via Google. The "forgot password" function sends a password reset email to the user's email, with the ability to go to the browser and change the password via the email client.
   * Popular - Display of a collection of popular radio stations with the ability to listen to them, vote for a station and add it to your favorites.
   * AudioPlayer - Player with the ability to switch between radio stations and change the playback volume.
   * Favorites - Display of favorite stations with the ability to remove from favorites and view a detailed description of the station, storage is implemented through Core Data.
