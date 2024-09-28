@@ -1,4 +1,5 @@
 # RadioApp
+_**English** | [Ukrainian](README.ua.md) | [Russian](README.ru.md)_
 
 ![Screenshot 2024-09-27 at 21 02 55](https://github.com/user-attachments/assets/e08f4c60-04ab-4f38-b27b-47dd958f328a)
 
